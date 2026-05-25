@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body { max-width: 720px; margin: 40px auto; padding: 0 20px; font-family: -apple-system, sans-serif; line-height: 1.8; color: #333; }
+h2 { margin-top: 32px; border-bottom: 2px solid #1a6fb5; padding-bottom: 6px; color: #1a6fb5; }
+h3 { margin-top: 24px; color: #444; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 14px; }
+th { background: #f0f4ff; }
+code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+pre { background: #f5f5f5; padding: 12px 16px; border-radius: 8px; overflow-x: auto; }
+blockquote { border-left: 3px solid #1a6fb5; margin: 0; padding-left: 12px; color: #666; }
+</style></head><body>
+<h1>国家卫健委政策文件微信小程序 — 产品设计文档</h1>
+<h2>项目概述</h2>
+<p>微信小程序，将国家卫健委每日发布的政策文件分类整理，支持按类别检索、关键词搜索、收藏和推送提醒。先做个人体验版，验证后正式上架。</p>
+<h2>目标用户</h2>
+<table>
+<thead>
+<tr>
+<th>画像</th>
+<th>典型角色</th>
+<th>核心场景</th>
+<th>核心诉求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>医疗从业者</td>
+<td>医院科室主任、医务科人员</td>
+<td>每天扫一眼有无新文件</td>
+<td>及时性 &gt; 全面性</td>
+</tr>
+<tr>
+<td>合规/法务人员</td>
+<td>药企合规官、律所医疗团队</td>
+<td>接到任务时集中检索</td>
+<td>全面性 &gt; 及时性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心痛点</strong>：手动刷官网效率低、靠微信群转发易遗漏、搜索功能烂。</p>
+<h2>MVP 功能范围</h2>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>最新文件列表</td>
+<td>首页时间倒序展示，上滑加载更多</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>分类浏览</td>
+<td>一级按业务领域（标签）、二级按发文类型（筛选栏）</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>关键词搜索</td>
+<td>搜索标题 + 发文机构，搜索结果高亮关键词</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>文件详情页</td>
+<td>元信息 + AI 关键内容提取 + 查看原文 + 附件</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>收藏/书签</td>
+<td>详情页右上角收藏，首页右上角入口查看收藏列表</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>新文件推送</td>
+<td>微信订阅消息，每日 9:00 推送昨日新增文件摘要</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>最近更新时间</td>
+<td>首页显示数据同步时间</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>全文阅读</td>
+<td>关键内容提取（后端 AI 生成要点摘要）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>本期不做</strong>：多条件组合筛选、历史归档（2026 年以前）。</p>
+<h2>视觉风格</h2>
+<ul>
+<li><strong>主题</strong>：政务蓝 <code>#1a6fb5</code>，白底，专业稳重</li>
+<li><strong>风格关键词</strong>：权威、清晰、克制</li>
+</ul>
+<h2>信息架构</h2>
+<pre><code>🏠 首页
+ ├─ 🔍 搜索栏 → ④ 搜索页 → ③ 详情页
+ ├─ ⭐ 收藏入口 → ⑤ 收藏页 → ③ 详情页
+ ├─ 📂 领域标签 → ② 分类列表页 → ③ 详情页
+ ├─ 📄 文件卡片 → ③ 详情页
+ └─ 查看更多 → ② 分类列表页 → ③ 详情页
+</code></pre>
+<p>全局规则：所有页面顶部均有 ← 返回按钮，返回上一级页面。</p>
+<h2>页面设计</h2>
+<h3>① 首页</h3>
+<ul>
+<li><strong>顶部</strong>：搜索栏（圆角输入框，placeholder "搜索标题、发文机构..."）+ 右上角 ⭐ 收藏入口</li>
+<li><strong>更新时间</strong>：「最近更新：YYYY-MM-DD HH:MM」，灰色小字</li>
+<li><strong>领域标签</strong>：横向排列的圆角标签，"全部"为选中态（蓝底白字），其余为未选中（浅蓝底蓝字）</li>
+<li><strong>类型筛选栏</strong>：二级分类（全部类型 / 规范性文件 / 政策解读 / 通知公告），选中态下划线</li>
+<li><strong>文件列表</strong>：卡片式，每项展示标题（加粗）、文号 + 日期。上滑加载更多</li>
+<li><strong>底部</strong>：「查看更多 →」按钮，跳转当前筛选条件下的分类列表页</li>
+</ul>
+<h3>② 分类列表页</h3>
+<ul>
+<li><strong>顶部</strong>：← 返回 + 当前分类标题（如"医政管理 · 规范性文件"）+ 文件总数</li>
+<li><strong>列表</strong>：同首页文件卡片，上滑分页加载</li>
+</ul>
+<h3>③ 文件详情页</h3>
+<ul>
+<li><strong>顶部</strong>：← 返回，右上角 ★ 收藏按钮（已收藏实心蓝星，未收藏空心灰星）</li>
+<li><strong>标题</strong>：加粗，字号较大</li>
+<li><strong>元信息</strong>：文号、发文日期、发文机构、所属分类</li>
+<li><strong>关键内容</strong>：📌 区域，❶❷❸ 要点列表（后端 AI 生成），灰底卡片</li>
+<li><strong>查看原文</strong>：蓝色实心按钮，突出显示，跳转 NHC 原文链接</li>
+<li><strong>附件</strong>：📎 列表，浅蓝底卡片，点击下载/预览</li>
+</ul>
+<h3>④ 搜索页</h3>
+<ul>
+<li><strong>顶部</strong>：← 返回 + 搜索输入框（自动聚焦）</li>
+<li><strong>结果数</strong>：「找到 N 条结果」</li>
+<li><strong>结果列表</strong>：同文件卡片，关键词高亮（<code>&lt;mark&gt;</code> 标签），上滑分页</li>
+<li><strong>空状态</strong>：📭 图标 + "暂无结果" + "换个关键词试试"</li>
+</ul>
+<h3>⑤ 收藏页</h3>
+<ul>
+<li><strong>顶部</strong>：← 返回 + "⭐ 我的收藏" + 收藏总数</li>
+<li><strong>列表</strong>：文件卡片 + 右侧实心 ★（点击取消收藏）</li>
+<li><strong>空状态</strong>：📭 图标 + "暂无收藏"</li>
+</ul>
+<h3>⑥ 推送消息</h3>
+<ul>
+<li><strong>渠道</strong>：微信小程序订阅消息</li>
+<li><strong>触发</strong>：每日 9:00 推送</li>
+<li><strong>内容</strong>：昨日新增文件数量 + 标题列表（最多 3 条）</li>
+<li><strong>点击</strong>：跳转小程序首页</li>
+<li><strong>首次引导</strong>：弹窗引导用户订阅，可选"去开启"或"暂不需要"</li>
+</ul>
+<h2>交互状态</h2>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加载中</td>
+<td>骨架屏（灰色占位块）+ "加载中..."</td>
+</tr>
+<tr>
+<td>下拉刷新</td>
+<td>首页下拉触发，显示刷新动画</td>
+</tr>
+<tr>
+<td>空数据</td>
+<td>图标 + 提示文案</td>
+</tr>
+<tr>
+<td>网络异常</td>
+<td>🌐 图标 + "网络异常，请检查网络后重试" + "重新加载"按钮</td>
+</tr>
+<tr>
+<td>操作反馈</td>
+<td>Toast 轻提示，2 秒消失（如"⭐ 已加入收藏"）</td>
+</tr>
+<tr>
+<td>首次打开</td>
+<td>订阅消息引导弹窗</td>
+</tr>
+</tbody>
+</table>
+<h2>分类体系</h2>
+<p><strong>一级领域</strong>：全部 / 医政管理 / 疾控 / 妇幼健康 / 基层卫生 / 药政 / 医管 / ...</p>
+<p><strong>二级类型</strong>：全部类型 / 规范性文件 / 政策解读 / 通知公告 / ...</p>
+<p>两种维度叠加筛选，一级选领域、二级选类型，列表联动。</p></body></html>
