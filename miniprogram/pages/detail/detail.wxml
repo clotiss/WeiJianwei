@@ -1,0 +1,43 @@
+<view class="container" wx:if="{{!loading}}">
+  <!-- 标题 + 收藏 -->
+  <view class="title-row">
+    <view class="title">{{doc.title}}</view>
+    <view class="star {{isFav ? 'star-active' : ''}}" bindtap="toggleFav">
+      {{isFav ? '★' : '☆'}}
+    </view>
+  </view>
+
+  <!-- 元信息 -->
+  <view class="meta" wx:if="{{doc.doc_number}}">{{doc.doc_number}}</view>
+  <view class="meta">📅 {{doc.publish_date}}  🏛 {{doc.issuing_authority || '国家卫生健康委'}}</view>
+  <view class="meta">📂 {{doc.category}} · {{doc.doc_type}}</view>
+
+  <!-- 关键内容 -->
+  <view class="section" wx:if="{{summary.length > 0}}">
+    <view class="section-title">📌 关键内容</view>
+    <view class="summary-box">
+      <view wx:for="{{summary}}" wx:key="index" class="summary-item">
+        <text class="summary-num">{{index + 1}}</text>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 查看原文 -->
+  <view class="btn-original" bindtap="openOriginal">📄 查看原文</view>
+
+  <!-- 附件 -->
+  <view class="section" wx:if="{{attachments.length > 0}}">
+    <view class="section-title">📎 附件（{{attachments.length}}）</view>
+    <view
+      wx:for="{{attachments}}"
+      wx:key="name"
+      class="attach-item"
+      bindtap="openAttachment"
+      data-url="{{item.url}}"
+    >📄 {{item.name}}</view>
+  </view>
+</view>
+
+<!-- 加载态 -->
+<view wx:else class="loading">加载中...</view>
