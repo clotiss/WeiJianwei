@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "file-card": "/components/file-card/file-card",
+    "skeleton": "/components/skeleton/skeleton"
+  }
+}

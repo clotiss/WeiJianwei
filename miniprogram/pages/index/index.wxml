@@ -1,0 +1,54 @@
+<view class="container">
+  <!-- 顶部栏 -->
+  <view class="top-bar">
+    <view class="search-box" bindtap="goSearch">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索标题、发文机构...</text>
+    </view>
+    <view class="fav-btn" bindtap="goFavorites">⭐</view>
+  </view>
+
+  <!-- 最近更新 -->
+  <view class="update-time" wx:if="{{latestUpdate}}">
+    🕐 最近更新：{{latestUpdate}}
+  </view>
+
+  <!-- 领域标签 -->
+  <scroll-view class="category-tags" scroll-x>
+    <view
+      wx:for="{{categories}}"
+      wx:key="*this"
+      class="tag {{activeCategory === item ? 'tag-active' : ''}}"
+      bindtap="onCategoryTap"
+      data-category="{{item}}"
+    >{{item}}</view>
+  </scroll-view>
+
+  <!-- 类型筛选 -->
+  <view class="type-bar">
+    <view
+      wx:for="{{docTypes}}"
+      wx:key="*this"
+      class="type-item {{activeType === item ? 'type-active' : ''}}"
+      bindtap="onTypeTap"
+      data-type="{{item}}"
+    >{{item}}</view>
+  </view>
+
+  <!-- 文件列表 -->
+  <skeleton wx:if="{{loading}}" count="{{4}}" />
+  <view wx:else>
+    <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
+    <view wx:if="{{documents.length === 0}}" class="empty">暂无文件</view>
+
+    <!-- 上滑加载提示 -->
+    <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">
+      ↓ 加载更多
+    </view>
+
+    <!-- 查看更多 -->
+    <view class="view-more" bindtap="goCategory">
+      查看更多 →
+    </view>
+  </view>
+</view>
