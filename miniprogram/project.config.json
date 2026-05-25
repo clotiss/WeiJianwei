@@ -1,0 +1,14 @@
+{
+  "description": "卫健委政策文件速查",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "appid": "YOUR_APPID",
+  "projectname": "nhc-policy",
+  "libVersion": "3.5.0"
+}

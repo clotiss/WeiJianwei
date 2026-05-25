@@ -1,0 +1,15 @@
+/* 全局样式变量 */
+page {
+  --primary: #1a6fb5;
+  --primary-light: #e8f2fa;
+  --text: #333333;
+  --text-secondary: #888888;
+  --bg: #f5f5f5;
+  --white: #ffffff;
+  --border: #eeeeee;
+
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background-color: var(--bg);
+}
