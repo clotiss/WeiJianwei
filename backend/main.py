@@ -23,3 +23,10 @@ try:
     app.include_router(favorites_router)
 except ImportError:
     pass
+
+from services.scheduler import start_scheduler
+
+
+@app.on_event("startup")
+def on_startup():
+    start_scheduler()
