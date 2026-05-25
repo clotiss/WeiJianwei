@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="back" bindtap="goBack">←</view>
+    <input
+      class="search-input"
+      placeholder="输入关键词搜索..."
+      focus="{{true}}"
+      value="{{keyword}}"
+      bindinput="onInput"
+      bindconfirm="onSearch"
+    />
+  </view>
+
+  <view class="result-count" wx:if="{{searched}}">找到 {{total}} 条结果</view>
+
+  <file-card wx:for="{{results}}" wx:key="id" doc="{{item}}" />
+
+  <view wx:if="{{searched && results.length === 0}}" class="empty">📭 暂无结果，换个关键词试试</view>
+
+  <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">↓ 加载更多</view>
+</view>

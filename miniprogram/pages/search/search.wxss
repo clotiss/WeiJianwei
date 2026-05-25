@@ -1,0 +1,18 @@
+.container { padding: 12px; }
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.back { font-size: 16px; color: #999; padding: 4px; }
+.search-input {
+  flex: 1;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.result-count { font-size: 12px; color: #999; margin-bottom: 10px; }
+.empty { text-align: center; color: #aaa; padding: 40px; font-size: 14px; }
+.load-more { text-align: center; padding: 12px; font-size: 12px; color: var(--primary); }
