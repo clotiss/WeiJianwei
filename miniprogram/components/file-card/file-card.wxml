@@ -1,0 +1,7 @@
+<view class="file-card" bindtap="onTap">
+  <view class="title">{{doc.title}}</view>
+  <view class="meta">
+    <text wx:if="{{doc.doc_number}}">{{doc.doc_number}} · </text>
+    <text>{{doc.publish_date}}</text>
+  </view>
+</view>

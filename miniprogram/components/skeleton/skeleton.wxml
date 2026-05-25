@@ -1,0 +1,6 @@
+<view class="skeleton">
+  <view class="skeleton-block" wx:for="{{count}}" wx:key="index">
+    <view class="skeleton-line w-80"></view>
+    <view class="skeleton-line w-40"></view>
+  </view>
+</view>
