@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "file-card": "/components/file-card/file-card"
+  }
+}

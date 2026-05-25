@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="header">
+    <view class="back" bindtap="goBack">←</view>
+    <view class="header-title">📂 {{category}} · {{docType}}</view>
+  </view>
+
+  <view class="total">共 {{total}} 条</view>
+
+  <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
+
+  <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">↓ 加载更多</view>
+</view>
