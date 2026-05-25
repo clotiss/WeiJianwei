@@ -16,6 +16,27 @@ Page({
   },
 
   onShow() {
+    // 首次打开引导订阅
+    const hasShownGuide = wx.getStorageSync('subscription_guide_shown');
+    if (!hasShownGuide) {
+      wx.showModal({
+        title: '开启新文件提醒',
+        content: '每日上午9:00推送昨日新增政策文件，不再错过重要通知',
+        cancelText: '暂不需要',
+        confirmText: '去开启',
+        success: (res) => {
+          if (res.confirm) {
+            wx.requestSubscribeMessage({
+              tmplIds: ['YOUR_TEMPLATE_ID'],
+              success: () => {},
+              fail: () => wx.showToast({ title: '订阅失败', icon: 'none' })
+            });
+          }
+          wx.setStorageSync('subscription_guide_shown', true);
+        }
+      });
+    }
+
     this.setData({ page: 1, documents: [], hasMore: true });
     this.fetchDocuments();
     this.fetchLatestUpdate();
