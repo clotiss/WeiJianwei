@@ -55,14 +55,15 @@ def agent_search(request: AgentRequest):
 @router.get("/health")
 def agent_health():
     """Agent 服务健康检查 — 确认 DeepSeek API Key 是否已配置。"""
+    from config import DEEPSEEK_MODEL
     if agent_service.api_key:
         return {
             "status": "ok",
-            "model": agent_service.model,
+            "model": DEEPSEEK_MODEL,
             "message": "Agent 服务正常运行",
         }
     return {
         "status": "degraded",
-        "model": agent_service.model,
+        "model": DEEPSEEK_MODEL,
         "message": "DEEPSEEK_API_KEY 未配置，Agent 将降级为简单关键词搜索",
     }
