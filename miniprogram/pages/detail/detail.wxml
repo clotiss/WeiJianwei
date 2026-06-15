@@ -1,21 +1,42 @@
-<view class="container" wx:if="{{!loading}}">
-  <!-- 标题 + 收藏 -->
+<!--
+============================================================================
+文件详情页模板
+============================================================================
+
+页面结构：
+  顶部：标题 + 收藏星标
+  → 元信息（发文字号、日期、发文机关、分类）
+  → AI 关键要点卡片
+  → 查看原文按钮
+  → 原文链接及附件按钮
+
+加载态和正常态通过 wx:if/wx:else 切换
+-->
+
+<!-- 数据加载完成后显示 -->
+<view class="container" wx:if="{{!loading}}" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+
+  <!-- ===== 标题 + 收藏星标 ===== -->
   <view class="title-row">
     <view class="title">{{doc.title}}</view>
+    <!-- 收藏星标：★ 已收藏（实心蓝） / ☆ 未收藏（空心灰） -->
     <view class="star {{isFav ? 'star-active' : ''}}" bindtap="toggleFav">
       {{isFav ? '★' : '☆'}}
     </view>
   </view>
 
-  <!-- 元信息 -->
+  <!-- ===== 元信息 ===== -->
+  <!-- 发文字号（如"国卫办发〔2024〕15号"）— 可能为空 -->
   <view class="meta" wx:if="{{doc.doc_number}}">{{doc.doc_number}}</view>
   <view class="meta">📅 {{doc.publish_date}}  🏛 {{doc.issuing_authority || '国家卫生健康委'}}</view>
   <view class="meta">📂 {{doc.category}} · {{doc.doc_type}}</view>
 
-  <!-- 关键内容 -->
+  <!-- ===== AI 关键要点 ===== -->
+  <!-- 只有 summary 数组有内容时才显示此区块 -->
   <view class="section" wx:if="{{summary.length > 0}}">
     <view class="section-title">📌 关键内容</view>
     <view class="summary-box">
+      <!-- 遍历要点数组，显示编号 + 内容 -->
       <view wx:for="{{summary}}" wx:key="index" class="summary-item">
         <text class="summary-num">{{index + 1}}</text>
         <text>{{item}}</text>
@@ -23,21 +44,13 @@
     </view>
   </view>
 
-  <!-- 查看原文 -->
-  <view class="btn-original" bindtap="openOriginal">📄 查看原文</view>
+  <!-- ===== 查看原文按钮 ===== -->
+  <!-- 跳转到 plaintext 页面，以纯文本形式阅读完整正文 -->
+  <view class="btn-original" bindtap="openPlaintext">📄 查看原文</view>
 
-  <!-- 附件 -->
-  <view class="section" wx:if="{{attachments.length > 0}}">
-    <view class="section-title">📎 附件（{{attachments.length}}）</view>
-    <view
-      wx:for="{{attachments}}"
-      wx:key="name"
-      class="attach-item"
-      bindtap="openAttachment"
-      data-url="{{item.url}}"
-    >📄 {{item.name}}</view>
-  </view>
+  <!-- ===== 原文链接及附件按钮 ===== -->
+  <view class="btn-original" style="margin-top:8px" bindtap="openOriginal">🔗 原文链接及附件</view>
 </view>
 
-<!-- 加载态 -->
+<!-- 数据加载中 -->
 <view wx:else class="loading">加载中...</view>

@@ -1,14 +1,25 @@
+/**
+ * ===========================================================================
+ * skeleton 组件样式 — 骨架屏
+ * ===========================================================================
+ */
+
+/* 骨架块容器（和真实卡片尺寸一致） */
 .skeleton-block {
   background: #f0f0f0;
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 8px;
 }
+
+/* 灰色矩形条 */
 .skeleton-line {
-  height: 14px;
-  background: #e0e0e0;
-  border-radius: 4px;
+  height: 14px;               /* 模拟文字高度 */
+  background: #e0e0e0;        /* 比背景深的灰色 */
+  border-radius: 4px;          /* 小圆角模仿文字胶囊 */
   margin-bottom: 8px;
 }
-.w-80 { width: 80%; }
-.w-40 { width: 40%; }
+
+/* 不同宽度模拟不同内容 */
+.w-80 { width: 80%; }          /* 标题宽度 */
+.w-40 { width: 40%; }          /* 副标题/日期宽度 */

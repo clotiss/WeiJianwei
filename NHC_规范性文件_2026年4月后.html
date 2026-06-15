@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国家卫健委规范性文件整理（2026年4月—5月）</title>
+<style>
+  :root {
+    --reform:      #2563eb;
+    --public:      #059669;
+    --biomed:      #7c3aed;
+    --clinical:    #d97706;
+    --standard:    #0891b2;
+    --maternal:    #db2777;
+    --tcm:         #65a30d;
+    --mental:      #9333ea;
+    --bg:          #f8f9fa;
+    --text:        #1e293b;
+    --text-secondary: #64748b;
+    --border:      #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-size: 15px; line-height: 1.8; color: var(--text); background: var(--bg);
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1a56b0 50%, #1e40af 100%);
+    color: #fff; padding: 48px 0 36px; text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: .5px; }
+  .header .meta { margin-top: 10px; font-size: 14px; opacity: .8; }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  .nav-bar {
+    background: #fff; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100; padding: 0 24px;
+    overflow-x: auto; white-space: nowrap; box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  }
+  .nav-bar a {
+    display: inline-block; padding: 14px 16px; font-size: 13px; font-weight: 600;
+    color: var(--text-secondary); text-decoration: none;
+    border-bottom: 2px solid transparent; transition: all .15s;
+  }
+  .nav-bar a:hover { color: var(--text); border-bottom-color: #94a3b8; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+  .stat-card {
+    background: #fff; border-radius: 10px; padding: 20px 24px;
+    text-align: center; border: 1px solid var(--border);
+  }
+  .stat-card .num { font-size: 32px; font-weight: 800; color: #1a56b0; }
+  .stat-card .label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+  .category { margin: 40px 0 16px; scroll-margin-top: 64px; }
+  .category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .cat-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #fff; flex-shrink: 0;
+  }
+  .cat-title { font-size: 21px; font-weight: 700; }
+  .cat-badge {
+    font-size: 12px; font-weight: 600; padding: 2px 10px;
+    border-radius: 20px; margin-left: 8px;
+  }
+
+  .law-ref {
+    background: #f5f3ff; border-left: 3px solid var(--biomed);
+    padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 16px;
+    font-size: 13px; color: #6d28d9;
+  }
+
+  .doc-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 14px; overflow: hidden; transition: box-shadow .15s;
+  }
+  .doc-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .doc-card .doc-top { display: flex; align-items: flex-start; gap: 16px; padding: 18px 22px; }
+  .doc-card .doc-num {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .doc-card .doc-info { flex: 1; min-width: 0; }
+  .doc-card .doc-title { font-size: 16px; font-weight: 700; line-height: 1.5; margin-bottom: 6px; }
+  .doc-card .doc-meta {
+    font-size: 13px; color: var(--text-secondary);
+    display: flex; flex-wrap: wrap; gap: 6px 16px;
+  }
+  .doc-card .doc-meta span { white-space: nowrap; }
+  .doc-card .doc-meta .ref-no {
+    background: #f1f5f9; padding: 1px 8px; border-radius: 4px;
+    font-family: "SF Mono", "Menlo", "Consolas", monospace; font-size: 12px;
+  }
+  .doc-card .doc-body {
+    padding: 14px 22px 18px; font-size: 14px; line-height: 1.8; color: #475569;
+    border-top: 1px solid var(--border); margin: 0 22px;
+  }
+  .doc-card .doc-body strong { color: #1e293b; }
+  .doc-card .doc-body em {
+    display: inline-block; background: #fef3c7; color: #92400e;
+    font-style: normal; padding: 1px 6px; border-radius: 3px;
+    font-size: 12px; font-weight: 600; margin-right: 2px;
+  }
+
+  .cat-reform     .cat-icon, .cat-reform     .doc-num { background: var(--reform); }
+  .cat-reform     .cat-badge { background: #dbeafe; color: var(--reform); }
+  .cat-public     .cat-icon, .cat-public     .doc-num { background: var(--public); }
+  .cat-public     .cat-badge { background: #d1fae5; color: var(--public); }
+  .cat-biomed     .cat-icon, .cat-biomed     .doc-num { background: var(--biomed); }
+  .cat-biomed     .cat-badge { background: #ede9fe; color: var(--biomed); }
+  .cat-clinical   .cat-icon, .cat-clinical   .doc-num { background: var(--clinical); }
+  .cat-clinical   .cat-badge { background: #fef3c7; color: var(--clinical); }
+  .cat-standard   .cat-icon, .cat-standard   .doc-num { background: var(--standard); }
+  .cat-standard   .cat-badge { background: #cffafe; color: var(--standard); }
+  .cat-maternal   .cat-icon, .cat-maternal   .doc-num { background: var(--maternal); }
+  .cat-maternal   .cat-badge { background: #fce7f3; color: var(--maternal); }
+  .cat-tcm        .cat-icon, .cat-tcm        .doc-num { background: var(--tcm); }
+  .cat-tcm        .cat-badge { background: #ecfccb; color: var(--tcm); }
+  .cat-mental     .cat-icon, .cat-mental     .doc-num { background: var(--mental); }
+  .cat-mental     .cat-badge { background: #f3e8ff; color: var(--mental); }
+
+  .footer {
+    text-align: center; padding: 40px 24px;
+    font-size: 13px; color: var(--text-secondary);
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+  .footer a { color: #1a56b0; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .doc-card .doc-meta { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <h1>国家卫健委规范性文件整理</h1>
+    <div class="meta">2026年4月 — 5月&ensp;｜&ensp;来源：www.nhc.gov.cn 规范性文件栏目</div>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="#stats">概览</a>
+  <a href="#cat-reform">医疗体制改革</a>
+  <a href="#cat-public">公共卫生与疾病防控</a>
+  <a href="#cat-biomed">生物医学新技术</a>
+  <a href="#cat-clinical">医疗技术管理</a>
+  <a href="#cat-standard">行业标准</a>
+  <a href="#cat-maternal">妇幼与儿童健康</a>
+  <a href="#cat-tcm">中医药管理</a>
+  <a href="#cat-mental">精神卫生</a>
+</div>
+
+<div class="container">
+
+<div class="stats-row" id="stats">
+  <div class="stat-card"><div class="num">21</div><div class="label">规范性文件总数</div></div>
+  <div class="stat-card"><div class="num">8</div><div class="label">专业分类</div></div>
+  <div class="stat-card"><div class="num">4月</div><div class="label">发布高峰期</div></div>
+  <div class="stat-card"><div class="num">3部门</div><div class="label">多部门联合发文</div></div>
+</div>
+
+<!-- ===== 一、医疗卫生体制改革 ===== -->
+<div class="category cat-reform" id="cat-reform">
+  <div class="category-header">
+    <div class="cat-icon">&#9881;</div>
+    <span class="cat-title">医疗卫生体制改革</span>
+    <span class="cat-badge">2 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">1</div>
+      <div class="doc-info">
+        <div class="doc-title">国务院办公厅印发《关于加快建设分级诊疗体系的若干措施》</div>
+        <div class="doc-meta">
+          <span class="ref-no">国办发〔2026〕11号</span><span>2026-04-06</span><span>国务院办公厅</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      从 <strong>4 方面提出 13 条措施</strong>：<br>
+      <strong>(1) 紧密型医联体协同</strong>——三级医院逐步酌减常见病复诊和慢性病普通门诊，目标到 2030 年基本建立分级诊疗协同机制；<br>
+      <strong>(2) 引导基层首诊</strong>——上级医院派驻主治医师及以上人员常年服务基层，慢病患者可开不超过 12 周长期处方；<br>
+      <strong>(3) 加强转诊管理</strong>——逐级转诊住院起付线可连续计算，下转患者同病不另设起付线，2027 年医疗机构转诊中心全覆盖；<br>
+      <strong>(4) 医保差异化支付</strong>——住院报销比例逐级拉开 10 个百分点差距，均质化项目推进"同病同付"。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">2</div>
+      <div class="doc-info">
+        <div class="doc-title">关于开展基层医疗卫生机构医疗质量改善三年行动（2026—2028 年）的通知</div>
+        <div class="doc-meta">
+          <span class="ref-no">国卫办基层发〔2026〕4号</span><span>2026-04-01</span><span>联合：国家中医药局</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      部署 <strong>九项核心任务</strong>——质量管理制度、全员培训、门诊质量、急诊急救、合理用药、检验检查、护理服务、院感控制、住院和手术质量，同步发布 <strong>39 条自查整改表</strong>。<br>
+      <em>三步走</em> 2026 年底覆盖中心乡镇卫生院 → 2027 年扩展至其他基层机构 → 2028 年覆盖村卫生室。以紧密型医联体为抓手，AI 赋能基层质量管理。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 二、公共卫生与疾病防控 ===== -->
+<div class="category cat-public" id="cat-public">
+  <div class="category-header">
+    <div class="cat-icon">&#9775;</div>
+    <span class="cat-title">公共卫生与疾病防控</span>
+    <span class="cat-badge">4 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">3</div>
+      <div class="doc-info">
+        <div class="doc-title">关于做好 2026 年"五一"假期前后及夏季重点传染病防治工作的通知</div>
+        <div class="doc-meta">
+          <span class="ref-no">国疾控综传防发〔2026〕14号</span><span>2026-04-27</span><span>联合：国家疾控局、国家中医药局</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      <strong>八大防治措施：</strong><br>
+      <strong>(1) 外防输入</strong>——口岸多病同检同防，重点口岸蚊媒密度控制在安全水平；<br>
+      <strong>(2) 监测预警</strong>——实体化运行监测预警与应急指挥中心，推进五大症候群监测；<br>
+      <strong>(3) 重点环节防控</strong>——与教育、民政部门建立"双通报"机制，流感症状"病原必检、流调必做"；<br>
+      <strong>(4) 预防接种</strong>——HPV 疫苗 13 周岁女孩接种，麻疹接种率低于 90% 的县区查漏补种；<br>
+      <strong>(5) 应急处置</strong>——蚊媒传染病"发现一起、控制一起"；<br>
+      <strong>(6) 爱国卫生运动</strong>——强化建筑工地、城中村、农贸市场等重点场所病媒消杀。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">4</div>
+      <div class="doc-info">
+        <div class="doc-title">关于依法做好重点虫媒传染病防控工作的通知</div>
+        <div class="doc-meta">
+          <span class="ref-no">国疾控综传防发〔2026〕12号</span><span>2026-04-08</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      针对登革热、基孔肯雅热等重点虫媒传染病，从依法防控角度部署 <strong>监测预警、蚊媒控制、医疗救治、联防联控</strong> 四大措施。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">5</div>
+      <div class="doc-info">
+        <div class="doc-title">关于印发《伤害预防控制行动计划（2026—2030 年）》的通知</div>
+        <div class="doc-meta">
+          <span class="ref-no">国疾控卫免发〔2026〕11号</span><span>2026-04-21</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      制定 2026—2030 年伤害预防控制目标，涵盖 <strong>道路交通伤害、跌倒、溺水、中毒</strong> 等重点类型，建立多部门协同防控机制。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">6</div>
+      <div class="doc-info">
+        <div class="doc-title">国家卫生健康委关于印发《食品安全风险监测管理规定》的通知</div>
+        <div class="doc-meta"><span>2026-04-14</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      规范食品安全风险监测的 <strong>计划制定 → 采样检验 → 信息报告 → 风险评估 → 结果通报</strong> 全流程，完善食源性疾病监测网络。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 三、生物医学新技术监管 ===== -->
+<div class="category cat-biomed" id="cat-biomed">
+  <div class="category-header">
+    <div class="cat-icon">&#9764;</div>
+    <span class="cat-title">生物医学新技术监管</span>
+    <span class="cat-badge">3 份文件</span>
+  </div>
+  <div class="law-ref">
+    <strong>法律依据：</strong>国务院令第 818 号《生物医学新技术临床研究和临床转化应用管理条例》（2026-05-01 施行）配套文件
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">7</div>
+      <div class="doc-info">
+        <div class="doc-title">生物医学新技术与药品、医疗器械界定指导原则（暂行）</div>
+        <div class="doc-meta">
+          <span class="ref-no">国卫科教发〔2026〕12号</span><span>2026-04-30</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      建立生物医学新技术与药品/医疗器械管理 <strong>"双路径"互补体系</strong>。发布第一版《备案指导清单》，涵盖 <strong>5 大类 17 项技术</strong>（基因治疗、细胞及其衍生物治疗、脑机接口等）。发起机构自主选择技术路径或药械路径，建立动态调入调出机制。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">8</div>
+      <div class="doc-info">
+        <div class="doc-title">生物医学新技术临床转化应用审批工作规范（试行）</div>
+        <div class="doc-meta">
+          <span class="ref-no">国卫科教发〔2026〕13号</span><span>2026-04-30</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      实行 <strong>"专家评估 + 部门审核"</strong> 审批模式。须经备案并完成临床研究、多中心验证。<br>
+      <em>风险分级</em> 高风险限制期 5 年 → 中风险 3 年 → 低风险 1 年。<br>
+      <em>优先审查</em> 严重危及生命且无有效治疗手段的疾病。<br>
+      <em>退出机制</em> 出现安全性问题或严重不良反应时暂停应用并再评估。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">9</div>
+      <div class="doc-info">
+        <div class="doc-title">关于《条例》贯彻实施有关事宜的公告</div>
+        <div class="doc-meta">
+          <span class="ref-no">2026年第4号</span><span>2026-04-30</span><span>联合：国家疾控局</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      <strong>六大要点：</strong>合理选择技术/药械路径 → 统一通过国家医学研究登记备案信息系统提交 → 规范临床研究组织与多中心协调 → 受试者权益保护（不得收费、鼓励商业保险）→ 紧急情况经论证可紧急使用 → 严惩数据造假。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 四、医疗技术临床应用管理 ===== -->
+<div class="category cat-clinical" id="cat-clinical">
+  <div class="category-header">
+    <div class="cat-icon">&#9765;</div>
+    <span class="cat-title">医疗技术临床应用管理</span>
+    <span class="cat-badge">5 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">10</div>
+      <div class="doc-info">
+        <div class="doc-title">《放射卫生技术服务机构管理办法》（新版）</div>
+        <div class="doc-meta"><span>2026-04-01 施行</span><span>联合：国家疾控局</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      规范放射卫生技术服务机构的 <strong>资质认定、技术服务范围、质量控制、监督管理</strong>，强化放射诊疗安全。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">11</div>
+      <div class="doc-info">
+        <div class="doc-title">人工耳蜗植入技术临床应用管理规范（2026 年版）</div>
+        <div class="doc-meta"><span>2026-05-06</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      规范人工耳蜗植入技术的 <strong>机构资质、人员条件、适应证把握、技术操作和质量控制</strong> 要求。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">12</div>
+      <div class="doc-info">
+        <div class="doc-title">角膜塑形镜验配技术临床应用管理规范（2026 年版）</div>
+        <div class="doc-meta"><span>2026-05-06</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      规范角膜塑形镜验配技术的 <strong>机构资质、人员条件、适应证把握、验配流程和质量控制</strong> 要求。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">13</div>
+      <div class="doc-info">
+        <div class="doc-title">听力专业医学技术人员基本知识和技能培训大纲（2026 年版）</div>
+        <div class="doc-meta"><span>2026-05-06</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      制定听力专业技术人员的培训标准，涵盖 <strong>听力检测、评估、康复</strong> 等核心技能考核要求。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">14</div>
+      <div class="doc-info">
+        <div class="doc-title">关于加强县医院白内障手术质量安全管理的通知</div>
+        <div class="doc-meta"><span>2026-05-08</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      同步发布 <strong>3 份配套文件：</strong>《县域白内障手术技术指导原则》《白内障手术及围手术期医疗安全核查要点》《成人白内障手术操作规范（2026 年版）》。规范县医院白内障手术适应证、技术操作、围手术期管理和术后随访。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 五、行业标准与规范 ===== -->
+<div class="category cat-standard" id="cat-standard">
+  <div class="category-header">
+    <div class="cat-icon">&#9776;</div>
+    <span class="cat-title">行业标准与规范</span>
+    <span class="cat-badge">2 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">15</div>
+      <div class="doc-info">
+        <div class="doc-title">关于发布《紧密型县域医共体医学影像中心设置标准》等 3 项推荐性卫生行业标准的通告</div>
+        <div class="doc-meta"><span>2026-04-01</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      发布 <strong>医学影像中心、心电诊断中心、检验中心</strong> 3 项推荐性卫生行业标准，推动医共体内资源共享和同质化服务。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">16</div>
+      <div class="doc-info">
+        <div class="doc-title">关于发布《成分血制备标准》等 2 项推荐性卫生行业标准的通告</div>
+        <div class="doc-meta"><span>2026-04-28</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      发布成分血制备等标准，规范 <strong>采供血机构成分血制备流程</strong> 和质量要求。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 六、妇幼与儿童健康 ===== -->
+<div class="category cat-maternal" id="cat-maternal">
+  <div class="category-header">
+    <div class="cat-icon">&#9829;</div>
+    <span class="cat-title">妇幼与儿童健康</span>
+    <span class="cat-badge">2 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">17</div>
+      <div class="doc-info">
+        <div class="doc-title">关于增设国家儿童医学中心和区域医疗中心的通知</div>
+        <div class="doc-meta"><span>2026-05-06</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      新增设国家儿童医学中心和区域医疗中心，<strong>优化儿童医疗资源布局</strong>，提升儿科疑难危重症诊疗能力。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">18</div>
+      <div class="doc-info">
+        <div class="doc-title">关于改革完善儿童用药供应保障机制的实施意见</div>
+        <div class="doc-meta"><span>2026-05-07</span><span>联合：多部门</span></div>
+      </div>
+    </div>
+    <div class="doc-body">
+      针对儿童用药 <strong>短缺、剂型规格不足</strong> 等问题，从 <strong>研发激励 → 审评审批 → 生产供应 → 医保支付 → 临床使用</strong> 全链条提出系统性保障措施。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 七、中医药管理 ===== -->
+<div class="category cat-tcm" id="cat-tcm">
+  <div class="category-header">
+    <div class="cat-icon">&#10044;</div>
+    <span class="cat-title">中医药管理</span>
+    <span class="cat-badge">2 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">19</div>
+      <div class="doc-info">
+        <div class="doc-title">国家中医药局、国家卫生健康委关于印发《医院中药饮片管理规范（2026 版）》</div>
+        <div class="doc-meta">
+          <span class="ref-no">国中医药医政发〔2026〕3号</span><span>2026-04-16</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      更新医院中药饮片管理规范，涵盖 <strong>采购验收 → 仓储养护 → 处方调配 → 煎煮服务 → 质量追溯</strong> 全流程管理要求。
+    </div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">20</div>
+      <div class="doc-info">
+        <div class="doc-title">国家中医药管理局关于印发全国基层中医药工作示范市（县）相关文件</div>
+        <div class="doc-meta">
+          <span class="ref-no">国中医药医政发〔2026〕5号</span><span>2026-04-21</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      明确全国基层中医药工作示范市（县）的 <strong>创建标准、评审程序、动态管理机制</strong>，推动中医药服务下沉基层。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 八、精神卫生与心理健康 ===== -->
+<div class="category cat-mental" id="cat-mental">
+  <div class="category-header">
+    <div class="cat-icon">&#9883;</div>
+    <span class="cat-title">精神卫生与心理健康</span>
+    <span class="cat-badge">1 份文件</span>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-top">
+      <div class="doc-num">21</div>
+      <div class="doc-info">
+        <div class="doc-title">关于印发健全社会心理服务体系和危机干预机制实施方案的通知</div>
+        <div class="doc-meta">
+          <span class="ref-no">国卫医政发〔2026〕8号</span><span>2026-04-09</span>
+        </div>
+      </div>
+    </div>
+    <div class="doc-body">
+      部署健全 <strong>覆盖全人群的社会心理服务网络</strong>，完善心理危机干预机制，加强重点人群心理健康服务和精神卫生体系建设。
+    </div>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+<div class="footer">
+  <p>以上内容基于公开信息整理，具体条款以 <a href="https://www.nhc.gov.cn/zwgkzt/pgfxwj/list.shtml">国家卫健委官方网站</a> 公布的原文为准。</p>
+  <p style="margin-top:6px;">整理时间：2026年5月23日</p>
+</div>
+
+</body>
+</html>

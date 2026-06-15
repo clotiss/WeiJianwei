@@ -4,7 +4,8 @@
     "pages/category/category",
     "pages/detail/detail",
     "pages/search/search",
-    "pages/favorites/favorites"
+    "pages/favorites/favorites",
+    "pages/plaintext/plaintext"
   ],
   "window": {
     "navigationBarTitleText": "卫健委政策速查",
@@ -13,5 +14,6 @@
     "backgroundColor": "#f5f5f5"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

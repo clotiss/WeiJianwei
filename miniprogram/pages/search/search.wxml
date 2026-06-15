@@ -1,6 +1,24 @@
-<view class="container">
+<!--
+============================================================================
+搜索页模板
+============================================================================
+
+页面结构：
+  搜索栏（返回 + 输入框）
+  → 搜索结果数量
+  → 文件卡片列表
+  → 空状态提示
+  → 加载更多
+-->
+
+<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <!-- ===== 搜索栏 ===== -->
   <view class="search-bar">
     <view class="back" bindtap="goBack">←</view>
+    <!-- input: 微信的输入框组件
+         focus="{{true}}" → 自动聚焦（进入页面键盘自动弹出）
+         bindinput → 输入时实时更新 keyword
+         bindconfirm → 点击键盘"完成/搜索"按钮触发搜索 -->
     <input
       class="search-input"
       placeholder="输入关键词搜索..."
@@ -11,11 +29,16 @@
     />
   </view>
 
+  <!-- ===== 搜索结果统计 ===== -->
+  <!-- 只有执行过搜索后才显示（避免首次进入页面就显示"找到0条"） -->
   <view class="result-count" wx:if="{{searched}}">找到 {{total}} 条结果</view>
 
+  <!-- ===== 文件卡片列表 ===== -->
   <file-card wx:for="{{results}}" wx:key="id" doc="{{item}}" />
 
+  <!-- 空状态（已搜索但无结果） -->
   <view wx:if="{{searched && results.length === 0}}" class="empty">📭 暂无结果，换个关键词试试</view>
 
+  <!-- 加载更多 -->
   <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">↓ 加载更多</view>
 </view>

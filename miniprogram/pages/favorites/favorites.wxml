@@ -1,12 +1,28 @@
-<view class="container">
+<!--
+============================================================================
+收藏页模板
+============================================================================
+
+结构简单：
+  顶栏（返回 + 标题）
+  → 收藏数量
+  → 文件卡片列表
+  → 空状态提示
+-->
+
+<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <!-- ===== 顶栏 ===== -->
   <view class="header">
     <view class="back" bindtap="goBack">←</view>
     <view class="header-title">⭐ 我的收藏</view>
   </view>
 
+  <!-- 收藏数量 -->
   <view class="total" wx:if="{{favorites.length > 0}}">共 {{favorites.length}} 条</view>
 
+  <!-- 文件卡片列表 -->
   <file-card wx:for="{{favorites}}" wx:key="id" doc="{{item}}" />
 
+  <!-- 空状态 -->
   <view wx:if="{{favorites.length === 0}}" class="empty">📭 暂无收藏</view>
 </view>

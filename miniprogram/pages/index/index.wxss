@@ -1,72 +1,107 @@
+/**
+ * ===========================================================================
+ * 首页样式 — WXSS（微信小程序的 CSS）
+ * ===========================================================================
+ *
+ * WXSS 与标准 CSS 的区别：
+ * - 支持 rpx 单位（responsive pixel，响应式像素，自动适配不同屏幕宽度）
+ *   规定：屏幕宽度 = 750rpx，1rpx = 屏幕宽度/750
+ * - 支持 var(--primary) CSS 变量（定义在 app.wxss 中）
+ *
+ * 布局关键词：
+ * - display: flex → 弹性盒布局（主流布局方式）
+ * - gap → 子元素间距
+ * - border-radius → 圆角
+ * - transition → 过渡动画
+ */
+
 .container { padding: 12px; padding-bottom: 30px; }
 
+/* ---------- 顶部栏 ---------- */
 .top-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex;          /* 弹性盒水平排列 */
+  align-items: center;    /* 垂直居中 */
+  gap: 10px;              /* 子元素间距 10px */
   margin-bottom: 10px;
 }
+/* 搜索框（占满剩余空间） */
 .search-box {
-  flex: 1;
+  flex: 1;                /* 占据所有剩余空间 */
   display: flex;
   align-items: center;
   background: #f0f0f0;
-  border-radius: 20px;
+  border-radius: 20px;    /* 大圆角 → 胶囊形状 */
   padding: 10px 14px;
 }
 .search-icon { font-size: 14px; margin-right: 6px; }
 .search-placeholder { font-size: 13px; color: #999; }
+/* 功能按钮（收藏/订阅） */
 .fav-btn {
-  width: 36px;
-  height: 36px;
-  background: #f5f5f5;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  padding: 8px 12px;
+  background: #f0f4f8;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #4a6a8a;
 }
 
+/* ---------- 最近发布时间 ---------- */
 .update-time {
   font-size: 11px;
   color: #aaa;
   margin-bottom: 12px;
 }
 
-.category-tags {
-  white-space: nowrap;
+/* ---------- 分类标签 ---------- */
+.category-scroll {
   margin-bottom: 12px;
+  white-space: nowrap;    /* 不换行（横向滚动） */
 }
+.category-rows {
+  display: inline-flex;   /* 内联弹性盒 */
+  flex-direction: column; /* 纵向排列两行 */
+  gap: 6px;
+}
+.category-row {
+  display: flex;
+  gap: 8px;
+}
+/* 单个标签 */
 .tag {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 14px;
-  font-size: 12px;
-  background: var(--primary-light);
-  color: var(--primary);
-  margin-right: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #f0f4f8;
+  color: #4a6a8a;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: all 0.2s;   /* 点击切换时平滑过渡 */
 }
+/* 标签选中态 */
 .tag-active {
-  background: var(--primary);
-  color: #fff;
+  background: #1a6fb5;    /* 品牌蓝色背景 */
+  color: #fff;            /* 白色文字 */
+  border-color: #1a6fb5;
 }
 
+/* ---------- 文件类型切换栏 ---------- */
 .type-bar {
   display: flex;
   gap: 16px;
   margin-bottom: 14px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;  /* 底部分隔线 */
   padding-bottom: 8px;
 }
 .type-item { font-size: 12px; color: #999; }
+/* 类型选中态（底部蓝色下划线） */
 .type-active {
   color: var(--primary);
   font-weight: 600;
-  border-bottom: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);  /* 蓝色下划线指示器 */
   padding-bottom: 8px;
-  margin-bottom: -9px;
+  margin-bottom: -9px;  /* 抵消父元素的 padding-bottom，使下划线对齐 */
 }
 
+/* ---------- 底部操作 ---------- */
 .load-more {
   text-align: center;
   padding: 12px;
@@ -77,9 +112,9 @@
   text-align: center;
   margin-top: 12px;
   color: var(--primary);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--primary);  /* 蓝色描边按钮 */
   padding: 8px 24px;
-  border-radius: 20px;
+  border-radius: 20px;               /* 胶囊按钮 */
   font-size: 13px;
 }
 .empty { text-align: center; color: #aaa; padding: 40px; font-size: 14px; }

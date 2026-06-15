@@ -1,13 +1,26 @@
-/* 全局样式变量 */
-page {
-  --primary: #1a6fb5;
-  --primary-light: #e8f2fa;
-  --text: #333333;
-  --text-secondary: #888888;
-  --bg: #f5f5f5;
-  --white: #ffffff;
-  --border: #eeeeee;
+/**
+ * ===========================================================================
+ * 全局样式 — 小程序级 CSS 变量和基础样式
+ * ===========================================================================
+ *
+ * 本文件定义的 CSS 变量在所有页面和组件中可用：
+ *   var(--primary) → 品牌蓝色 #1a6fb5
+ *   var(--bg) → 页面背景色 #f5f5f5
+ *
+ * page 选择器：小程序根元素，设置全局默认样式
+ */
 
+/* 全局 CSS 自定义属性（变量） */
+page {
+  --primary: #1a6fb5;           /* 品牌主色（蓝色） */
+  --primary-light: #e8f2fa;     /* 品牌浅色（用于背景） */
+  --text: #333333;              /* 主文字颜色 */
+  --text-secondary: #888888;    /* 次要文字颜色 */
+  --bg: #f5f5f5;                /* 页面背景色 */
+  --white: #ffffff;             /* 白色 */
+  --border: #eeeeee;            /* 边框颜色 */
+
+  /* 全局默认字体和文字大小 */
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: var(--text);

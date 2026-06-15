@@ -1,0 +1,25 @@
+/**
+ * ===========================================================================
+ * 原文纯文本页样式
+ * ===========================================================================
+ */
+
+.container { padding: 16px; }
+
+/* 标题 */
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* 正文内容 */
+.content {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.8;         /* 较大行高便于阅读长文本 */
+  white-space: pre-wrap;    /* 保留换行符和空格，但允许自动换行 */
+  word-break: break-all;    /* 超长单词/URL 强制换行 */
+}

@@ -1,26 +1,37 @@
+/**
+ * ===========================================================================
+ * 文件详情页样式
+ * ===========================================================================
+ */
+
 .container { padding: 16px; }
+
+/* ---------- 标题行 ---------- */
 .title-row {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start;  /* 顶部对齐（标题有多行时） */
   gap: 8px;
   margin-bottom: 8px;
 }
 .title {
-  flex: 1;
+  flex: 1;                /* 标题占满剩余空间 */
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 700;       /* 加粗 */
   color: #222;
-  line-height: 1.5;
+  line-height: 1.5;       /* 行高 1.5 倍（长标题可读性） */
 }
+/* 收藏星标 */
 .star {
   font-size: 22px;
-  color: #ccc;
+  color: #ccc;            /* 未收藏：灰色 */
   padding: 4px;
 }
-.star-active { color: var(--primary); }
+.star-active { color: var(--primary); }  /* 已收藏：品牌蓝色 */
 
+/* ---------- 元信息 ---------- */
 .meta { font-size: 13px; color: #888; margin-bottom: 4px; }
 
+/* ---------- AI 关键要点区块 ---------- */
 .section { margin-top: 20px; }
 .section-title {
   font-size: 14px;
@@ -28,12 +39,13 @@
   color: #333;
   margin-bottom: 10px;
 }
-
+/* 要点卡片容器 */
 .summary-box {
-  background: #f8f9fa;
+  background: #f8f9fa;    /* 浅灰背景区分正文 */
   border-radius: 8px;
   padding: 14px;
 }
+/* 单条要点 */
 .summary-item {
   display: flex;
   gap: 8px;
@@ -42,13 +54,19 @@
   margin-bottom: 10px;
   line-height: 1.6;
 }
-.summary-item:last-child { margin-bottom: 0; }
-.summary-num { font-weight: 700; color: var(--primary); flex-shrink: 0; }
+.summary-item:last-child { margin-bottom: 0; }  /* 最后一条不需要间距 */
+/* 要点编号 */
+.summary-num {
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;         /* 不缩小，保持编号宽度 */
+}
 
+/* ---------- 操作按钮 ---------- */
 .btn-original {
   display: block;
-  background: var(--primary);
-  color: #fff;
+  background: var(--primary);   /* 品牌蓝背景 */
+  color: #fff;                   /* 白色文字 */
   text-align: center;
   padding: 12px;
   border-radius: 8px;
@@ -57,12 +75,15 @@
   margin-top: 20px;
 }
 
+/* ---------- 附件项 ---------- */
 .attach-item {
   font-size: 13px;
   color: var(--primary);
   padding: 10px 12px;
-  background: var(--primary-light);
+  background: var(--primary-light);  /* 浅蓝背景 */
   border-radius: 6px;
   margin-bottom: 6px;
 }
+
+/* 加载态 */
 .loading { text-align: center; color: #aaa; padding: 60px 0; }

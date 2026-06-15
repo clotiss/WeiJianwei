@@ -1,4 +1,12 @@
+/**
+ * ===========================================================================
+ * 收藏页样式
+ * ===========================================================================
+ */
+
 .container { padding: 12px; }
+
+/* 顶栏 */
 .header {
   display: flex;
   align-items: center;
@@ -7,5 +15,9 @@
 }
 .back { font-size: 16px; color: #999; padding: 4px; }
 .header-title { font-size: 15px; font-weight: 600; color: #333; }
+
+/* 收藏数量 */
 .total { font-size: 12px; color: #aaa; margin-bottom: 10px; }
+
+/* 空状态 */
 .empty { text-align: center; color: #aaa; padding: 60px 0; font-size: 14px; }

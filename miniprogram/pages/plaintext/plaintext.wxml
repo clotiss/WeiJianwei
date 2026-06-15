@@ -1,0 +1,14 @@
+<!--
+============================================================================
+原文纯文本页模板
+============================================================================
+
+极简设计：
+  - 标题（大号加粗）
+  - 正文内容（保留换行和空格，可滚动阅读）
+-->
+
+<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <view class="title">{{title}}</view>
+  <view class="content">{{content}}</view>
+</view>

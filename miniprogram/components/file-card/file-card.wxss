@@ -1,3 +1,14 @@
+/**
+ * ===========================================================================
+ * file-card 组件样式
+ * ===========================================================================
+ *
+ * 卡片设计要点：
+ * - 白色背景 + 浅灰边框 + 圆角（卡片风格）
+ * - 点击态（:active）有背景色变化（反馈用户操作）
+ * - 标题最多显示 2 行，超出部分用省略号
+ */
+
 .file-card {
   background: #fff;
   border: 1px solid #eee;
@@ -5,18 +16,24 @@
   padding: 12px;
   margin-bottom: 8px;
 }
+/* 按下时变浅灰（触觉反馈） */
 .file-card:active { background: #f5f5f5; }
+
+/* 标题：最多显示 2 行，超出省略号 */
 .title {
   font-size: 15px;
   font-weight: 600;
   color: #333;
   margin-bottom: 4px;
   line-height: 1.5;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
+  /* 多行文本省略号（webkit 私有属性） */
+  display: -webkit-box;              /* 弹性盒模型 */
+  -webkit-box-orient: vertical;      /* 垂直排列 */
+  -webkit-line-clamp: 2;             /* 最多 2 行 */
+  overflow: hidden;                  /* 超出隐藏 */
 }
+
+/* 元信息 */
 .meta {
   font-size: 12px;
   color: #999;
