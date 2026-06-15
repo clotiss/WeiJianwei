@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "file-card": "/components/file-card/file-card",
-    "skeleton": "/components/skeleton/skeleton"
+    "skeleton": "/components/skeleton/skeleton",
+    "agent-chat": "/components/agent-chat/agent-chat"
   }
 }

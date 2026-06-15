@@ -114,5 +114,18 @@ module.exports = {
    */
   getCategories() {
     return request('/documents/categories');
+  },
+
+  /**
+   * Agent 智能检索 — 用自然语言搜索政策文件
+   * @param {string} query      - 用户问题
+   * @param {string} session_id - 可选，会话 ID（传入则启用多轮对话记忆）
+   * @returns {Promise} - { answer, documents, thinking_steps }
+   */
+  agentSearch(query, session_id) {
+    return request('/agent/search', {
+      method: 'POST',
+      data: { query, session_id }
+    });
   }
 };

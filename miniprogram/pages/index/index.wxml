@@ -22,7 +22,7 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
 <view class="container">
   <!-- ===== 顶部栏：搜索框 + 收藏 + 订阅 ===== -->
   <view class="top-bar">
-    <!-- 搜索框（点击跳转搜索页） -->
+    <!-- 搜索框（点击跳转关键词搜索页） -->
     <view class="search-box" bindtap="goSearch">
       <text class="search-icon">🔍</text>
       <text class="search-placeholder">搜索标题、发文机构...</text>
@@ -98,4 +98,23 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
       查看更多 →
     </view>
   </view>
+
+  <!-- ===== 可拖拽悬浮按钮 ===== -->
+  <movable-area class="float-area">
+    <movable-view
+      class="float-btn {{floatBtnMoving ? 'float-btn--moving' : ''}}"
+      direction="all"
+      x="{{floatBtnX}}"
+      y="{{floatBtnY}}"
+      bindtap="onFloatBtnTap"
+      bindchange="onFloatBtnMove"
+      bindtouchend="onFloatBtnEnd"
+      damping="{{40}}"
+    >
+      <text class="float-btn-icon">🤖</text>
+    </movable-view>
+  </movable-area>
+
+  <!-- ===== AI 对话浮窗 ===== -->
+  <agent-chat show="{{showChat}}" bind:close="onChatClose" />
 </view>

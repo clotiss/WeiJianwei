@@ -36,7 +36,16 @@ Page({
     page: 1,                       // 当前页码
     hasMore: true,                 // 是否还有更多数据
     loading: true,                 // 是否正在加载中
-    latestUpdate: ''               // 最新文件发布时间
+    latestUpdate: '',              // 最新文件发布时间
+
+    // ---- 悬浮按钮 ----
+    showChat: false,               // AI 对话浮窗是否显示
+    floatBtnX: 0,                  // 悬浮按钮 X 坐标
+    floatBtnY: 0,                  // 悬浮按钮 Y 坐标
+    floatBtnMoving: false,         // 是否正在拖拽中
+
+    // ---- 订阅弹窗状态 ----
+    _subscribing: false,           // 防止重复弹出订阅引导
   },
 
   // =========================================================================
@@ -45,6 +54,14 @@ Page({
   onLoad() {
     // 页面初始化时先加载分类列表
     this.fetchCategories();
+
+    // 设置悬浮按钮默认位置（右下角）
+    const sys = wx.getSystemInfoSync();
+    const btnSize = 56;  // 按钮大小（px），与 CSS 保持一致
+    this.setData({
+      floatBtnX: sys.windowWidth - btnSize - 16,
+      floatBtnY: sys.windowHeight - btnSize - 120,
+    });
   },
 
   // =========================================================================
@@ -210,6 +227,36 @@ Page({
   // =========================================================================
   // 页面跳转
   // =========================================================================
+  // =========================================================================
+  // 悬浮按钮 + AI 对话浮窗
+  // =========================================================================
+
+  /** 点击悬浮按钮 → 打开对话浮窗 */
+  onFloatBtnTap() {
+    if (this.data.floatBtnMoving) return;  // 拖拽中不触发
+    this.setData({ showChat: true });
+  },
+
+  /** 悬浮按钮拖拽中 */
+  onFloatBtnMove(e) {
+    this.setData({
+      floatBtnX: e.detail.x,
+      floatBtnY: e.detail.y,
+      floatBtnMoving: true,
+    });
+  },
+
+  /** 悬浮按钮拖拽结束 */
+  onFloatBtnEnd() {
+    // 延迟取消 moving 标记，防止 touchend 后立即触发 tap
+    setTimeout(() => this.setData({ floatBtnMoving: false }), 200);
+  },
+
+  /** 关闭对话浮窗 */
+  onChatClose() {
+    this.setData({ showChat: false });
+  },
+
   goSearch() {
     wx.navigateTo({ url: '/pages/search/search' });
   },

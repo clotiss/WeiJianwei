@@ -1,0 +1,124 @@
+<!--
+============================================================================
+Agent 对话页 — AI 政策问答（WXML 模板）
+============================================================================
+
+布局结构：
+  ┌──────────────────────────┐
+  │  AI 政策问答      [新对话] │  ← 导航栏
+  ├──────────────────────────┤
+  │  ┌───────────────────┐   │
+  │  │  你好！我是...      │   │  ← AI 消息（左对齐，白底）
+  │  │  思考过程 ▸        │   │
+  │  └───────────────────┘   │
+  │        ┌──────────────┐  │
+  │        │  用户提问...   │  │  ← 用户消息（右对齐，蓝底）
+  │        └──────────────┘  │
+  │  ┌───────────────────┐   │
+  │  │  AI 回答...       │   │
+  │  │  相关文件卡片      │   │
+  │  └───────────────────┘   │
+  ├──────────────────────────┤
+  │ [输入框____________] [发送]│  ← 底部输入栏
+  └──────────────────────────┘
+-->
+
+<view class="container">
+  <!-- ===== 顶部新对话按钮 ===== -->
+  <view class="new-chat-bar" wx:if="{{messages.length > 1}}">
+    <view class="new-chat-btn" bindtap="onNewChat">+ 新对话</view>
+  </view>
+
+  <!-- ===== 消息列表 ===== -->
+  <scroll-view
+    class="msg-list"
+    scroll-y
+    scroll-into-view="{{scrollToView}}"
+    scroll-with-animation
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <!-- 消息项 -->
+    <view
+      wx:for="{{messages}}"
+      wx:key="index"
+      id="msg-{{index}}"
+      class="msg-row {{item.role === 'user' ? 'msg-row--user' : ''}}"
+    >
+      <!-- AI 头像 -->
+      <view class="avatar" wx:if="{{item.role === 'assistant'}}">🤖</view>
+
+      <!-- 消息气泡 -->
+      <view class="bubble {{item.role === 'user' ? 'bubble--user' : 'bubble--ai'}}">
+        <!-- 思考过程（仅 AI 消息，可折叠） -->
+        <view
+          wx:if="{{item.role === 'assistant' && item.thinking_steps.length > 0}}"
+          class="thinking-block"
+        >
+          <view
+            class="thinking-header"
+            bindtap="onToggleThinking"
+            data-msg-index="{{index}}"
+          >
+            <text class="thinking-arrow">{{item._thinkingOpen ? '▾' : '▸'}}</text>
+            <text class="thinking-last">{{item.thinking_steps[item.thinking_steps.length - 1]}}</text>
+          </view>
+          <view class="thinking-detail" wx:if="{{item._thinkingOpen}}">
+            <text wx:for="{{item.thinking_steps}}" wx:key="*this" class="thinking-step">{{item}}&#10;</text>
+          </view>
+        </view>
+
+        <!-- 加载中动画 -->
+        <view wx:if="{{item._loading}}" class="loading-dots">
+          <view class="dot"></view>
+          <view class="dot"></view>
+          <view class="dot"></view>
+        </view>
+
+        <!-- 回答文本 -->
+        <view
+          wx:if="{{item.content && !item._loading}}"
+          class="msg-content"
+        >{{item.content}}</view>
+
+        <!-- 相关文件卡片 -->
+        <view
+          wx:if="{{item.documents && item.documents.length > 0}}"
+          class="related-docs"
+        >
+          <view class="related-docs-title">📄 相关文件</view>
+          <file-card
+            wx:for="{{item.documents}}"
+            wx:key="id"
+            doc="{{item}}"
+          />
+        </view>
+      </view>
+
+      <!-- 用户头像 -->
+      <view class="avatar" wx:if="{{item.role === 'user'}}">👤</view>
+    </view>
+
+    <!-- 底部留白（防止最后一条消息被输入栏遮挡） -->
+    <view class="msg-bottom-spacer" />
+  </scroll-view>
+
+  <!-- ===== 底部输入栏 ===== -->
+  <view class="input-bar">
+    <input
+      class="input-box"
+      value="{{inputValue}}"
+      placeholder="输入问题，如「最近关于防疫的文件」"
+      bindinput="onInput"
+      bindconfirm="onSend"
+      confirm-type="send"
+      adjust-position="{{true}}"
+      maxlength="300"
+    />
+    <button
+      class="send-btn {{inputValue ? 'send-btn--active' : ''}}"
+      bindtap="onSend"
+      disabled="{{loading || !inputValue}}"
+    >发送</button>
+  </view>
+</view>

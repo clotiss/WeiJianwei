@@ -118,3 +118,36 @@
   font-size: 13px;
 }
 .empty { text-align: center; color: #aaa; padding: 40px; font-size: 14px; }
+
+/* ---------- 悬浮按钮 ---------- */
+.float-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;  /* 不阻挡页面交互 */
+}
+
+.float-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1a6fb5;
+  box-shadow: 0 4px 16px rgba(26, 111, 181, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;  /* 按钮自身可交互 */
+  transition: box-shadow 0.2s;
+}
+
+.float-btn--moving {
+  box-shadow: 0 6px 24px rgba(26, 111, 181, 0.5);
+}
+
+.float-btn-icon {
+  font-size: 28px;
+  line-height: 1;
+}

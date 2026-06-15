@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "AI 政策问答",
+  "usingComponents": {
+    "file-card": "/components/file-card/file-card",
+    "skeleton": "/components/skeleton/skeleton"
+  }
+}

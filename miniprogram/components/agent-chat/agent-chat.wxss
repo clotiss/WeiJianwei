@@ -1,0 +1,266 @@
+/**
+ * ===========================================================================
+ * Agent 对话浮窗组件 — 样式
+ * ===========================================================================
+ */
+
+/* ===== 遮罩层 ===== */
+.chat-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.chat-overlay--show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.chat-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* ===== 浮窗面板 ===== */
+.chat-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(30rpx);
+  opacity: 0;
+  transition: all 0.25s;
+}
+
+.chat-panel--show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== 头部 ===== */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 28rpx;
+  padding-top: calc(20rpx + env(safe-area-inset-top));
+  background: #1a6fb5;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.chat-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.chat-new-btn {
+  font-size: 24rpx;
+  color: #fff;
+  opacity: 0.85;
+  padding: 4rpx 16rpx;
+  border: 1rpx solid rgba(255,255,255,0.5);
+  border-radius: 20rpx;
+}
+
+.chat-close {
+  font-size: 36rpx;
+  font-weight: 300;
+  padding: 0 4rpx;
+}
+
+/* ===== 消息列表 ===== */
+.chat-msg-list {
+  flex: 1;
+  padding: 16rpx 20rpx;
+  overflow-y: auto;
+}
+
+.cmsg-spacer {
+  height: 24rpx;
+}
+
+/* ===== 消息行 ===== */
+.cmsg-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.cmsg-row--user {
+  flex-direction: row-reverse;
+}
+
+.cmsg-avatar {
+  width: 56rpx;
+  height: 56rpx;
+  font-size: 30rpx;
+  line-height: 56rpx;
+  text-align: center;
+  flex-shrink: 0;
+  margin: 0 10rpx;
+}
+
+/* ===== 消息气泡 ===== */
+.cmsg-bubble {
+  max-width: 560rpx;
+  padding: 16rpx 20rpx;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.cmsg-bubble--ai {
+  background: #fff;
+  border-top-left-radius: 4rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+}
+
+.cmsg-bubble--user {
+  background: #1a6fb5;
+  color: #fff;
+  border-top-right-radius: 4rpx;
+}
+
+/* ===== 思考过程 ===== */
+.cthink {
+  margin-bottom: 12rpx;
+}
+
+.cthink-header {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.cthink-arrow {
+  font-size: 20rpx;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.cthink-summary {
+  font-size: 22rpx;
+  color: #aaa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cthink-detail {
+  margin-top: 6rpx;
+  padding: 10rpx 14rpx;
+  background: #f8f9fa;
+  border-radius: 6rpx;
+  border-left: 3rpx solid #1a6fb5;
+}
+
+.cthink-step {
+  font-size: 20rpx;
+  color: #999;
+  line-height: 1.8;
+}
+
+/* ===== 加载动画 ===== */
+.cloading {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 10rpx 0;
+}
+
+.cdot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #bbb;
+  animation: cblink 1.4s infinite ease-in-out both;
+}
+
+.cdot:nth-child(1) { animation-delay: 0s; }
+.cdot:nth-child(2) { animation-delay: 0.2s; }
+.cdot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes cblink {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== 回答内容 ===== */
+.cmsg-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* ===== 相关文件 ===== */
+.crelated {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.crelated-title {
+  font-size: 24rpx;
+  color: #888;
+  margin-bottom: 10rpx;
+}
+
+/* ===== 底部输入栏 ===== */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  padding: 14rpx 20rpx;
+  padding-bottom: calc(14rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  height: 68rpx;
+  padding: 0 18rpx;
+  background: #f5f5f5;
+  border-radius: 34rpx;
+  font-size: 26rpx;
+}
+
+.chat-send-btn {
+  flex-shrink: 0;
+  width: 110rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #bbb;
+  background: #f0f0f0;
+  border-radius: 34rpx;
+}
+
+.chat-send-btn--active {
+  color: #fff;
+  background: #1a6fb5;
+}

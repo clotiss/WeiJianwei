@@ -38,7 +38,7 @@ App({
    * favorites: 收藏列表（与本地缓存同步）
    */
   globalData: {
-    API_BASE: 'https://106.52.159.38/api/v1',  // 后端 API 基础地址
+    API_BASE: 'https://106.52.159.38/api/v1',  // 后端 API 基础地址（上线前改回 ）
     favorites: []                                 // 用户收藏的文件列表
   }
 });

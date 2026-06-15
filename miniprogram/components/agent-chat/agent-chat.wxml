@@ -1,0 +1,113 @@
+<!--
+============================================================================
+Agent 对话浮窗组件 — WXML 模板
+============================================================================
+
+遮罩层 + 浮窗面板结构：
+  ┌──────────────────────────┐
+  │  半透明黑色遮罩            │
+  │  ┌────────────────────┐   │
+  │  │ AI 政策问答    [✕] │   │
+  │  │ ────────────────── │   │
+  │  │  对话消息列表       │   │
+  │  │                    │   │
+  │  │                    │   │
+  │  │ ────────────────── │   │
+  │  │ [输入框] [发送]    │   │
+  │  └────────────────────┘   │
+  └──────────────────────────┘
+-->
+
+<view class="chat-overlay {{show ? 'chat-overlay--show' : ''}}">
+  <!-- 遮罩层（点击关闭） -->
+  <view class="chat-mask" bindtap="onClose" />
+
+  <!-- 浮窗面板 -->
+  <view class="chat-panel {{show ? 'chat-panel--show' : ''}}">
+
+    <!-- 头部 -->
+    <view class="chat-header">
+      <text class="chat-title">🤖 AI 政策问答</text>
+      <view class="chat-header-actions">
+        <text class="chat-new-btn" bindtap="onNewChat" wx:if="{{messages.length > 1}}">新对话</text>
+        <text class="chat-close" bindtap="onClose">✕</text>
+      </view>
+    </view>
+
+    <!-- 消息列表 -->
+    <scroll-view
+      class="chat-msg-list"
+      scroll-y
+      scroll-into-view="{{scrollToView}}"
+      scroll-with-animation
+      enhanced
+      show-scrollbar="{{false}}"
+    >
+      <view
+        wx:for="{{messages}}"
+        wx:key="index"
+        id="msg-{{index}}"
+        class="cmsg-row {{item.role === 'user' ? 'cmsg-row--user' : ''}}"
+      >
+        <!-- AI 头像 -->
+        <view class="cmsg-avatar" wx:if="{{item.role === 'assistant'}}">🤖</view>
+
+        <!-- 气泡 -->
+        <view class="cmsg-bubble {{item.role === 'user' ? 'cmsg-bubble--user' : 'cmsg-bubble--ai'}}">
+
+          <!-- 思考过程 -->
+          <view wx:if="{{item.role === 'assistant' && item.thinking_steps.length > 0}}" class="cthink">
+            <view class="cthink-header" bindtap="onToggleThinking" data-msg-index="{{index}}">
+              <text class="cthink-arrow">{{_thinkingOpen[index] ? '▾' : '▸'}}</text>
+              <text class="cthink-summary">{{item.thinking_steps[item.thinking_steps.length - 1]}}</text>
+            </view>
+            <view class="cthink-detail" wx:if="{{_thinkingOpen[index]}}">
+              <text wx:for="{{item.thinking_steps}}" wx:key="*this" class="cthink-step">{{item}}&#10;</text>
+            </view>
+          </view>
+
+          <!-- 加载中 -->
+          <view wx:if="{{item._loading}}" class="cloading">
+            <view class="cdot"></view>
+            <view class="cdot"></view>
+            <view class="cdot"></view>
+          </view>
+
+          <!-- 回答文本 -->
+          <view wx:if="{{item.content && !item._loading}}" class="cmsg-content">{{item.content}}</view>
+
+          <!-- 相关文件 -->
+          <view wx:if="{{item.documents && item.documents.length > 0}}" class="crelated">
+            <view class="crelated-title">📄 相关文件</view>
+            <file-card
+              wx:for="{{item.documents}}"
+              wx:key="id"
+              doc="{{item}}"
+            />
+          </view>
+        </view>
+
+        <!-- 用户头像 -->
+        <view class="cmsg-avatar" wx:if="{{item.role === 'user'}}">👤</view>
+      </view>
+
+      <view class="cmsg-spacer" />
+    </scroll-view>
+
+    <!-- 底部输入栏 -->
+    <view class="chat-input-bar">
+      <input
+        class="chat-input"
+        value="{{inputValue}}"
+        placeholder="输入问题..."
+        bindinput="onInput"
+        bindconfirm="onSend"
+        confirm-type="send"
+        adjust-position="{{true}}"
+        maxlength="300"
+      />
+      <view class="chat-send-btn {{inputValue ? 'chat-send-btn--active' : ''}}" bindtap="onSend">发送</view>
+    </view>
+
+  </view>
+</view>

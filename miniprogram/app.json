@@ -4,6 +4,7 @@
     "pages/category/category",
     "pages/detail/detail",
     "pages/search/search",
+    "pages/agent/agent",
     "pages/favorites/favorites",
     "pages/plaintext/plaintext"
   ],
