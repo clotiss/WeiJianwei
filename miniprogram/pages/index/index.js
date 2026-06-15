@@ -257,6 +257,11 @@ Page({
     this.setData({ showChat: false });
   },
 
+  /** 转发 */
+  onShareAppMessage() {
+    return { title: '卫健委政策速查 — AI 智能政策文件搜索', path: '/pages/index/index' };
+  },
+
   goSearch() {
     wx.navigateTo({ url: '/pages/search/search' });
   },

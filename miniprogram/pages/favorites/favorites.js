@@ -36,5 +36,9 @@ Page({
     this.setData({ favorites: storage.getFavorites() });
   },
 
-  goBack() { wx.navigateBack(); }
+  goBack() { wx.navigateBack(); },
+
+  onShareAppMessage() {
+    return { title: "卫健委政策速查", path: "/pages/index/index" };
+  },
 });

@@ -39,5 +39,9 @@ Page({
 
   // ---- 右滑返回手势 ----
   onTouchStart(e) { swipeBack.onTouchStart.call(this, e); },
-  onTouchEnd(e) { swipeBack.onTouchEnd.call(this, e); }
+  onTouchEnd(e) { swipeBack.onTouchEnd.call(this, e); },
+
+  onShareAppMessage() {
+    return { title: "卫健委政策速查", path: "/pages/index/index" };
+  },
 });

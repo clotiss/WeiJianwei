@@ -187,4 +187,8 @@ Page({
     const current = this.data.messages[idx]._thinkingOpen;
     this.setData({ [key]: !current });
   },
+
+  onShareAppMessage() {
+    return { title: "卫健委政策速查", path: "/pages/index/index" };
+  },
 });

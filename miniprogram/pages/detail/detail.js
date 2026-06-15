@@ -149,5 +149,9 @@ Page({
         }
       }
     });
-  }
+  },
+
+  onShareAppMessage() {
+    return { title: "卫健委政策速查", path: "/pages/index/index" };
+  },
 });

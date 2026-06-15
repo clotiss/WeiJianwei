@@ -1,36 +1,27 @@
 """
 ===============================================================================
-NHC 批量抓取脚本 — 一次性抓取最近 5 年（2021-2026）政策文件
+NHC 批量抓取脚本 — 一次性抓取 2011 年至今的政策文件
 ===============================================================================
 
 用法：
     cd backend && python3 bulk_scrape.py
 
 流程：
-  1. 逐页抓取列表页，直到遇到 2021 年之前的文件
+  1. 逐页抓取列表页，直到遇到 START_DATE 之前的文件
   2. 对每条新文件：抓详情 → AI 摘要+分类 → 入库
   3. 按 URL 去重，已存在则跳过（支持中断后重跑）
   4. 进度实时显示
 
-预计耗时：视文件数量，可能 10~30 分钟
+注意：使用 asyncio.wait_for 超时机制，单条卡住 >60s 自动跳过
 """
 
 import json
 import sys
 import asyncio
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 
-# Playwright 异步爬虫
-from services.scraper import (
-    fetch_document_list,
-    fetch_document_detail,
-    SOURCE_URLS,
-    BASE_URL,
-    _setup_page,
-    _get_total_pages,
-    _fetch_one_page,
-)
+from services.scraper import SOURCE_URLS, BASE_URL, _setup_page, _get_total_pages, _fetch_one_page
 from services.summary import extract_key_points
 from database import SessionLocal
 from models import Document
@@ -39,33 +30,25 @@ from config import DEEPSEEK_API_KEY
 # =============================================================================
 # 配置
 # =============================================================================
-
-# 抓取起点：从此日期开始的都算"最近 5 年"
-FIVE_YEARS_AGO = "2021-01-01"
-
-# 每抓完一页停顿的秒数（避免频率过高被封）
-PAGE_DELAY = 1.5
-
-# 详情页抓取间歇
-DETAIL_DELAY = 0.8
-
+START_DATE = "2011-01-01"       # 抓取起点
+PAGE_DELAY = 1.5                # 列表页抓取间歇
+DETAIL_TIMEOUT = 60             # 单条详情抓取超时（秒）
+AI_TIMEOUT = 30                 # 单条 AI 摘要超时（秒）
 
 # =============================================================================
-# 主流程
+# 辅助函数
 # =============================================================================
 
 def _date_in_range(date_str: str) -> bool:
-    """检查日期是否在 2021-01-01 及之后。"""
     if not date_str:
-        return True  # 无日期的文件仍抓取
+        return True
     try:
-        return date_str >= FIVE_YEARS_AGO
+        return date_str >= START_DATE
     except Exception:
         return True
 
 
 def count_existing() -> int:
-    """统计数据库中已有的文件数。"""
     db = SessionLocal()
     try:
         return db.query(Document).count()
@@ -74,26 +57,62 @@ def count_existing() -> int:
 
 
 def url_exists(url: str) -> bool:
-    """检查 URL 是否已入库。"""
     db = SessionLocal()
     try:
-        return db.query(Document).filter(
-            Document.original_url == url
-        ).first() is not None
+        return db.query(Document).filter(Document.original_url == url).first() is not None
     finally:
         db.close()
 
 
+# =============================================================================
+# 详情页抓取 — 复用浏览器，解决每次启动 Firefox 的开销
+# =============================================================================
+
+async def _fetch_detail_with_browser(page, url: str) -> dict:
+    """复用已有 page 实例抓取单篇详情，避免重复启动浏览器。"""
+    from playwright.async_api import TimeoutError as PlaywrightTimeout
+    content = ""
+    attachments = []
+
+    try:
+        await page.goto(url, wait_until="domcontentloaded", timeout=20000)
+        await page.wait_for_timeout(1500)
+
+        for sel in ["#xw_box", "#UCAP-CONTENT", ".TRS_Editor", ".con", "#content", ".article-con", ".text"]:
+            el = await page.query_selector(sel)
+            if el:
+                text = (await el.inner_text()).strip()
+                if len(text) > 100:
+                    content = text
+                    break
+
+        attach_els = await page.query_selector_all(
+            "a[href$='.pdf'], a[href$='.doc'], a[href$='.docx'], a[href$='.xls'], a[href$='.xlsx']"
+        )
+        for a in attach_els:
+            name = (await a.inner_text()).strip()
+            href = await a.get_attribute("href")
+            if name and href:
+                if not href.startswith("http"):
+                    href = BASE_URL + href if href.startswith("/") else f"{BASE_URL}/{href}"
+                attachments.append({"name": name, "url": href})
+    except Exception:
+        pass
+
+    return {"content": content, "attachments": attachments}
+
+
+# =============================================================================
+# 主流程
+# =============================================================================
+
 async def bulk_scrape():
-    """
-    批量抓取主函数。
-    """
     if not DEEPSEEK_API_KEY:
         print("⚠️  WARNING: DEEPSEEK_API_KEY not set. AI summary will be skipped.")
 
     existing_before = count_existing()
     print(f"📦 现有数据: {existing_before} 条")
-    print(f"📅 目标范围: {FIVE_YEARS_AGO} ~ 至今")
+    print(f"📅 目标范围: {START_DATE} ~ 至今")
     print(f"{'=' * 60}")
 
     # ---- Phase 1: 收集所有文件列表 ----
@@ -112,7 +131,6 @@ async def bulk_scrape():
 
         for doc_type, first_url in SOURCE_URLS.items():
             print(f"\n🔍 [{doc_type}] 开始抓取列表页...")
-
             total_pages = await _get_total_pages(page, first_url)
             print(f"   总页数: {total_pages}")
 
@@ -120,8 +138,6 @@ async def bulk_scrape():
             for pg in range(1, total_pages + 1):
                 if stopped_by_date:
                     break
-
-                # 构建页码 URL
                 if pg == 1:
                     pg_url = first_url
                 else:
@@ -129,30 +145,26 @@ async def bulk_scrape():
                     pg_url = f"{base}_{pg}.shtml"
 
                 items = await _fetch_one_page(page, pg_url, doc_type)
-                new_count = 0
-                out_of_range_count = 0
+                new_count = sum(
+                    1 for item in items
+                    if _date_in_range(item.get("publish_date", "")) and not url_exists(item["url"])
+                )
+                out_count = sum(1 for item in items if not _date_in_range(item.get("publish_date", "")))
 
                 for item in items:
-                    if _date_in_range(item.get("publish_date", "")):
-                        item["doc_type"] = doc_type
-                        if not url_exists(item["url"]):
-                            all_items.append(item)
-                            new_count += 1
-                    else:
-                        out_of_range_count += 1
+                    item["doc_type"] = doc_type
+                all_items.extend(items)
 
-                print(f"   第{pg}页: {len(items)} 条 | 新入库 {new_count} | 超期 {out_of_range_count}")
+                print(f"   第{pg}页: {len(items)} 条 | 新入库 {new_count} | 超期 {out_count}")
 
-                # 如果整页都是超期文件，停止该来源
-                if out_of_range_count > 0 and new_count == 0 and len(items) > 0:
-                    # 连续 2 页无新数据才停止（防止单页全是无日期文件）
-                    # 简单策略：该页超过一半是超期文件 → 停止
-                    if out_of_range_count >= len(items) * 0.5:
-                        stopped_by_date = True
-                        print(f"   ⏹ 已到达 {FIVE_YEARS_AGO} 之前，停止 {doc_type}")
+                if out_count >= len(items) * 0.5 and out_count > 0:
+                    stopped_by_date = True
+                    print(f"   ⏹ 已到达 {START_DATE} 之前，停止 {doc_type}")
 
                 await asyncio.sleep(PAGE_DELAY)
 
+        # Phase 1.5: 去重
+        all_items = [item for item in all_items if not url_exists(item["url"])]
         await browser.close()
 
     print(f"\n{'=' * 60}")
@@ -162,73 +174,93 @@ async def bulk_scrape():
         print("✅ 没有新文件，数据库已是最新状态。")
         return
 
-    # ---- Phase 2: 逐条处理入库 ----
-    print(f"\n📥 开始处理详情页 + AI 摘要...")
+    # ---- Phase 2: 逐条处理入库（复用浏览器 + 超时机制） ----
+    print(f"\n📥 开始处理详情页 + AI 摘要（超时: 详情{DETAIL_TIMEOUT}s, AI{AI_TIMEOUT}s）...")
 
     total = len(all_items)
     processed = 0
     failed = 0
     skipped_ai = 0
 
-    for i, item in enumerate(all_items):
-        try:
-            # 再次去重（Phase 1 后可能已由其他进程入库）
-            if url_exists(item["url"]):
-                processed += 1
-                continue
+    async with async_playwright() as p:
+        browser = await p.firefox.launch(headless=True)
+        context = await browser.new_context(
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:132.0) Gecko/20100101 Firefox/132.0",
+            locale="zh-CN",
+        )
+        detail_page = await context.new_page()
+        await _setup_page(detail_page)
 
-            # 抓详情页
-            detail = await fetch_document_detail(item["url"])
-            content = detail.get("content", "")
-
-            # AI 摘要 + 分类
-            summary = ""
+        for i, item in enumerate(all_items):
+            content = ""
             category = ""
-            if content and DEEPSEEK_API_KEY:
-                try:
-                    points, category = await extract_key_points(content)
-                    summary = json.dumps(points, ensure_ascii=False) if points else ""
-                except Exception as e:
-                    print(f"   ⚠️ AI 失败 [{item['title'][:30]}]: {e}")
-                    skipped_ai += 1
+            summary = ""
 
-            # 入库
-            db = SessionLocal()
             try:
-                doc = Document(
-                    title=item["title"],
-                    issuing_authority="国家卫生健康委",
-                    publish_date=item.get("publish_date", ""),
-                    category=category or "",
-                    doc_type=item.get("doc_type", ""),
-                    original_url=item["url"],
-                    content=content,
-                    summary=summary,
-                    attachments=json.dumps(
-                        detail.get("attachments", []), ensure_ascii=False
-                    ),
+                # 超时保护：单条详情抓取
+                detail = await asyncio.wait_for(
+                    _fetch_detail_with_browser(detail_page, item["url"]),
+                    timeout=DETAIL_TIMEOUT,
                 )
-                db.add(doc)
-                db.commit()
-            finally:
-                db.close()
+                content = detail.get("content", "")
 
-            processed += 1
-            pct = processed * 100 // total
-            print(f"  [{pct}%] ({processed}/{total}) {category or '?'} | {item['title'][:45]}...")
+                # 超时保护：AI 摘要
+                if content and DEEPSEEK_API_KEY:
+                    try:
+                        points, category = await asyncio.wait_for(
+                            extract_key_points(content),
+                            timeout=AI_TIMEOUT,
+                        )
+                        summary = json.dumps(points, ensure_ascii=False) if points else ""
+                    except asyncio.TimeoutError:
+                        print(f"   ⏰ AI 超时 [{item['title'][:40]}]，跳过摘要")
+                        skipped_ai += 1
+                    except Exception as e:
+                        print(f"   ⚠️ AI 失败 [{item['title'][:30]}]: {e}")
+                        skipped_ai += 1
 
-            await asyncio.sleep(DETAIL_DELAY)
+                # 入库
+                db = SessionLocal()
+                try:
+                    doc = Document(
+                        title=item["title"],
+                        issuing_authority="国家卫生健康委",
+                        publish_date=item.get("publish_date", ""),
+                        category=category or "",
+                        doc_type=item.get("doc_type", ""),
+                        original_url=item["url"],
+                        content=content,
+                        summary=summary,
+                        attachments=json.dumps(detail.get("attachments", []), ensure_ascii=False),
+                    )
+                    db.add(doc)
+                    db.commit()
+                finally:
+                    db.close()
 
-        except Exception as e:
-            failed += 1
-            print(f"  ❌ [{item.get('title', '?')[:30]}]: {e}")
+                processed += 1
+
+            except asyncio.TimeoutError:
+                failed += 1
+                print(f"  ⏰ 详情超时 [{item.get('title', '?')[:40]}]，跳过")
+
+            except Exception as e:
+                failed += 1
+                print(f"  ❌ [{item.get('title', '?')[:30]}]: {e}")
+
+            # 进度（每 10 条打印一次，减少日志量）
+            if processed % 10 == 0 or failed > 0:
+                pct = processed * 100 // total
+                print(f"  [{pct}%] {processed}/{total} (+{failed}跳过) | {category or '?'} | {item['title'][:45]}...")
+
+        await browser.close()
 
     # ---- 汇总 ----
     after_count = count_existing()
     print(f"\n{'=' * 60}")
     print(f"✅ 批量抓取完成！")
-    print(f"   处理: {processed} 条")
-    print(f"   失败: {failed} 条")
+    print(f"   成功: {processed} 条")
+    print(f"   失败/超时: {failed} 条")
     print(f"   AI跳过: {skipped_ai} 条")
     print(f"   数据库: {existing_before} → {after_count} (+{after_count - existing_before})")
 

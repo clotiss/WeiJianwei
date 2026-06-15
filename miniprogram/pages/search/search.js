@@ -83,5 +83,9 @@ Page({
   /**
    * 返回上一页
    */
-  goBack() { wx.navigateBack(); }
+  goBack() { wx.navigateBack(); },
+
+  onShareAppMessage() {
+    return { title: "卫健委政策速查", path: "/pages/index/index" };
+  },
 });
