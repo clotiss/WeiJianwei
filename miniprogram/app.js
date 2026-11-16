@@ -39,6 +39,9 @@ App({
    */
   globalData: {
     API_BASE: 'https://wjwjwjw.top/api/v1',  // 后端 API 基础地址
+    API_V2_BASE: 'https://wjwjwjw.top/api/v2',
+    // 仅在 V2 部署、迁移和体验版验收通过后切换；当前继续使用兼容的 V1。
+    USE_POLICY_V2: false,
     favorites: []                                 // 用户收藏的文件列表
   }
 });

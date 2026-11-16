@@ -19,6 +19,7 @@
 const api = require('../../utils/api');            // API 请求工具
 const storage = require('../../utils/storage');     // 本地收藏管理
 const swipeBack = require('../../utils/swipe-back'); // 右滑返回手势
+const app = getApp();
 
 Page({
   /**
@@ -90,6 +91,11 @@ Page({
       icon: 'none',
       duration: 1500
     });
+    if (app.globalData.USE_POLICY_V2) {
+      api.syncV2Favorite(this.data.doc.id, added).catch(() => {
+        wx.showToast({ title: '已保存在本机，账号同步失败', icon: 'none' });
+      });
+    }
   },
 
   /**

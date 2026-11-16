@@ -1,0 +1,650 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+<title>政策解读-广东省卫生健康委员会门户网站，广东省卫生健康委官方网站</title>
+<meta name="Keywords" content="广东省卫生健康委,广东卫生" />
+<meta name="description" content="广东省卫生健康委员会公众网是广东省卫生健康委员会唯一通过国际互联网对外发布卫生健康信息和提供服务的正式网站。" />
+
+<meta name="SiteName" content="广东省卫生健康委员会网站">
+<meta name="SiteDomain" content="wsjkw.gd.gov.cn">
+<meta name="SiteIDCode" content="4400000119">
+
+<meta name="ColumnName" content="政策解读">
+<meta name="ColumnDescription" content="针对政策不懂之处的解读，让大众更好的理解">
+<meta name="ColumnKeywords" content="政策解读">
+<meta name="ColumnType" content="政策解读">
+
+<meta name="ArticleTitle" content="">
+<meta name="PubDate" content='2026-11-03 21:24:40'>
+<meta name="ContentSource" content="">
+<meta name="Author" content="">
+<meta name="Url" content="">
+
+
+<link href="/css/header-footer.css" rel="stylesheet" type="text/css" />
+<link href="css/government_news.css" rel="stylesheet" type="text/css" />
+<link href="/css/extra.css" rel="stylesheet" type="text/css" />
+<link rel="Shortcut Icon" href="/images/logo.ico" />
+<link href="/layui-v2.6.8/css/layui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/js/js.cookie.js"></script>
+<script type="text/javascript" src="/js/js.language.js"></script>
+<script type="text/javascript" src="/layui-v2.6.8/layui.js"></script>
+
+<link rel="stylesheet" href="/css/aliplayer-min.css">
+<script src="/js/aliplayer-min.js"></script>
+
+<script type="text/javascript" src="/audiojs/audio.min.js"></script>
+<link href="/audiojs/audiojs.css" rel="stylesheet" type="text/css">
+<style>
+    #webWrap{
+        position: fixed;
+        top:0;
+        left:0;
+        background: rgba(0,0,0,0.8);
+        z-index: 999;
+        display:none;
+    }
+    #InfoBox{
+        position: fixed;
+        z-index: 1000;
+        width:550px;
+        height:960px;
+        background:#fff;
+    }
+    #webIco{
+        position: fixed;
+        top:53%;
+        right:0;
+        cursor: pointer;
+        
+    }
+    #webIco>img{
+        width:90px;
+        height:80px;
+    }
+    #webIco>p{
+        height:36px;
+        line-height:36px;
+        background:#044796;
+        color:#fff;
+        text-align:center;
+        font-weight:bold;
+    }
+
+    .aTips {
+        position: fixed;
+        _position: absolute;
+        z-index: 101;
+        width: 480px;
+        height: 200px;
+        top: 50%;
+        margin-top: -85px;
+        left: 50%;
+        margin-left: -240px;
+        background-color: #fff;
+    }
+
+    .aTips .text {
+        position: relative;
+        font-size: 16px;
+        padding: 20px;
+        line-height: 24px;
+        word-break: break-all;
+        overflow: hidden;
+        font-size: 14px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .layui-layer-btn {
+        text-align: right;
+        padding: 0 10px 12px;
+        pointer-events: auto;
+        user-select: none;
+        -webkit-user-select: none;
+        margin-top: 30px;
+        display: block;
+    }
+
+    .layui-layer-btn div {
+        height: 28px;
+        line-height: 28px;
+        margin: 6px 6px 0;
+        padding: 0 15px;
+        border: 1px solid #dedede;
+        background-color: #f1f1f1;
+        color: #333;
+        border-radius: 2px;
+        font-weight: 400;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .layui-layer-btn .layui-layer-btn0 {
+        border-color: #4898d5;
+        background-color: #2056a0;
+        color: #fff;
+    }
+
+    .bdshare_dialog_list li {
+        width: 129px;
+        display: none;
+    }
+
+    .bdshare_dialog_list li:nth-child(2),
+    .bdshare_dialog_list li:nth-child(3),
+    .bdshare_dialog_list li:nth-child(5),
+    .bdshare_dialog_list li:nth-child(6),
+    .bdshare_dialog_list li:nth-child(9),
+    .bdshare_dialog_list li:nth-child(12),
+    .bdshare_dialog_list li:nth-child(27) {
+        display: block;
+    }
+</style>
+
+<script>
+$(function() {
+
+    $("body a").click(function () {
+        var url = $(this).attr("href");
+        var nowUrl = window.location.href;
+        if (url.indexOf("javascript:void(0)") > -1) {
+            return true;
+        } else if ($.trim(url).substr(0, 2).indexOf("./") > -1 || url.indexOf("gov.cn") > -1 || $.trim(url)
+            .substr(0, 1).indexOf("#") > -1) {
+            return true;
+        } else {
+            checkUrl(url);
+            return false;
+        }
+    });
+
+    var jumpInterval;
+    $(".layui-layer-btn0").click(function () {
+        var url = $(".layui-layer-btn0").attr("data-url");
+        //window.location.href = url;
+        clearInterval(jumpInterval);
+        //window.open(url);
+        var tempwindow = window.open('about:blank', '_blank'); // 先打开页面
+        tempwindow.location = url; // 后更改页面地址
+        $(".filter").hide();
+        $(".aTips").hide();
+    });
+
+    $(".layui-layer-btn1").click(function () {
+        $(".filter").hide();
+        $(".aTips").hide();
+        clearInterval(jumpInterval);
+    });
+
+    function checkURL(url) {
+        if (url.indexOf("javascript:void(0)") > -1) {
+            return true;
+        } else if (url.indexOf("gd.gov.cn") > -1 || $.trim(url).substr(0, 2).indexOf("./") > -1 || url.indexOf(
+            "gov.cn") > -1 || $.trim(url).substr(0, 1).indexOf("#") > -1) {        
+            var tempwindow = window.open('about:blank', '_blank'); // 先打开页面
+            tempwindow.location = url; // 后更改页面地址
+            return true;
+        } else {
+            checkUrl(url);
+            return false;
+        }
+    }
+
+    function checkUrl(url) {
+        $(".filter").show();
+        $(".aTips").show();
+        $(".layui-layer-btn0").attr("data-url", url);
+        jumpInterval = setInterval(function () {
+            autoJump(url);
+        }, 3000);
+    }
+
+    function autoJump(url) {   
+        var tempwindow = window.open('about:blank', '_blank'); // 先打开页面
+        tempwindow.location = url; // 后更改页面地址
+        $(".filter").hide();
+        $(".aTips").hide();
+        clearInterval(jumpInterval);
+    }  
+    
+})
+</script>
+
+<div class="filter" style="display:none; z-index:100; position: fixed; _position: absolute;  pointer-events: auto; background-color:#000; opacity:0.7; filter:alpha(opacity=70);top: 0; left: 0;  width: 100%;  height: 100%;"></div>
+<div class="aTips" style="display:none;">
+    <div class="text">您访问的链接即将离开“广东省卫生健康委员会门户网站”<br/>是否继续？</div>
+    <div class="layui-layer-btn">
+        <div date-url="" class="layui-layer-btn0"><img style="width:20px;height:20px;float:left;margin: 3px 5px 0 -8px;" src="https://wsjkw.gd.gov.cn/images/loading.gif">继续访问
+        </div>
+        <div class="layui-layer-btn1">放弃</div>
+    </div>
+</div>
+
+<script>(function(u){if((u.indexOf("iP")>-1||u.indexOf("Android")>-1)&&document.location.href!="https://wsjkw.gd.gov.cn/hdjl_zcjd/mindex.html"){document.location.href="https://wsjkw.gd.gov.cn/hdjl_zcjd/mindex.html"}})(window.navigator.userAgent);</script>
+	</head>
+
+	<body>
+		<!-- header -->
+    	<div class="header" style="height:346px;">
+	<div class="banner">
+		<div class="top" aria-label="您已进入工具栏服务区" altdes="服务区">
+			<div id='date' class="left"></div>
+			<div class="loginbar right" style="margin-left:0">
+				<ul>
+					<li class="ipv6" style="width: auto;"><img src="/images/ipv6_icon.png"></li>
+					<li>
+						<a href="javascript:;"><img src="/images/ban_2.jpg" title="官方微信" alt="官方微信" class="img1" />官方微信</a>
+						<!-- 健康广东二维码 -->
+						<img src="/images/ban_4_hv_jkgd.jpg" alt="官方微信" title="官方微信" class="img2" style="width:84px;height:84px;"/>
+					</li>
+					<li>
+						<a href="http://weibo.com/gdjkjy?is_hot=1" target="_blank" rel="noopener noreferrer"><img src="/images/ban_1.jpg" title="官方微博" alt="官方微博" class="img1" />官方微博</a>
+						<img src="/images/ban_1_hv.jpg" title="官方微博" alt="官方微博" class="img2" />
+					</li>
+					<li>
+						<a href="https://wsjkw.gd.gov.cn/phone/content/post_2164609.html"><img src="/images/ban_3.jpg" title="官方移动版" alt="官方移动版" class="img1" />官方移动版</a>						<img src="/images/ban_3_hv.jpg" title="官方移动版" alt="官方移动版" class="img2" style="width:84px;height:84px;" />
+					</li>
+					<!-- <li class="loginbar_four"><a href="http://voice.gd.gov.cn/wza_wsjkw/" title="无障碍功能" target="_blank" rel="noopener noreferrer" class="no-style">无障碍功能</a></li> -->
+					
+					<li class="loginbar_four" style="cursor: pointer;"><div id="top_wza" title="无障碍功能" aria-label="按alt加4打开导航区，按tab键切换读取导航区元素；按alt加5打开视窗区，按tab键切换读取视窗区元素；按alt加6打开交互区，按tab键切换读取交互区元素；按alt加7打开服务区，按tab键切换读取服务区元素；按alt加L开启或关闭语音阅读声音；按shift加上方向键开启或关闭大字幕；按alt加问号打开智能盲道帮助页面；按alt加q键退出智能盲道；按alt加9退出无障碍服务。">无障碍功能</div></li>
+					<li class="loginbar_four" style="cursor: pointer;"><div id="top_slh" title="长者助手" aria-label="欢迎进入广东省卫生健康委员会,盲人用户进入智能盲道请按快捷键Ctrl+Alt+R；阅读详细操作说明请按快捷键Ctrl+Alt+问号键。">长者助手</div></li>
+					<!-- <script src="//service.gd.gov.cn/wza/wza.js?app=wsjkw"></script> -->
+					<script src="//service.gd.gov.cn/wza/wza.js?app=wsjkw" referrerpolicy="origin"></script>
+					<script src="//slhsrv.southcn.com/wza/slh.js?app=wsjkw.gd.gov.cn" referrerpolicy="origin"></script>
+					<script>
+						window.onload = function() {
+							cnillWzaInstance.startInit('http://wsjkw.gd.gov.cn/audiojs/cnill_polyfill.swf');
+						}
+						document.getElementById('top_wza').onclick = function() {
+							cnillWzaInstance.init();
+						}
+						$(function(){
+							slhInstance.setOption({ observerSelector: "#zscd_pushDataInfo", mutationObserver: true })
+							$("#top_slh").on("click",function(){
+								slhInstance.init();
+							});
+						})
+						
+					</script>
+	
+					<li class="blue">
+						<a title="点击以中文方式浏览" href="/" class="lang-btn cn" onclick="Cookies.set('isOpen','0')">中</a> | <a title="点击以英文方式浏览" href="/en/index.html" class="lang-btn en" onclick="Cookies.set('isOpen','1')">EN</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<div class="logo">
+			<a href="/"><img src="/images/logo.png" title="logo" alt="logo" /></a>
+			<p>wsjkw.gd.gov.cn</p>
+		</div>
+		<div class="title">
+			<h1>广东省卫生健康委员会</h1>
+			<p>Health Commission of Guangdong Province</p>
+		</div>
+		<div class="seach" aria-label="您已进入全站搜索交互区，本区域包含1个文本输入框和1个提交按钮" altdes="交互区">
+			<form method="get" action="https://search.gd.gov.cn/search/local_msg/216" target="_blank" rel="noopener noreferrer">
+				<input type="text" name="keywords" class="search-in" value="" aria-label="文本输入框：请输入关键词"/>
+				<a href="javascript:;" id="search-btn"><img src="/images/l_seach.jpg" alt="搜索" aria-label="提交按钮：按回车键选中选项"></a>
+			</form>
+		</div>
+		
+		<!-- 新型冠状病毒防控专栏 -->
+		<div class="layui-carousel" id="topSlideBox" style="position: absolute;top: 140px;">
+			<div carousel-item>		
+				<div>
+					<a href="https://www.gov.cn/zhengce/zczhjd/" target="_blank">
+						<img src="https://www.gov.cn/images/20230626banner3.jpg" style="width:1000px;height:160px;" alt="重要政策举措及实施效果" title="重要政策举措及实施效果">
+					</a>
+				</div>
+				<div>
+					<a href="https://wsjkw.gd.gov.cn/govSubject/slhjxzqzjg/" target="_blank">
+						<img src="/images/slhjxzqzjg_new.jpg" style="max-width:100%;" alt="树立和践行正确政绩观" title="树立和践行正确政绩观">
+					</a>
+				</div>
+				<div>
+					<a href="https://wsjkw.gd.gov.cn/govSubject/qgwsyjkdh/" target="_blank">
+						<img src="/images/weishengjiankangdahui.png" style="width:1000px;height:160px;" alt="全国卫生与健康大会" title="全国卫生与健康大会">
+					</a>
+				</div>
+	
+			</div>
+		</div>
+		<link href="css/layui.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/layui.min.js"></script>
+		<script>
+		layui.use('carousel', function(){
+			var carousel = layui.carousel;
+			//建造实例
+			carousel.render({
+				elem: '#topSlideBox'
+				,width: '100%' //设置容器宽度
+				,height: '160px'
+				,arrow: 'none' //始终显示箭头
+				//,anim: 'updown' //切换动画方式
+			});
+		});
+		</script>
+		<!-- <div style="position: absolute;top: 140px;" alt="宣传栏" title="宣传栏">
+			<a href="http://wsjkw.gd.gov.cn/xxgzbdfk/" target="_blank">
+				<img src="/images/2023yiqingfangkong.png" style="margin-top: 0.5em;max-width:100%;" alt="新型冠状病毒防控专栏" title="新型冠状病毒防控专栏">
+			</a>			
+		</div> -->
+		
+		<!-- 春节返乡路公众留言板 -->
+		<!-- <div style="position: absolute;top: 300px;width:1000px;" alt="宣传栏" title="宣传栏">
+			<a href="http://wsjkw.gd.gov.cn/hdjlpt/ldxx?via=pc" target="_blank">
+				<img src="/images/20220129cjfx.jpg" style="margin-top: 0.5em;max-width:100%;" alt="春节返乡路公众留言板" title="春节返乡路公众留言板">
+			</a>
+		</div> -->
+	</div>
+	
+</div>
+<script type="text/javascript">
+	function getdates() {
+		var w_array = new Array("星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+		var d = new Date();
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		var week = d.getDay();
+		if (month < 10) month = "0" + month;
+		if (day < 10) day = "0" + day;
+		var name = "今天是：" + year + "年" + month + "月" + day + "日" + " " + w_array[week];
+		document.getElementById("date").innerHTML = name;
+		setTimeout("getdates()", 1000);
+	};
+	getdates();
+	$('#search-btn').bind('click', function() {
+		$(this).parents('form').submit()
+	});
+	$('.search-in').bind('keyup', function(event) {
+		e = event ? event : (window.event ? window.event : null);
+		if (e.keyCode == 13) {
+			$(this).parents('form').submit()
+		}
+	});
+	$('.search-form').submit(function() {
+		var key = $(this).find('input[name="keywords"]').val();
+		if (!key) {
+			alert('请输入关键词！');
+			$(this).find('input[name="keywords"]').focus();
+			return false;
+		}
+	});
+</script>
+<div class="nav" aria-label="您已进入首页及一级栏目导航区" altdes="导航区">
+	<ul class="wrapper1">
+		<li id="nav1" class=" wrapper1_1_wd" alt="首页" title="首页">
+			<a href="http://wsjkw.gd.gov.cn/">
+				<img src="/images/nav_21.png" alt="首页" class="img_1" />
+				<img src="/images/nav_21.png" alt="首页" class="img_2" />首页
+			</a>
+		</li>
+					<li id="nav19517" alt="政务要闻栏目" title="政务要闻栏目">
+				<a href="https://wsjkw.gd.gov.cn/zwyw/index.html">
+					<img src="/images/nav_2.png" alt="政务要闻" class="img_1" />
+					<img src="/images/nav_22.png" alt="政务要闻" class="img_2" />政务要闻
+				</a>
+			</li>
+							<li id="nav19518" alt="政务公开栏目" title="政务公开栏目">
+				<a href="https://wsjkw.gd.gov.cn/zwgk/index.html">
+					<img src="/images/nav_3.png" alt="政务公开" class="img_1" />
+					<img src="/images/nav_23.png" alt="政务公开" class="img_2" />政务公开
+				</a>
+			</li>
+							<li id="nav19519" alt="政务服务栏目" title="政务服务栏目">
+				<a href="http://www.gdzwfw.gov.cn/portal/branch-hall?orgCode=006940132">
+					<img src="/images/nav_4.png" alt="政务服务" class="img_1" />
+					<img src="/images/nav_24.png" alt="政务服务" class="img_2" />政务服务
+				</a>
+			</li>
+							<li id="nav19520" class="wrapper1_6" alt="互动交流栏目" title="互动交流栏目"> 
+				<a href="http://wsjkw.gd.gov.cn//hdjlpt">
+					<img src="/images/nav_6.png" alt="互动交流" class="img_1" />
+					<img src="/images/nav_26.png" alt="互动交流" class="img_2" />互动交流
+				</a>
+			</li>
+			</ul>
+</div>
+<div class="blue_line"></div>
+
+		<!--主体begin-->
+		<div class="main-content">
+			<div class="wrapper_2 padding_top0">
+				<div class="news_list_wrapper wd_1174">
+					<h2 class="h2 margin_top20 new_h2" style="margin-left: 20px;">政策解读</h2>
+					<p class="new_p" aria-label="您已进入页面访问路径导航区" altdes="导航区">您现在所在的位置：<a href="https://wsjkw.gd.gov.cn/">首页</a>&nbsp;&gt;&nbsp;<a href="https://wsjkw.gd.gov.cn/hdjl/">互动交流</a>&nbsp;&gt;&nbsp;<a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/">政策解读</a></p>
+					<hr class="hr">
+
+					<div class="article" wzades="政策解读" aria-label="您已进入政策解读视窗区" altdes="视窗区">
+						<!--list start-->
+						<div class="section list">
+							<ul>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4974778.html" title="《广东省紧密型县域医疗卫生共同体高质量发展行动方案（2026—2028年）》解读" target="_blank" rel="noopener noreferrer">《广东省紧密型县域医疗卫生共同体高质量发展行动方案（2026—2028年）》解读</a><span>2026-11-03</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4972265.html" title="一图读懂《广东省紧密型县域医疗卫生共同体高质量发展行动方案（2026—2028年）》" target="_blank" rel="noopener noreferrer">一图读懂《广东省紧密型县域医疗卫生共同体高质量发展行动方案（2026—2028年）》</a><span>2026-10-29</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4897338.html" title="《家庭病床服务指南（试行）》政策解读" target="_blank" rel="noopener noreferrer">《家庭病床服务指南（试行）》政策解读</a><span>2026-05-15</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4896806.html" title="《生物医学新技术临床研究和临床转化应用管理条例》解读问答" target="_blank" rel="noopener noreferrer">《生物医学新技术临床研究和临床转化应用管理条例》解读问答</a><span>2026-05-14</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4896803.html" title="《关于印发生物医学新技术临床转化应用审批工作规范（试行）的通知》解读" target="_blank" rel="noopener noreferrer">《关于印发生物医学新技术临床转化应用审批工作规范（试行）的通知》解读</a><span>2026-05-14</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895218.html" title="8部门发文保障儿童用药 “小药箱”装满“大关爱”" target="_blank" rel="noopener noreferrer">8部门发文保障儿童用药 “小药箱”装满“大关爱”</a><span>2026-05-08</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895215.html" title="关于药品价格、集采药监管、短缺药保供，五部门最新回应！" target="_blank" rel="noopener noreferrer">关于药品价格、集采药监管、短缺药保供，五部门最新回应！</a><span>2026-04-16</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895206.html" title="《关于改革完善儿童用药供应保障机制的实施意见》政策解读" target="_blank" rel="noopener noreferrer">《关于改革完善儿童用药供应保障机制的实施意见》政策解读</a><span>2026-05-07</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895197.html" title="一图读懂 《关于改革完善儿童用药供应保障机制的实施意见》" target="_blank" rel="noopener noreferrer">一图读懂 《关于改革完善儿童用药供应保障机制的实施意见》</a><span>2026-05-07</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895195.html" title="《关于加快建设分级诊疗体系的若干措施》政策解读" target="_blank" rel="noopener noreferrer">《关于加快建设分级诊疗体系的若干措施》政策解读</a><span>2026-04-10</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895194.html" title="《健全社会心理服务体系和危机干预机制实施方案》解读" target="_blank" rel="noopener noreferrer">《健全社会心理服务体系和危机干预机制实施方案》解读</a><span>2026-04-09</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895192.html" title="将基孔肯雅热和发热伴血小板减少综合征纳入乙类传染病管理的政策解读" target="_blank" rel="noopener noreferrer">将基孔肯雅热和发热伴血小板减少综合征纳入乙类传染病管理的政策解读</a><span>2026-03-25</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895187.html" title="《关于加强居民死亡医学证明信息登记和电子证照管理工作的通知》政策解读" target="_blank" rel="noopener noreferrer">《关于加强居民死亡医学证明信息登记和电子证照管理工作的通知》政策解读</a><span>2026-02-27</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4895175.html" title="《关于印发第四批鼓励仿制药品目录的通知》政策解读" target="_blank" rel="noopener noreferrer">《关于印发第四批鼓励仿制药品目录的通知》政策解读</a><span>2026-01-04</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4834573.html" title="一图读懂《广东省育儿补贴制度实施方案》" target="_blank" rel="noopener noreferrer">一图读懂《广东省育儿补贴制度实施方案》</a><span>2025-12-25</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4834560.html" title="《广东省育儿补贴制度实施方案》政策解读" target="_blank" rel="noopener noreferrer">《广东省育儿补贴制度实施方案》政策解读</a><span>2025-12-25</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4772534.html" title="广东省育儿补贴申领正式全面开放" target="_blank" rel="noopener noreferrer">广东省育儿补贴申领正式全面开放</a><span>2025-09-12</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4704596.html" title="《广东省“精神卫生服务年”行动实施方案（2025—2027年）》解读" target="_blank" rel="noopener noreferrer">《广东省“精神卫生服务年”行动实施方案（2025—2027年）》解读</a><span>2025-04-29</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4696288.html" title="《广东省医疗机构提供免陪照护服务试点工作方案》一问一答" target="_blank" rel="noopener noreferrer">《广东省医疗机构提供免陪照护服务试点工作方案》一问一答</a><span>2025-04-14</span></li>
+																	<li><a href="https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4696236.html" title="《广东省医疗机构提供免陪照护服务试点工作方案》政策解读" target="_blank" rel="noopener noreferrer">《广东省医疗机构提供免陪照护服务试点工作方案》政策解读</a><span>2025-04-14</span></li>
+															</ul>
+						</div>
+						<!--list end-->
+						<!--page-->
+						<div class="page" aria-label="您已进入列表翻页导航区" altdes="导航区">
+                                                            <a class="first" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html">
+                                    第一页
+                                </a>
+                                                            <a class="current" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html">
+                                    1
+                                </a>
+                                                            <a class="normal" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_2.html">
+                                    2
+                                </a>
+                                                            <a class="normal" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_3.html">
+                                    3
+                                </a>
+                                                            <a class="normal" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_4.html">
+                                    4
+                                </a>
+                                                            <a class="normal" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_5.html">
+                                    5
+                                </a>
+                                                            <a class="next" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_2.html">
+                                    下一页
+                                </a>
+                                                            <a class="last" href="https://wsjkw.gd.gov.cn/hdjl_zcjd/index_10.html">
+                                    最后一页
+                                </a>
+                                                    </div>
+						<!--page end-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--主体end-->
+	<!-- footer -->
+    <script>
+$(document).ready(function() {
+    if($(window).height()>$('body').height()){
+        var height = $(window).height() - $('.header').height() - $('.nav').height() - $('.blue_line').height() - $('.footer_wrapper ').height() - 26;
+        $('.main-content').css('min-height',height+'px');
+    }
+
+    $('#close_btn').click(function(){
+        $('div.aside').hide();
+    })
+});
+</script>
+<div class="footer_wrapper">
+    <div class="footer">
+        <hr class="foot_hr">
+        <div class="foot-qrcode">
+            <div class="foot-qrcode-box">
+                <img src="/images/ban_4_hv_jkgd.jpg" alt="" style="width:120px;height:120px;" title="健康广东微信公众号二维码" alt="健康广东微信公众号二维码"/>
+                <span>健康广东公众号</span>
+            </div>
+            <div class="foot-qrcode-box">
+                <img src="/images/ban_3_hv.jpg" alt="" style="width:120px;height:120px;" title="广东省卫生健康委员会网站二维码" alt="广东省卫生健康委员会网站二维码"/>
+                <span>官网手机版</span>
+            </div>
+            <div class="foot-qrcode-box">
+                <img src="/images/yss_code.png" alt="" style="width:120px;height:120px;" title="粤省事小程序二维码" alt="粤省事小程序二维码"/>
+                <span>粤省事小程序</span>
+            </div>
+            <div class="foot-qrcode-box">
+                <img src="/images/yst_code.jpg" alt="" style="width:120px;height:120px;" title="粤商通APP下载页面" alt="粤商通APP下载页面"/>
+                <span>粤商通APP下载</span>
+            </div>
+            <div class="foot-qrcode-box">
+                <img src="/images/tzgd_qr_code.png" alt="" style="width:120px;height:120px;" title="投资广东小程序" alt="投资广东小程序"/>
+                <span>投资广东小程序</span>
+            </div>
+        </div>
+        <div class="foot-gdBox">
+            <div class="footer_left" style="width: 8%;margin-left:0;">
+                <!-- <script id="_jiucuo_" sitecode='4400000119' src='js/jiucuo.js'></script> -->
+                <div aria-label="您已进入我为政府网站找错平台视窗区" altdes="视窗区" style="margin-bottom:20px;">
+                    <script id="_jiucuo_" sitecode='4400000119' src='/js/jiucuo.js'></script>
+                </div>
+                <div aria-label="您已进入党政机关网站标识视窗区" altdes="视窗区">
+                    <script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript  src='https://dcs.conac.cn/js/20/000/0000/60380875/CA200000000603808750004.js' type='text/javascript'%3E%3C/script%3E"));</script>
+                </div>
+            </div>
+            <div class="footer_cencer" style="width: 50%;margin-left:65px;" aria-label="您已进入网站信息视窗区" altdes="视窗区">
+                <!--                 <a href="https://wsjkw.gd.gov.cn/lxfs/index.html" title="联系方式" title="联系方式"alt="联系方式">联系方式</a>
+                                                <a href="https://wsjkw.gd.gov.cn/wzbj/index.html" title="网站背景" title="网站背景"alt="网站背景">网站背景</a>
+                                                <a href="https://wsjkw.gd.gov.cn/sitemap/index.html" title="网站地图" title="网站地图"alt="网站地图">网站地图</a>
+                 -->
+                <!-- <p>
+                    网站主办单位：广东省卫生健康委员会&nbsp;&nbsp;ICP备案编号：<a href="http://beian.miit.gov.cn" target="_blank">粤ICP备12049153号-2</a>
+                    <br/>
+                    联系方式：广州市先烈南路17号大院&nbsp;&nbsp;电话：020-83828646&nbsp;&nbsp;邮编：510060
+                    <br/>
+                    技术支持：广东省卫生健康委员会事务中心&nbsp;&nbsp;网站标识码：4400000119
+                </p> -->
+                <div class="wsjkw__gd-infoBox">
+                    <div>
+                                                <a href="https://wsjkw.gd.gov.cn/lxfs/index.html" title="联系方式" title="联系方式"alt="联系方式">联系方式</a>
+                                                                        <a href="https://wsjkw.gd.gov.cn/wzbj/index.html" title="网站背景" title="网站背景"alt="网站背景">网站背景</a>
+                                                                        <a href="https://wsjkw.gd.gov.cn/sitemap/index.html" title="网站地图" title="网站地图"alt="网站地图">网站地图</a>
+                                            </div>
+                    <div>网站主办单位：广东省卫生健康委员会&nbsp;&nbsp;ICP备案编号：<a href="http://beian.miit.gov.cn" target="_blank">粤ICP备12049153号-2</a></div>
+                    <div>联系方式：广州市先烈南路17号大院&nbsp;&nbsp;电话：020-83828646&nbsp;&nbsp;邮编：510060</div>
+                    <div>技术支持：广东省卫生健康委员会事务中心&nbsp;&nbsp;网站标识码：4400000119</div>
+                    <div>
+                        <a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010402001458"><img style="float: left;margin-top: 2px;" src="/images/gongan.png">&nbsp;粤公网安备 44010402001458号</a>
+                    </div>
+                </div>
+                <!-- <p><a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010402001458"><img style="float: left;margin-top: 2px;" src="/images/gongan.png">&nbsp;粤公网安备 44010402001458号</a></p> -->
+            </div>
+        </div>
+        <!-- <div class="footer_right" style="margin-left: 0px;" aria-label="您已进入新媒体矩阵视窗区" altdes="视窗区">
+            <div class="flex-img-box" style="margin-bottom:15px;">
+                <img src="/images/ban_4_hv_jkgd.jpg" alt="" style="width:120px;height:120px;" title="健康广东微信公众号二维码" alt="健康广东微信公众号二维码"/>
+                <img src="/images/ban_3_hv.jpg" alt="" style="width:120px;height:120px;" title="广东省卫生健康委员会网站二维码" alt="广东省卫生健康委员会网站二维码"/>
+            </div>
+            
+            <div class="flex-img-box">
+                <img src="/images/yss_code.png" alt="" style="width:120px;height:120px;" title="粤省事小程序二维码" alt="粤省事小程序二维码"/>
+                <img src="/images/yst_code.jpg" alt="" style="width:120px;height:120px;" title="粤商通APP下载页面" alt="粤商通APP下载页面"/>
+            </div>
+        </div> -->
+        <!-- <div class="footer_jjz">
+            <p style="margin-top: 13px;">中共广东省纪委广东省监委</p>
+            <p>驻省卫生健康委纪检监察组</p>
+            <p>举报电话：020-83853509</p>
+            <p>邮编：510060</p>
+            <p>寄信地址：广州市越秀区先烈南路17号</p>
+        </div> -->
+    </div>
+</div>
+<div class="aside" aria-label="您已进入智能互动视窗区" altdes="视窗区">
+    <div class="aside_1">智能互动</div>
+    <div><a target="_blank" rel="noopener noreferrer" href="http://znhd.gd.gov.cn/site/216" class="show-cus"><img src="/images/side_01.png" alt="QQ" title="QQ" /></a></div>
+    <div style="text-align:center;background:none;"><img src="/images/close.png" style="width:40px;height:40px;vertical-align:top;" alt="关闭" title="关闭" id="close_btn" /></div>
+</div>
+<script>window.NFCMS_SITE_ID=216;window.NFCMS_PUB_TYPE="page";window.NFCMS_PAGE_ID="1710";</script><script src="//statistics.gd.gov.cn/scripts/s.js?t=1791541987" async></script>
+
+<style>
+    .footer_jjz {
+        float: left;
+        margin-left: 15px;
+    }
+    .footer_jjz p {
+        line-height: 24px;
+        color: #5b5b5b;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    .footer .footer_right{
+        width:35%;
+    }
+    .flex-img-box{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .footer .footer_right img{
+        margin-left:16px;
+    }
+    .wsjkw__gd-infoBox{
+        font-size: 14px;
+        height: 200px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+    }
+    .font-size-14 {
+        font-size: 14px;
+    }
+    .foot-qrcode{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .foot-qrcode > span{
+        margin-top: 3px;
+    }
+    .foot-qrcode-box{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .foot-gdBox{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+
+		<script>
+			$("#nav19520").addClass("wrapper1_1");
+		</script>
+	</body>
+</html>

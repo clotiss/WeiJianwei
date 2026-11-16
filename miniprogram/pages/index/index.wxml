@@ -20,7 +20,7 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
 -->
 
 <view class="container">
-  <!-- ===== 顶部栏：搜索框 + 收藏 + 订阅 ===== -->
+  <!-- ===== 顶部栏：搜索框 + 收藏 ===== -->
   <view class="top-bar">
     <!-- 搜索框（点击跳转关键词搜索页） -->
     <view class="search-box" bindtap="goSearch">
@@ -29,8 +29,6 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
     </view>
     <!-- 收藏按钮 -->
     <view class="fav-btn" bindtap="goFavorites">收藏</view>
-    <!-- 订阅消息按钮 -->
-    <view class="fav-btn" bindtap="openSubscribe">订阅</view>
   </view>
 
   <!-- ===== 最近发布时间 ===== -->

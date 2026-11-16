@@ -74,30 +74,7 @@ Page({
       this.fetchCategories();
     }
 
-    // ---- 首次打开引导订阅消息 ----
-    // 检查本地标记，只在用户首次使用时展示
-    const hasShownGuide = wx.getStorageSync('subscription_guide_shown');
-    if (!hasShownGuide) {
-      wx.showModal({
-        title: '开启新文件提醒',
-        content: '每日上午9:00推送昨日新增政策文件，不再错过重要通知',
-        cancelText: '暂不需要',
-        confirmText: '去开启',
-        success: (res) => {
-          if (res.confirm) {
-            // 用户点击"去开启"，请求订阅消息授权
-            // 注意：YOUR_TEMPLATE_ID 需要替换为微信公众平台申请的模板 ID
-            wx.requestSubscribeMessage({
-              tmplIds: ['YOUR_TEMPLATE_ID'],
-              success: () => {},
-              fail: () => wx.showToast({ title: '订阅失败', icon: 'none' })
-            });
-          }
-          // 无论用户是否订阅，都标记"已展示引导"，下次不再弹出
-          wx.setStorageSync('subscription_guide_shown', true);
-        }
-      });
-    }
+    // 提醒授权只由用户主动点击触发，不在首次打开时弹窗。
 
     // 每次显示页面时重新加载数据（确保数据新鲜）
     // 重置为第 1 页，清空现有列表
@@ -211,17 +188,6 @@ Page({
     if (!this.data.hasMore) return;  // 没有更多了就返回
     this.setData({ page: this.data.page + 1 });  // 页码+1
     this.fetchDocuments();                          // 加载下一页
-  },
-
-  /**
-   * 打开订阅消息授权
-   */
-  openSubscribe() {
-    wx.requestSubscribeMessage({
-      tmplIds: ['YOUR_TEMPLATE_ID'],
-      success: () => wx.showToast({ title: '订阅成功', icon: 'success' }),
-      fail: () => wx.showToast({ title: '订阅失败', icon: 'none' })
-    });
   },
 
   // =========================================================================

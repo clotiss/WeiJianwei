@@ -1,2 +1,13 @@
 .superpowers/
 .DS_Store
+
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.runtime/
+evidence/sources/*
+!evidence/sources/manifest.json
+*.pyc
