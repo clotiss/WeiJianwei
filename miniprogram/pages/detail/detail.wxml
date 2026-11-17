@@ -1,25 +1,20 @@
-<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
-  <view wx:if="{{loading}}" class="loading">加载中…</view>
+<view class="detail-content">
+  <view wx:if="{{loading}}" class="page-loading">加载中…</view>
   <view wx:elif="{{loadError}}" class="inline-error" bindtap="fetchDetail">{{errorText}} · 点击重试</view>
   <block wx:else>
-    <view class="title-row"><view class="title">{{doc.title}}</view></view>
-    <view class="meta" wx:if="{{doc.doc_number}}">文号：{{doc.doc_number}}</view>
-    <view class="meta">发布日期：{{doc.publish_date || '未标注'}}</view>
-    <view class="meta">发布机构：{{doc.issuing_authority || '未标注，请以原文为准'}}</view>
-    <view class="meta" wx:if="{{doc.region_name}}">官网来源地区：{{doc.region_name}}</view>
-    <view class="meta">{{doc.category || '待分类'}} · {{doc.doc_type}}</view>
-    <button class="favorite-action" loading="{{favBusy}}" disabled="{{favBusy}}" bindtap="toggleFav">{{favBusy ? '同步中' : (favKnown && isFav ? '★ 已收藏 · 点击取消' : '☆ 收藏文件')}}</button>
+    <view class="detail-kicker"><text wx:if="{{doc.region_name}}" class="tag">{{doc.region_name}}</text><text>{{doc.type_label || doc.doc_type}}</text><text>·</text><text>{{doc.category || '待分类'}}</text></view>
+    <view class="detail-title">{{doc.title}}</view>
+    <view class="detail-meta"><view>{{doc.issuing_authority || '发布机构未标注，请以原文为准'}}</view><view>发布于 {{doc.publish_date || '日期未标注'}}</view><view wx:if="{{doc.doc_number}}">{{doc.doc_number}}</view></view>
+    <view class="source-box"><image class="icon" src="/assets/icons/shield-teal.png"/><view class="source-text"><view>来源有记录 · 阅读有依据</view><view class="source-sub">{{doc.region_name ? '官网来源：' + doc.region_name : '以官网原文为准'}}{{doc.revision ? ' · 内容版本 v' + doc.revision : ''}}</view></view><view class="source-link" wx:if="{{doc.original_url}}" bindtap="openOriginal">查看来源</view></view>
+    <view class="app-tabs"><view class="app-tab {{activeTab === '要点' ? 'active' : ''}}" data-tab="要点" bindtap="selectTab">要点</view><view class="app-tab {{activeTab === '正文' ? 'active' : ''}}" data-tab="正文" bindtap="selectTab">正文</view><view class="app-tab {{activeTab === '附件' ? 'active' : ''}}" data-tab="附件" bindtap="selectTab">附件{{attachments.length ? ' · ' + attachments.length : ''}}</view></view>
+    <block wx:if="{{activeTab === '要点'}}">
+      <view class="summary-box" wx:if="{{summary.length}}"><view class="summary-label"><image class="icon" src="/assets/icons/spark-blue.png"/><text>快速读懂</text><text class="summary-hint">辅助摘要 · 以原文为准</text></view><view class="point" wx:for="{{summary}}" wx:key="index"><text class="point-no">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text><text>{{item}}</text></view></view>
+      <view wx:else class="summary-box"><view class="summary-label">本篇暂未生成要点</view><view class="scope-note">可切换正文，或查看官方来源。</view><button class="app-button secondary" bindtap="showBody">阅读正文</button></view>
+      <view class="detail-section"><view class="section-title">内容记录</view><view class="record-row">{{doc.revision ? '当前内容版本 v' + doc.revision : '已收录内容'}}<text>原始要求请核对官网</text></view></view>
+    </block>
+    <view wx:elif="{{activeTab === '正文'}}" class="body-section"><view class="scope-note">以下为已收录正文，具体要求以官网发布内容为准。</view><text class="article-body {{largeText ? 'large' : ''}}" selectable>{{doc.content || '暂未收录正文，请查看官方来源。'}}</text><button class="app-button secondary reader-link" bindtap="openPlaintext">全屏阅读</button></view>
+    <view wx:else class="detail-section"><view wx:if="{{!attachments.length}}" class="scope-note">本篇未收录附件，可查看官网原文核对。</view><view wx:for="{{attachments}}" wx:key="index" class="attachment" bindtap="openAttachment" data-url="{{item.url}}"><view class="attachment-icon">FILE</view><view class="attachment-info"><view>{{item.name || '附件'}}</view><text>{{item.statusLabel}}</text></view><text class="attachment-link">复制链接</text></view><view wx:if="{{attachments.length}}" class="scope-note">复制官网附件链接后，可在浏览器中打开。</view></view>
     <view wx:if="{{favError}}" class="inline-error" bindtap="retryFavorite">{{favError}}</view>
-    <view class="section" wx:if="{{summary.length}}">
-      <view class="section-title">关键内容</view>
-      <view class="summary-box"><view wx:for="{{summary}}" wx:key="index" class="summary-item"><text class="summary-num">{{index + 1}}</text><text>{{item}}</text></view></view>
-      <view class="scope-note">辅助阅读摘要，具体要求请以官网原文为准</view>
-    </view>
-    <view class="btn-original" bindtap="openPlaintext">阅读已收录正文</view>
-    <view class="btn-original secondary" wx:if="{{doc.original_url}}" bindtap="openOriginal">复制官网原文链接</view>
-    <view class="section" wx:if="{{attachments.length}}">
-      <view class="section-title">附件（{{attachments.length}}）</view>
-      <view wx:for="{{attachments}}" wx:key="index" class="attach-item" bindtap="openAttachment" data-url="{{item.url}}"><view>{{item.name || '附件'}}</view><view class="attachment-note">{{item.statusLabel}} · 复制官网链接</view></view>
-    </view>
   </block>
 </view>
+<view class="detail-actions" wx:if="{{!loading && !loadError}}"><button class="app-button secondary favorite-action" loading="{{favBusy}}" disabled="{{favBusy}}" bindtap="toggleFav"><image class="icon" src="/assets/icons/book-blue.png"/>{{favKnown && isFav ? '已收藏' : '收藏'}}</button><button class="app-button" disabled="{{!doc.original_url}}" bindtap="openOriginal"><image class="icon" src="/assets/icons/link-white.png"/>查看官方来源</button></view>

@@ -1,33 +1,29 @@
-/**
- * ===========================================================================
- * 全局样式 — 小程序级 CSS 变量和基础样式
- * ===========================================================================
- *
- * 本文件定义的 CSS 变量在所有页面和组件中可用：
- *   var(--primary) → 品牌蓝色 #1a6fb5
- *   var(--bg) → 页面背景色 #f5f5f5
- *
- * page 选择器：小程序根元素，设置全局默认样式
- */
+page { --primary:#2269b0; --primary-light:#eaf2f9; --deep:#153e61; --teal:#187c80; --text:#172b3a; --text-secondary:#697b87; --bg:#f7f9fa; --white:#fff; --border:#dfe7e9; font-family:-apple-system,"PingFang SC","Helvetica Neue",sans-serif; font-size:14px; color:var(--text); background:var(--bg); line-height:1.65; }
+view, text, button, input, scroll-view { box-sizing:border-box; }
+button { margin:0; font:inherit; line-height:inherit; }
+button::after { border:0; }
+.app-content { padding:20px 18px 24px; }
+.app-title-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:17px; }
+.app-title { font-size:24px; line-height:1.4; font-weight:650; letter-spacing:-.5px; }
+.icon { width:19px; height:19px; flex-shrink:0; }
+.region-button { display:flex; align-items:center; gap:5px; border-radius:18px; padding:6px 10px; color:#3a637e; background:#edf4f8; font-size:12px; line-height:1.6; }
+.region-button .icon { width:14px; height:14px; }
+.app-tabs { display:flex; gap:24px; border-bottom:1px solid #e1e8eb; margin:0 -18px; padding:0 18px; }
+.app-tab { position:relative; padding:11px 0; color:#7b8a94; font-size:12px; white-space:nowrap; }
+.app-tab.active { color:var(--deep); font-weight:650; }
+.app-tab.active::after { content:''; position:absolute; bottom:-1px; left:3px; right:3px; height:3px; border-radius:3px; background:var(--primary); }
+.app-button { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; border-radius:7px; padding:10px 14px; font-size:12px; font-weight:550; background:var(--primary); color:#fff; }
+.app-button.secondary { background:#edf3f7; color:var(--deep); }
+.list-label { display:flex; justify-content:space-between; align-items:center; gap:10px; color:#86939c; font-size:10px; margin:16px 0 9px; }
+.list-label .label-title { color:#526a78; font-size:11px; font-weight:550; }
+.tag { color:#6b8597; font-size:10px; background:#f1f5f7; padding:2px 5px; border-radius:3px; }
+.inline-error { margin:12px 0; padding:12px; border-radius:7px; background:#faf5eb; color:#986a20; font-size:12px; line-height:1.8; }
+.status-note { margin:12px 0; padding:12px; border-radius:7px; background:#e8f2f2; color:#41696c; font-size:11px; line-height:1.8; }
+.scope-note { font-size:11px; line-height:1.8; color:#697b87; margin-bottom:12px; }
+.page-loading,.load-end { padding:18px 0; color:#9aa7b0; text-align:center; font-size:11px; }
+.empty-state { padding:38px 16px; text-align:center; }
+.empty-state .empty-icon { width:42px; height:42px; margin-bottom:12px; opacity:.8; }
+.empty-state .empty-title { font-size:15px; font-weight:600; color:#3d586a; }
+.empty-state .empty-description { color:#82949f; font-size:12px; line-height:1.9; margin:10px 0 18px; }
 
-/* 全局 CSS 自定义属性（变量） */
-page {
-  --primary: #1a6fb5;           /* 品牌主色（蓝色） */
-  --primary-light: #e8f2fa;     /* 品牌浅色（用于背景） */
-  --text: #333333;              /* 主文字颜色 */
-  --text-secondary: #888888;    /* 次要文字颜色 */
-  --bg: #f5f5f5;                /* 页面背景色 */
-  --white: #ffffff;             /* 白色 */
-  --border: #eeeeee;            /* 边框颜色 */
-
-  /* 全局默认字体和文字大小 */
-  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  background-color: var(--bg);
-}
-
-.inline-error { margin: 12px 0; padding: 14px; border-radius: 8px; background: #fff1ec; color: #984327; font-size: 13px; line-height: 1.6; }
-.status-note { margin: 10px 0; padding: 12px; border-radius: 8px; background: #edf4fa; color: #506c83; font-size: 12px; line-height: 1.7; }
-.scope-note { font-size: 12px; line-height: 1.7; color: #62798b; margin-bottom: 12px; }
-.page-loading { padding: 30px 10px; color: #62798b; text-align: center; }
+button.app-button { min-width:0; max-width:100%; width:100%; }

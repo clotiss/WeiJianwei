@@ -1,4 +1,5 @@
 const api = require('../../utils/api');
+const reading = require('../../utils/reading');
 const storage = require('../../utils/storage'); // V1 only; IDs must never cross databases.
 const swipeBack = require('../../utils/swipe-back');
 function array(value) {
@@ -6,11 +7,11 @@ function array(value) {
 }
 const attachmentStates = {ready:'正文已提取', needs_ocr:'原件已存档，暂未识别文字', pending:'等待收录', download_failed:'附件获取失败', unsupported:'已存档，暂不支持文本提取', external_reference:'官网外部附件链接', embedded:'正文内嵌附件'};
 Page({
-  data:{doc:{}, summary:[], attachments:[], isFav:false, favKnown:false, favBusy:false, favError:'', useV2:false, loading:true, loadError:false, errorText:''},
+  data:{activeTab:'要点',largeText:false,doc:{}, summary:[], attachments:[], isFav:false, favKnown:false, favBusy:false, favError:'', useV2:false, loading:true, loadError:false, errorText:''},
   onLoad(options) {
     swipeBack.initSwipeBack.call(this);
     this.documentId = Number(options.id);
-    this.setData({useV2:api.useV2()});
+    this.setData({useV2:api.useV2(),largeText:reading.large()});
     return this.fetchDetail();
   },
   onShow() { if (this.data.doc.id) return this.refreshFavorite(); },
@@ -26,6 +27,7 @@ Page({
       if (requestId !== this._detailRequest) return;
       this.setData({doc, summary:array(doc.summary),
         attachments:array(doc.attachments).map(item => ({...item, statusLabel:attachmentStates[item.status] || '请查看官网附件'})), loading:false});
+      reading.record(doc);
       return this.refreshFavorite();
     }).catch(error => {
       if (requestId === this._detailRequest) this.setData({loading:false, loadError:true, errorText:api.errorMessage(error)});
@@ -68,6 +70,8 @@ Page({
       this.setData({favBusy:false, favKnown:false, favError:api.errorMessage(error, '未能确认收藏结果，请重试读取状态')});
     });
   },
+  selectTab(e) {this.setData({activeTab:e.currentTarget.dataset.tab});},
+  showBody(){this.setData({activeTab:'正文'});},
   openPlaintext() { wx.navigateTo({url:`/pages/plaintext/plaintext?id=${this.data.doc.id}`}); },
   copyLink(url, title) {
     if (!/^https?:\/\//i.test(url || '')) return;

@@ -1,0 +1,13 @@
+.overlay { position:fixed; inset:0; background:rgba(19,40,55,.3); z-index:1000; display:flex; align-items:flex-end; }
+.sheet { width:100%; background:white; border-radius:18px 18px 0 0; padding:20px 20px calc(20px + env(safe-area-inset-bottom)); }
+.sheet-head { display:flex; align-items:center; justify-content:space-between; font-size:17px; font-weight:600; margin-bottom:12px; }
+.close { padding:7px; } .close image { width:18px; height:18px; display:block; }
+.sheet-body { height:55vh; } .sheet-note { font-size:11px; color:#697b87; line-height:1.8; margin-bottom:15px; }
+.choice-grid { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:16px; }
+.choice { border:1px solid #dfe7eb; border-radius:6px; color:#617785; background:#fff; padding:8px 11px; font-size:12px; text-align:center; }
+.choice.active { background:#e6eff8; border-color:#a9c6db; color:#2269b0; }
+.regions .choice { width:calc((100% - 27px) / 4); padding:8px 2px; }
+.topics .choice { max-width:100%; font-size:11px; }
+.group-title { font-size:12px; font-weight:600; color:#314e61; margin:8px 0 12px; }
+.national { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:#526a78; }
+.sheet-actions { display:flex; gap:10px; margin-top:18px; } .sheet-actions button { flex:1; border-radius:7px; font-size:13px; line-height:1.6; padding:12px; background:#2269b0; color:#fff; margin:0; }.sheet-actions button::after { border:0; }.sheet-actions .secondary { flex:.6; color:#153e61; background:#edf3f7; }

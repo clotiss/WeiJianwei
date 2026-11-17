@@ -129,3 +129,46 @@ def test_national_inventory_distinguishes_registration_from_enabled_coverage():
         recovered=[s for s in result['sources'] if s['region']=='HLJ']
         assert len(recovered)==2 and all(s['status']=='sample_pass' and s['landing_url'].startswith('http://wsjkw.hlj.gov.cn/') and s['scope_note'] for s in recovered)
         assert len(client.get('/api/v2/regions').json())==32
+
+
+def test_policy_date_filter_and_authority_search():
+    from policy_v2.models import Document, Revision
+    import uuid
+    marker = uuid.uuid4().hex
+    with app_module.SessionLocal.begin() as db:
+        for published in ('2026-10-31', '2026-11-01'):
+            doc = Document(source_id='nhc-policy', url=f'https://www.nhc.gov.cn/{marker}/{published}', region='CN', status='ready')
+            db.add(doc); db.flush()
+            rev = Revision(document_id=doc.id, number=1, fingerprint=marker+published,
+                           title='日期筛选测试', body='政策正文', authority=marker,
+                           published=published, kind='policy', search_text='政策正文')
+            db.add(rev); db.flush(); doc.current_revision=rev.id
+    with TestClient(app_module.app) as client:
+        assert client.get('/api/v2/policies', params={'q':marker}).json()['total'] == 2
+        data = client.get('/api/v2/policies', params={'q':marker, 'published_since':'2026-11-01'}).json()
+        assert data['total'] == 1 and data['items'][0]['published'] == '2026-11-01'
+        assert client.get('/api/v2/policies', params={'q':marker, 'published_since':'2026-11-02'}).json()['total'] == 0
+        assert client.get('/api/v2/policies', params={'published_since':'invalid'}).status_code == 422
+
+
+def test_unfollow_cannot_remove_another_accounts_rule(monkeypatch):
+    import uuid
+    marker=uuid.uuid4().hex
+    monkeypatch.setattr(app_module.settings,'wechat_app_id','test-app')
+    monkeypatch.setattr(app_module.settings,'wechat_secret','test-secret')
+    class Response:
+        def __init__(self, code): self.code=code
+        def raise_for_status(self): pass
+        def json(self): return {'openid':marker+self.code}
+    monkeypatch.setattr(app_module.httpx,'get',lambda *args,**kwargs: Response(kwargs['params']['js_code']))
+    with TestClient(app_module.app) as client:
+        def login(code):
+            return {'Authorization':'Bearer '+client.post('/api/v2/auth/wechat',json={'code':code}).json()['access_token']}
+        owner, other = login('owner'), login('other')
+        rule=client.post('/api/v2/me/follows',headers=owner,json={'region':'GD','topic':'','include_national':False}).json()
+        endpoint=f"/api/v2/me/follows/{rule['id']}"
+        assert client.delete(endpoint).status_code == 401
+        assert client.delete(endpoint,headers=other).status_code == 404
+        assert len(client.get('/api/v2/me/follows',headers=owner).json()) == 1
+        assert client.delete(endpoint,headers=owner).json()['followed'] is False
+        assert client.get('/api/v2/me/follows',headers=owner).json() == []

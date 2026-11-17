@@ -1,6 +1,7 @@
 const regions = require('../config/regions');
 const V2_TYPES = { '规范性文件': 'policy', '政策解读': 'interpretation' };
 const loginFlights = new Map();
+const favoritesFlights = new Map();
 const globalData = () => getApp().globalData;
 const useV2 = () => !!globalData().USE_POLICY_V2;
 const sessionKey = () => 'policy_v2_session:' + (globalData().environment || 'default') + ':' + globalData().API_V2_BASE;
@@ -55,6 +56,7 @@ function documentShape(item) {
   const summary = (Array.isArray(item.summary) ? item.summary : [])
     .map(point => typeof point === 'string' ? point : (point.text || '')).filter(Boolean);
   return { id:item.id, title:item.title, region:item.region || '', region_name:regions[item.region] || item.region || '',
+    summary_text:summary[0] || '', type_label:item.type === 'interpretation' ? '官方解读' : item.type === 'policy' ? '政策正文' : '其他',
     doc_number:item.document_number || '', issuing_authority:item.authority || '', publish_date:item.published || '',
     category:item.topic || '', doc_type:item.type === 'interpretation' ? '政策解读' : item.type === 'policy' ? '规范性文件' : '其他',
     original_url:item.original_url || '', content:item.body || '', revision:item.revision,
@@ -65,7 +67,7 @@ function policyParams(params = {}) {
   const size = Math.min(100, Math.max(1, Number(params.page_size) || 20));
   return { q:params.q || '', region:params.region || '', include_national:params.include_national !== false,
     topic:params.category === '全部' ? '' : (params.category || ''),
-    content_type:V2_TYPES[params.doc_type] || '', limit:size, offset:(page - 1) * size };
+    published_since:params.published_since || '', content_type:V2_TYPES[params.doc_type] || '', limit:size, offset:(page - 1) * size };
 }
 function policyList(params) {
   const filters = policyParams(params);
@@ -76,7 +78,7 @@ function policyList(params) {
 }
 function errorMessage(error, fallback = '加载失败，请重试') {
   if (error && error.code === 'endpoint_not_configured') return '体验服务尚未配置';
-  if (error && error.data && error.data.detail === 'wechat_login_not_configured') return '账号收藏暂未开放，请稍后重试';
+  if (error && error.data && error.data.detail === 'wechat_login_not_configured') return '账号同步暂未开放，请稍后重试';
   if (error && error.statusCode === 401) return '微信登录失效，请重试';
   if (error && error.statusCode === 404) return '内容或服务暂不可用';
   return fallback;
@@ -95,10 +97,15 @@ module.exports = {
   getRegions() { return requestV2('/regions'); },
   getCoverage() { return requestV2('/coverage'); },
   getSourceInventory() { return requestV2('/source-inventory'); },
-  getV2Favorites() { return authorized('/me/favorites').then(items => items.map(documentShape)); },
+  getV2Favorites() {
+    const key=sessionKey();
+    if (!favoritesFlights.has(key)) favoritesFlights.set(key,authorized('/me/favorites').then(items => items.map(documentShape)).finally(() => favoritesFlights.delete(key)));
+    return favoritesFlights.get(key);
+  },
   addV2Favorite(id) { return authorized(`/me/favorites/${id}`, {method:'PUT'}); },
   removeV2Favorite(id) { return authorized(`/me/favorites/${id}`, {method:'DELETE'}); },
   syncV2Favorite(id, favorited) { return authorized(`/me/favorites/${id}`, {method:favorited ? 'PUT' : 'DELETE'}); },
+  removeV2Follow(id) { return authorized(`/me/follows/${id}`, {method:'DELETE'}); },
   getV2Follows() { return authorized('/me/follows'); },
   addV2Follow(rule) { return authorized('/me/follows', {method:'POST', data:rule}); },
   agentSearch(query, session_id) {

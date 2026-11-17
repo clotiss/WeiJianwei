@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "filter-sheet": "/components/filter-sheet/filter-sheet",
+    "file-card": "/components/file-card/file-card"
+  },
+  "enablePullDownRefresh": true
+}

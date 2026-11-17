@@ -7,15 +7,43 @@
     "pages/agent/agent",
     "pages/favorites/favorites",
     "pages/plaintext/plaintext",
-    "pages/coverage/coverage"
+    "pages/coverage/coverage",
+    "pages/follow/follow",
+    "pages/mine/mine"
   ],
   "window": {
-    "navigationBarTitleText": "卫健委政策速查",
-    "navigationBarBackgroundColor": "#1a6fb5",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#f5f5f5"
+    "navigationBarTitleText": "卫健政策速查",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f9fa"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#8a9aa5",
+    "selectedColor": "#2269b0",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "政策",
+        "iconPath": "assets/icons/policy-muted.png",
+        "selectedIconPath": "assets/icons/policy-blue.png"
+      },
+      {
+        "pagePath": "pages/follow/follow",
+        "text": "关注",
+        "iconPath": "assets/icons/bell-muted.png",
+        "selectedIconPath": "assets/icons/bell-blue.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/icons/user-muted.png",
+        "selectedIconPath": "assets/icons/user-blue.png"
+      }
+    ]
+  }
 }

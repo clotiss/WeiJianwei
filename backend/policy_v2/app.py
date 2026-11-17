@@ -2,7 +2,7 @@
 import secrets
 import hashlib
 import time
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 import httpx
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query
@@ -125,6 +125,16 @@ def add_follow(rule: FollowRule, user_id: int = Depends(current_user)):
         return {"id":match.id,"region":match.region,"topic":match.topic,"include_national":match.include_national}
 
 
+@app.delete("/api/v2/me/follows/{follow_id}")
+def remove_follow(follow_id: int, user_id: int = Depends(current_user)):
+    with SessionLocal.begin() as db:
+        rule = db.get(Follow, follow_id)
+        if not rule or rule.user_id != user_id:
+            raise HTTPException(404, "follow_not_found")
+        db.delete(rule)
+        return {"id": follow_id, "followed": False}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "recruitment_enabled": settings.recruitment_enabled}
@@ -162,16 +172,17 @@ def coverage():
 
 @app.get("/api/v2/policies")
 def policies(q: str = "", region: str = "", include_national: bool = True,
-             topic: str = "", content_type: str = "", limit: int = Query(20, ge=1, le=100), offset: int = Query(0, ge=0)):
+             topic: str = "", content_type: str = "", published_since: date | None = None, limit: int = Query(20, ge=1, le=100), offset: int = Query(0, ge=0)):
     with SessionLocal() as db:
         stmt = select(Document, Revision).join(Revision, Revision.id == Document.current_revision).where(Document.status == "ready")
         if region:
             stmt = stmt.where(Document.region.in_([region, "CN"] if include_national else [region]))
         if topic: stmt = stmt.where(Revision.topic == topic)
         if content_type: stmt = stmt.where(Revision.kind == content_type)
+        if published_since: stmt = stmt.where(Revision.published >= published_since.isoformat())
         if q:
             pattern = f"%{q[:100]}%"
-            stmt = stmt.where(or_(Revision.title.ilike(pattern), Revision.search_text.ilike(pattern), Revision.doc_number.ilike(pattern)))
+            stmt = stmt.where(or_(Revision.title.ilike(pattern), Revision.search_text.ilike(pattern), Revision.doc_number.ilike(pattern), Revision.authority.ilike(pattern)))
         total = db.scalar(select(func.count()).select_from(stmt.subquery())) or 0
         source_stmt = select(Source)
         if region:

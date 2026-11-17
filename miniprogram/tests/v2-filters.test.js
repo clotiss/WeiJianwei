@@ -7,7 +7,7 @@ global.wx = {getStorageSync() {}, request(options) {
 }};
 const api = require('../utils/api');
 (async () => {
-  const filters = {q:'医保', region:'GD', include_national:false, category:'医疗服务与质量安全', doc_type:'政策解读', page:2};
+  const filters = {q:'医保', region:'GD', include_national:false, category:'医疗服务与质量安全', doc_type:'政策解读', page:2, published_since:'2026-11-01'};
   const list = await api.getDocuments(filters);
   let query = new URL(calls.at(-1).url).searchParams;
   assert.equal(query.get('include_national'), 'false', '关闭国家级内容后必须传给后端');
@@ -18,5 +18,7 @@ const api = require('../utils/api');
   assert.equal(query.get('include_national'), 'false');
   assert.equal(query.get('content_type'), 'interpretation');
   assert.equal(query.get('offset'), '20');
+  assert.equal(query.get('published_since'),'2026-11-01');
+  assert.ok(require('../utils/filters').label(filters).includes('2026-11-01 起'));
   console.log('V2 filter propagation passed');
 })().catch(error => { console.error(error); process.exitCode=1; });

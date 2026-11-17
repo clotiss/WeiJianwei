@@ -1,8 +1,9 @@
 const api = require('../../utils/api');
+const reading = require('../../utils/reading');
 const swipeBack = require('../../utils/swipe-back');
 Page({
-  data:{title:'', content:'', loading:true, loadError:false, errorText:''},
-  onLoad(options) { swipeBack.initSwipeBack.call(this); this.documentId = Number(options.id); return this.fetchContent(); },
+  data:{largeText:false,title:'', content:'', loading:true, loadError:false, errorText:''},
+  onLoad(options) { this.setData({largeText:reading.large()}); swipeBack.initSwipeBack.call(this); this.documentId = Number(options.id); return this.fetchContent(); },
   onUnload() { this._request++; },
   fetchContent() {
     const id = this._request = (this._request || 0) + 1;

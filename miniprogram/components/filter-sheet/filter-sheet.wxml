@@ -1,0 +1,18 @@
+<view wx:if="{{show}}" class="overlay" catchtap="close" catchtouchmove="noop">
+  <view class="sheet" catchtap="noop">
+    <view class="sheet-head"><text>{{mode === 'region' ? '选择关注地区' : '筛选政策'}}</text><view class="close" bindtap="close"><image src="/assets/icons/close-muted.png" /></view></view>
+    <scroll-view scroll-y class="sheet-body">
+      <block wx:if="{{mode === 'region'}}">
+        <view class="sheet-note">按官网来源地区查找，文件适用范围请以原文为准。</view>
+        <view class="choice-grid regions"><view wx:for="{{regions}}" wx:key="code" class="choice {{draft.region === item.code ? 'active' : ''}}" data-key="region" data-value="{{item.code}}" bindtap="choose">{{item.name}}</view></view>
+        <view class="national"><text>同时包含国家级文件</text><switch color="#2269b0" checked="{{draft.include_national}}" bindchange="national" disabled="{{!draft.region || draft.region === 'CN'}}" /></view>
+      </block>
+      <block wx:else>
+        <view class="group-title">内容类型</view><view class="choice-grid"><view wx:for="{{types}}" wx:key="value" class="choice {{draft.doc_type === item.value ? 'active' : ''}}" data-key="doc_type" data-value="{{item.value}}" bindtap="choose">{{item.label}}</view></view>
+        <view class="group-title">业务主题</view><view class="choice-grid topics"><view wx:for="{{categories}}" wx:key="*this" class="choice {{draft.category === item ? 'active' : ''}}" data-key="category" data-value="{{item}}" bindtap="choose">{{item === '全部' ? '全部主题' : item}}</view></view>
+        <view class="group-title">发布时间</view><view class="choice-grid"><view wx:for="{{dates}}" wx:key="value" class="choice {{draft.days === item.value ? 'active' : ''}}" data-key="days" data-value="{{item.value}}" bindtap="choose">{{item.label}}</view></view>
+      </block>
+    </scroll-view>
+    <view class="sheet-actions"><button wx:if="{{mode !== 'region'}}" class="secondary" bindtap="reset">重置</button><button bindtap="apply">{{mode === 'region' ? '查看此地区' : '应用筛选'}}</button></view>
+  </view>
+</view>

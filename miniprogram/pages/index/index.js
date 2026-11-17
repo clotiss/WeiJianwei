@@ -3,27 +3,25 @@ const filters = require('../../utils/filters');
 
 Page({
   data: {
-    useV2:false, categories:[], categoryRow1:[], categoryRow2:[], categoriesError:false,
+    sheetOpen:false, sheetMode:'region', sheetValue:{}, days:0, filterCount:0, quickTopics:[], useV2:false, categories:[], categoryRow1:[], categoryRow2:[], categoriesError:false,
     regions:[{code:'', name:'全国'}], regionIndex:0, activeRegion:'', includeNational:true,
     regionsLoading:false, regionsError:false,
     docTypes:['全部类型', '规范性文件', '政策解读'], activeCategory:'全部', activeType:'全部类型',
     documents:[], total:0, page:1, hasMore:true, loading:true, loadError:false, errorText:'',
-    collectionUpdate:'', updateNotice:'', latestUpdate:'',
+    collectionShort:'', collectionUpdate:'', updateNotice:'', latestUpdate:'',
     showChat:false, floatBtnX:0, floatBtnY:0, floatBtnMoving:false
   },
   onLoad() {
     this.setData({useV2:api.useV2()});
     if (this.data.useV2) this.fetchRegions();
-    else {
-      const sys = wx.getSystemInfoSync();
-      this.setData({floatBtnX:sys.windowWidth - 72, floatBtnY:sys.windowHeight - 176});
-    }
+
   },
   onShow() {
     if (!this.data.categories.length) this.fetchCategories();
-    this.fetchDocuments({reset:true});
-    this.fetchLatestUpdate();
+    if (this.selectAllComponents) this.selectAllComponents('file-card').forEach(card => card.refreshFavorite());
+    if (!this._loaded) { this._loaded=true; this.fetchDocuments({reset:true}); this.fetchLatestUpdate(); }
   },
+  onHide() { if(this.data.sheetOpen)this.closeSheet(); },
   onUnload() { this._listRequest++; this._latestRequest++; },
   onPullDownRefresh() {
     return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate(),
@@ -32,7 +30,7 @@ Page({
   },
   currentFilters() {
     return {region:this.data.activeRegion, include_national:this.data.includeNational,
-      category:this.data.activeCategory, doc_type:this.data.activeType};
+      category:this.data.activeCategory, doc_type:this.data.activeType, published_since:filters.since(this.data.days)};
   },
   fetchRegions() {
     this.setData({regionsLoading:true, regionsError:false});
@@ -45,7 +43,7 @@ Page({
     return api.getCategories().then(res => {
       const all = ['全部', ...(res.categories || [])];
       const mid = Math.ceil(all.length / 2);
-      this.setData({categories:all, categoryRow1:all.slice(0, mid), categoryRow2:all.slice(mid), categoriesError:false});
+      this.setData({categories:all, categoryRow1:all.slice(0, mid), categoryRow2:all.slice(mid), quickTopics:all.filter(item => item === '全部' || item === '医疗服务与质量安全' || item === '妇幼健康与人口发展').map(item => ({value:item,label:item === '全部' ? '全部主题' : item === '医疗服务与质量安全' ? '医疗服务' : '妇幼健康'})), categoriesError:false});
     }).catch(() => this.setData({categoriesError:true}));
   },
   fetchDocuments({reset = false, nextPage} = {}) {
@@ -59,7 +57,7 @@ Page({
       const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
       const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
       this.setData({documents:docs, total:res.total, page, hasMore:docs.length < res.total && res.items.length > 0,
-        loading:false, collectionUpdate:stamp,
+        loading:false, collectionUpdate:stamp, collectionShort:stamp.slice(5),
         updateNotice:freshness.unavailable_sources ? '部分来源更新暂时失败，已收录内容仍可阅读' : ''});
     }).catch(error => {
       if (requestId !== this._listRequest) return;
@@ -76,9 +74,21 @@ Page({
     }).catch(() => {});
   },
   resetFilters(patch) {
-    this.setData({...patch, page:1, documents:[], total:0, latestUpdate:'', collectionUpdate:'', updateNotice:''});
+    const next={...this.data,...patch};
+    this.setData({...patch, filterCount:(next.activeCategory !== '全部' ? 1 : 0)+(next.activeType !== '全部类型' ? 1 : 0)+(next.days ? 1 : 0), page:1, documents:[], total:0, latestUpdate:'', collectionShort:'', collectionUpdate:'', updateNotice:''});
     return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate()]);
   },
+  openRegion() { this.openSheet('region'); },
+  openFilters() { this.openSheet('filter'); },
+  openSheet(mode) { wx.hideTabBar({animation:false}); this.setData({sheetOpen:true, sheetMode:mode, sheetValue:{...this.currentFilters(),days:this.data.days}}); },
+  closeSheet() { this.setData({sheetOpen:false}); wx.showTabBar({animation:false}); },
+  applySheet(e) {
+    const value=e.detail, index=this.data.regions.findIndex(item => item.code === value.region);
+    this.closeSheet();
+    return this.resetFilters({activeRegion:value.region,regionIndex:Math.max(0,index),includeNational:value.include_national,activeCategory:value.category,activeType:value.doc_type,days:value.days,filterCount:(value.category !== '全部' ? 1 : 0)+(value.doc_type !== '全部类型' ? 1 : 0)+(value.days ? 1 : 0)});
+  },
+  clearFilters() {return this.resetFilters({activeCategory:'全部',activeType:'全部类型',days:0,filterCount:0});},
+  goFollow() { wx.switchTab({url:'/pages/follow/follow'}); },
   onRegionChange(e) {
     const index = Number(e.detail.value), region = this.data.regions[index];
     if (region) return this.resetFilters({regionIndex:index, activeRegion:region.code});

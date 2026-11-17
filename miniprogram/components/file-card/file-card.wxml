@@ -1,6 +1,8 @@
-<view class="file-card" bindtap="onTap">
-  <view class="badges" wx:if="{{doc.region_name}}"><text class="region">{{doc.region_name}}</text><text class="kind">{{doc.doc_type}}</text></view>
-  <view class="title">{{doc.title}}</view>
-  <view class="authority" wx:if="{{doc.issuing_authority}}">{{doc.issuing_authority}}</view>
-  <view class="meta"><text wx:if="{{doc.doc_number}}">{{doc.doc_number}} · </text><text>{{doc.publish_date || '日期未标注'}}</text></view>
+<view class="policy-card">
+  <view class="card-open file-card" bindtap="onTap">
+    <view class="card-meta"><text wx:if="{{doc.region_name}}" class="region-label">{{doc.region_name}}</text><text class="authority">{{doc.issuing_authority || '发布机构见原文'}}</text><text class="type">{{typeLabel}}</text></view>
+    <view class="card-title">{{doc.title}}</view>
+    <view class="card-summary" wx:if="{{summaryText}}">{{summaryText}}</view>
+  </view>
+  <view class="card-footer"><text class="tag">{{doc.category || '待分类'}}</text><text class="date">{{doc.publish_date || '日期未标注'}}</text><button class="bookmark" loading="{{busy}}" disabled="{{busy}}" bindtap="toggleFavorite" aria-label="{{isSaved ? '取消收藏' : '收藏'}}"><image wx:if="{{!busy}}" src="{{isSaved ? '/assets/icons/book-blue.png' : '/assets/icons/book-muted.png'}}"/></button></view>
 </view>

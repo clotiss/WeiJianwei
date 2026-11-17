@@ -1,5 +1,5 @@
 <view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
   <view wx:if="{{loading}}" class="page-loading">加载正文中…</view>
   <view wx:elif="{{loadError}}" class="inline-error" bindtap="fetchContent">{{errorText}} · 点击重试</view>
-  <block wx:else><view class="title">{{title}}</view><text class="content" selectable>{{content}}</text></block>
+  <block wx:else><view class="title">{{title}}</view><text class="content {{largeText ? 'large' : ''}}" selectable>{{content}}</text></block>
 </view>

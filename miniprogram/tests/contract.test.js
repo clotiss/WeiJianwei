@@ -44,6 +44,11 @@ function page(name) {
   const search=page('search'); search.onLoad({region:'GD',include_national:'false',doc_type:'规范性文件'});
   search.onInput({detail:{value:'医疗正文'}}); await search.onSearch();
   assert.equal(search.data.total,1); const id=search.data.results[0].id;
+  const accountRule=await api.addV2Follow({region:'GD',topic:'',include_national:false});
+  assert.equal((await api.getV2Follows()).length,1);
+  await api.removeV2Follow(accountRule.id); assert.equal((await api.getV2Follows()).length,0);
+  assert.equal((await api.searchDocuments({q:'GD发布机构'})).total,1);
+  assert.equal((await api.getDocuments({published_since:'2026-11-18'})).total,0);
   const detail=page('detail'); await detail.onLoad({id:String(id)});
   assert.equal(detail.data.doc.doc_number,'GD-1'); assert.equal(detail.data.summary[0],'医疗摘要');
   assert.equal(detail.data.attachments[0].statusLabel,'正文已提取');

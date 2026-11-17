@@ -23,3 +23,5 @@
   white-space: pre-wrap;    /* 保留换行符和空格，但允许自动换行 */
   word-break: break-all;    /* 超长单词/URL 强制换行 */
 }
+
+.content.large { font-size:19px; }

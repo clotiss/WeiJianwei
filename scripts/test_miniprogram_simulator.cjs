@@ -22,7 +22,8 @@ async function until(read, predicate, label) {
   const loaded = page => until(() => page.data(), data => data.loading === false, 'page data');
   const element = (page, selector) => until(() => page.$(selector), Boolean, selector);
   try {
-    let home = await mini.reLaunch('/pages/index/index');
+    await mini.switchTab('/pages/index/index');
+    let home = await current('pages/index/index');
     let data = await loaded(home);
     assert.equal(data.useV2,true); assert.equal(data.loadError,false);
     assert.ok(await element(home,'.search-box'), 'search UI must render');
@@ -51,11 +52,11 @@ async function until(read, predicate, label) {
     const body=await current('pages/plaintext/plaintext'); data=await loaded(body);
     assert.equal(data.loadError,false); assert.ok(data.content.length > 20);
     console.log('Detail and body passed');
-    await mini.reLaunch('/pages/index/index'); home=await current('pages/index/index'); await loaded(home);
+    await mini.switchTab('/pages/index/index'); home=await current('pages/index/index'); await loaded(home);
     await home.callMethod('goCoverage');
     const coverage=await current('pages/coverage/coverage'); data=await loaded(coverage);
     assert.equal(data.loadError,false); assert.equal(data.provinceCount,31); assert.equal(data.sources.length,64);
-    home=await mini.reLaunch('/pages/index/index'); data=await loaded(home);
+    await mini.switchTab('/pages/index/index'); home=await current('pages/index/index'); data=await loaded(home);
     assert.deepEqual(errors,[], 'no runtime exceptions during user flows');
     const screenshot=path.resolve(__dirname,'../.runtime/miniprogram-home-verified.png');
     await mini.screenshot({path:screenshot});

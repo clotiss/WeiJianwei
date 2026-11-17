@@ -2,6 +2,8 @@
   "usingComponents": {
     "file-card": "/components/file-card/file-card",
     "skeleton": "/components/skeleton/skeleton",
-    "agent-chat": "/components/agent-chat/agent-chat"
-  }
+    "agent-chat": "/components/agent-chat/agent-chat",
+    "filter-sheet": "/components/filter-sheet/filter-sheet"
+  },
+  "enablePullDownRefresh": true
 }

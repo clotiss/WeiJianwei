@@ -1,48 +1,30 @@
-/**
- * ===========================================================================
- * file-card 组件 — 文件列表卡片
- * ===========================================================================
- *
- * 这是一个可复用的自定义组件，用于在多个页面中展示文件条目。
- *
- * 组件（Component）vs 页面（Page）：
- * - 页面：完整的应用页面，有自己的路由
- * - 组件：可被多个页面引用的 UI 单元，通过 properties 接收数据
- *
- * 使用方式（在父页面 json 中注册后）：
- *   <file-card wx:for="{{documents}}" doc="{{item}}" />
- *
- * 使用场景：
- * - 首页文件列表
- * - 搜索结果列表
- * - 分类列表页
- * - 收藏列表页
- */
-
+const api=require('../../utils/api');
+const storage=require('../../utils/storage');
 Component({
-  /**
-   * properties — 组件对外暴露的属性（父页面传入的数据）
-   * doc: 文件信息对象 {id, title, doc_number, publish_date, ...}
-   */
-  properties: {
-    doc: {
-      type: Object,   // 数据类型
-      value: {}       // 默认值
-    }
-  },
-
-  /**
-   * methods — 组件的方法
-   */
-  methods: {
-    /**
-     * 卡片点击事件 → 跳转到文件详情页
-     * 通过 this.properties.doc 获取传入的文件数据
-     */
-    onTap() {
-      wx.navigateTo({
-        url: `/pages/detail/detail?id=${this.properties.doc.id}`
-      });
+  properties:{doc:{type:Object,value:{}}},
+  data:{summaryText:'',typeLabel:'',isSaved:false,known:false,busy:false},
+  observers:{doc(doc) {
+    let points=[];try {points=JSON.parse(doc.summary || '[]');} catch (_) {}
+    this.setData({summaryText:doc.summary_text || points[0] || '',typeLabel:doc.type_label || (doc.doc_type==='政策解读'?'官方解读':'政策正文')});
+    this.refreshFavorite();
+  }},
+  methods:{
+    onTap(){wx.navigateTo({url:`/pages/detail/detail?id=${this.properties.doc.id}`});},
+    refreshFavorite(){
+      if(!this.properties.doc.id)return;
+      if(!api.useV2()){this.setData({isSaved:storage.isFavorited(this.properties.doc.id),known:true});return;}
+      if(!api.hasV2Session())return;
+      const id=this.properties.doc.id, requestId=this._favoriteRead=(this._favoriteRead || 0)+1;
+      api.getV2Favorites().then(items=>{if(this.properties.doc.id===id && this._favoriteRead===requestId)this.setData({isSaved:items.some(item=>item.id===id),known:true});}).catch(()=>{});
+    },
+    toggleFavorite(){
+      if(this.data.busy)return;
+      this._favoriteRead=(this._favoriteRead || 0)+1;
+      if(!api.useV2()){this.setData({isSaved:storage.toggleFavorite(this.properties.doc),known:true});return;}
+      const next=this.data.known?!this.data.isSaved:true;
+      this.setData({busy:true});
+      return api.syncV2Favorite(this.properties.doc.id,next).then(()=>{this.setData({isSaved:next,known:true,busy:false});wx.showToast({title:next?'已收藏':'已取消收藏',icon:'none'});})
+        .catch(error=>{this.setData({busy:false,known:false});wx.showToast({title:api.errorMessage(error,'收藏同步失败，请重试'),icon:'none'});});
     }
   }
 });
