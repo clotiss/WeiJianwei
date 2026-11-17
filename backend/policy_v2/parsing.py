@@ -52,8 +52,10 @@ def parse_detail(data,url,item,source):
         body_el=soup('<div></div>').div
     embedded=[canonical(urljoin(url,e.get('src') or e.get('data') or '')) for e in body_el.select('iframe[src],embed[src],object[data]')]
     media=[]
-    for element in body_el.select('video,audio,source,iframe[durl]'):
+    for element in body_el.select('video,audio,source,iframe[durl],iframe[src]'):
         href=element.get('durl') or element.get('src')
+        if element.name == 'iframe' and not element.get('durl') and not re.search(r'\.(mp4|webm|m3u8|mp3|m4a|wav)(?:$|[?#])', href or '', re.I):
+            continue
         if href:
             media.append({'name':element.get('name') or '音视频原文','url':canonical(urljoin(url,href)),
                           'status':'needs_transcription','media':True})

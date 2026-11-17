@@ -22,12 +22,12 @@ async function until(read,test,label){const end=Date.now()+15000;while(Date.now(
   data=await until(()=>home.data(),d=>d.days===7&&!d.loading&&!d.sheetOpen,'date filter applied');assert.equal(data.loadError,false);assert.equal(data.filterCount,1);
   const since=new Date();since.setDate(since.getDate()-7);const cutoff=since.toISOString().slice(0,10);assert.ok(data.documents.every(item=>item.publish_date>=cutoff));
   await home.callMethod('clearFilters');await loaded(home);
-  await home.callMethod('onRegionChange',{detail:{value:'0'}});data=await until(()=>home.data(),d=>d.activeRegion===''&&!d.loading,'all regions restored');
+  await home.callMethod('onRegionChange',{detail:{value:'0'}});data=await until(()=>home.data(),d=>d.activeRegion==='CN'&&!d.loading,'national region restored');
   assert.ok(data.documents.length);const id=data.documents[0].id;
   await mini.navigateTo('/pages/detail/detail?id='+id);let detail=await current('pages/detail/detail');await loaded(detail);await element(detail,'.detail-actions');await shot('prototype-detail-actual');
   await detail.callMethod('selectTab',{currentTarget:{dataset:{tab:'正文'}}});const body=await element(detail,'.article-body');assert.ok((await body.text()).length>20);
   await detail.callMethod('selectTab',{currentTarget:{dataset:{tab:'附件'}}});assert.equal(await detail.data('activeTab'),'附件');
-  await mini.switchTab('/pages/follow/follow');const follow=await current('pages/follow/follow');await element(follow,'.add-group');await until(()=>follow.data(),d=>d.regions.length===33,'follow dictionaries');await shot('prototype-follow-actual');
+  await mini.switchTab('/pages/follow/follow');const follow=await current('pages/follow/follow');await element(follow,'.add-group');await until(()=>follow.data(),d=>d.regions.length===32,'follow dictionaries');await shot('prototype-follow-actual');
   await mini.switchTab('/pages/mine/mine');const mine=await current('pages/mine/mine');await element(mine,'.profile-head');const original=await mine.data('largeText');assert.ok((await mine.data('historyCount'))>0);
   await mine.callMethod('changeReading',{detail:{value:true}});await shot('prototype-mine-actual');
   await mini.navigateTo('/pages/detail/detail?id='+id);detail=await current('pages/detail/detail');await loaded(detail);assert.equal(await detail.data('largeText'),true);

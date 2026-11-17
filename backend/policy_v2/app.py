@@ -15,12 +15,14 @@ from .settings import REGIONS, TOPICS, Settings
 from .sources import seed
 from .source_health import cooldown_until
 from .rounds import summary as round_summary, refresh_source
+from .coverage import collection_status, scope_status
+from .text_encoding import UTF8JSONResponse
 
 settings = Settings()
 engine, SessionLocal = database(settings.database_url)
 Base.metadata.create_all(engine)
 seed(SessionLocal)
-app = FastAPI(title="WeiJianwei Policy API", version="2.0.0")
+app = FastAPI(title="WeiJianwei Policy API", version="2.0.0", default_response_class=UTF8JSONResponse)
 
 
 class ClassificationReview(BaseModel):
@@ -162,12 +164,7 @@ def topics():
 def coverage():
     with SessionLocal() as db:
         rows = db.scalars(select(Source).order_by(Source.region, Source.name, Source.kind)).all()
-        return [{"id": s.id, "name": s.name, "region": s.region, "kind": s.kind,
-                 "enabled": s.enabled, "last_success": s.last_success,
-                 "cooldown_until": cooldown_until(s),
-                 "collection_run": round_summary(db,s.id),
-                 "status": "paused" if not s.enabled else ("cooling_down" if cooldown_until(s) > time.time() else ("error" if s.last_error else "active"))}
-                for s in rows]
+        return [collection_status(db, s) for s in rows]
 
 
 @app.get("/api/v2/policies")
@@ -198,7 +195,8 @@ def policies(q: str = "", region: str = "", include_national: bool = True,
         return {"items": [{"id": d.id, "title": r.title, "region": d.region, "authority": r.authority, "original_url": d.url,
                            "published": r.published, "type": r.kind, "topic": r.topic,
                            "summary": r.summary, "attachments": r.attachments} for d, r in rows],
-                "limit": limit, "offset": offset, "total": total, "freshness": freshness}
+                "limit": limit, "offset": offset, "total": total, "freshness": freshness,
+                "scope": scope_status(db, region, content_type, total, bool(q or topic or content_type or published_since))}
 
 
 @app.get("/api/v2/policies/{document_id}")

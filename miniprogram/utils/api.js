@@ -65,7 +65,7 @@ function documentShape(item) {
 function policyParams(params = {}) {
   const page = Math.max(1, Number(params.page) || 1);
   const size = Math.min(100, Math.max(1, Number(params.page_size) || 20));
-  return { q:params.q || '', region:params.region || '', include_national:params.include_national !== false,
+  return { q:params.q || '', region:params.region === undefined ? 'CN' : params.region, include_national:params.include_national !== false,
     topic:params.category === '全部' ? '' : (params.category || ''),
     published_since:params.published_since || '', content_type:V2_TYPES[params.doc_type] || '', limit:size, offset:(page - 1) * size };
 }
@@ -73,7 +73,7 @@ function policyList(params) {
   const filters = policyParams(params);
   return requestV2('/policies', {params:filters}).then(res => ({
     items:(res.items || []).map(documentShape), total:res.total || 0,
-    page:filters.offset / filters.limit + 1, page_size:filters.limit, freshness:res.freshness || null
+    page:filters.offset / filters.limit + 1, page_size:filters.limit, freshness:res.freshness || null, contentStatus:res.scope || null
   }));
 }
 function errorMessage(error, fallback = '加载失败，请重试') {

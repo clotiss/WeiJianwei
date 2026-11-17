@@ -3,7 +3,7 @@ const filters = require('../../utils/filters');
 const lists = require('../../utils/paged-list');
 const swipeBack = require('../../utils/swipe-back');
 Page({
-  data:{keyword:'', query:'', filters:{}, scope:'', results:[], total:0, page:1, hasMore:false, searched:false, loading:false, loadError:false, errorText:''},
+  data:{contentStatus:{},keyword:'', query:'', filters:{}, scope:'', results:[], total:0, page:1, hasMore:false, searched:false, loading:false, loadError:false, errorText:''},
   onLoad(options) {
     swipeBack.initSwipeBack.call(this);
     const value = filters.fromRoute(options);

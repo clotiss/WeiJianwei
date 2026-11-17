@@ -37,6 +37,14 @@ function page(name) {
   const regions=await api.getRegions(); assert.equal(regions.length,32);
   assert.equal(regions.find(item=>item.code==='GD').name,'广东');
   const home=page('index'); home.onLoad();
+  assert.equal(home.data.activeRegion,'CN');
+  const national=await api.getDocuments({});assert.ok(national.items.length && national.items.every(item=>item.region==='CN'));
+  const blocked=await api.getDocuments({region:'HE',include_national:false});assert.equal(blocked.contentStatus.state,'not_connected');
+  await home.fetchRegions();assert.equal(home.data.regions.length,32);assert.ok(home.data.regions.every(item=>item.code));
+  await home.resetFilters({activeRegion:'HE',includeNational:false});
+  assert.equal(home.data.documents.length,0);assert.equal(home.data.contentStatus.state,'not_connected');
+  await home.resetFilters({activeRegion:'CN',activeCategory:'不存在的主题'});
+  assert.equal(home.data.contentStatus.state,'no_matches');
   await home.resetFilters({activeRegion:'GD',includeNational:false,activeCategory:'医疗服务与质量安全'});
   assert.equal(home.data.documents.length,1); assert.equal(home.data.documents[0].region_name,'广东');
   await home.onNationalChange({detail:{value:true}});
@@ -47,7 +55,7 @@ function page(name) {
   const accountRule=await api.addV2Follow({region:'GD',topic:'',include_national:false});
   assert.equal((await api.getV2Follows()).length,1);
   await api.removeV2Follow(accountRule.id); assert.equal((await api.getV2Follows()).length,0);
-  assert.equal((await api.searchDocuments({q:'GD发布机构'})).total,1);
+  assert.equal((await api.searchDocuments({q:'GD发布机构',region:'GD',include_national:false})).total,1);
   assert.equal((await api.getDocuments({published_since:'2026-11-18'})).total,0);
   const detail=page('detail'); await detail.onLoad({id:String(id)});
   assert.equal(detail.data.doc.doc_number,'GD-1'); assert.equal(detail.data.summary[0],'医疗摘要');

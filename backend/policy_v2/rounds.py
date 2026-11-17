@@ -32,7 +32,7 @@ def _list_task(db, source, run, url, page):
     key = f'run:{run.id}:list:' + hashlib.sha256(url.encode()).hexdigest()
     task = enqueue(db, 'list', key, {'source_id':source.id, 'run_id':run.id,
         'url':url, 'page_number':page, 'bucket':run.bucket,
-        'batch_end':page + min(100, max(1, int(source.config.get('max_pages',3)))) - 1})
+        'batch_end':page + min(100, max(1, int(source.config.get('max_pages',3)))) - 1}, priority=5)
     return link_task(db, run.id, task)
 
 

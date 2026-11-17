@@ -1,0 +1,12 @@
+{
+  "source": "gz-policy",
+  "checked_at": "2026-11-17T07:26:26.435327+00:00",
+  "previous_config_sha256": "6a3a560d3d880fbc7055d4fc3187fbf706366d14a0610bd6377f8e67099296de",
+  "config_sha256": "e7994f44fcb87c2cdb65e3c940e8536e37bf895f2ae596f76a68f07697f51620",
+  "page": 21,
+  "records": 4,
+  "next_url": null,
+  "original_sha256": "11f849a26483a796d9d7c1709354557805f24c5386e45c51087391467014c5cb",
+  "fixture": "backend/tests/fixtures/national/gz-policy-last-page-jump.html.gz",
+  "change": "Use observed official page input/submit and verify current page; same column and parser"
+}

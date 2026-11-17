@@ -11426,7 +11426,7 @@
     "id": "gz-policy",
     "region": "GZ",
     "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html",
-    "config_sha256": "6a3a560d3d880fbc7055d4fc3187fbf706366d14a0610bd6377f8e67099296de",
+    "config_sha256": "e7994f44fcb87c2cdb65e3c940e8536e37bf895f2ae596f76a68f07697f51620",
     "checked_at": "2026-11-17T04:13:34.286514+00:00",
     "lists": [
       {
@@ -12010,7 +12010,8 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:58:32.367065+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.367065+00:00",
+    "navigation_revalidated_at": "2026-11-17T07:26:26.435327+00:00"
   },
   {
     "id": "ah-policy",

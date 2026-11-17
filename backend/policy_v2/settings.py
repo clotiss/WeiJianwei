@@ -35,5 +35,5 @@ class Settings(BaseSettings):
 TOPICS = ['中医药与民族医药','医疗服务与质量安全','医疗机构与执业人员管理','卫生信息化与标准','卫生监督与行政执法','妇幼健康与人口发展','疾病预防控制与公共卫生','综合与健康促进']
 # Read the static directory without importing database/source modules.
 import json
-REGIONS = {'CN': '国家', **{p['region']: p['name'] for p in json.loads(
+REGIONS = {'CN': '国家卫健委', **{p['region']: p['name'] for p in json.loads(
     (Path(__file__).with_name('registry') / 'provinces.json').read_text())}}

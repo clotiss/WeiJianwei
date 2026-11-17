@@ -9,6 +9,7 @@
       <view class="source-heading">{{item.regionName}} · {{item.kind}}</view>
       <view class="source-name">{{item.name}}</view>
       <view class="source-status">{{item.validation}} · {{item.status}}</view>
+      <view class="source-date">已收录 {{item.documents}} 篇 · {{item.history}}<text wx:if="{{item.historyPages}}"> · 已扫描 {{item.historyPages}} 页</text></view>
       <view class="source-date">完整采集：{{item.lastSuccess}}</view>
     </view>
   </block>

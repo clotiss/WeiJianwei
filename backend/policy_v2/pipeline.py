@@ -1,27 +1,21 @@
 """Small, restartable collector pipeline. Sources remain disabled until reviewed."""
 import hashlib
 import time
-from datetime import datetime, timezone
 
 from sqlalchemy import select
 
 from .db import transaction
 from .domains import DomainBusy
-from .enrichment import classify, tokens
+from .ingestion import persist_detail, persist_snapshot
 from .extraction import extract
 from .models import Document, RawObject, Revision, Snapshot, Source, Task
-from .network import SafeFetcher
-from .parsing import parse_detail
+from .network import SafeFetcher, FetchError
+from .parsing import parse_detail, ParseError
 from .adapters import read_list
 from .queue import claim, enqueue, finish, defer, keep_lease, assert_ownership, TaskLeaseLost
 from .source_health import cooldown_until, record_failure, record_success
 from .storage import make_store
 from . import rounds
-
-
-def _fingerprint(title, body, published, attachments):
-    value = "\n".join([title, body, published or "", *(a["url"] for a in attachments)])
-    return hashlib.sha256(value.encode()).hexdigest()
 
 
 def discover(factory, source_id, settings=None):
@@ -35,7 +29,7 @@ def _attachments(db, revision, source_id, run_id):
             continue
         task = enqueue(db, 'attachment', 'attachment:' + hashlib.sha256(
             (str(revision.id)+attachment['url']).encode()).hexdigest(),
-            {'revision_id':revision.id, 'url':attachment['url'], 'source_id':source_id, 'run_id':run_id})
+            {'revision_id':revision.id, 'url':attachment['url'], 'source_id':source_id, 'run_id':run_id}, priority=20)
         rounds.link_task(db, run_id, task)
 
 
@@ -120,31 +114,19 @@ def _process_claimed(factory, settings, task, fetcher):
                         "kind": source.kind, "config": dict(source.config)}
             data, mime, final_url = fetcher.get(payload["item"]["url"], spec["config"]["hosts"], page_kind="detail", config=spec["config"])
             item = dict(payload["item"], url=final_url)
-            parsed = parse_detail(data, final_url, item, type("RegisteredSource", (), spec)())
             stored = store.put(data, mime)
+            try:
+                parsed = parse_detail(data, final_url, item, type("RegisteredSource", (), spec)())
+            except ParseError:
+                with transaction(factory) as db:
+                    assert_ownership(db, task)
+                    persist_snapshot(db, source, stored, final_url, method=getattr(fetcher, 'last_mode', 'httpx'))
+                raise
             with transaction(factory) as db:
                 assert_ownership(db,task)
-                raw = db.get(RawObject, stored["sha"])
-                if not raw: db.add(RawObject(**stored))
-                snap = Snapshot(source_id=spec["id"], url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx")); db.add(snap); db.flush()
-                doc = db.scalar(select(Document).where(Document.url == final_url))
-                if not doc:
-                    doc = Document(source_id=spec["id"], url=final_url, region=spec["region"]); db.add(doc); db.flush()
-                fingerprint = _fingerprint(parsed["title"], parsed["body"], parsed["published"], parsed["attachments"])
-                latest = db.scalar(select(Revision).where(Revision.document_id == doc.id).order_by(Revision.number.desc()).limit(1))
-                if not latest or latest.fingerprint != fingerprint:
-                    topic, evidence = classify(parsed["title"], parsed["body"])
-                    rev = Revision(document_id=doc.id, number=(latest.number + 1 if latest else 1), fingerprint=fingerprint,
-                        snapshot_id=snap.id, title=parsed["title"], body=parsed["body"], authority=parsed["authority"],
-                        published=parsed["published"], doc_number=parsed["doc_number"], kind=parsed["kind"],
-                        topic=topic, classification_status="auto" if topic else "review", classification_evidence=evidence,
-                        attachments=parsed["attachments"], search_text=" ".join([parsed["title"], parsed["body"]]),
-                        search_tokens=tokens(" ".join([parsed["title"], parsed["body"]])))
-                    db.add(rev); db.flush(); doc.current_revision=rev.id; doc.status="ready" if parsed["kind"]!='excluded' else "excluded"
-                else:
-                    rev = latest
+                doc, rev, _ = persist_detail(db, source, parsed, stored, final_url,
+                    method=getattr(fetcher, "last_mode", "httpx"))
                 _attachments(db,rev,spec['id'],task['payload'].get('run_id'))
-                doc.updated=datetime.now(timezone.utc).timestamp()
             finish(factory, task)
         elif task["kind"] == "attachment":
             payload = task["payload"]
@@ -153,7 +135,16 @@ def _process_claimed(factory, settings, task, fetcher):
                 allowed_hosts = list(source.config["hosts"])
             data, mime, final_url = fetcher.get(payload["url"], allowed_hosts, page_kind="attachment", config=source.config)
             metadata = store.put(data, mime)
-            blocks, status = extract(data, final_url)
+            extraction_error = ''
+            try:
+                blocks, status = extract(data, final_url)
+            except Exception as exc:
+                # Download/persistence succeeded; retrying identical bytes cannot repair a parser limit.
+                # Preserve the original and make incomplete text extraction explicit.
+                blocks = []
+                status = 'extraction_limited' if isinstance(exc, ValueError) and str(exc) in (
+                    'page_limit', 'row_limit', 'expanded_archive_too_large', 'archive_entry_limit') else 'extraction_failed'
+                extraction_error = f'{type(exc).__name__}:{exc}'[:500]
             with transaction(factory) as db:
                 assert_ownership(db,task)
                 raw = db.get(RawObject, metadata["sha"])
@@ -165,6 +156,10 @@ def _process_claimed(factory, settings, task, fetcher):
                         attachment.update({"status": status, "object_key": metadata["key"],
                                            "sha256": metadata["sha"], "extracted": blocks})
                         attachment.pop('last_error',None)
+                        if extraction_error:
+                            attachment['extraction_error'] = extraction_error
+                        else:
+                            attachment.pop('extraction_error', None)
                 revision.attachments = attachments
             finish(factory, task)
         else:
@@ -175,7 +170,9 @@ def _process_claimed(factory, settings, task, fetcher):
     except TaskLeaseLost:
         pass  # A replacement worker owns the task; do not write or finish its work.
     except Exception as exc:
-        until = record_failure(factory, task["payload"].get("source_id"), exc, settings)
+        # A malformed individual document must not cool down every column on the host.
+        # Transport failures still honor origin-wide Retry-After and exponential cooldown.
+        until = record_failure(factory, task["payload"].get("source_id"), exc, settings) if isinstance(exc, FetchError) else 0
         finish(factory, task, f"{type(exc).__name__}:{exc}"[:1000], settings.task_max_attempts, retry_at=until)
         rounds.defer_repair(factory,task,settings)
         if task['kind']=='attachment':

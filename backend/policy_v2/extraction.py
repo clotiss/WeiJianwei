@@ -3,8 +3,20 @@ from io import BytesIO
 from pathlib import PurePosixPath
 import zipfile
 from urllib.parse import urlsplit, parse_qs
+from .text_encoding import unicode_json
 
 def extract(data,url):
+    blocks, status = _extract(data, url)
+    result = []
+    for block in blocks:
+        cleaned = unicode_json(block)
+        if cleaned != block:
+            cleaned['unicode_repaired'] = True
+        result.append(cleaned)
+    return result, status
+
+
+def _extract(data,url):
     # Some official downloads are legacy Office compound files named .docx.
     # Preserve their bytes without feeding them to a ZIP parser or inventing text.
     if data.startswith(b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1'):

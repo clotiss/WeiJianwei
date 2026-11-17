@@ -4,11 +4,11 @@ const filters = require('../../utils/filters');
 Page({
   data: {
     sheetOpen:false, sheetMode:'region', sheetValue:{}, days:0, filterCount:0, quickTopics:[], useV2:false, categories:[], categoryRow1:[], categoryRow2:[], categoriesError:false,
-    regions:[{code:'', name:'全国'}], regionIndex:0, activeRegion:'', includeNational:true,
+    regions:[{code:'CN', name:'国家卫健委'}], regionIndex:0, activeRegion:'CN', includeNational:true,
     regionsLoading:false, regionsError:false,
     docTypes:['全部类型', '规范性文件', '政策解读'], activeCategory:'全部', activeType:'全部类型',
     documents:[], total:0, page:1, hasMore:true, loading:true, loadError:false, errorText:'',
-    collectionShort:'', collectionUpdate:'', updateNotice:'', latestUpdate:'',
+    contentStatus:{}, collectionShort:'', collectionUpdate:'', updateNotice:'', latestUpdate:'',
     showChat:false, floatBtnX:0, floatBtnY:0, floatBtnMoving:false
   },
   onLoad() {
@@ -35,7 +35,7 @@ Page({
   fetchRegions() {
     this.setData({regionsLoading:true, regionsError:false});
     return api.getRegions().then(items => {
-      const regions = [{code:'', name:'全国'}, ...items];
+      const regions = items.filter(item => item.code);
       this.setData({regions, regionIndex:Math.max(0, regions.findIndex(item => item.code === this.data.activeRegion)), regionsLoading:false});
     }).catch(() => this.setData({regionsLoading:false, regionsError:true}));
   },
@@ -57,7 +57,7 @@ Page({
       const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
       const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
       this.setData({documents:docs, total:res.total, page, hasMore:docs.length < res.total && res.items.length > 0,
-        loading:false, collectionUpdate:stamp, collectionShort:stamp.slice(5),
+        loading:false, contentStatus:res.contentStatus || {}, collectionUpdate:stamp, collectionShort:stamp.slice(5),
         updateNotice:freshness.unavailable_sources ? '部分来源更新暂时失败，已收录内容仍可阅读' : ''});
     }).catch(error => {
       if (requestId !== this._listRequest) return;
@@ -75,7 +75,7 @@ Page({
   },
   resetFilters(patch) {
     const next={...this.data,...patch};
-    this.setData({...patch, filterCount:(next.activeCategory !== '全部' ? 1 : 0)+(next.activeType !== '全部类型' ? 1 : 0)+(next.days ? 1 : 0), page:1, documents:[], total:0, latestUpdate:'', collectionShort:'', collectionUpdate:'', updateNotice:''});
+    this.setData({...patch, filterCount:(next.activeCategory !== '全部' ? 1 : 0)+(next.activeType !== '全部类型' ? 1 : 0)+(next.days ? 1 : 0), page:1, documents:[], total:0, contentStatus:{}, latestUpdate:'', collectionShort:'', collectionUpdate:'', updateNotice:''});
     return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate()]);
   },
   openRegion() { this.openSheet('region'); },

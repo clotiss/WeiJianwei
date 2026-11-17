@@ -98,6 +98,45 @@ def test_exhausted_attachment_is_repaired_without_a_new_revision(env, monkeypatc
         assert db.get(Source, 'test').last_success > 1000
 
 
+@pytest.mark.parametrize('error,status', [(ValueError('page_limit'), 'extraction_limited'),
+                                         (UnboundLocalError('PDF glyph map'), 'extraction_failed')])
+def test_downloaded_original_survives_extraction_failure_without_refetch_loop(env, monkeypatch, error, status):
+    from policy_v2.models import RawObject
+    from policy_v2.storage import make_store
+    factory, settings = env
+    def fail(*_): raise error
+    monkeypatch.setattr('policy_v2.pipeline.extract', fail)
+    discover(factory, 'test'); drain(factory, settings, Site(attachment=True))
+    with factory() as db:
+        attachment = db.query(Revision).one().attachments[0]
+        assert attachment['status'] == status
+        assert make_store(settings).read(attachment['object_key']) == b'attachment bytes'
+        assert db.get(RawObject, attachment['sha256'])
+        assert db.query(Task).filter_by(kind='attachment').one().state == 'succeeded'
+        assert db.get(Source, 'test').last_success > 1000
+
+
+def test_one_unparseable_document_keeps_original_and_does_not_pause_other_documents(env):
+    from policy_v2.models import Snapshot
+    from policy_v2.source_health import cooldown_until
+    from policy_v2.storage import make_store
+    factory, settings = env
+    settings.source_cooldown_seconds = 300
+    class PartlyBrokenSite(Site):
+        def get(self, url, hosts, **kwargs):
+            if url.endswith('/document-1.html'):
+                return b'<html>Temporarily empty article</html>', 'text/html', url
+            return super().get(url, hosts, **kwargs)
+    discover(factory, 'test'); drain(factory, settings, PartlyBrokenSite(pages=2))
+    with factory() as db:
+        assert db.query(Document).count() == 1
+        assert db.query(Task).filter_by(kind='detail', state='failed').count() == 1
+        assert cooldown_until(db.get(Source, 'test')) == 0
+        snapshot = db.query(Snapshot).filter(Snapshot.url.endswith('/document-1.html')).one()
+        assert make_store(settings).read('raw/' + snapshot.raw_sha[:2] + '/' + snapshot.raw_sha).startswith(b'<html>')
+        assert db.get(Source, 'test').last_success == 1000
+
+
 def test_completed_sweep_finds_new_items_beyond_old_window_and_deduplicates(env, monkeypatch):
     import time
     factory, settings = env

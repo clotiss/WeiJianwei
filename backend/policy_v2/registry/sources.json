@@ -2633,7 +2633,10 @@
       "published_from_list": true,
       "transport": "firefox",
       "browser_next": ".layui-laypage-next:not(.layui-disabled)",
-      "browser_page_attribute": "data-page"
+      "browser_page_attribute": "data-page",
+      "browser_jump_input": ".layui-laypage-skip .layui-input",
+      "browser_jump_submit": ".layui-laypage-btn",
+      "browser_current": ".layui-laypage-curr em:last-child"
     },
     "validation": {
       "sample_ok": 20,
@@ -2641,7 +2644,7 @@
       "unique_items": 70,
       "listing_exhausted": false,
       "checked_at": "2026-11-17T04:13:34.286514+00:00",
-      "config_sha256": "6a3a560d3d880fbc7055d4fc3187fbf706366d14a0610bd6377f8e67099296de",
+      "config_sha256": "e7994f44fcb87c2cdb65e3c940e8536e37bf895f2ae596f76a68f07697f51620",
       "list_pages": 7,
       "mode": "retained_public_samples",
       "production_observation": "pending"

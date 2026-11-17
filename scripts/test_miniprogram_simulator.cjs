@@ -28,7 +28,7 @@ async function until(read, predicate, label) {
     assert.equal(data.useV2,true); assert.equal(data.loadError,false);
     assert.ok(await element(home,'.search-box'), 'search UI must render');
     assert.ok(data.documents.length > 0, 'preview must contain collected documents');
-    await until(() => home.data(), value => value.regions.length === 33, '31 provinces plus national/all');
+    await until(() => home.data(), value => value.regions.length === 32, '31 provinces plus national');
     const regions = await home.data('regions');
     await home.callMethod('onRegionChange',{detail:{value:String(regions.findIndex(item => item.code === 'GD'))}});
     data=await until(() => home.data(), value => value.activeRegion === 'GD' && !value.loading, 'province filter applied'); assert.equal(data.activeRegion,'GD');
