@@ -110,6 +110,25 @@ class Attempt(Base):
     status=Column(String(30),nullable=False,default='running')
     error=Column(Text,nullable=False,default='')
 
+class SummaryRecord(Base):
+    """Provenance for one revision's AI result, independent of collection runs."""
+    __tablename__='v2_summary_records'
+    revision_id=Column(Integer,ForeignKey('v2_revisions.id'),primary_key=True)
+    task_id=Column(Integer,ForeignKey('v2_tasks.id'),nullable=False)
+    input_sha=Column(String(64),nullable=False)
+    model=Column(String(100),nullable=False)
+    prompt_version=Column(String(50),nullable=False)
+    scope=Column(String(40),nullable=False)
+    input_chars=Column(Integer,nullable=False)
+    generated=Column(Float)
+    usage=Column(JSON,nullable=False,default=dict)
+
+class SummaryProviderState(Base):
+    __tablename__='v2_summary_provider'
+    id=Column(Integer,primary_key=True)
+    cooldown_until=Column(Float,nullable=False,default=0)
+    error=Column(String(100),nullable=False,default='')
+
 class CollectionRun(Base):
     """One durable listing sweep and all of its document/attachment dependencies."""
     __tablename__='v2_collection_runs'

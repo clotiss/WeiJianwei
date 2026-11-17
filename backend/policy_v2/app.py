@@ -2,6 +2,7 @@
 import secrets
 import hashlib
 import time
+import os
 from datetime import date, datetime, timezone
 import httpx
 
@@ -17,12 +18,19 @@ from .source_health import cooldown_until
 from .rounds import summary as round_summary, refresh_source
 from .coverage import collection_status, scope_status
 from .text_encoding import UTF8JSONResponse
+from .summaries import summary_view
 
-settings = Settings()
+settings = Settings(_env_file=os.environ.get('POLICY_AI_CONFIG_FILE'))
 engine, SessionLocal = database(settings.database_url)
 Base.metadata.create_all(engine)
 seed(SessionLocal)
 app = FastAPI(title="WeiJianwei Policy API", version="2.0.0", default_response_class=UTF8JSONResponse)
+
+
+def summary_settings():
+    """Reload only the private AI configuration; never switch the running API's DB."""
+    path = os.environ.get('POLICY_AI_CONFIG_FILE')
+    return Settings(_env_file=path) if path else settings
 
 
 class ClassificationReview(BaseModel):
@@ -170,6 +178,7 @@ def coverage():
 @app.get("/api/v2/policies")
 def policies(q: str = "", region: str = "", include_national: bool = True,
              topic: str = "", content_type: str = "", published_since: date | None = None, limit: int = Query(20, ge=1, le=100), offset: int = Query(0, ge=0)):
+    ai_settings = summary_settings()
     with SessionLocal() as db:
         stmt = select(Document, Revision).join(Revision, Revision.id == Document.current_revision).where(Document.status == "ready")
         if region:
@@ -194,7 +203,7 @@ def policies(q: str = "", region: str = "", include_national: bool = True,
         rows = db.execute(stmt.order_by(Revision.published.desc(), Document.id.desc()).offset(offset).limit(limit)).all()
         return {"items": [{"id": d.id, "title": r.title, "region": d.region, "authority": r.authority, "original_url": d.url,
                            "published": r.published, "type": r.kind, "topic": r.topic,
-                           "summary": r.summary, "attachments": r.attachments} for d, r in rows],
+                           "summary": r.summary, "summary_status": summary_view(db, r, ai_settings), "attachments": r.attachments} for d, r in rows],
                 "limit": limit, "offset": offset, "total": total, "freshness": freshness,
                 "scope": scope_status(db, region, content_type, total, bool(q or topic or content_type or published_since))}
 
@@ -208,7 +217,7 @@ def policy_detail(document_id: int):
         d, r = row
         return {"id": d.id, "title": r.title, "region": d.region, "authority": r.authority, "original_url": d.url,
                 "published": r.published, "document_number": r.doc_number, "type": r.kind,
-                "topic": r.topic, "body": r.body, "summary": r.summary,
+                "topic": r.topic, "body": r.body, "summary": r.summary, "summary_status": summary_view(db, r, summary_settings()),
                 "attachments": r.attachments, "revision": r.number}
 
 
@@ -278,6 +287,11 @@ def retry_task(task_id: int, reason: str = Query(..., min_length=5, max_length=5
         task.state='queued';task.attempts=0;task.finished=None;task.owner=None;task.lease_until=None
         source=db.get(Source,task.payload.get('source_id'))
         task.available=max(time.time(),cooldown_until(source) if source else 0)
+        if task.kind == 'summary':
+            from .models import SummaryRecord
+            record = db.get(SummaryRecord, task.payload['revision_id'])
+            if record and record.task_id == task.id:
+                db.get(Revision, record.revision_id).summary_status = 'queued'
         db.add(Audit(actor='admin-token',action='task.retry',target=str(task.id),reason=reason,
                      before=before,after={'state':'queued','available':task.available}))
         db.flush()

@@ -20,7 +20,7 @@ const api = {
 function page(name) {
   let definition;
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../pages',name,name+'.js'),'utf8'), {
-    Page:value => {definition=value;}, wx:global.wx, setTimeout,
+    Page:value => {definition=value;}, wx:global.wx, setTimeout, clearTimeout,
     require:spec => spec.endsWith('/api') ? api : require(path.resolve(__dirname,'../pages',name,spec))
   });
   return {...definition,data:JSON.parse(JSON.stringify(definition.data)),setData(value) {Object.assign(this.data,value);}};

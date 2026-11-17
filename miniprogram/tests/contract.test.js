@@ -28,7 +28,7 @@ const api=require('../utils/api');
 function page(name) {
   let definition;
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../pages',name,name+'.js'),'utf8'), {
-    wx:global.wx, Page:value=>{definition=value;}, setTimeout,
+    wx:global.wx, Page:value=>{definition=value;}, setTimeout, clearTimeout,
     require:spec=>require(path.resolve(__dirname,'../pages',name,spec))
   });
   return {...definition,data:JSON.parse(JSON.stringify(definition.data)),setData(value){Object.assign(this.data,value);}};
@@ -58,7 +58,9 @@ function page(name) {
   assert.equal((await api.searchDocuments({q:'GD发布机构',region:'GD',include_national:false})).total,1);
   assert.equal((await api.getDocuments({published_since:'2026-11-18'})).total,0);
   const detail=page('detail'); await detail.onLoad({id:String(id)});
-  assert.equal(detail.data.doc.doc_number,'GD-1'); assert.equal(detail.data.summary[0],'医疗摘要');
+  assert.equal(detail.data.doc.doc_number,'GD-1'); assert.equal(detail.data.summary[0].text,'医疗摘要');
+  assert.equal(detail.data.summary[0].quote,'医疗正文');
+  detail.toggleEvidence({currentTarget:{dataset:{index:0}}}); assert.equal(detail.data.summary[0].expanded,true);
   assert.equal(detail.data.attachments[0].statusLabel,'正文已提取');
   assert.equal(detail.data.doc.issuing_authority,'GD发布机构');
   const plaintext=page('plaintext'); await plaintext.onLoad({id:String(id)});

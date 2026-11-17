@@ -13,3 +13,10 @@ page { background:white; }
 .body-section { margin-top:20px; }.article-body { font-size:14px; line-height:2; color:#435d70; white-space:pre-wrap; word-break:break-all; }.article-body.large { font-size:18px; }.reader-link { margin-top:24px; }
 .attachment { border:1px solid #e1e9ed; padding:13px; border-radius:8px; display:flex; gap:10px; margin:14px 0; align-items:center; }.attachment-icon { background:#e9f0f8; color:#3773a5; border-radius:5px; padding:9px; font-size:9px; font-weight:650; }.attachment-info { flex:1; font-size:11px; line-height:1.7; word-break:break-all; }.attachment-info text { display:block; font-size:9px; color:#697b87; }.attachment-link { color:#2269b0; font-size:10px; flex-shrink:0; }
 .detail-actions { position:fixed; bottom:0; left:0; width:100%; display:flex; gap:9px; padding:11px 17px calc(14px + env(safe-area-inset-bottom)); border-top:1px solid #e4ebee; background:white; }.detail-actions .app-button { flex:1; }.detail-actions .favorite-action { flex:.7; }
+
+.summary-scope { font-size:10px; color:#617b8e; margin:0 0 12px; }
+.summary-item + .summary-item { margin-top:16px; }
+.evidence-toggle { color:#23699c; font-size:11px; margin:7px 0 0 27px; padding:5px 0; }
+.evidence-box { margin:7px 0 0 27px; padding:11px 12px; border-left:2px solid #98bdd7; background:#fff; font-size:11px; line-height:1.9; color:#466075; word-break:break-word; }
+.evidence-source { font-size:10px; color:#6f8797; margin-bottom:5px; }
+.summary-read { margin-top:9px; }.summary-error { color:#a34f38; font-size:11px; margin-bottom:9px; }

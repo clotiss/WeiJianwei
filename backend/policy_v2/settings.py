@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     ai_key: str = ''
     ai_url: str = 'https://api.deepseek.com/v1/chat/completions'
     ai_model: str = 'deepseek-chat'
+    ai_timeout: float = 90
+    ai_interval_seconds: float = 3
+    ai_batch_size: int = 100
     public_base: str = 'http://127.0.0.1:8891'
     signing_key: str = ''
     max_download_bytes: int = 30 * 1024 * 1024

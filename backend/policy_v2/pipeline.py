@@ -34,7 +34,7 @@ def _attachments(db, revision, source_id, run_id):
 
 
 def process_one(factory, settings, worker="worker", fetcher=None):
-    task = claim(factory, settings.task_lease_seconds)
+    task = claim(factory, settings.task_lease_seconds, kinds=('list','detail','attachment'))
     if not task:
         return False
     with keep_lease(factory,task,settings.task_lease_seconds):
@@ -161,6 +161,7 @@ def _process_claimed(factory, settings, task, fetcher):
                         else:
                             attachment.pop('extraction_error', None)
                 revision.attachments = attachments
+                if revision.summary_status == 'waiting_content': revision.summary_status = 'pending'
             finish(factory, task)
         else:
             raise ValueError("unknown_task_kind")
@@ -182,6 +183,7 @@ def _process_claimed(factory, settings, task, fetcher):
                     revision=db.get(Revision,task['payload']['revision_id'])
                     revision.attachments=[{**a,'status':'download_failed','last_error':failed.error}
                         if a['url']==task['payload']['url'] else a for a in revision.attachments]
+                    if revision.summary_status == 'waiting_content': revision.summary_status = 'pending'
     finally:
         if owned_fetcher and hasattr(fetcher, "close"):
             fetcher.close()

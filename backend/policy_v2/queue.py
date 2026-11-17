@@ -16,11 +16,12 @@ def enqueue(db,kind,key,payload,priority=10):
         return task
     except IntegrityError:return db.scalar(select(Task).where(Task.key==key))
 
-def claim(factory,lease_seconds=300,clock=None):
+def claim(factory,lease_seconds=300,clock=None,kinds=None):
     t=now() if clock is None else clock;owner=uuid.uuid4().hex
     with transaction(factory) as db:
         eligible=or_(and_(Task.state=='queued',Task.available<=t),and_(Task.state=='running',Task.lease_until<t))
         q=select(Task).where(eligible).order_by(Task.priority,Task.id).limit(1).with_for_update(skip_locked=True)
+        if kinds is not None:q=q.where(Task.kind.in_(kinds))
         task=db.scalar(q)
         if not task:return None
         changed=db.execute(update(Task).where(Task.id==task.id,eligible).values(state='running',owner=owner,lease_until=t+lease_seconds,attempts=Task.attempts+1))

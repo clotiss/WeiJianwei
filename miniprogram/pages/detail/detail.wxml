@@ -8,8 +8,16 @@
     <view class="source-box"><image class="icon" src="/assets/icons/shield-teal.png"/><view class="source-text"><view>来源有记录 · 阅读有依据</view><view class="source-sub">{{doc.region_name ? '官网来源：' + doc.region_name : '以官网原文为准'}}{{doc.revision ? ' · 内容版本 v' + doc.revision : ''}}</view></view><view class="source-link" wx:if="{{doc.original_url}}" bindtap="openOriginal">查看来源</view></view>
     <view class="app-tabs"><view class="app-tab {{activeTab === '要点' ? 'active' : ''}}" data-tab="要点" bindtap="selectTab">要点</view><view class="app-tab {{activeTab === '正文' ? 'active' : ''}}" data-tab="正文" bindtap="selectTab">正文</view><view class="app-tab {{activeTab === '附件' ? 'active' : ''}}" data-tab="附件" bindtap="selectTab">附件{{attachments.length ? ' · ' + attachments.length : ''}}</view></view>
     <block wx:if="{{activeTab === '要点'}}">
-      <view class="summary-box" wx:if="{{summary.length}}"><view class="summary-label"><image class="icon" src="/assets/icons/spark-blue.png"/><text>快速读懂</text><text class="summary-hint">辅助摘要 · 以原文为准</text></view><view class="point" wx:for="{{summary}}" wx:key="index"><text class="point-no">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text><text>{{item}}</text></view></view>
-      <view wx:else class="summary-box"><view class="summary-label">本篇暂未生成要点</view><view class="scope-note">可切换正文，或查看官方来源。</view><button class="app-button secondary" bindtap="showBody">阅读正文</button></view>
+      <view class="summary-box" wx:if="{{summary.length}}">
+        <view class="summary-label"><image class="icon" src="/assets/icons/spark-blue.png"/><text>AI 快速读懂</text><text class="summary-hint">辅助摘要 · 以原文为准</text></view>
+        <view wx:if="{{summaryView.scope}}" class="summary-scope">{{summaryView.scope}}</view>
+        <view class="summary-item" wx:for="{{summary}}" wx:key="index">
+          <view class="point"><text class="point-no">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text><text>{{item.text}}</text></view>
+          <view wx:if="{{item.quote}}" class="evidence-toggle" bindtap="toggleEvidence" data-index="{{index}}">{{item.expanded ? '收起原文依据 −' : '查看原文依据 +'}}</view>
+          <view wx:if="{{item.quote && item.expanded}}" class="evidence-box"><view class="evidence-source">{{item.source_name || '正文'}}{{item.location.page ? ' · 第' + item.location.page + '页' : ''}}</view><text selectable>{{item.quote}}</text></view>
+        </view>
+      </view>
+      <view wx:else class="summary-box"><view class="summary-label">{{summaryView.title}}</view><view class="scope-note">{{summaryView.note}}</view><view wx:if="{{summaryError}}" class="summary-error">{{summaryError}}</view><button wx:if="{{summaryView.refresh}}" class="app-button secondary" loading="{{summaryRefreshing}}" disabled="{{summaryRefreshing}}" bindtap="refreshSummary">刷新状态</button><button class="app-button secondary summary-read" bindtap="showBody">阅读正文</button></view>
       <view class="detail-section"><view class="section-title">内容记录</view><view class="record-row">{{doc.revision ? '当前内容版本 v' + doc.revision : '已收录内容'}}<text>原始要求请核对官网</text></view></view>
     </block>
     <view wx:elif="{{activeTab === '正文'}}" class="body-section"><view class="scope-note">以下为已收录正文，具体要求以官网发布内容为准。</view><text class="article-body {{largeText ? 'large' : ''}}" selectable>{{doc.content || '暂未收录正文，请查看官方来源。'}}</text><button class="app-button secondary reader-link" bindtap="openPlaintext">全屏阅读</button></view>

@@ -1,4 +1,5 @@
 const api = require('../../utils/api');
+const summaryState = require('../../utils/summary-state');
 const reading = require('../../utils/reading');
 const storage = require('../../utils/storage'); // V1 only; IDs must never cross databases.
 const swipeBack = require('../../utils/swipe-back');
@@ -7,15 +8,42 @@ function array(value) {
 }
 const attachmentStates = {ready:'正文已提取', needs_ocr:'原件已存档，暂未识别文字', needs_transcription:'官网音视频链接，尚未转写文字', pending:'等待收录', download_failed:'附件获取失败', extraction_limited:'原件已存档，超出文字提取范围', extraction_failed:'原件已存档，文字提取失败', unsupported:'已存档，暂不支持文本提取', external_reference:'官网外部附件链接', embedded:'正文内嵌附件'};
 Page({
-  data:{activeTab:'要点',largeText:false,doc:{}, summary:[], attachments:[], isFav:false, favKnown:false, favBusy:false, favError:'', useV2:false, loading:true, loadError:false, errorText:''},
+  data:{activeTab:'要点',largeText:false,doc:{}, summary:[], summaryView:{}, summaryRefreshing:false, summaryError:'', attachments:[], isFav:false, favKnown:false, favBusy:false, favError:'', useV2:false, loading:true, loadError:false, errorText:''},
   onLoad(options) {
     swipeBack.initSwipeBack.call(this);
     this.documentId = Number(options.id);
     this.setData({useV2:api.useV2(),largeText:reading.large()});
     return this.fetchDetail();
   },
-  onShow() { if (this.data.doc.id) return this.refreshFavorite(); },
-  onUnload() { this._detailRequest++; this._favoriteRequest++; },
+  onShow() { this._hidden=false; this.scheduleSummary(); if (this.data.doc.id) return this.refreshFavorite(); },
+  onHide() { this._hidden=true; clearTimeout(this._summaryTimer); },
+  onUnload() { this._disposed=true; this._detailRequest++; this._favoriteRequest++; clearTimeout(this._summaryTimer); },
+  applyDetail(doc) {
+    const points = doc.summary_points && doc.summary_points.length ? doc.summary_points : array(doc.summary).map(text => ({text}));
+    this.setData({doc, summary:points.map(point => ({...point,expanded:false})), summaryView:summaryState.view(doc.summary_status),
+      attachments:array(doc.attachments).map(item => ({...item, statusLabel:attachmentStates[item.status] || '请查看官网附件'})), loading:false});
+    this.scheduleSummary();
+  },
+  scheduleSummary() {
+    clearTimeout(this._summaryTimer);
+    if (this._hidden || this._disposed || !this.data.summaryView.poll || (this._summaryPolls || 0) >= 12) return;
+    this._summaryTimer=setTimeout(() => {this._summaryPolls=(this._summaryPolls || 0)+1; this.refreshSummary(true);},8000);
+  },
+  refreshSummary(automatic) {
+    if (this.data.summaryRefreshing || this._disposed) return Promise.resolve();
+    if (automatic !== true) this._summaryPolls=0;
+    const requestId=this._detailRequest=(this._detailRequest || 0)+1;
+    this.setData({summaryRefreshing:true,summaryError:''});
+    return api.getDocumentDetail(this.documentId).then(doc => {
+      if (requestId === this._detailRequest && !this._disposed) this.applyDetail(doc);
+    }).catch(() => {
+      if (!this._disposed) {this.setData({summaryError:'状态刷新失败，请稍后重试'});this.scheduleSummary();}
+    }).finally(() => {if (!this._disposed) this.setData({summaryRefreshing:false});});
+  },
+  toggleEvidence(e) {
+    const index=Number(e.currentTarget.dataset.index);
+    this.setData({summary:this.data.summary.map((point,i) => i === index ? {...point,expanded:!point.expanded} : point)});
+  },
   fetchDetail() {
     if (!Number.isSafeInteger(this.documentId) || this.documentId < 1) {
       this.setData({loading:false, loadError:true, errorText:'文件编号无效'});
@@ -25,8 +53,7 @@ Page({
     this.setData({loading:true, loadError:false});
     return api.getDocumentDetail(this.documentId).then(doc => {
       if (requestId !== this._detailRequest) return;
-      this.setData({doc, summary:array(doc.summary),
-        attachments:array(doc.attachments).map(item => ({...item, statusLabel:attachmentStates[item.status] || '请查看官网附件'})), loading:false});
+      this.applyDetail(doc);
       reading.record(doc);
       return this.refreshFavorite();
     }).catch(error => {

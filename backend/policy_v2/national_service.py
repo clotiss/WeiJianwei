@@ -26,7 +26,7 @@ def open_service(root):
         raise ValueError('new_service_root_must_be_empty')
     else:
         marker.write_text(json.dumps({'purpose': 'persistent_national_policy_service', 'version': 1}) + '\n')
-    settings = Settings(database_url='sqlite:///' + str(root / 'policy.db'), object_root=root / 'objects',
+    settings = Settings(_env_file=root / 'ai.env', database_url='sqlite:///' + str(root / 'policy.db'), object_root=root / 'objects',
         storage_backend='local', domain_delay_seconds=3)
     engine, factory = database(settings.database_url)
     with engine.connect() as db:
@@ -66,11 +66,12 @@ def report(factory):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['import', 'enable', 'api', 'worker', 'report'])
+    parser.add_argument('command', choices=['import', 'enable', 'api', 'worker', 'report', 'summary', 'summary-backfill', 'summary-report', 'summary-retry'])
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--workspace', type=Path, default=Path.cwd())
     parser.add_argument('--workers', type=int, default=6)
     parser.add_argument('--port', type=int, default=8892)
+    parser.add_argument('--limit', type=int, default=100)
     args = parser.parse_args()
     settings, engine, factory = open_service(args.root)
     try:
@@ -85,10 +86,24 @@ def main():
             print(json.dumps({'enabled': enable_verified(factory)}))
         elif args.command == 'report':
             print(json.dumps(report(factory), ensure_ascii=False, indent=2))
+        elif args.command in ('summary-backfill', 'summary-report', 'summary-retry'):
+            from .summaries import schedule_batch, report_summaries, retry_failed
+            if not 1 <= args.limit <= 10000: parser.error('limit must be between 1 and 10000')
+            if args.command == 'summary-backfill': print(json.dumps({'queued': schedule_batch(factory, settings, args.limit)}))
+            if args.command == 'summary-retry': print(json.dumps({'retried': retry_failed(factory, args.limit)}))
+            print(json.dumps(report_summaries(factory, settings), ensure_ascii=False, indent=2))
+        elif args.command == 'summary':
+            from .summaries import run_summary_worker
+            stop = Event()
+            for sig in (signal.SIGTERM, signal.SIGINT): signal.signal(sig, lambda *_: stop.set())
+            with (args.root / 'summary.lock').open('w') as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                run_summary_worker(factory, settings, stop, settings_loader=lambda: Settings(_env_file=args.root / 'ai.env'))
         elif args.command == 'api':
             os.environ['POLICY_DATABASE_URL'] = settings.database_url
             os.environ['POLICY_OBJECT_ROOT'] = str(settings.object_root)
             os.environ['POLICY_STORAGE_BACKEND'] = 'local'
+            os.environ['POLICY_AI_CONFIG_FILE'] = str(args.root.resolve() / 'ai.env')
             # A local development API must not reuse production account credentials.
             os.environ['POLICY_WECHAT_APP_ID'] = ''
             os.environ['POLICY_WECHAT_SECRET'] = ''

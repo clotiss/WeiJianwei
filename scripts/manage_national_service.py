@@ -18,7 +18,7 @@ def main():
     repo = Path(__file__).resolve().parent.parent
     root = args.root.resolve()
     target = Path.home() / 'Library/LaunchAgents'
-    for role in ('api', 'worker'):
+    for role in ('api', 'worker', 'summary'):
         label = 'com.weijianwei.national-' + role
         service = f'gui/{os.getuid()}/{label}'
         destination = target / (label + '.plist')
@@ -36,7 +36,7 @@ def main():
         if not (root / 'service.json').is_file():
             parser.error('Import and enable the persistent dataset before installing services.')
         arguments = [str(repo / '.venv/bin/python'), '-m', 'policy_v2.national_service', role, '--root', str(root)]
-        arguments += ['--port', '8892'] if role == 'api' else ['--workers', '6']
+        arguments += ['--port', '8892'] if role == 'api' else ['--workers', '6'] if role == 'worker' else []
         definition = {'Label': label, 'ProgramArguments': arguments, 'WorkingDirectory': '/private/tmp',
             'EnvironmentVariables': {'PYTHONPATH': str(repo / 'backend'), 'PYTHONUNBUFFERED': '1'},
             'RunAtLoad': True, 'KeepAlive': True, 'ThrottleInterval': 30,
