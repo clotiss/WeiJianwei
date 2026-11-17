@@ -67,7 +67,8 @@ def test_failure_cools_sibling_column_without_losing_history_and_recovers(factor
     assert process_one(factory, settings, fetcher=fetcher)
     with factory() as db:
         source = db.get(Source, 'nhc-policy')
-        assert source.last_success >= before and not source.last_error
+        assert source.last_success == 1000 and not source.last_error
+        assert source.checkpoint['last_request_success'] >= before
         assert cooldown_until(source) == 0
         assert db.query(Snapshot).one().method == 'firefox'
         assert db.query(Document).one().status == 'ready'

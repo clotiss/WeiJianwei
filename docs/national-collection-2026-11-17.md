@@ -9,7 +9,7 @@
 - 河北、山东、青海的 6 个栏目尚未达到自动采集接入条件。黑龙江在后续排查中通过官网公开 HTTP 接口接通，证书问题本身仍未修复。
 - 290 份真实列表/详情样本已压缩入库，可在不访问官网的情况下回归正文模板、日期、标题、附件和翻页。
 - 46 个代表性附件下载并持久化成功：16 个已提取文字，26 个图片/扫描件标记 `needs_ocr`，4 个旧 Office/WPS 文件保留原件并标记 `unsupported`。其中部分图片是正文中的嵌入资源，统计不等同于 26 篇完整图解已完成 OCR。
-- 本轮只在本地做开发与采集验证；新来源默认关闭，保留已存在来源的启停状态，未部署或启用线上全国采集。
+- 本轮只在本地做开发与采集验证；主服务的新来源默认关闭，保留已存在来源的启停状态，未部署或启用线上全国采集。后续三省观察使用独立试运行数据库。
 
 “抽样通过”表示所列样本可解析，不等同于全历史完整、政策分类经人工验收或多日生产稳定。地区字段表示采集站点归属；站点转载国家政策时不据此推定发文机关。`authority` 当前采用官网 ContentSource 来源署名，并不保证等同于实际发文机关，需要人工校验；缺失时保留空值。
 
@@ -73,7 +73,9 @@
 
 独立工作线程各自持有 HTTP/Firefox 会话。数据库域名租约将同一来源允许的官网、重定向及资源域名一起预留，避免多个工作线程同时请求同域；这是一种保守策略，共用 CDN 的来源可能降低并行度。不同域可并行。请求结束后保留间隔；失败与 Retry-After 冷却写入数据库。任务和域名租约均续期，任务提交时重新检查所有权，崩溃后可回收，旧工作线程不能提交新拥有者的结果。
 
-调度每分钟检查已启用来源，按来源间隔和时间桶幂等入队。默认每轮最多 3 个列表页，配置上限 100 页；动态“下一页”方式到深页时需逐页重放，不适合直接大规模历史回填。历史回填应单独规划检查点及批量窗口，本轮未启动全国历史回填。
+调度每分钟检查已启用来源，默认每 6 小时开启一轮，按来源及时间桶防止重复调度。`max_pages=3` 现在表示每批 3 页，不再是整轮终点：批次结束保存下一页地址，下次调度继续，进程重启后也沿用数据库游标。列表遍历到末页后才完成发现阶段，不依赖发布日期排序或遇到旧记录便停止，因此可发现更后面的新插入内容。前 3 页正文每轮复查；深页已收录正文默认每 7 天复查，新 URL 或列表标题/日期变化时立即抓取。首次启用会逐页建立登记栏目的历史基线，需要控制启用数量。
+
+每轮另有 `POLICY_MAX_SCAN_PAGES=1000` 的保护上限；达到上限或发现循环分页会标记 `blocked`，保留位置，不标记成功。提高扫描上限后可续接上限处的游标。浏览器动态翻页仍有现有 100 页能力限制，深页需逐页重放；超过该能力需要继续适配，不能直接宣称全量覆盖。调度续采时发现来源配置变化会暂停该轮并显示 `source_config_changed`，需先核对适配器和游标兼容性。
 
 原始页面快照和附件采用 SHA-256 内容寻址存储，文档版本保留快照引用及附件提取状态。正文内图片保留并标记待 OCR；视频/音频原链接保留为 `needs_transcription`，不自动下载或假装已转写。未登记的附件外域保留 `external_reference`，不会无限失败重试；已确认的河南文件域、浙江省政府 CDN 已登记。内联图片随原始 HTML 保留，标记 `embedded`。
 
@@ -107,7 +109,7 @@ PYTHONPATH=backend .venv/bin/python scripts/validate_national_attachments.py --o
 PYTHONPATH=backend .venv/bin/python -m policy_v2.cli worker --workers 4
 ```
 
-测试结果：追加修复后后端 351 项通过；此前小程序 API 适配器 6 项和首页容错测试通过，本次未改动前端。现有依赖产生弃用警告，无失败测试。
+测试结果：补齐例行监控后后端 370 项通过；此前小程序 API 适配器 6 项和首页容错测试通过，本次未改动前端。现有依赖产生弃用警告，无失败测试。
 
 测试命令：
 
@@ -117,12 +119,41 @@ node miniprogram/tests/api-v2.test.js
 node miniprogram/tests/index-resilience.test.js
 ```
 
+## 例行监控验收与隔离试运行
+
+2026-11-17 新增回归首先复现了三项问题：5 页列表在 2 页批次上限处停止、列表成功提前刷新来源成功时间、附件失败后正文不变就无法补偿。修复后这些用例通过，并覆盖并发调度、暂停恢复、循环分页、扫描上限、跨轮附件依赖、补偿耗尽和管理员重试。
+
+真实试跑又发现并修复了两项问题：等待同域正在执行的请求时，改为短间隔复查租约是否释放，仍完整保留限速与 Retry-After 冷却；北京官网一个 `.docx` 附件实际为旧 Office 复合格式，按文件签名保存原件并标记 `unsupported`，避免错误地反复交给 ZIP 解析器。该真实文件已压缩留作回归样本，SHA-256 为 `751eb3f2d842aed8ef9fb61947bfb993ec57c02db49af85f81ecbc28dc81500e`，未伪造已提取的文字。
+
+`v2_collection_runs`、`v2_run_tasks`、`v2_task_repairs` 三张新表记录轮次、依赖关系和补偿次数，现有表无需删除或 ALTER。轮次必须完成列表扫描，并且所有关联正文及可下载附件任务成功，才更新 `Source.last_success`。单次请求成功只记录 `checkpoint.last_request_success`。旧库的已有成功时间保留为历史值；在首个完整轮次完成前，应结合新增的 `collection_run` 判断，不能把旧值当作新逻辑的验收结果。
+
+普通任务默认最多尝试 3 次；耗尽后保留失败及 Attempt 记录，默认 6 小时后自动补偿，最多补偿 3 批。正文没有变化也可补下载附件，多个轮次可共同依赖同一个附件任务；后来的成功请求不能掩盖未处理的失败。附件补偿不会阻止下一调度周期继续发现新文件。补偿耗尽后明确显示 `blocked`，管理员可通过 `POST /api/v2/admin/tasks/{id}/retry?reason=...` 重新入队，必须提供管理员认证及原因，操作进入审计日志；仍遵守源站冷却时间。
+
+`/api/v2/coverage` 和管理端来源接口返回 `collection_run`，包含扫描页数、发现阶段是否结束、各类任务总数、成功/等待/失败数量和错误。`succeeded` 表示本轮已发现内容的采集任务完成，不表示扫描件已 OCR、音视频已转写或分类经人工验收。同 URL 附件在正文和链接均不变时被替换的检测，仍不在本轮修复范围。
+
+三省观察选择 `gd-policy`、`nx-policy`、`bj-policy`，只覆盖这三个政策文件栏目，不代表三省全部栏目。运行器使用专属目录下的 SQLite 和原文对象存储，不读取主应用数据库设置、不启用其他来源，也不修改线上服务。先运行一轮可用：
+
+```bash
+PYTHONPATH=backend .venv/bin/python -m policy_v2.trial run --root .runtime/monitor-trial-20261117 --sources gd-policy nx-policy bj-policy --days 3 --once --max-minutes 30
+```
+
+去掉 `--once --max-minutes 30` 即按原开始时间持续运行到三天期限；重新启动不会延后截止日期。查看进度：
+
+```bash
+PYTHONPATH=backend .venv/bin/python -m policy_v2.trial report --root .runtime/monitor-trial-20261117
+```
+
+实际试运行窗口为北京时间 2026-11-17 13:20:45 至 2026-11-20 13:20:45。`report.json` 保存最新状态，`observations.jsonl` 保存过程记录。到期前始终为 `observing`；三天验收要求每源至少 12 个完成轮次、完成间隔不超过 8 小时、配置一致且没有未完成轮次。短时跑通一次、晚于截止日完成、长时间停机均不能转为通过。本机休眠、关机、退出用户会影响连续性；本地通过仍不能代替腾讯云部署环境的验收。
+
+本机托管任务标签为 `com.weijianwei.collection-trial-20261117`，定义文件保存在该试运行目录的 `trial.plist`。运行器到期退出，不自动重启。可用 `launchctl print gui/501/com.weijianwei.collection-trial-20261117` 检查状态；停止/移除该本机任务可执行 `launchctl bootout gui/501/com.weijianwei.collection-trial-20261117`。启动日志写入 `/private/tmp/weijianwei-trial-launch-20261117.log`。没有安装开机启动项，也没有改变其他采集服务。
+
 ## 证据与仍需完成的验收
 
 - `evidence/national/trials-final.json`：最终样本、来源配置哈希、日期、解析结果、过滤审计与翻页。
 - `evidence/national/attachments-final.json`：46 个附件的 URL、哈希、字节数、存储键及提取状态。
 - `backend/tests/fixtures/national/manifest.json`：290 份压缩原始页面和离线回归期望。
 - `evidence/national/hlj-recovery-pagination.json`：黑龙江完整列表翻页和 40 篇正文抽样；`hlj-recovery-attachments-final.json` 为去除文件图标后的附件验证。
+- `evidence/national/monitoring-recovery-2026-11-17.json`：例行监控修复、370 项回归及三省试运行的启动快照；多日观察尚未结束，最新进度以试运行目录的 `report.json` 为准。
 - 其他 `trials-*.json`、`attachments-*.json` 和 `inspections.json`：保留接入过程中的失败与修复证据，不以最终成功记录掩盖历史故障。
 - 验证期间的完整原文和附件留存在本地 `.runtime/national/`，该目录不提交 Git。Git 中保存代表性原页；生产采集使用配置的本地/COS 对象存储，而非依赖这些测试缓存。
 

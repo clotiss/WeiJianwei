@@ -109,6 +109,35 @@ class Attempt(Base):
     finished=Column(Float)
     status=Column(String(30),nullable=False,default='running')
     error=Column(Text,nullable=False,default='')
+
+class CollectionRun(Base):
+    """One durable listing sweep and all of its document/attachment dependencies."""
+    __tablename__='v2_collection_runs'
+    id=Column(Integer,primary_key=True)
+    source_id=Column(String(40),ForeignKey('v2_sources.id'),nullable=False,index=True)
+    bucket=Column(Integer,nullable=False)
+    state=Column(String(30),nullable=False,default='running')
+    config_hash=Column(String(64),nullable=False)
+    next_url=Column(Text)
+    pages_read=Column(Integer,nullable=False,default=0)
+    listing_complete=Column(Boolean,nullable=False,default=False)
+    stop_reason=Column(String(100),nullable=False,default='')
+    error=Column(Text,nullable=False,default='')
+    counts=Column(JSON,nullable=False,default=dict)
+    started=Column(Float,nullable=False,default=now)
+    finished=Column(Float)
+    __table_args__=(UniqueConstraint('source_id','bucket'),)
+
+class RunTask(Base):
+    __tablename__='v2_run_tasks'
+    run_id=Column(Integer,ForeignKey('v2_collection_runs.id'),primary_key=True)
+    task_id=Column(Integer,ForeignKey('v2_tasks.id'),primary_key=True,index=True)
+
+class TaskRepair(Base):
+    """Retry batches are bounded; Attempt rows preserve the complete history."""
+    __tablename__='v2_task_repairs'
+    task_id=Column(Integer,ForeignKey('v2_tasks.id'),primary_key=True)
+    cycles=Column(Integer,nullable=False,default=0)
 class User(Base):
     __tablename__='v2_users'
     id=Column(Integer,primary_key=True)

@@ -10,9 +10,10 @@ from .models import DomainState
 
 
 class DomainBusy(Exception):
-    def __init__(self, until):
+    def __init__(self, until, retry_at=None):
         super().__init__('domain_busy')
         self.until = until
+        self.retry_at = until if retry_at is None else retry_at
 
 
 def acquire(factory, host, seconds=300, now=None):
@@ -29,7 +30,10 @@ def acquire(factory, host, seconds=300, now=None):
             DomainState.cooldown_until<=now).values(owner=owner,lease_until=now+seconds))
         if changed.rowcount != 1:
             row=db.get(DomainState,host); db.refresh(row)
-            raise DomainBusy(max(row.lease_until,row.next_allowed,row.cooldown_until))
+            # An in-flight request usually releases well before lease expiry.
+            # Recheck its ownership soon, but never shorten pacing/Retry-After.
+            retry_at=max(min(row.lease_until,now+2),row.next_allowed,row.cooldown_until)
+            raise DomainBusy(max(row.lease_until,row.next_allowed,row.cooldown_until),retry_at)
     return owner
 
 

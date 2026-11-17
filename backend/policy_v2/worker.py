@@ -19,7 +19,7 @@ def run_workers(factory, settings, workers=4, stop=None):
         while not stop.is_set():
             with factory() as db:
                 ids=list(db.scalars(select(Source.id).where(Source.enabled)))
-            for source_id in ids:discover(factory,source_id)
+            for source_id in ids:discover(factory,source_id,settings)
             stop.wait(60)
     with ThreadPoolExecutor(max_workers=workers+1) as pool:
         futures=[pool.submit(loop,i) for i in range(workers)]

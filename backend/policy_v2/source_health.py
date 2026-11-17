@@ -35,6 +35,7 @@ def record_failure(factory, source_id, error, settings, now=None):
 
 
 def record_success(factory, source_id, now=None):
+    """Record transport recovery; only collection-round settlement marks freshness."""
     now = time.time() if now is None else now
     with transaction(factory) as db:
         source = db.get(Source, source_id)
@@ -47,5 +48,5 @@ def record_success(factory, source_id, now=None):
         domain = db.get(DomainState, host)
         if domain is not None and domain.cooldown_until <= now:
             domain.cooldown_until = 0
-        source.last_success = now
+        source.checkpoint = {**(source.checkpoint or {}), 'last_request_success':now}
         source.last_error = ''

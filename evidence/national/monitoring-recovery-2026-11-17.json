@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-17",
+  "changes": [
+    "durable_paginated_sweeps",
+    "bounded_failed_attachment_repair",
+    "whole_run_completion_accounting",
+    "inflight_domain_recheck",
+    "legacy_office_file_signature"
+  ],
+  "tests": {
+    "command": "PYTHONPATH=backend .venv/bin/pytest -q backend/tests",
+    "passed": 370
+  },
+  "regressions_before_fix": {
+    "five_page_listing_documents": 2,
+    "list_only_updated_success": true,
+    "failed_attachment_after_rediscovery": "pending"
+  },
+  "local_trial": {
+    "service": "com.weijianwei.collection-trial-20261117",
+    "service_observed_running": true,
+    "database_scope": "isolated_local",
+    "snapshot": {
+      "started": 1794892845.604057,
+      "deadline": 1795152045.604057,
+      "checked_at": 1794893751.1318002,
+      "verdict": "observing",
+      "sources": [
+        {
+          "source": "bj-policy",
+          "run": {
+            "id": 2,
+            "state": "running",
+            "started": 1794892845.653312,
+            "finished": null,
+            "listing_complete": false,
+            "pages_read": 4,
+            "counts": {
+              "succeeded": 50,
+              "queued": 10,
+              "total": 60,
+              "repair_exhausted": 0,
+              "list": 5,
+              "detail": 40,
+              "attachment": 15
+            },
+            "error": "",
+            "has_unresolved_failures": false
+          },
+          "completed_runs": 0,
+          "required_runs": 12,
+          "max_completion_gap_seconds": 905.52774310112,
+          "documents": 35,
+          "configuration_consistent": true,
+          "passed": false
+        },
+        {
+          "source": "gd-policy",
+          "run": {
+            "id": 1,
+            "state": "succeeded",
+            "started": 1794892845.649984,
+            "finished": 1794893723.840388,
+            "listing_complete": true,
+            "pages_read": 2,
+            "counts": {
+              "succeeded": 96,
+              "total": 96,
+              "repair_exhausted": 0,
+              "list": 2,
+              "detail": 28,
+              "attachment": 66
+            },
+            "error": "",
+            "has_unresolved_failures": false
+          },
+          "completed_runs": 1,
+          "required_runs": 12,
+          "max_completion_gap_seconds": 878.236330986023,
+          "documents": 28,
+          "configuration_consistent": true,
+          "passed": false
+        },
+        {
+          "source": "nx-policy",
+          "run": {
+            "id": 3,
+            "state": "succeeded",
+            "started": 1794892845.65493,
+            "finished": 1794893408.597209,
+            "listing_complete": true,
+            "pages_read": 2,
+            "counts": {
+              "succeeded": 39,
+              "total": 39,
+              "repair_exhausted": 0,
+              "list": 2,
+              "detail": 21,
+              "attachment": 16
+            },
+            "error": "",
+            "has_unresolved_failures": false
+          },
+          "completed_runs": 1,
+          "required_runs": 12,
+          "max_completion_gap_seconds": 562.9931519031525,
+          "documents": 21,
+          "configuration_consistent": true,
+          "passed": false
+        }
+      ],
+      "tasks": {
+        "queued": 10,
+        "running": 0,
+        "succeeded": 185,
+        "failed": 0
+      },
+      "scope": "isolated_database; downloads_complete_does_not_mean_OCR_complete"
+    }
+  },
+  "limits": [
+    "The three-day observation is not complete.",
+    "A Mac sleep, logout or shutdown can interrupt the trial.",
+    "The trial covers three policy columns, not all national sources or Tencent production.",
+    "Unsupported attachments and OCR/transcription work are explicit remaining extraction states."
+  ]
+}

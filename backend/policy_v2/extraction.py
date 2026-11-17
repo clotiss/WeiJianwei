@@ -5,6 +5,10 @@ import zipfile
 from urllib.parse import urlsplit, parse_qs
 
 def extract(data,url):
+    # Some official downloads are legacy Office compound files named .docx.
+    # Preserve their bytes without feeding them to a ZIP parser or inventing text.
+    if data.startswith(b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1'):
+        return [],'unsupported'
     ext=PurePosixPath(urlsplit(url).path).suffix.lower()
     query={k.lower():v for k,v in parse_qs(urlsplit(url).query).items()}
     if ext not in ('.pdf','.docx','.xlsx','.png','.jpg','.jpeg','.gif','.webp'):

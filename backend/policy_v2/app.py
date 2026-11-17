@@ -10,10 +10,11 @@ from pydantic import BaseModel, Field
 from sqlalchemy import func, or_, select
 
 from .db import Base, database
-from .models import Audit, Document, Favorite, Follow, Notification, Revision, Session, Source, Task, User
+from .models import Audit, Document, Favorite, Follow, Notification, Revision, Session, Source, Task, TaskRepair, User
 from .settings import REGIONS, TOPICS, Settings
 from .sources import seed
 from .source_health import cooldown_until
+from .rounds import summary as round_summary, refresh_source
 
 settings = Settings()
 engine, SessionLocal = database(settings.database_url)
@@ -154,6 +155,7 @@ def coverage():
         return [{"id": s.id, "name": s.name, "region": s.region, "kind": s.kind,
                  "enabled": s.enabled, "last_success": s.last_success,
                  "cooldown_until": cooldown_until(s),
+                 "collection_run": round_summary(db,s.id),
                  "status": "paused" if not s.enabled else ("cooling_down" if cooldown_until(s) > time.time() else ("error" if s.last_error else "active"))}
                 for s in rows]
 
@@ -206,7 +208,8 @@ def admin_sources():
     with SessionLocal() as db:
         return [{"id": s.id, "name": s.name, "region": s.region, "kind": s.kind,
                  "url": s.url, "enabled": s.enabled, "last_success": s.last_success,
-                 "last_error": s.last_error, "listing_audit": (s.checkpoint or {}).get("last_listing")}
+                 "last_error": s.last_error, "listing_audit": (s.checkpoint or {}).get("last_listing"),
+                 "collection_run": round_summary(db,s.id)}
                 for s in db.scalars(select(Source).order_by(Source.id))]
 
 
@@ -248,5 +251,26 @@ def admin_tasks(state: str = "", limit: int = Query(50, ge=1, le=200)):
         if state: stmt = stmt.where(Task.state == state)
         return [{"id": task.id, "kind": task.kind, "state": task.state,
                  "attempts": task.attempts, "error": task.error,
+                 "repair_cycles": (db.get(TaskRepair,task.id).cycles if db.get(TaskRepair,task.id) else 0),
+                 "available": task.available,
                  "created": task.created, "finished": task.finished}
                 for task in db.scalars(stmt)]
+
+
+@app.post('/api/v2/admin/tasks/{task_id}/retry', dependencies=[Depends(admin)])
+def retry_task(task_id: int, reason: str = Query(..., min_length=5, max_length=500)):
+    with SessionLocal.begin() as db:
+        task=db.scalar(select(Task).where(Task.id==task_id).with_for_update())
+        if not task:raise HTTPException(404,'task_not_found')
+        if task.state!='failed':raise HTTPException(409,'task_not_failed')
+        before={'state':task.state,'error':task.error,'attempts':task.attempts}
+        repair=db.get(TaskRepair,task.id)
+        if repair:repair.cycles=0
+        task.state='queued';task.attempts=0;task.finished=None;task.owner=None;task.lease_until=None
+        source=db.get(Source,task.payload.get('source_id'))
+        task.available=max(time.time(),cooldown_until(source) if source else 0)
+        db.add(Audit(actor='admin-token',action='task.retry',target=str(task.id),reason=reason,
+                     before=before,after={'state':'queued','available':task.available}))
+        db.flush()
+        if source:refresh_source(db,source,settings)
+        return {'id':task.id,'state':task.state,'available':task.available}

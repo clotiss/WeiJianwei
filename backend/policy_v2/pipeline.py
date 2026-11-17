@@ -16,6 +16,7 @@ from .adapters import read_list
 from .queue import claim, enqueue, finish, defer, keep_lease, assert_ownership, TaskLeaseLost
 from .source_health import cooldown_until, record_failure, record_success
 from .storage import make_store
+from . import rounds
 
 
 def _fingerprint(title, body, published, attachments):
@@ -23,22 +24,19 @@ def _fingerprint(title, body, published, attachments):
     return hashlib.sha256(value.encode()).hexdigest()
 
 
-def discover(factory, source_id):
-    """Schedule bounded list-page work for one registered source."""
-    with factory() as db:
-        source = db.get(Source, source_id)
-        if not source or not source.enabled:
-            return 0
-        spec = {"id": source.id, "url": source.url, "interval": source.interval_seconds}
-    url = spec["url"]
-    bucket = int(time.time() // max(60, spec["interval"]))
-    key = "list:" + hashlib.sha256(f"{source_id}:{url}:{bucket}".encode()).hexdigest()
-    with transaction(factory) as db:
-        existed=db.scalar(select(Task.id).where(Task.key==key))
-        task = enqueue(db, "list", key, {"source_id": source_id, "url": url, "page_number": 1, "bucket": bucket})
-        if existed is None:
-            db.get(Source,source_id).last_scheduled=time.time()
-        return int(task is not None and existed is None)
+def discover(factory, source_id, settings=None):
+    return rounds.discover(factory, source_id, settings)
+
+
+def _attachments(db, revision, source_id, run_id):
+    # A previous download failure must not require changing the original article.
+    for attachment in revision.attachments:
+        if attachment['status'] not in ('pending','download_failed'):
+            continue
+        task = enqueue(db, 'attachment', 'attachment:' + hashlib.sha256(
+            (str(revision.id)+attachment['url']).encode()).hexdigest(),
+            {'revision_id':revision.id, 'url':attachment['url'], 'source_id':source_id, 'run_id':run_id})
+        rounds.link_task(db, run_id, task)
 
 
 def process_one(factory, settings, worker="worker", fetcher=None):
@@ -55,8 +53,11 @@ def _process_claimed(factory, settings, task, fetcher):
     try:
         with factory() as db:
             source = db.get(Source, task["payload"].get("source_id"))
-            if not source or not source.enabled:
+            if not source:
                 finish(factory, task)
+                return True
+            if not source.enabled:
+                defer(factory, task, time.time()+60)
                 return True
             until = cooldown_until(source)
         if until > time.time():
@@ -68,7 +69,7 @@ def _process_claimed(factory, settings, task, fetcher):
             with factory() as db:
                 source = db.get(Source, source_id)
                 if not source or not source.enabled:
-                    finish(factory, task)
+                    defer(factory, task, time.time()+60)
                     return True
                 config = dict(source.config)
                 spec = {"id": source.id, "kind": source.kind, "name": source.name,
@@ -89,12 +90,24 @@ def _process_claimed(factory, settings, task, fetcher):
                     registered.checkpoint = {**(registered.checkpoint or {}), 'last_listing': {
                         **listing_audit, 'unique_eligible_records': len(items), 'snapshot_id': snap.id, 'checked_at': time.time()}}
                 for item in items:
-                    enqueue(db, "detail", "detail:" + hashlib.sha256((source_id + item["url"] + str(task["payload"].get("bucket", 0))).encode()).hexdigest(),
-                            {"source_id": source_id, "item": item, "snapshot_id": snap.id})
+                    existing = db.scalar(select(Document).where(Document.url==item['url']))
+                    revision = db.get(Revision, existing.current_revision) if existing and existing.current_revision else None
+                    recent_page = int(task['payload'].get('page_number',1))<=int(config.get('max_pages',3))
+                    due = (not revision or recent_page or existing.updated<time.time()-settings.history_refresh_seconds
+                           or revision.title!=item['title'] or (item.get('published') and revision.published!=item['published']))
+                    if due:
+                        cycle = ('run:'+str(task['payload']['run_id'])) if task['payload'].get('run_id') else str(task['payload'].get('bucket',0))
+                        child = enqueue(db, "detail", "detail:" + hashlib.sha256((source_id + item["url"] + cycle).encode()).hexdigest(),
+                            {"source_id": source_id, "item": item, "snapshot_id": snap.id,
+                             "run_id":task['payload'].get('run_id')})
+                        rounds.link_task(db,task['payload'].get('run_id'),child)
+                    elif revision:
+                        _attachments(db,revision,source_id,task['payload'].get('run_id'))
                 page_number = int(task["payload"].get("page_number", 1))
                 bucket = task["payload"].get("bucket", int(time.time() // max(60, int(config.get("interval_seconds", 21600)))))
                 max_pages = min(100, max(1, int(config.get("max_pages", 3))))
-                if next_url and page_number < max_pages:
+                tracked = rounds.advance_listing(db,db.get(Source,source_id),task,next_url,settings)
+                if not tracked and next_url and page_number < max_pages:
                     next_key = "list:" + hashlib.sha256(f"{source_id}:{next_url}:{bucket}".encode()).hexdigest()
                     enqueue(db, "list", next_key, {"source_id": source_id, "url": next_url,
                                                      "page_number": page_number + 1, "bucket": bucket})
@@ -128,10 +141,9 @@ def _process_claimed(factory, settings, task, fetcher):
                         attachments=parsed["attachments"], search_text=" ".join([parsed["title"], parsed["body"]]),
                         search_tokens=tokens(" ".join([parsed["title"], parsed["body"]])))
                     db.add(rev); db.flush(); doc.current_revision=rev.id; doc.status="ready" if parsed["kind"]!='excluded' else "excluded"
-                    for attachment in parsed["attachments"]:
-                        if attachment['status'] != 'pending': continue
-                        enqueue(db, "attachment", "attachment:" + hashlib.sha256((str(rev.id) + attachment["url"]).encode()).hexdigest(),
-                                {"revision_id": rev.id, "url": attachment["url"], "source_id": spec["id"]})
+                else:
+                    rev = latest
+                _attachments(db,rev,spec['id'],task['payload'].get('run_id'))
                 doc.updated=datetime.now(timezone.utc).timestamp()
             finish(factory, task)
         elif task["kind"] == "attachment":
@@ -152,19 +164,29 @@ def _process_claimed(factory, settings, task, fetcher):
                     if attachment["url"] == payload["url"]:
                         attachment.update({"status": status, "object_key": metadata["key"],
                                            "sha256": metadata["sha"], "extracted": blocks})
+                        attachment.pop('last_error',None)
                 revision.attachments = attachments
             finish(factory, task)
         else:
             raise ValueError("unknown_task_kind")
         record_success(factory, task["payload"].get("source_id"))
     except DomainBusy as exc:
-        defer(factory, task, exc.until)
+        defer(factory, task, exc.retry_at)
     except TaskLeaseLost:
         pass  # A replacement worker owns the task; do not write or finish its work.
     except Exception as exc:
         until = record_failure(factory, task["payload"].get("source_id"), exc, settings)
         finish(factory, task, f"{type(exc).__name__}:{exc}"[:1000], settings.task_max_attempts, retry_at=until)
+        rounds.defer_repair(factory,task,settings)
+        if task['kind']=='attachment':
+            with transaction(factory) as db:
+                failed=db.get(Task,task['id'])
+                if failed and failed.state=='failed':
+                    revision=db.get(Revision,task['payload']['revision_id'])
+                    revision.attachments=[{**a,'status':'download_failed','last_error':failed.error}
+                        if a['url']==task['payload']['url'] else a for a in revision.attachments]
     finally:
         if owned_fetcher and hasattr(fetcher, "close"):
             fetcher.close()
+        rounds.settle(factory,task['payload'].get('source_id'),settings)
     return True

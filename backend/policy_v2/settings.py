@@ -25,6 +25,10 @@ class Settings(BaseSettings):
     source_cooldown_seconds: int = 300
     task_lease_seconds: int = 300
     task_max_attempts: int = 3
+    repair_delay_seconds: int = 21600
+    repair_max_cycles: int = 3
+    max_scan_pages: int = 1000
+    history_refresh_seconds: int = 604800
     session_days: int = 30
     recruitment_enabled: bool = False
 
