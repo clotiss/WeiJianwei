@@ -198,7 +198,8 @@ def admin_sources():
     with SessionLocal() as db:
         return [{"id": s.id, "name": s.name, "region": s.region, "kind": s.kind,
                  "url": s.url, "enabled": s.enabled, "last_success": s.last_success,
-                 "last_error": s.last_error} for s in db.scalars(select(Source).order_by(Source.id))]
+                 "last_error": s.last_error, "listing_audit": (s.checkpoint or {}).get("last_listing")}
+                for s in db.scalars(select(Source).order_by(Source.id))]
 
 
 @app.put("/api/v2/admin/sources/{source_id}/enabled", dependencies=[Depends(admin)])

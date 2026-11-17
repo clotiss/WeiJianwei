@@ -1,7 +1,8 @@
 import re
 import unicodedata
+from collections import Counter
 from datetime import date
-from urllib.parse import urljoin,urlsplit,urlunsplit
+from urllib.parse import urljoin,urlsplit,urlunsplit,parse_qs
 from bs4 import BeautifulSoup
 
 class ParseError(Exception): pass
@@ -17,11 +18,64 @@ def date_value(text):
 
 def soup(data): return BeautifulSoup(data,'lxml')
 def clean(text):return re.sub(r'[ \t\r\f\v]+',' ',unicodedata.normalize('NFKC',text)).strip()
+
+def jcms_group(data,url,config):
+    """Read the embedded JCMS group or its public XML response, never execute JS.
+
+    Some endpoints return the entire dataset despite advertising another group.
+    Actual record counts, before host/type filtering, decide whether to continue.
+    """
+    text=data.decode('utf-8',errors='replace')
+    store=re.search(r'<datastore>(.*?)</datastore>',text,re.S)
+    if not store:raise ParseError('jcms_datastore_missing')
+    payload=store.group(1)
+    fragments=re.findall(r'<record>\s*<!\[CDATA\[(.*?)\]\]>\s*</record>',payload,re.S)
+    total=re.search(r'<totalrecord>(\d+)</totalrecord>',payload)
+    if not total:
+        # Ignore the separate search-form initializer's placeholder totalRecord:1000.
+        initializers=re.findall(r'\.jpage\(\{(.*?)\}\);',text,re.S)
+        init=next((i for i in initializers if 'dataStore:' in i), '')
+        total=re.search(r'\btotalRecord\s*:\s*(\d+)',init)
+    if not total:raise ParseError('jcms_total_missing')
+    total=int(total.group(1))
+    if len(fragments)>total or (total and not fragments):raise ParseError('jcms_record_count_mismatch')
+    origins=Counter();eligible=0;outside=0;non_document=0;non_matching=0
+    for fragment in fragments:
+        row=soup(fragment);a=row.select_one('a[href]')
+        if not a or not date_value(row.get_text(' ',strip=True)):
+            raise ParseError('jcms_record_malformed')
+        target=canonical(urljoin(url,a['href']));host=urlsplit(target).hostname or ''
+        origins[host]+=1
+        title=clean(a.get('title') or a.get_text(' ',strip=True))
+        if host not in config.get('list_hosts',config['hosts']):outside+=1
+        elif len(title)<6 or not re.search(r'\.(?:s?html?|shtm)(?:\?|$)',target,re.I):non_document+=1
+        elif config.get('include_title_pattern') and not re.search(config['include_title_pattern'],title):non_matching+=1
+        else:eligible+=1
+    next_url=None
+    if len(fragments)<total:
+        nextgroup=re.search(r'<nextgroup>\s*<!\[CDATA\[(.*?)\]\]>\s*</nextgroup>',payload,re.S)
+        a=soup(nextgroup.group(1)).select_one('a[href]') if nextgroup else None
+        if not a:raise ParseError('jcms_next_group_missing')
+        next_url=canonical(urljoin(url,a['href']));target=urlsplit(next_url)
+        if (target.scheme!='https' or target.hostname!=urlsplit(url).hostname or target.username or target.password
+                or target.port not in (None,443) or target.path!='/module/web/jpage/dataproxy.jsp'
+                or parse_qs(target.query).get('columnid')!=[str(config['jcms_column_id'])] or next_url==url):
+            raise ParseError('jcms_next_group_not_allowed')
+    return fragments,next_url,{'total_records':total,'returned_records':len(fragments),
+        'complete_listing':len(fragments)==total,'link_origins':dict(origins),'eligible_records':eligible,
+        'filtered_external':outside,'filtered_non_document':non_document,'filtered_content_type':non_matching}
+
 def parse_list(data,url,config):
-    s=soup(data)
+    jcms=config.get('adapter')=='jcms'
+    group_next=None
+    if jcms:
+        fragments,group_next,_=jcms_group(data,url,config)
+        s=soup(''.join(fragments))
+    else:
+        s=soup(data)
     list_hosts=config.get('list_hosts',config['hosts'])
     # JCMS servers may embed item HTML in script text / XML records rather than live DOM.
-    for fragment in re.findall(r'<!\[CDATA\[(.*?)\]\]>',data.decode('utf-8',errors='replace'),re.S):
+    for fragment in ([] if jcms else re.findall(r'<!\[CDATA\[(.*?)\]\]>',data.decode('utf-8',errors='replace'),re.S)):
         s.append(soup(fragment))
     rows=s.select(config['list_selector']);items=[];seen=set()
     for row in rows:
@@ -33,8 +87,8 @@ def parse_list(data,url,config):
         published=date_value(row.get_text(' ',strip=True))
         if not published:continue # Menu links are not list items; never fabricate publication dates.
         seen.add(target);items.append({'url':target,'title':title,'published':published})
-    if not items:raise ParseError('list_empty_or_selector_changed')
-    next_url=None
+    if not items and not jcms:raise ParseError('list_empty_or_selector_changed')
+    next_url=group_next
     for a in s.select('a[href]'):
         if a.get_text(strip=True) in ('下一页','下页','>','下一页 >'):
             candidate=canonical(urljoin(url,a['href']))

@@ -21,6 +21,10 @@ def source_config(spec):
               'hosts': hosts, 'list_hosts': [urlsplit(url).hostname], 'max_pages': 3}
     if id.startswith('nhc-'):
         config['pagination'] = 'nhc-static'
+    if id.startswith('js-'):
+        config['jcms_column_id'] = 81326 if id == 'js-policy' else 7292
+    if id == 'js-interpretation':
+        config['include_title_pattern'] = '解读|图解|一图读懂|问答|答记者问'
     if id.startswith('hn-'):
         config['pagination'] = 'hunan-trs'
         config['body_selectors'] = ['#j-show-body', *COMMON_BODY]

@@ -1,13 +1,11 @@
 """Read-only live validation of registered policy source adapters."""
 import json
 import argparse
-from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
 
 from policy_v2.network import SafeFetcher
-from policy_v2.parsing import parse_detail, parse_list
+from policy_v2.parsing import parse_detail, parse_list, jcms_group
 from policy_v2.settings import Settings
 from policy_v2.sources import SPECS, source_config
 
@@ -46,6 +44,8 @@ def validate_source(fetcher, spec, pages=1):
 
     try:
         items, next_url = parse_list(data, final_url, config)
+        if config.get('adapter') == 'jcms':
+            result['list_audit'] = jcms_group(data, final_url, config)[2]
         result.update(
             list_status="ok",
             item_count=len(items),
@@ -96,29 +96,24 @@ def validate_source(fetcher, spec, pages=1):
 
 
 def validate_jiangsu_interpretation_filter(fetcher):
-    """Count valid Jiangsu items separately from NHC reposts on the same page."""
-    url = "https://wjw.jiangsu.gov.cn/col/col7292/index.html"
-    hosts = ["wjw.jiangsu.gov.cn"]
+    """Audit every embedded record, including non-HTML WeChat links."""
+    spec = next(s for s in SPECS if s[0] == 'js-interpretation')
+    url, hosts = spec[4], spec[7]
+    config = source_config(spec)
     result = {"id": "js-interpretation-origin-audit", "url": url}
     try:
         data, _, final_url = fetcher.get(url, hosts)
-        all_items, _ = parse_list(data, final_url, {
-            "list_selector": "li",
-            "hosts": hosts + ["www.nhc.gov.cn"],
-        })
-        items, _ = parse_list(data, final_url, {
-            "list_selector": "li",
-            "hosts": hosts + ["www.nhc.gov.cn"],
-            "list_hosts": hosts,
-        })
-        origins = Counter(urlsplit(item["url"]).hostname for item in all_items)
+        items, _ = parse_list(data, final_url, config)
+        audit = jcms_group(data, final_url, config)[2]
         result.update(
             status="ok",
-            total_item_count=len(all_items),
-            link_origins=dict(origins),
+            total_item_count=audit['returned_records'],
+            total_official_records=audit['total_records'],
+            link_origins=audit['link_origins'],
             accepted_jiangsu_item_count=len(items),
             accepted_sample_title=items[0]["title"] if items else "",
-            filtered_external_item_count=len(all_items) - len(items),
+            filtered_external_item_count=audit['filtered_external'],
+            filtered_content_type_count=audit['filtered_content_type'],
         )
     except Exception as exc:
         result.update(status="unverified", check_error=describe_error(exc))

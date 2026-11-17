@@ -10,7 +10,7 @@ from .enrichment import classify, tokens
 from .extraction import extract
 from .models import Document, RawObject, Revision, Snapshot, Source, Task
 from .network import SafeFetcher
-from .parsing import parse_detail, parse_list
+from .parsing import parse_detail, parse_list, jcms_group
 from .queue import claim, enqueue, finish, defer
 from .source_health import cooldown_until, record_failure, record_success
 from .storage import make_store
@@ -65,6 +65,7 @@ def process_one(factory, settings, worker="worker", fetcher=None):
                         "region": source.region, "config": config}
             data, mime, final_url = fetcher.get(url, config["hosts"], page_kind="list", config=config)
             items, next_url = parse_list(data, final_url, config)
+            listing_audit = jcms_group(data, final_url, config)[2] if config.get('adapter') == 'jcms' else None
             stored = store.put(data, mime)
             with transaction(factory) as db:
                 raw = db.get(RawObject, stored["sha"])
@@ -72,6 +73,10 @@ def process_one(factory, settings, worker="worker", fetcher=None):
                     db.add(RawObject(**stored))
                 snap = Snapshot(source_id=source_id, url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx"))
                 db.add(snap); db.flush()
+                if listing_audit is not None:
+                    registered = db.get(Source, source_id)
+                    registered.checkpoint = {**(registered.checkpoint or {}), 'last_listing': {
+                        **listing_audit, 'unique_eligible_records': len(items), 'snapshot_id': snap.id, 'checked_at': time.time()}}
                 for item in items:
                     enqueue(db, "detail", "detail:" + hashlib.sha256((source_id + item["url"] + str(task["payload"].get("bucket", 0))).encode()).hexdigest(),
                             {"source_id": source_id, "item": item, "snapshot_id": snap.id})

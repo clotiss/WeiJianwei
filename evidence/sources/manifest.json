@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T02:49:03.698197+00:00",
+  "checked_at": "2026-11-17T03:11:36.997113+00:00",
   "source_checks": [
     {
       "id": "nhc-policy",
@@ -114,6 +114,7 @@
     {
       "id": "js-policy",
       "url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html",
+      "checked_at": "2026-11-17T03:11:22.604171+00:00",
       "list_fetch_status": "ok",
       "list_http_status": 200,
       "list_initial_http_status": 200,
@@ -121,11 +122,23 @@
       "mime": "text/html",
       "bytes": 39565,
       "final_url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html",
+      "list_audit": {
+        "total_records": 47,
+        "returned_records": 45,
+        "complete_listing": false,
+        "link_origins": {
+          "wjw.jiangsu.gov.cn": 45
+        },
+        "eligible_records": 45,
+        "filtered_external": 0,
+        "filtered_non_document": 0,
+        "filtered_content_type": 0
+      },
       "list_status": "ok",
       "item_count": 45,
       "sample_title": "江苏省卫生健康委员会 江苏省疾病预防控制局关于废止部分行政规范性文件的决定(苏卫规〔2026〕1号)",
       "sample_url": "https://wjw.jiangsu.gov.cn/art/2026/9/30/art_81326_11836965.html",
-      "next_page": null,
+      "next_page": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=81326&unitid=331145&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
       "detail_http_status": 200,
       "detail_initial_http_status": 200,
       "detail_fetch_mode": "httpx",
@@ -136,11 +149,52 @@
       "published": "2026-09-30",
       "parsed_kind": "policy",
       "attachments": 2,
-      "checked_at": "2026-11-17T02:42:30.736346+00:00"
+      "more_pages": [
+        {
+          "id": "js-policy",
+          "url": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=81326&unitid=331145&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
+          "checked_at": "2026-11-17T03:11:24.908981+00:00",
+          "list_fetch_status": "ok",
+          "list_http_status": 200,
+          "list_initial_http_status": 200,
+          "list_fetch_mode": "httpx",
+          "mime": "text/xml",
+          "bytes": 25852,
+          "final_url": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=81326&unitid=331145&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
+          "list_audit": {
+            "total_records": 47,
+            "returned_records": 47,
+            "complete_listing": true,
+            "link_origins": {
+              "wjw.jiangsu.gov.cn": 47
+            },
+            "eligible_records": 47,
+            "filtered_external": 0,
+            "filtered_non_document": 0,
+            "filtered_content_type": 0
+          },
+          "list_status": "ok",
+          "item_count": 47,
+          "sample_title": "江苏省卫生健康委员会 江苏省疾病预防控制局关于废止部分行政规范性文件的决定(苏卫规〔2026〕1号)",
+          "sample_url": "https://wjw.jiangsu.gov.cn/art/2026/9/30/art_81326_11836965.html",
+          "next_page": null,
+          "detail_http_status": 200,
+          "detail_initial_http_status": 200,
+          "detail_fetch_mode": "httpx",
+          "detail_status": "ok",
+          "detail_mime": "text/html",
+          "detail_title": "江苏省卫生健康委员会 江苏省疾病预防控制局关于废止部分行政规范性文件的决定(苏卫规〔2026〕1号)",
+          "body_chars": 289,
+          "published": "2026-09-30",
+          "parsed_kind": "policy",
+          "attachments": 2
+        }
+      ]
     },
     {
       "id": "js-interpretation",
       "url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "checked_at": "2026-11-17T03:11:28.940067+00:00",
       "list_fetch_status": "ok",
       "list_http_status": 200,
       "list_initial_http_status": 200,
@@ -148,11 +202,25 @@
       "mime": "text/html",
       "bytes": 27042,
       "final_url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "list_audit": {
+        "total_records": 202,
+        "returned_records": 45,
+        "complete_listing": false,
+        "link_origins": {
+          "mp.weixin.qq.com": 14,
+          "www.nhc.gov.cn": 30,
+          "wjw.jiangsu.gov.cn": 1
+        },
+        "eligible_records": 1,
+        "filtered_external": 44,
+        "filtered_non_document": 0,
+        "filtered_content_type": 0
+      },
       "list_status": "ok",
       "item_count": 1,
       "sample_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
       "sample_url": "https://wjw.jiangsu.gov.cn/art/2025/8/8/art_7292_11627428.html",
-      "next_page": null,
+      "next_page": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=7292&unitid=317895&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
       "detail_http_status": 200,
       "detail_initial_http_status": 200,
       "detail_fetch_mode": "httpx",
@@ -163,7 +231,55 @@
       "published": "2025-08-08",
       "parsed_kind": "interpretation",
       "attachments": 0,
-      "checked_at": "2026-11-17T02:42:30.736346+00:00"
+      "more_pages": [
+        {
+          "id": "js-interpretation",
+          "url": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=7292&unitid=317895&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
+          "checked_at": "2026-11-17T03:11:32.951765+00:00",
+          "list_fetch_status": "ok",
+          "list_http_status": 200,
+          "list_initial_http_status": 200,
+          "list_fetch_mode": "httpx",
+          "mime": "text/xml",
+          "bytes": 78236,
+          "final_url": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=7292&unitid=317895&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
+          "list_audit": {
+            "total_records": 202,
+            "returned_records": 202,
+            "complete_listing": true,
+            "link_origins": {
+              "mp.weixin.qq.com": 83,
+              "www.nhc.gov.cn": 46,
+              "wjw.jiangsu.gov.cn": 33,
+              "www.gov.cn": 20,
+              "www.jiangsu.gov.cn": 10,
+              "www.news.cn": 1,
+              "content-static.cctvnews.cctv.com": 1,
+              "www.scio.gov.cn": 6,
+              "www.js.gov.cn": 2
+            },
+            "eligible_records": 26,
+            "filtered_external": 169,
+            "filtered_non_document": 0,
+            "filtered_content_type": 7
+          },
+          "list_status": "ok",
+          "item_count": 26,
+          "sample_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
+          "sample_url": "https://wjw.jiangsu.gov.cn/art/2025/8/8/art_7292_11627428.html",
+          "next_page": null,
+          "detail_http_status": 200,
+          "detail_initial_http_status": 200,
+          "detail_fetch_mode": "httpx",
+          "detail_status": "ok",
+          "detail_mime": "text/html",
+          "detail_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
+          "body_chars": 2091,
+          "published": "2025-08-08",
+          "parsed_kind": "interpretation",
+          "attachments": 0
+        }
+      ]
     },
     {
       "id": "hn-policy",
@@ -339,16 +455,27 @@
   "origin_filter_checks": [
     {
       "id": "js-interpretation-origin-audit",
-      "url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "url": "https://wjw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?page=1&appid=1&appid=1&webid=31&path=/&columnid=7292&unitid=317895&webname=%25E6%25B1%259F%25E8%258B%258F%25E7%259C%2581%25E5%258D%25AB%25E7%2594%259F%25E5%2581%25A5%25E5%25BA%25B7%25E5%25A7%2594%25E5%2591%2598%25E4%25BC%259A&permissiontype=0",
+      "checked_at": "2026-11-17T03:11:32.951765+00:00",
       "status": "ok",
-      "total_item_count": 31,
+      "scope": "complete registered column listing",
+      "total_item_count": 202,
       "link_origins": {
-        "www.nhc.gov.cn": 30,
-        "wjw.jiangsu.gov.cn": 1
+        "mp.weixin.qq.com": 83,
+        "www.nhc.gov.cn": 46,
+        "wjw.jiangsu.gov.cn": 33,
+        "www.gov.cn": 20,
+        "www.jiangsu.gov.cn": 10,
+        "www.news.cn": 1,
+        "content-static.cctvnews.cctv.com": 1,
+        "www.scio.gov.cn": 6,
+        "www.js.gov.cn": 2
       },
-      "accepted_jiangsu_item_count": 1,
-      "accepted_sample_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
-      "filtered_external_item_count": 30
+      "site_hosted_candidate_count": 33,
+      "accepted_interpretation_candidate_count": 26,
+      "filtered_external_item_count": 169,
+      "filtered_content_type_count": 7,
+      "note": "External links include WeChat, NHC and other sites; their bodies were not fetched. Local hosting does not imply local authorship."
     }
   ],
   "previous_hunan_successful_sample": {
@@ -466,7 +593,7 @@
     ]
   },
   "validation": {
-    "backend_tests_passed": 29,
+    "backend_tests_passed": 35,
     "firefox_fixture_included": true,
     "frontend_api_checks_passed": 6,
     "frontend_resilience_scenarios": [
@@ -482,7 +609,8 @@
     "NHC, Jiangsu and Guangdong sample checks passed. Hunan list/detail/page-two samples have succeeded but intermittent timeout persists; see latest and previous checks separately.",
     "Hunan P-256 TLS compatibility retains CA and hostname verification.",
     "The single worker reuses sessions, spaces requests, persists origin cooldown and honors Retry-After; stored documents remain readable.",
-    "Live checks are small samples, not full historical coverage or classification-accuracy certification."
+    "Live checks are small samples, not full historical coverage or classification-accuracy certification.",
+    "Jiangsu follow-up: prior 45/1 accepted listing counts were incomplete. JCMS nextgroup XML contains all 47 policy rows / 202 interpretation-column rows. The latter yields 26 eligible site-hosted interpretations after 169 external and 7 non-interpretation records are excluded."
   ],
   "server_diagnostics": {
     "recorded_at": "2026-11-17T02:51:24.229098+00:00",
@@ -514,5 +642,54 @@
       }
     ],
     "conclusion": "Curve compatibility is fixed but external availability remains intermittent on both local and server paths. Sources remain disabled pending staging observation."
+  },
+  "historical_detail_checks": {
+    "checked_at": "2026-11-17T03:12:29.874190+00:00",
+    "samples": [
+      {
+        "source_id": "js-policy",
+        "url": "https://wjw.jiangsu.gov.cn/art/2024/1/5/art_81326_11119050.html",
+        "title": "江苏省卫生厅关于印发《江苏省乡村医生注册管理办法》的通知(苏卫基妇〔2004〕2号)",
+        "status": "ok",
+        "http_status": 200,
+        "body_chars": 3066,
+        "attachments": 0,
+        "published": "2024-01-05",
+        "parsed_kind": "policy"
+      },
+      {
+        "source_id": "js-policy",
+        "url": "https://wjw.jiangsu.gov.cn/art/2024/1/5/art_81326_11119029.html",
+        "title": "江苏省卫生厅等五部门关于印发《江苏省关于城镇医疗管理机构分类管理的实施意见》的通知(苏卫医〔2000〕41号)",
+        "status": "ok",
+        "http_status": 200,
+        "body_chars": 3341,
+        "attachments": 0,
+        "published": "2024-01-05",
+        "parsed_kind": "policy"
+      },
+      {
+        "source_id": "js-interpretation",
+        "url": "https://wjw.jiangsu.gov.cn/art/2025/2/21/art_7292_11496703.html",
+        "title": "一图读懂《江苏省关于加快完善生育支持政策体系推动建设生育友好型社会的若干措施》",
+        "status": "ok",
+        "http_status": 200,
+        "body_chars": 123,
+        "attachments": 1,
+        "published": "2025-02-21",
+        "parsed_kind": "interpretation"
+      },
+      {
+        "source_id": "js-interpretation",
+        "url": "https://wjw.jiangsu.gov.cn/art/2018/11/1/art_7292_8337494.html",
+        "title": "《江苏省中医医术确有专长人员医师资格考核注册管理实施细则》解读",
+        "status": "ok",
+        "http_status": 200,
+        "body_chars": 2515,
+        "attachments": 0,
+        "published": "2018-11-01",
+        "parsed_kind": "interpretation"
+      }
+    ]
   }
 }
