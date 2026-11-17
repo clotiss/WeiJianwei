@@ -39,12 +39,22 @@ def parse_list(data,url,config):
         if a.get_text(strip=True) in ('下一页','下页','>','下一页 >'):
             candidate=canonical(urljoin(url,a['href']))
             if candidate!=url and urlsplit(candidate).hostname in list_hosts:next_url=candidate;break
+    if not next_url and config.get('pagination') in ('hunan-trs', 'nhc-static'):
+        # Read the site's actual page count/current page; never execute its script.
+        element,prefix,suffix=('paging','index','html') if config['pagination']=='hunan-trs' else ('page_div','list','shtml')
+        paging=re.search(rf"createPageHTML\(\s*'{element}'\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*'{prefix}'\s*,\s*'{suffix}'", data.decode('utf-8',errors='replace'))
+        if paging:
+            total,current=map(int,paging.groups())
+            if 1 <= current < total:
+                next_url=canonical(urljoin(url,f'{prefix}_{current+1}.{suffix}'))
+    if config.get('include_title_pattern'):
+        items=[item for item in items if re.search(config['include_title_pattern'],item['title'])]
     return items,next_url
 
 def page_url(first,n,adapter):
     if n==1:return first
     if adapter=='nhc':return first.replace('list.shtml',f'list_{n}.shtml')
-    if adapter in ('trs','gd'):return first.replace('index.html',f'index_{n-1}.html')
+    if adapter in ('trs','gd'):return first.replace('index.html',f'index_{n}.html')
     return None # JCMS pagination must use discovered links / tested source configuration.
 
 def parse_detail(data,url,item,source):
@@ -69,7 +79,9 @@ def parse_detail(data,url,item,source):
     for a in body_el.select('img[src]'):
         attachments.append({'name':a.get('alt') or '正文图片','url':canonical(urljoin(url,a['src'])),'status':'pending','image':True})
     if len(body)<30 and not attachments:raise ParseError('body_empty')
-    published=date_value(meta('PubDate') or meta('pubdate')) or item.get('published')
+    date_el=s.select_one(source.config['published_selector']) if source.config.get('published_selector') else None
+    visible_date=date_value(date_el.get_text(' ',strip=True)) if date_el else None
+    published=(visible_date or item.get('published')) if source.config.get('published_from_list') else (visible_date or date_value(meta('PubDate')) or item.get('published'))
     authority=clean(meta('ContentSource') or source.name)
     num=re.search(r'[\u4e00-\u9fff]{1,12}(?:\([^)]{1,10}\))?[〔\[【](?:19|20)\d{2}[〕\]】]\s*\d+\s*号',body)
     excluded=any(w in title for w in ['征求意见','公开征集','招聘','拟聘','会议召开','召开会议'])

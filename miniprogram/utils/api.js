@@ -70,7 +70,7 @@ module.exports = {
         content_type: params.doc_type === '全部类型' ? '' : (V2_TYPES[params.doc_type] || ''),
         limit: size, offset: (page - 1) * size } }).then(res => ({
           items: (res.items || []).map(legacyShape), total: res.total || 0,
-          page, page_size: size
+          page, page_size: size, freshness: res.freshness || null
         }));
     }
     return request('/documents', { params });

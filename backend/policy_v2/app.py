@@ -13,6 +13,7 @@ from .db import Base, database
 from .models import Audit, Document, Favorite, Follow, Notification, Revision, Session, Source, Task, User
 from .settings import REGIONS, TOPICS, Settings
 from .sources import seed
+from .source_health import cooldown_until
 
 settings = Settings()
 engine, SessionLocal = database(settings.database_url)
@@ -144,7 +145,8 @@ def coverage():
         rows = db.scalars(select(Source).order_by(Source.region, Source.name, Source.kind)).all()
         return [{"id": s.id, "name": s.name, "region": s.region, "kind": s.kind,
                  "enabled": s.enabled, "last_success": s.last_success,
-                 "status": "paused" if not s.enabled else ("error" if s.last_error else "active")}
+                 "cooldown_until": cooldown_until(s),
+                 "status": "paused" if not s.enabled else ("cooling_down" if cooldown_until(s) > time.time() else ("error" if s.last_error else "active"))}
                 for s in rows]
 
 
@@ -161,11 +163,21 @@ def policies(q: str = "", region: str = "", include_national: bool = True,
             pattern = f"%{q[:100]}%"
             stmt = stmt.where(or_(Revision.title.ilike(pattern), Revision.search_text.ilike(pattern), Revision.doc_number.ilike(pattern)))
         total = db.scalar(select(func.count()).select_from(stmt.subquery())) or 0
+        source_stmt = select(Source)
+        if region:
+            source_stmt = source_stmt.where(Source.region.in_([region, "CN"] if include_national else [region]))
+        if content_type:
+            source_stmt = source_stmt.where(Source.kind == content_type)
+        sources = list(db.scalars(source_stmt))
+        freshness = {
+            "last_success": max((s.last_success or 0 for s in sources), default=0) or None,
+            "unavailable_sources": sum(bool(s.enabled and (s.last_error or cooldown_until(s) > time.time())) for s in sources),
+        }
         rows = db.execute(stmt.order_by(Revision.published.desc(), Document.id.desc()).offset(offset).limit(limit)).all()
         return {"items": [{"id": d.id, "title": r.title, "region": d.region, "authority": r.authority, "original_url": d.url,
                            "published": r.published, "type": r.kind, "topic": r.topic,
                            "summary": r.summary, "attachments": r.attachments} for d, r in rows],
-                "limit": limit, "offset": offset, "total": total}
+                "limit": limit, "offset": offset, "total": total, "freshness": freshness}
 
 
 @app.get("/api/v2/policies/{document_id}")

@@ -77,6 +77,35 @@ def test_saved_guangdong_official_pages_match_registered_selectors():
         assert next_url and next_url.startswith("https://wsjkw.gd.gov.cn/")
 
 
+def test_hunan_tables_pagination_and_mixed_interpretation_column():
+    from policy_v2.sources import SPECS, source_config
+    for sid, expected in [('hn-policy', 20), ('hn-interpretation', 5)]:
+        spec = next(s for s in SPECS if s[0] == sid)
+        data = (Path(__file__).parent / 'fixtures' / f'{sid}.html').read_bytes()
+        items, next_url = parse_list(data, spec[4], source_config(spec))
+        assert len(items) == expected
+        assert next_url == spec[4].replace('index.html', 'index_2.html')
+        if sid == 'hn-interpretation':
+            assert all('解读' in item['title'] for item in items)
+            assert not any('法治政府' in item['title'] for item in items)
+        final_page = data.replace(b"'paging',5, 1", b"'paging',5, 5").replace(b"'paging',7, 1", b"'paging',7, 7")
+        assert parse_list(final_page, spec[4], source_config(spec))[1] is None
+
+
+def test_nhc_pagination_script_and_hunan_actual_publish_date():
+    from policy_v2.sources import SPECS, source_config
+    spec = SPECS[0]
+    data = (Path(__file__).parent / 'fixtures' / 'nhc-list.html').read_bytes()
+    items, next_url = parse_list(data, spec[4], source_config(spec))
+    assert len(items) == 24 and next_url.endswith('/list_2.shtml')
+    spec = next(s for s in SPECS if s[0] == 'hn-interpretation')
+    source = Source(id=spec[0], name=spec[1], kind=spec[3], config=source_config(spec))
+    data = (Path(__file__).parent / 'fixtures' / 'hn-detail.html').read_bytes()
+    parsed = parse_detail(data, 'https://wjw.hunan.gov.cn/detail.html', {'title':'食品标准管理办法解读'}, source)
+    assert parsed['published'] == '2024-10-14'  # not the 2025-05-08 generation meta
+    assert len(parsed['body']) > 1000
+
+
 def test_official_province_body_containers_are_supported():
     source = Source(id="test", name="Test Health Commission", region="GD", kind="policy",
                     url="https://official.example/list.html", config={"body_selectors": [
@@ -116,7 +145,7 @@ def test_worker_processes_registered_list_and_detail_into_versioned_document(tmp
     <p>This is an official policy text that is long enough to be retained as a usable document body.</p></article></body></html>'''.encode()
     class FakeFetcher:
         def __init__(self, settings): pass
-        def get(self, url, hosts): return (listing if url.endswith('index.html') else detail, 'text/html', url)
+        def get(self, url, hosts, **kwargs): return (listing if url.endswith('index.html') else detail, 'text/html', url)
     monkeypatch.setattr(pipeline, "SafeFetcher", FakeFetcher)
     settings = Settings(object_root=tmp_path / "objects", task_lease_seconds=30, task_max_attempts=2)
     assert discover(factory, "gd-policy") == 1
@@ -149,7 +178,7 @@ def test_detail_extracts_body_and_attachment_and_excludes_unrequested_types():
 
 def test_pagination_rules_are_explicit():
     assert page_url("https://official.example/list.shtml", 2, "nhc").endswith("list_2.shtml")
-    assert page_url("https://official.example/index.html", 2, "gd").endswith("index_1.html")
+    assert page_url("https://official.example/index.html", 2, "gd").endswith("index_2.html")
     assert page_url("https://official.example/index.html", 2, "jcms") is None
     assert canonical("HTTPS://OFFICIAL.EXAMPLE/a.shtml?x=1#part") == "https://official.example/a.shtml?x=1"
 
@@ -203,25 +232,13 @@ def test_fetcher_rejects_non_https_and_unregistered_hosts():
         fetcher.validate("https://other.example/a", ["official.example"])
 
 
-def test_fetcher_uses_firefox_for_nhc_412(monkeypatch):
+def test_fetcher_uses_firefox_directly_for_nhc_html(monkeypatch):
     import policy_v2.network as network
 
-    class Response:
-        status_code = 412
-        headers = {}
-        def __enter__(self): return self
-        def __exit__(self, *args): return False
-        def iter_bytes(self): return iter(())
-
-    class Client:
-        def __enter__(self): return self
-        def __exit__(self, *args): return False
-        def stream(self, *args, **kwargs): return Response()
-
-    monkeypatch.setattr(network.httpx, "Client", lambda **kwargs: Client())
+    monkeypatch.setattr(network.httpx, "Client", lambda **kwargs: pytest.fail('NHC HTML must not spend an extra HTTP request'))
     fetcher = SafeFetcher(Settings(domain_delay_seconds=0))
     monkeypatch.setattr(fetcher, "validate", lambda url, hosts: "www.nhc.gov.cn")
-    monkeypatch.setattr(fetcher, "_get_firefox", lambda url, hosts: (b"rendered", "text/html", url))
+    monkeypatch.setattr(fetcher, "_get_firefox", lambda url, hosts, *args: (b"rendered", "text/html", url))
     assert fetcher.get("https://www.nhc.gov.cn/policies.shtml", ["www.nhc.gov.cn"]) == (
         b"rendered", "text/html", "https://www.nhc.gov.cn/policies.shtml"
     )

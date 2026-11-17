@@ -1,16 +1,15 @@
 """Read-only live validation of registered policy source adapters."""
 import json
+import argparse
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from bs4 import BeautifulSoup
-
 from policy_v2.network import SafeFetcher
 from policy_v2.parsing import parse_detail, parse_list
 from policy_v2.settings import Settings
-from policy_v2.sources import COMMON_BODY, SPECS
+from policy_v2.sources import SPECS, source_config
 
 
 def describe_error(exc):
@@ -20,22 +19,16 @@ def describe_error(exc):
     return f"{type(current).__name__}:{str(current)[:240]}"
 
 
-def validate_source(fetcher, spec):
+def validate_source(fetcher, spec, pages=1):
     source_id, name, region, kind, url, adapter, selector, hosts = spec
-    config = {
-        "adapter": adapter,
-        "list_selector": selector,
-        "body_selectors": COMMON_BODY,
-        "hosts": hosts,
-        "list_hosts": [urlsplit(url).hostname],
-        "max_pages": 3,
-    }
-    result = {"id": source_id, "url": url}
+    config = source_config(spec)
+    result = {"id": source_id, "url": url, "checked_at": datetime.now(timezone.utc).isoformat()}
     try:
-        data, mime, final_url = fetcher.get(url, hosts)
+        data, mime, final_url = fetcher.get(url, hosts, page_kind='list', config=config)
         result.update(
             list_fetch_status="ok",
             list_http_status=fetcher.last_status,
+            list_initial_http_status=fetcher.initial_status,
             list_fetch_mode=fetcher.last_mode,
             mime=mime,
             bytes=len(data),
@@ -45,6 +38,7 @@ def validate_source(fetcher, spec):
         result.update(
             list_fetch_status="error",
             list_http_status=fetcher.last_status,
+            list_initial_http_status=fetcher.initial_status,
             list_fetch_mode=fetcher.last_mode,
             fetch_error=describe_error(exc),
         )
@@ -55,8 +49,8 @@ def validate_source(fetcher, spec):
         result.update(
             list_status="ok",
             item_count=len(items),
-            sample_title=items[0]["title"],
-            sample_url=items[0]["url"],
+            sample_title=items[0]["title"] if items else '',
+            sample_url=items[0]["url"] if items else '',
             next_page=next_url,
         )
     except Exception as exc:
@@ -64,8 +58,13 @@ def validate_source(fetcher, spec):
         return result
 
     try:
-        detail_data, detail_mime, detail_url = fetcher.get(items[0]["url"], hosts)
-        result.update(detail_http_status=fetcher.last_status, detail_fetch_mode=fetcher.last_mode)
+        if not items:
+            result['detail_status'] = 'no_matching_items'
+            if pages > 1 and next_url:
+                result['more_pages'] = [validate_source(fetcher, (*spec[:4], next_url, *spec[5:]), pages-1)]
+            return result
+        detail_data, detail_mime, detail_url = fetcher.get(items[0]["url"], hosts, page_kind='detail', config=config)
+        result.update(detail_http_status=fetcher.last_status, detail_initial_http_status=fetcher.initial_status, detail_fetch_mode=fetcher.last_mode)
         source = type("RegisteredSource", (), {
             "id": source_id,
             "name": name,
@@ -87,9 +86,12 @@ def validate_source(fetcher, spec):
         result.update(
             detail_status="error",
             detail_http_status=fetcher.last_status,
+            detail_initial_http_status=fetcher.initial_status,
             detail_fetch_mode=fetcher.last_mode,
             detail_error=describe_error(exc),
         )
+    if pages > 1 and next_url:
+        result['more_pages'] = [validate_source(fetcher, (*spec[:4], next_url, *spec[5:]), pages-1)]
     return result
 
 
@@ -124,15 +126,26 @@ def validate_jiangsu_interpretation_filter(fetcher):
 
 
 def main():
-    fetcher = SafeFetcher(Settings(domain_delay_seconds=2, fetch_timeout=20))
-    report = {
-        "checked_at": datetime.now(timezone.utc).isoformat(),
-        "source_checks": [validate_source(fetcher, spec) for spec in SPECS],
-        "origin_filter_checks": [validate_jiangsu_interpretation_filter(fetcher)],
-    }
-    output = Path("evidence/sources/manifest.json")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', action='append', choices=[s[0] for s in SPECS])
+    parser.add_argument('--pages', type=int, choices=(1, 2, 3), default=1)
+    parser.add_argument('--output', type=Path, default=Path('evidence/sources/manifest.json'))
+    args = parser.parse_args()
+    with SafeFetcher(Settings(domain_delay_seconds=2, fetch_timeout=20)) as fetcher:
+        checks = []
+        for spec in SPECS:
+            if not args.source or spec[0] in args.source:
+                result = validate_source(fetcher, spec, args.pages)
+                checks.append(result)
+                print(json.dumps(result, ensure_ascii=False), flush=True)
+        report = {
+            "checked_at": datetime.now(timezone.utc).isoformat(),
+            "source_checks": checks,
+            "origin_filter_checks": [validate_jiangsu_interpretation_filter(fetcher)] if not args.source else [],
+        }
+    output = args.output
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
-    print(json.dumps(report, ensure_ascii=False, indent=2))
     print(f"Wrote {output}")
 
 

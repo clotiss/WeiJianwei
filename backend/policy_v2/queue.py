@@ -31,14 +31,32 @@ def heartbeat(factory,task,lease):
     with transaction(factory) as db:
         return db.execute(update(Task).where(Task.id==task['id'],Task.owner==task['owner'],Task.state=='running').values(lease_until=now()+lease)).rowcount==1
 
-def finish(factory,task,error=None,max_attempts=3):
+def finish(factory,task,error=None,max_attempts=3,retry_at=0):
     with transaction(factory) as db:
         row=db.scalar(select(Task).where(Task.id==task['id']).with_for_update())
         if not row or row.owner!=task['owner']:return False
         row.lease_until=None;row.owner=None;row.error=(error or '')[:1000]
         row.state='succeeded' if error is None else ('failed' if row.attempts>=max_attempts else 'queued')
-        row.available=now()+min(3600,30*2**row.attempts)+random.random()*5
+        row.available=max(retry_at,now()+min(3600,30*2**row.attempts)+random.random()*5)
         row.finished=now() if row.state in ('succeeded','failed') else None
         attempt=db.scalar(select(Attempt).where(Attempt.task_id==row.id,Attempt.status=='running').order_by(Attempt.id.desc()).limit(1))
         if attempt:attempt.finished=now();attempt.status='succeeded' if error is None else 'failed';attempt.error=row.error
+        return True
+
+
+def defer(factory, task, until):
+    """Postpone a claimed task without consuming an attempt or issuing a request."""
+    with transaction(factory) as db:
+        row = db.get(Task, task['id'])
+        if not row or row.owner != task['owner'] or row.state != 'running':
+            return False
+        row.state = 'queued'
+        row.available = until
+        row.attempts = max(0, row.attempts - 1)
+        row.owner = None
+        row.lease_until = None
+        attempt = db.scalar(select(Attempt).where(Attempt.task_id == row.id, Attempt.status == 'running').order_by(Attempt.id.desc()).limit(1))
+        if attempt:
+            attempt.finished = now()
+            attempt.status = 'deferred'
         return True

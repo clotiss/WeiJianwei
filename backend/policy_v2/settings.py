@@ -20,7 +20,9 @@ class Settings(BaseSettings):
     signing_key: str = ''
     max_download_bytes: int = 30 * 1024 * 1024
     fetch_timeout: int = 30
+    browser_ready_timeout: int = 15
     domain_delay_seconds: float = 2.0
+    source_cooldown_seconds: int = 300
     task_lease_seconds: int = 300
     task_max_attempts: int = 3
     session_days: int = 30

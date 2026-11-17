@@ -11,7 +11,8 @@ from .extraction import extract
 from .models import Document, RawObject, Revision, Snapshot, Source, Task
 from .network import SafeFetcher
 from .parsing import parse_detail, parse_list
-from .queue import claim, enqueue, finish
+from .queue import claim, enqueue, finish, defer
+from .source_health import cooldown_until, record_failure, record_success
 from .storage import make_store
 
 
@@ -35,13 +36,23 @@ def discover(factory, source_id):
         return int(task is not None)
 
 
-def process_one(factory, settings, worker="worker"):
+def process_one(factory, settings, worker="worker", fetcher=None):
     task = claim(factory, settings.task_lease_seconds)
     if not task:
         return False
+    owned_fetcher = fetcher is None
+    fetcher = fetcher or SafeFetcher(settings)
     try:
+        with factory() as db:
+            source = db.get(Source, task["payload"].get("source_id"))
+            if not source or not source.enabled:
+                finish(factory, task)
+                return True
+            until = cooldown_until(source)
+        if until > time.time():
+            defer(factory, task, until)
+            return True
         store = make_store(settings)
-        fetcher = SafeFetcher(settings)
         if task["kind"] == "list":
             source_id, url = task["payload"]["source_id"], task["payload"]["url"]
             with factory() as db:
@@ -52,17 +63,17 @@ def process_one(factory, settings, worker="worker"):
                 config = dict(source.config)
                 spec = {"id": source.id, "kind": source.kind, "name": source.name,
                         "region": source.region, "config": config}
-            data, mime, final_url = fetcher.get(url, config["hosts"])
+            data, mime, final_url = fetcher.get(url, config["hosts"], page_kind="list", config=config)
             items, next_url = parse_list(data, final_url, config)
             stored = store.put(data, mime)
             with transaction(factory) as db:
                 raw = db.get(RawObject, stored["sha"])
                 if not raw:
                     db.add(RawObject(**stored))
-                snap = Snapshot(source_id=source_id, url=final_url, raw_sha=stored["sha"], method="http")
+                snap = Snapshot(source_id=source_id, url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx"))
                 db.add(snap); db.flush()
                 for item in items:
-                    enqueue(db, "detail", "detail:" + hashlib.sha256((source_id + item["url"]).encode()).hexdigest(),
+                    enqueue(db, "detail", "detail:" + hashlib.sha256((source_id + item["url"] + str(task["payload"].get("bucket", 0))).encode()).hexdigest(),
                             {"source_id": source_id, "item": item, "snapshot_id": snap.id})
                 page_number = int(task["payload"].get("page_number", 1))
                 bucket = task["payload"].get("bucket", int(time.time() // max(60, int(config.get("interval_seconds", 21600)))))
@@ -71,8 +82,6 @@ def process_one(factory, settings, worker="worker"):
                     next_key = "list:" + hashlib.sha256(f"{source_id}:{next_url}:{bucket}".encode()).hexdigest()
                     enqueue(db, "list", next_key, {"source_id": source_id, "url": next_url,
                                                      "page_number": page_number + 1, "bucket": bucket})
-                source.last_success = datetime.now(timezone.utc).timestamp()
-                source.last_error = ""
             finish(factory, task)
         elif task["kind"] == "detail":
             payload = task["payload"]
@@ -80,14 +89,14 @@ def process_one(factory, settings, worker="worker"):
                 source = db.get(Source, payload["source_id"])
                 spec = {"id": source.id, "name": source.name, "region": source.region,
                         "kind": source.kind, "config": dict(source.config)}
-            data, mime, final_url = fetcher.get(payload["item"]["url"], spec["config"]["hosts"])
+            data, mime, final_url = fetcher.get(payload["item"]["url"], spec["config"]["hosts"], page_kind="detail", config=spec["config"])
             item = dict(payload["item"], url=final_url)
             parsed = parse_detail(data, final_url, item, type("RegisteredSource", (), spec)())
             stored = store.put(data, mime)
             with transaction(factory) as db:
                 raw = db.get(RawObject, stored["sha"])
                 if not raw: db.add(RawObject(**stored))
-                snap = Snapshot(source_id=spec["id"], url=final_url, raw_sha=stored["sha"]); db.add(snap); db.flush()
+                snap = Snapshot(source_id=spec["id"], url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx")); db.add(snap); db.flush()
                 doc = db.scalar(select(Document).where(Document.url == final_url))
                 if not doc:
                     doc = Document(source_id=spec["id"], url=final_url, region=spec["region"]); db.add(doc); db.flush()
@@ -112,7 +121,7 @@ def process_one(factory, settings, worker="worker"):
             with factory() as db:
                 source = db.get(Source, payload["source_id"])
                 allowed_hosts = list(source.config["hosts"])
-            data, mime, final_url = fetcher.get(payload["url"], allowed_hosts)
+            data, mime, final_url = fetcher.get(payload["url"], allowed_hosts, page_kind="attachment")
             metadata = store.put(data, mime)
             blocks, status = extract(data, final_url)
             with transaction(factory) as db:
@@ -128,10 +137,11 @@ def process_one(factory, settings, worker="worker"):
             finish(factory, task)
         else:
             raise ValueError("unknown_task_kind")
+        record_success(factory, task["payload"].get("source_id"))
     except Exception as exc:
-        finish(factory, task, f"{type(exc).__name__}:{exc}"[:1000], settings.task_max_attempts)
-        with transaction(factory) as db:
-            source_id = task["payload"].get("source_id")
-            source = db.get(Source, source_id) if source_id else None
-            if source: source.last_error = f"{type(exc).__name__}:{exc}"[:500]
+        until = record_failure(factory, task["payload"].get("source_id"), exc, settings)
+        finish(factory, task, f"{type(exc).__name__}:{exc}"[:1000], settings.task_max_attempts, retry_at=until)
+    finally:
+        if owned_fetcher and hasattr(fetcher, "close"):
+            fetcher.close()
     return True

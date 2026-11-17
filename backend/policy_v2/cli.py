@@ -8,6 +8,7 @@ from sqlalchemy import select
 from .app import Base, SessionLocal, engine, settings
 from .models import Source
 from .pipeline import discover, process_one
+from .network import SafeFetcher
 from .migrate import migrate_documents
 
 
@@ -28,8 +29,9 @@ def main():
             ids = [args.source_id] if args.source_id else list(db.scalars(select(Source.id).where(Source.enabled)))
         print("scheduled list pages:", sum(discover(SessionLocal, sid) for sid in ids))
     elif args.command == "worker":
-        while True:
-            if not process_one(SessionLocal, settings): time.sleep(1)
+        with SafeFetcher(settings) as fetcher:
+            while True:
+                if not process_one(SessionLocal, settings, fetcher=fetcher): time.sleep(1)
     elif args.command == "migrate":
         print(json.dumps(migrate_documents(args.legacy_sqlite, SessionLocal), ensure_ascii=False))
 

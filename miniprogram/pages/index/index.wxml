@@ -36,6 +36,12 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
     🕐 最新发布文件：{{latestUpdate}}
   </view>
 
+  <view class="update-time" wx:if="{{collectionUpdate}}">最近采集成功：{{collectionUpdate}}</view>
+  <view class="update-time" wx:if="{{updateNotice}}">{{updateNotice}}</view>
+  <view class="update-time" wx:if="{{loadError}}" bindtap="retryDocuments">
+    {{documents.length ? '更新暂时失败，已保留内容，点击重试' : '加载失败，点击重试'}}
+  </view>
+
   <!-- ===== 分类标签（双行横向滚动） ===== -->
   <!-- scroll-view: 微信的可滚动容器，scroll-x 启用横向滚动 -->
   <scroll-view class="category-scroll" scroll-x enable-flex>
@@ -76,7 +82,7 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
 
   <!-- ===== 文件列表 ===== -->
   <!-- 加载中 → 显示骨架屏（占位灰色方块） -->
-  <skeleton wx:if="{{loading}}" count="{{4}}" />
+  <skeleton wx:if="{{loading && documents.length === 0}}" count="{{4}}" />
 
   <!-- 加载完成 → 显示文件卡片列表 -->
   <view wx:else>
@@ -84,10 +90,10 @@ WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法
     <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
 
     <!-- 空状态提示 -->
-    <view wx:if="{{documents.length === 0}}" class="empty">暂无文件</view>
+    <view wx:if="{{documents.length === 0 && !loadError}}" class="empty">暂无文件</view>
 
     <!-- 加载更多按钮（hasMore 为真时显示） -->
-    <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">
+    <view wx:if="{{hasMore && documents.length > 0 && !loading}}" class="load-more" bindtap="loadMore">
       ↓ 加载更多
     </view>
 

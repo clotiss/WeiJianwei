@@ -36,6 +36,9 @@ Page({
     page: 1,                       // 当前页码
     hasMore: true,                 // 是否还有更多数据
     loading: true,                 // 是否正在加载中
+    loadError: false,
+    collectionUpdate: '',
+    updateNotice: '',
     latestUpdate: '',              // 最新文件发布时间
 
     // ---- 悬浮按钮 ----
@@ -77,9 +80,8 @@ Page({
     // 提醒授权只由用户主动点击触发，不在首次打开时弹窗。
 
     // 每次显示页面时重新加载数据（确保数据新鲜）
-    // 重置为第 1 页，清空现有列表
-    this.setData({ page: 1, documents: [], hasMore: true });
-    this.fetchDocuments();       // 加载文件列表
+    // 刷新成功后替换，失败时保留已显示的内容。
+    this.fetchDocuments({ reset: true });       // 加载文件列表
     this.fetchLatestUpdate();    // 加载最新发布时间
   },
 
@@ -88,10 +90,8 @@ Page({
   // 需要配合 index.json 中设置 enablePullDownRefresh: true
   // =========================================================================
   onPullDownRefresh() {
-    // 重置为第 1 页
-    this.setData({ page: 1, documents: [], hasMore: true });
     // Promise.all 并行请求，两个都完成后再停止下拉动画
-    Promise.all([this.fetchDocuments(), this.fetchLatestUpdate()])
+    Promise.all([this.fetchDocuments({ reset: true }), this.fetchLatestUpdate()])
       .finally(() => wx.stopPullDownRefresh());
   },
 
@@ -121,27 +121,30 @@ Page({
    * 获取文件列表（分页）
    * 首页显示和筛选/分页切换都调用此方法
    */
-  fetchDocuments() {
-    this.setData({ loading: true });
-    const { activeCategory, activeType, page } = this.data;
-
-    return api.getDocuments({
-      category: activeCategory,
-      doc_type: activeType,
-      page,
-      page_size: 20    // 每页 20 条
-    }).then(res => {
-      // 将新数据追加到现有列表末尾（上滑加载更多时）
-      const docs = this.data.documents.concat(res.items);
-      this.setData({
-        documents: docs,
-        hasMore: docs.length < res.total,  // 当前数量 < 总数 = 还有更多
-        loading: false
+  fetchDocuments({ reset = false, nextPage } = {}) {
+    const requestId = this._listRequest = (this._listRequest || 0) + 1;
+    const { activeCategory, activeType } = this.data;
+    const page = reset ? 1 : (nextPage || this.data.page);
+    this.setData({ loading: true, loadError: false });
+    return api.getDocuments({ category: activeCategory, doc_type: activeType, page, page_size: 20 })
+      .then(res => {
+        if (requestId !== this._listRequest) return;
+        const docs = page === 1 ? res.items : this.data.documents.concat(res.items);
+        const freshness = res.freshness || {};
+        const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
+        const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
+        this.setData({ documents: docs, page, hasMore: docs.length < res.total, loading: false,
+          collectionUpdate: stamp,
+          updateNotice: freshness.unavailable_sources ? '部分来源暂时更新失败，已收录内容仍可阅读' : '' });
+      }).catch(() => {
+        if (requestId !== this._listRequest) return;
+        this.setData({ loading: false, loadError: true });
+        wx.showToast({ title: this.data.documents.length ? '更新失败，保留已加载内容' : '加载失败，请重试', icon: 'none' });
       });
-    }).catch(() => {
-      this.setData({ loading: false });
-      wx.showToast({ title: '网络异常', icon: 'none' });
-    });
+  },
+
+  retryDocuments() {
+    return this.fetchDocuments({ reset: true });
   },
 
   /**
@@ -153,7 +156,7 @@ Page({
       const ts = res.latest_update || '';
       // 只取日期部分（前 10 字符 YYYY-MM-DD）
       this.setData({ latestUpdate: ts ? ts.slice(0, 10) : '' });
-    });
+    }).catch(() => {});
   },
 
   // =========================================================================
@@ -185,9 +188,8 @@ Page({
    * 增加页码 → 调用 fetchDocuments() 追加数据
    */
   loadMore() {
-    if (!this.data.hasMore) return;  // 没有更多了就返回
-    this.setData({ page: this.data.page + 1 });  // 页码+1
-    this.fetchDocuments();                          // 加载下一页
+    if (this.data.loading || !this.data.hasMore) return;
+    this.fetchDocuments({ nextPage: this.data.page + 1 });                          // 加载下一页
   },
 
   // =========================================================================
