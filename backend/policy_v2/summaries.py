@@ -11,7 +11,7 @@ from .models import Audit, Document, Revision, SummaryRecord, SummaryProviderSta
 from .queue import assert_ownership, claim, enqueue, finish, keep_lease, TaskLeaseLost
 from .text_encoding import unicode_text
 
-PROMPT_VERSION = 'evidence-v1'
+PROMPT_VERSION = 'evidence-v2'
 MAX_CHARS = 24000
 MIN_CHARS = 80
 ACTIVE = ('pending', 'queued', 'generating', 'retrying', 'not_configured')
@@ -90,11 +90,18 @@ def generate(settings, content):
         '只根据给出的资料提炼1至3条简短要点，不猜测政策效力、不补充背景、不作外部推断。'
         '每条要点必须由一处完整连续的原文引句直接支持，保留适用对象、条件、日期和否定含义。'
         'quote必须逐字复制原文（8至2000字），source必须为相应片段id。'
+        'quote中的半角逗号、括号、分号、空格与换行必须原样保留，禁止换成全角标点或润色。'
+        '简短印发通知可只概括发文机关、印发文件名称等明确事实，不推测附件内容。'
         '只返回JSON：{"points":[{"text":"要点","quote":"原文连续引句","source":"片段id"}]}。'
         '证据不足时返回{"points":[]}，不要编造。')
+    # V4 enables thinking by default; its reasoning shares this small output
+    # budget. This extraction task needs the final JSON, without reasoning.
+    provider_options = {'thinking': {'type': 'disabled'}} if (
+        url.hostname == 'api.deepseek.com' and settings.ai_model.startswith('deepseek-v4')
+    ) else {}
     try:
         response = httpx.post(settings.ai_url, headers={'Authorization': 'Bearer ' + settings.ai_key},
-            json={'model': settings.ai_model, 'temperature': 0, 'response_format': {'type': 'json_object'},
+            json={'model': settings.ai_model, **provider_options, 'temperature': 0, 'response_format': {'type': 'json_object'},
                 'messages': [{'role': 'system', 'content': prompt}, {'role': 'user', 'content': json.dumps(
                     {'title': content['title'], 'segments': [{'id': s['id'], 'text': s['text']} for s in content['segments']]}, ensure_ascii=False)}],
                 'max_tokens': 2000}, timeout=settings.ai_timeout, follow_redirects=False)

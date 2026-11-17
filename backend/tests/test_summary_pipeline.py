@@ -43,6 +43,28 @@ def due(factory):
         provider=db.get(SummaryProviderState,1)
         if provider:provider.cooldown_until=0
 
+@pytest.mark.parametrize('endpoint,nonthinking', [
+    ('https://api.deepseek.com/v1/chat/completions', True),
+    ('https://other.example/v1/chat/completions', False),
+])
+def test_v4_summary_finishes_with_small_output_budget(env, monkeypatch, endpoint, nonthinking):
+    factory, settings = env
+    settings.ai_model = 'deepseek-v4-pro'
+    settings.ai_url = endpoint
+    rid = ingest(env)
+    ai.schedule_batch(factory, settings)
+    def post(*args, **kwargs):
+        request = kwargs['json']
+        if nonthinking and request.get('thinking') != {'type': 'disabled'}:
+            return httpx.Response(200, json={'choices': [{'finish_reason': 'length', 'message': {'content': ''}}]})
+        if not nonthinking:
+            assert 'thinking' not in request
+        return response()
+    monkeypatch.setattr(ai.httpx, 'post', post)
+    assert ai.process_summary(factory, settings)
+    with factory() as db:
+        assert db.get(Revision, rid).summary_status == 'ready'
+
 def test_new_and_historical_revisions_dedupe_persist_and_expose_evidence(env,monkeypatch):
     factory,settings=env;rid=ingest(env)
     assert ai.schedule_batch(factory,settings)==1

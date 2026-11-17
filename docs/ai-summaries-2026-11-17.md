@@ -49,5 +49,16 @@ macOS 服务为 `com.weijianwei.national-summary`，日志 `/private/tmp/weijian
 - 后端最终完整回归已通过 404 项，包含恢复、附件唤醒、超时、引句偏移等摘要专项 20 项。
 - 小程序 7 组自动测试通过，包含真实 FastAPI 契约、状态轮询、引句展开、刷新失败及页面退出清理。
 - 微信开发者工具通过隔离样例 API 验证 ready/queued/generating/retrying/failed/waiting_content/insufficient_content 七种状态、真实点击引句展开收起及刷新；验收后恢复全国 API 地址。脚本 `scripts/serve_summary_ui_fixture.py`、`scripts/test_miniprogram_summaries.cjs`；截图位于 `.runtime/summary-*-fixture.png`。
-- 当前私有 AI 配置仍为空：没有完成真实服务商调用，也没有将历史内容实际生成摘要；不能把模拟响应测试当作真实 AI 验收。
-- 线上配置访问待恢复：浏览器控制工具在当前会话不可用，现有 SSH 密钥未获服务器授权。没有变更服务器认证或读取其他无关凭证。
+- 上述隔离测试之后，已完成下述真实 AI 小批量验收；历史全量生成尚未开启。
+
+## 真实 AI 小批量验收（同日接续）
+
+通过腾讯云已登录终端，仅提取 `nhc-api` 项目的 DeepSeek 配置，以临时 RSA 公钥加密传回本地；明文密钥未进入终端输出、聊天或 Git。临时密钥已清理，本地 `ai.env` 权限为 600 且被 Git 忽略。没有修改线上服务、数据或 SSH 认证。
+
+用户要求先跑通流程，因此已停止并禁用 `com.weijianwei.national-summary` 的 launchd 自动启动；API、采集器与独立三省观察服务不受影响。**不要仅将批大小设为 3 就重开持续 worker**：持续扫描仍会补齐全部历史。当前只手动处理文档 506、526、141。
+
+真实使用线上模型 `deepseek-v4-pro`。发现 V4 默认思考会挤占 2,000 token 输出额度，现仅对官方 DeepSeek V4 请求关闭思考模式，其他兼容端点不添加该参数。官方说明：<https://api-docs.deepseek.com/guides/thinking_mode/>。另发现模型改写半角逗号导致引句校验失败，提示词升级为 `evidence-v2`，强调保留标点，并允许简短印发通知仅概括明确事实；没有放宽逐字引句校验。
+
+最终 3 篇均为 ready，共 7 条要点，逐条核验存储正文中的引句及起止偏移；两条旧版本失败任务保留审计，新版本任务成功，不代表仍有两篇失败。记录快照时另有 5,921 篇 pending，采集仍增长；没有排入全量摘要队列。样本 506 保留成功的 v1 结果，526、141 使用 v2。
+
+后端 406 项回归、小程序 7 组测试通过。真实微信开发者工具验收脚本 `scripts/test_miniprogram_live_summaries.cjs` 只读取已生成结果，不触发付费任务；对每条依据展开、收起和刷新做断言。端口可通过 `WECHAT_AUTO_PORT` 指定。截图和 UI 报告保存在 `.runtime/summary-live-*.png` 与 `.runtime/summary-live-ui.json`，详细结果在 `evidence/national/ai-summary-live-2026-11-17.json`。这些为本机新版验收，尚未部署腾讯云或完成手机真机验收。

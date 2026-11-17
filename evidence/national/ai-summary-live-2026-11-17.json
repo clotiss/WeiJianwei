@@ -1,0 +1,213 @@
+{
+  "checked_at": 1794919114.873905,
+  "scope": "Three real documents only; no full historical generation",
+  "report": {
+    "configured": true,
+    "model": "deepseek-v4-pro",
+    "prompt_version": "evidence-v2",
+    "revisions": {
+      "pending": 5921,
+      "ready": 3
+    },
+    "tasks": {
+      "failed": 2,
+      "succeeded": 3
+    },
+    "provider_error": "",
+    "cooldown_until": 1794918606.818107
+  },
+  "samples": [
+    {
+      "id": 506,
+      "revision_id": 506,
+      "title": "关于《省卫生健康委 省中医药管理局关于印发<贵州省医疗机构设置审批管理若干规定> 的通知》的政策解读",
+      "status": "ready",
+      "points": [
+        {
+          "text": "本规定仅适用于国家明确要求实行审批制的医疗机构，国家规定实行备案制的医疗机构不适用本规定。",
+          "quote": "本《规定》仅适用于国家明确要求实行审批制的医疗机构;国家规定实行备案制的医疗机构,严格按照国家卫生健康委、国家中医药管理局相关规定执行,不适用本《规定》。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 544,
+          "end": 621
+        },
+        {
+          "text": "医疗机构设置审批权限按举办主体、机构类型、床位规模等维度，在省级卫生健康部门、省级中医药主管部门、市级卫生健康部门、县级卫生健康部门间划分。",
+          "quote": "按照医疗机构举办主体(政府举办/非政府举办)、机构类型、床位规模等维度,精准划分省级卫生健康部门、省级中医药主管部门、市级卫生健康部门、县级卫生健康部门的审批权责,实现各级审批部门权责清晰、分工明确、闭环管理。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 820,
+          "end": 925
+        },
+        {
+          "text": "医疗机构暂缓校验的具体适用情形补充细化，包括机构信用等级、医疗事故处置、医德医风建设、安全生产隐患等内容。",
+          "quote": "第六部分“医疗机构校验”,补充细化医疗机构暂缓校验的具体适用情形,拓展校验监管维度,将机构信用等级、医疗事故处置、医德医风建设、安全生产隐患等内容补充细化暂缓校验的具体适用情形。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 1423,
+          "end": 1512
+        }
+      ],
+      "input_sha": "34b6c1689fc0fceab95c274bb40c223efac2187f6babdef7e54a1ff7890c61db",
+      "model": "deepseek-v4-pro",
+      "prompt_version": "evidence-v1",
+      "usage": {
+        "prompt_tokens": 1145,
+        "completion_tokens": 1599,
+        "total_tokens": 2744
+      },
+      "generated_at": 1794918627.682569,
+      "exact_offsets_verified": true
+    },
+    {
+      "id": 526,
+      "revision_id": 526,
+      "title": "省卫生健康委 省中医药局关于印发《贵州省医疗机构设置审批管理若干规定》的通知",
+      "status": "ready",
+      "points": [
+        {
+          "text": "省卫生健康委、省中医药局印发《贵州省医疗机构设置审批管理若干规定》。",
+          "quote": "省卫生健康委、省中医药局制定了《贵州省医疗机构设置审批管理若干规定》,现印发给你们,请遵照执行。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 44,
+          "end": 92
+        }
+      ],
+      "input_sha": "1158c13452d760cbd0527d078a311149a295dc0ba2a6a78f4dc75dfdb186e9af",
+      "model": "deepseek-v4-pro",
+      "prompt_version": "evidence-v2",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 74,
+        "total_tokens": 406
+      },
+      "generated_at": 1794918960.866085,
+      "exact_offsets_verified": true
+    },
+    {
+      "id": 141,
+      "revision_id": 141,
+      "title": "《关于做好中小学校、幼儿园健康副校(园)长聘任与管理工作的通知》解读",
+      "status": "ready",
+      "points": [
+        {
+          "text": "健康副校(园)长不坐班，不占用学校编制。",
+          "quote": "健康副校(园)长不坐班,不占用学校编制。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 584,
+          "end": 604
+        },
+        {
+          "text": "健康副校(园)长每学期到校现场指导不少于4次、组织健康科普宣讲不少于2次,每学期到校参加1次专题会议。",
+          "quote": "健康副校(园)长每学期到校现场指导不少于4次、组织健康科普宣讲不少于2次,每学期到校参加1次专题会议,参与学校健康管理决策。",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 675,
+          "end": 737
+        },
+        {
+          "text": "健康副校(园)长任职前接受不少于8学时的系统培训。",
+          "quote": "在培训方面,要求任职前接受不少于8学时的系统培训;",
+          "source": "body",
+          "source_name": "正文",
+          "source_url": "",
+          "location": {},
+          "start": 863,
+          "end": 888
+        }
+      ],
+      "input_sha": "9817542ad4e9ffc1c3c44a73f7fb87bccca3494617cd2658b626b562de7f2096",
+      "model": "deepseek-v4-pro",
+      "prompt_version": "evidence-v2",
+      "usage": {
+        "prompt_tokens": 854,
+        "completion_tokens": 218,
+        "total_tokens": 1072
+      },
+      "generated_at": 1794919066.463791,
+      "exact_offsets_verified": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": 20578,
+      "state": "failed",
+      "attempts": 3,
+      "error": "invalid_schema",
+      "revision_id": 526
+    },
+    {
+      "id": 20579,
+      "state": "succeeded",
+      "attempts": 1,
+      "error": "",
+      "revision_id": 506
+    },
+    {
+      "id": 20580,
+      "state": "failed",
+      "attempts": 2,
+      "error": "prompt_version_superseded",
+      "revision_id": 141
+    },
+    {
+      "id": 20664,
+      "state": "succeeded",
+      "attempts": 1,
+      "error": "",
+      "revision_id": 526
+    },
+    {
+      "id": 20665,
+      "state": "succeeded",
+      "attempts": 2,
+      "error": "",
+      "revision_id": 141
+    }
+  ],
+  "backend_tests": 406,
+  "miniprogram_test_groups": 7,
+  "background_summary_disabled": true,
+  "ui": {
+    "checked_at": "2026-11-17T12:38:46.843Z",
+    "result": "passed",
+    "api": "local national service, real AI results",
+    "results": [
+      {
+        "id": 506,
+        "title": "关于《省卫生健康委 省中医药管理局关于印发<贵州省医疗机构设置审批管理若干规定> 的通知》的政策解读",
+        "points": 3,
+        "evidence": "expand/collapse passed",
+        "refresh": "passed"
+      },
+      {
+        "id": 526,
+        "title": "省卫生健康委 省中医药局关于印发《贵州省医疗机构设置审批管理若干规定》的通知",
+        "points": 1,
+        "evidence": "expand/collapse passed",
+        "refresh": "passed"
+      },
+      {
+        "id": 141,
+        "title": "《关于做好中小学校、幼儿园健康副校(园)长聘任与管理工作的通知》解读",
+        "points": 3,
+        "evidence": "expand/collapse passed",
+        "refresh": "passed"
+      }
+    ]
+  }
+}
