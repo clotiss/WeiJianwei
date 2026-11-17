@@ -33,9 +33,21 @@ def validate_source(fetcher, spec):
     result = {"id": source_id, "url": url}
     try:
         data, mime, final_url = fetcher.get(url, hosts)
-        result.update(http_status=200, mime=mime, bytes=len(data), final_url=final_url)
+        result.update(
+            list_fetch_status="ok",
+            list_http_status=fetcher.last_status,
+            list_fetch_mode=fetcher.last_mode,
+            mime=mime,
+            bytes=len(data),
+            final_url=final_url,
+        )
     except Exception as exc:
-        result.update(http_status="error", fetch_error=describe_error(exc))
+        result.update(
+            list_fetch_status="error",
+            list_http_status=fetcher.last_status,
+            list_fetch_mode=fetcher.last_mode,
+            fetch_error=describe_error(exc),
+        )
         return result
 
     try:
@@ -53,6 +65,7 @@ def validate_source(fetcher, spec):
 
     try:
         detail_data, detail_mime, detail_url = fetcher.get(items[0]["url"], hosts)
+        result.update(detail_http_status=fetcher.last_status, detail_fetch_mode=fetcher.last_mode)
         source = type("RegisteredSource", (), {
             "id": source_id,
             "name": name,
@@ -71,7 +84,12 @@ def validate_source(fetcher, spec):
             attachments=len(detail["attachments"]),
         )
     except Exception as exc:
-        result.update(detail_status="error", detail_error=describe_error(exc))
+        result.update(
+            detail_status="error",
+            detail_http_status=fetcher.last_status,
+            detail_fetch_mode=fetcher.last_mode,
+            detail_error=describe_error(exc),
+        )
     return result
 
 

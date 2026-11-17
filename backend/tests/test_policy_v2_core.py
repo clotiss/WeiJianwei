@@ -203,6 +203,30 @@ def test_fetcher_rejects_non_https_and_unregistered_hosts():
         fetcher.validate("https://other.example/a", ["official.example"])
 
 
+def test_fetcher_uses_firefox_for_nhc_412(monkeypatch):
+    import policy_v2.network as network
+
+    class Response:
+        status_code = 412
+        headers = {}
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def iter_bytes(self): return iter(())
+
+    class Client:
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def stream(self, *args, **kwargs): return Response()
+
+    monkeypatch.setattr(network.httpx, "Client", lambda **kwargs: Client())
+    fetcher = SafeFetcher(Settings(domain_delay_seconds=0))
+    monkeypatch.setattr(fetcher, "validate", lambda url, hosts: "www.nhc.gov.cn")
+    monkeypatch.setattr(fetcher, "_get_firefox", lambda url, hosts: (b"rendered", "text/html", url))
+    assert fetcher.get("https://www.nhc.gov.cn/policies.shtml", ["www.nhc.gov.cn"]) == (
+        b"rendered", "text/html", "https://www.nhc.gov.cn/policies.shtml"
+    )
+
+
 def test_migration_preserves_legacy_id_and_does_not_fabricate_raw_snapshot(tmp_path, factory):
     legacy = tmp_path / "legacy.db"
     import sqlite3
