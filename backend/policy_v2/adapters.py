@@ -1,8 +1,9 @@
 """Site-family adapters return content and a filter audit through one interface."""
 import re
+import json
 from collections import Counter
 from dataclasses import dataclass
-from urllib.parse import urljoin, urlsplit, parse_qs
+from urllib.parse import urljoin, urlsplit, parse_qs, parse_qsl, urlencode, urlunsplit
 from .parsing import ParseError, canonical, date_value, soup, clean
 
 @dataclass
@@ -124,8 +125,41 @@ def pagination(text, dom, url, config):
     return None
 
 
+def government_json(data,url,config):
+    """A reviewed public government feed with explicit record and page counts."""
+    try:
+        payload=json.loads(data)['data'];records=payload['results']
+        page=int(payload['page']);size=int(payload['rows']);total=int(payload['total'])
+        requested=int(parse_qs(urlsplit(url).query).get('page',['1'])[0])
+    except (ValueError,KeyError,TypeError) as exc:raise ParseError('json_feed_malformed') from exc
+    if page<1 or size<=0 or total<0 or not isinstance(records,list):raise ParseError('json_feed_count_mismatch')
+    if page!=requested:raise ParseError('json_page_mismatch')
+    if config.get('feed_channel_id') and payload.get('channelId')!=config['feed_channel_id']:raise ParseError('json_channel_mismatch')
+    expected=min(size,max(0,total-(page-1)*size))
+    if len(records)>expected:raise ParseError('json_feed_count_mismatch')
+    if len(records)<expected:raise ParseError('json_feed_incomplete')
+    counts=Counter();origins=Counter();items=[];seen=set()
+    for record in records:
+        try:
+            target=resolve(url,record['url'],config);title=clean(record['title']);published=date_value(record['publishedTimeStr'])
+        except (KeyError,TypeError) as exc:raise ParseError('json_record_malformed') from exc
+        if not title or not published:raise ParseError('json_record_malformed')
+        host=urlsplit(target).hostname;origins[host or '']+=1
+        if host not in config.get('list_hosts',config['hosts']):counts['filtered_external']+=1;continue
+        if target in seen:counts['filtered_duplicate']+=1;continue
+        seen.add(target);items.append(dict(url=target,title=title,published=published))
+    next_url=None
+    if page*size<total:
+        u=urlsplit(url);params=dict(parse_qsl(u.query,keep_blank_values=True));params['page']=str(page+1)
+        next_url=urlunsplit((u.scheme,u.netloc,u.path,urlencode(params),''))
+    return Listing(items,next_url,{**dict(counts),'total_records':total,'returned_records':len(records),
+        'eligible_records':len(items),'link_origins':dict(origins),'pagination_detected':bool(next_url),
+        'complete_listing':page==1 and len(records)==total})
+
+
 def read_list(data, url, config):
     adapter = config.get('adapter','html')
+    if adapter=='government-json':return government_json(data,url,config)
     if adapter not in ('html','trs','gd','nhc','jcms'):
         raise ParseError('unknown_adapter:'+adapter)
     group_next=None; group_audit=None

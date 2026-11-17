@@ -125,5 +125,7 @@ def test_national_inventory_distinguishes_registration_from_enabled_coverage():
         assert result['region_basis']=='collection_source'
         assert len(result['provinces'])==31 and len(result['sources'])==64
         blocked=[s for s in result['sources'] if s['status']=='blocked']
-        assert len(blocked)==8 and all(s['blocker'] for s in blocked)
+        assert len(blocked)==6 and all(s['blocker'] for s in blocked)
+        recovered=[s for s in result['sources'] if s['region']=='HLJ']
+        assert len(recovered)==2 and all(s['status']=='sample_pass' and s['landing_url'].startswith('http://wsjkw.hlj.gov.cn/') and s['scope_note'] for s in recovered)
         assert len(client.get('/api/v2/regions').json())==32

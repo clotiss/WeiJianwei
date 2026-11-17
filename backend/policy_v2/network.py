@@ -42,6 +42,7 @@ class SafeFetcher:
         self._clients = {}
         self._playwright = self._browser = None
         self._contexts = {}
+        self._public_http_hosts = frozenset()
 
     def __enter__(self):
         return self
@@ -76,10 +77,12 @@ class SafeFetcher:
 
     def validate(self, url, hosts):
         u = urlsplit(url)
-        if u.scheme != 'https' or u.username or u.password or u.port not in (None, 443) or u.hostname not in hosts:
+        public_http=u.scheme=='http' and u.hostname in self._public_http_hosts
+        port=80 if public_http else 443
+        if (u.scheme!='https' and not public_http) or u.username or u.password or u.port not in (None,port) or u.hostname not in hosts:
             raise FetchError('url_not_allowed')
         try:
-            ips = {x[4][0] for x in socket.getaddrinfo(u.hostname, 443, type=socket.SOCK_STREAM)}
+            ips = {x[4][0] for x in socket.getaddrinfo(u.hostname,port,type=socket.SOCK_STREAM)}
         except OSError as exc:
             raise FetchError('dns_failed') from exc
         if not ips or any(not ipaddress.ip_address(ip).is_global for ip in ips):
@@ -95,6 +98,14 @@ class SafeFetcher:
         self.last[host] = time.monotonic()
 
     def get(self, url, hosts, *, page_kind=None, config=None):
+        # A reviewed public HTTP exception applies only to this source request,
+        # including redirects/resources; it never disables HTTPS verification.
+        previous=self._public_http_hosts
+        self._public_http_hosts=frozenset((config or {}).get('public_http_hosts',[])) & frozenset(hosts)
+        try:return self._get_guarded(url,hosts,page_kind=page_kind,config=config)
+        finally:self._public_http_hosts=previous
+
+    def _get_guarded(self,url,hosts,*,page_kind=None,config=None):
         if self.factory is None:
             return self._get(url, hosts, page_kind=page_kind, config=config)
         from .domains import lease, cool_down

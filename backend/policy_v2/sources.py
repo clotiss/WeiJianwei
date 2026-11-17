@@ -23,8 +23,11 @@ def source_definitions():
         seen.add(row['id'])
         if not row.get('config'): continue
         config = row['config']; url = urlsplit(row['url'])
-        if url.scheme != 'https' or url.hostname not in config['hosts']:
+        public_http=url.scheme=='http' and url.hostname in config.get('public_http_hosts',[])
+        if (url.scheme!='https' and not public_http) or url.hostname not in config['hosts']:
             raise ValueError('invalid_source_url:' + row['id'])
+        if not set(config.get('public_http_hosts',[])).issubset(config['hosts']):
+            raise ValueError('invalid_public_http_hosts:'+row['id'])
         if not set(config.get('list_hosts', [])).issubset(config['hosts']):
             raise ValueError('invalid_list_hosts:' + row['id'])
         if config.get('transport', 'http') not in ('http', 'firefox'):

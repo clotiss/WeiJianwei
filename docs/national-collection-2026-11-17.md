@@ -5,10 +5,10 @@
 ## 完成结果
 
 - 31 个省级官网已登记，目录包含 62 个省级栏目槽位及 2 个国家栏目。
-- 27 省及国家的 56 个栏目已配置并通过本轮抽样：1,095 篇原文。通常每栏 20 篇；吉林解读遍历全栏后仅 5 篇，西藏规范性文件栏符合范围的站内原文为 10 篇，均已检查。
-- 河北、黑龙江、山东、青海的 8 个栏目尚未达到接入条件。记录官网、已观察到的栏目线索与阻塞原因，未伪造可运行配置。
-- 278 份真实列表/详情样本已压缩入库，可在不访问官网的情况下回归正文模板、日期、标题、附件和翻页。
-- 45 个代表性附件下载并持久化成功：16 个已提取文字，25 个图片/扫描件标记 `needs_ocr`，4 个旧 Office/WPS 文件保留原件并标记 `unsupported`。其中部分图片是正文中的嵌入资源，统计不等同于 25 篇完整图解已完成 OCR。
+- 28 省及国家的 58 个栏目已配置并通过本轮抽样：1,135 篇原文。通常每栏 20 篇；吉林解读遍历全栏后仅 5 篇，西藏规范性文件栏符合范围的站内原文为 10 篇，均已检查。
+- 河北、山东、青海的 6 个栏目尚未达到自动采集接入条件。黑龙江在后续排查中通过官网公开 HTTP 接口接通，证书问题本身仍未修复。
+- 290 份真实列表/详情样本已压缩入库，可在不访问官网的情况下回归正文模板、日期、标题、附件和翻页。
+- 46 个代表性附件下载并持久化成功：16 个已提取文字，26 个图片/扫描件标记 `needs_ocr`，4 个旧 Office/WPS 文件保留原件并标记 `unsupported`。其中部分图片是正文中的嵌入资源，统计不等同于 26 篇完整图解已完成 OCR。
 - 本轮只在本地做开发与采集验证；新来源默认关闭，保留已存在来源的启停状态，未部署或启用线上全国采集。
 
 “抽样通过”表示所列样本可解析，不等同于全历史完整、政策分类经人工验收或多日生产稳定。地区字段表示采集站点归属；站点转载国家政策时不据此推定发文机关。`authority` 当前采用官网 ContentSource 来源署名，并不保证等同于实际发文机关，需要人工校验；缺失时保留空值。
@@ -21,19 +21,19 @@
 | --- | --- | --- | --- | --- |
 | 1 | [北京](https://wjw.beijing.gov.cn) | [通过 20/20](https://wjw.beijing.gov.cn/zwgk_20040/zcwj2024/zcwjss/)；3 页 | [通过 20/20](https://wjw.beijing.gov.cn/zwgk_20040/zcjd2024/)；3 页 |  |
 | 1 | [天津](https://wsjk.tj.gov.cn) | [通过 20/20](https://wsjk.tj.gov.cn/ZWGK3158/ZCFG6243_1/)；7 页 | [通过 20/20](https://wsjk.tj.gov.cn/ZWGK3158/ZCJD2018/zcjd0971/)；4 页 |  |
-| 1 | [河北](https://wsjkw.hebei.gov.cn/) | 阻塞：browser_challenge | 阻塞：browser_challenge | 官网返回脚本挑战；HTTP 页面无栏目，Firefox 导航超时。 |
+| 1 | [河北](https://wsjkw.hebei.gov.cn/) | 阻塞：browser_challenge | 阻塞：browser_challenge | 普通 Chrome 可打开；独立 Firefox/Chrome 会话只收到脚本页面，无有效列表。 |
 | 1 | [山西](https://wjw.shanxi.gov.cn) | [通过 20/20](https://wjw.shanxi.gov.cn/zfxxgk/fdzdgknr/flfg/gfxwj/)；2 页 | [通过 20/20](https://wjw.shanxi.gov.cn/tzgg/zcjd/index.shtml)；3 页 |  |
 | 1 | [内蒙古](https://wjw.nmg.gov.cn) | [通过 20/20](https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/gfxwj/)；3 页 | [通过 20/20](https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/zcjd/)；3 页 |  |
 | 2 | [辽宁](https://wsjk.ln.gov.cn) | [通过 20/20](https://wsjk.ln.gov.cn/wsjk/zfxxgk/zc/xzgfxwj91/index.shtml)；2 页 | [通过 20/20](https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/index.shtml)；3 页 |  |
 | 2 | [吉林](https://wsjkw.jl.gov.cn) | [通过 20/20](https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/)；7 页 | [通过 5/5](https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/)；7 页 | 混合栏目按标题分流；解读遍历 7 页后只有 5 篇符合范围。 |
-| 2 | [黑龙江](https://wsjkw.hlj.gov.cn) | 阻塞：certificate_expired | 阻塞：certificate_expired | 官网 HTTPS 证书过期；未关闭证书校验。HTTP 目录仅作来源线索。 |
+| 2 | [黑龙江](https://wsjkw.hlj.gov.cn) | [通过 20/20](http://wsjkw.hlj.gov.cn/wsjkw/c109073/zfxxgk.shtml?tab=gfxwj)；8 页 | [通过 20/20](http://wsjkw.hlj.gov.cn/wsjkw/c109075/zfxxgk.shtml?tab=zcjd)；9 页 | 官网公开 HTTP 接口；无认证传输保障。文件列表 160 条，解读 177 条中 174 条站内、3 条外链过滤。仅正文抽样，未全量回填。 |
 | 2 | [上海](https://wsjkw.sh.gov.cn) | [通过 20/20](https://wsjkw.sh.gov.cn/swsjswgfxwj/index.html)；3 页 | [通过 20/20](https://wsjkw.sh.gov.cn/zcjd/)；3 页 |  |
 | 2 | [江苏](https://wjw.jiangsu.gov.cn) | [通过 20/20](https://wjw.jiangsu.gov.cn/col/col81326/index.html)；2 页 | [通过 20/20](https://wjw.jiangsu.gov.cn/col/col7292/index.html)；2 页 |  |
 | 3 | [浙江](https://wsjkw.zj.gov.cn/) | [通过 20/20](https://wsjkw.zj.gov.cn/col/col1229055217/index.html)；3 页 | [通过 20/20](https://wsjkw.zj.gov.cn/col/col1229055223/index.html)；3 页 |  |
 | 3 | [安徽](https://wjw.ah.gov.cn) | [通过 20/20](https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng)；3 页 | [通过 20/20](https://wjw.ah.gov.cn/public/column/7001?type=4&catId=43797231&action=list&nav=3)；3 页 |  |
 | 3 | [福建](https://wjw.fujian.gov.cn/) | [通过 20/20](https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/)；8 页 | [通过 20/20](https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/)；8 页 | 验证第 8 页，跨过预载 70 条；官网显示文件 2605 条、解读 222 条，未全量回填。 |
 | 3 | [江西](https://hc.jiangxi.gov.cn) | [通过 20/20](https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html)；3 页 | [通过 20/20](https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html)；3 页 |  |
-| 3 | [山东](https://wsjkw.shandong.gov.cn/) | 阻塞：connection_timeout | 阻塞：connection_timeout | HTTPS 访问超时；HTTP 响应不是有效官网内容，未使用网关跳转。 |
+| 3 | [山东](https://wsjkw.shandong.gov.cn/) | 阻塞：connection_timeout | 阻塞：connection_timeout | 本机 HTTPS 和普通 Chrome 超时，腾讯云服务器连接失败；尚不能区分官网故障与网络出口问题。 |
 | 4 | [河南](https://wsjkw.henan.gov.cn) | [通过 20/20](https://wsjkw.henan.gov.cn/zfxxgk/gfxwj/)；3 页 | [通过 20/20](https://wsjkw.henan.gov.cn/zfxxgk/xxgkml/zcfg/zcjd/)；3 页 |  |
 | 4 | [湖北](https://wjw.hubei.gov.cn) | [通过 20/20](https://wjw.hubei.gov.cn/zfxxgk/zc/gfwj/)；2 页 | [通过 20/20](https://wjw.hubei.gov.cn/zfxxgk/zc/zcjd_1/)；3 页 |  |
 | 4 | [湖南](https://wjw.hunan.gov.cn/) | [通过 20/20](https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html)；3 页 | [通过 20/20](https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/zcjd/index.html)；3 页 | 前轮 TLS EOF；本轮通过，连续运行稳定性待观察。 |
@@ -47,17 +47,29 @@
 | 6 | [西藏](https://wjw.xizang.gov.cn/) | [通过 10/10](https://wjw.xizang.gov.cn/zwgk/xzgfxwj/)；1 页 | [通过 20/20](https://wjw.xizang.gov.cn/zwgk/zcjd/)；3 页 | 规范性栏目 12 条中 10 条站内原文纳入，2 条外链记入过滤审计。 |
 | 6 | [陕西](https://sxwjw.shaanxi.gov.cn/) | [通过 20/20](https://sxwjw.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/xzgfxwj/)；3 页 | [通过 20/20](https://sxwjw.shaanxi.gov.cn/zfxxgk/zcjd/)；3 页 |  |
 | 6 | [甘肃](https://wsjk.gansu.gov.cn) | [通过 20/20](https://wsjk.gansu.gov.cn/wsjk/c117380/xxgk_list2.shtml)；3 页 | [通过 20/20](https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml)；3 页 |  |
-| 6 | [青海](https://wsjkw.qinghai.gov.cn) | 阻塞：http_412 | 阻塞：http_412 | 官网返回 HTTP 412；Firefox 未呈现有效栏目。 |
+| 6 | [青海](https://wsjkw.qinghai.gov.cn) | 阻塞：http_412 | 阻塞：http_412 | 普通 Chrome 可打开；采集返回 412，独立浏览器会话最终 400 空页。 |
 | 6 | [宁夏](https://wsjkw.nx.gov.cn) | [通过 20/20](https://wsjkw.nx.gov.cn/zfxxgk_279/fdzdgknr/gfxwj/)；2 页 | [通过 20/20](https://wsjkw.nx.gov.cn/zfxxgk_279/zcfgjd/)；3 页 |  |
 | 7 | [新疆](https://wjw.xinjiang.gov.cn/) | [通过 20/20](https://wjw.xinjiang.gov.cn/hfpc/zcwj4/zfxxgk_gknrz.shtml)；3 页 | [通过 20/20](https://wjw.xinjiang.gov.cn/hfpc/zcjd/zfxxgk_gknrz.shtml)；3 页 |  |
 
 国家卫健委：规范性文件与解读各 20/20，列表各检查 3 页。
 
+## 四省问题的追加排查
+
+最初将河北、黑龙江、山东、青海登记为阻塞，表示当时没有通过可重复的采集验证，并不表示无法解决。此次对照了本机请求、正常用户 Chrome、独立 Firefox/Chrome 会话和腾讯云服务器，只改动本地代码与验证资料。
+
+黑龙江的 HTTPS 证书过期，但同一官网的公开目录接口、正文及附件可经 HTTP 读取。新增 `government-json` 适配器，按实际栏目 ID、记录总数和页码校验；不足一页却声称还有记录、错页、错栏目或缺失日期均报错，防止静默漏抓。8 页文件列表和 9 页解读列表已读到末页，正文各抽查 20 篇。两份代表性附件已保存；PDF/DOC 文件小图标已从正文图片中排除，国家栏目的同类图标也不再计入最终附件统计。限定 `public_http_hosts` 只对黑龙江该来源的官网生效，不自动降级其他 HTTPS 地址，不放行外域、非公开 IP、凭据或非常规端口；HTTPS 仍校验证书。HTTP 缺少认证传输保障，来源保持关闭，官网证书恢复后应重新验证并切回 HTTPS。
+
+河北、青海在用户正常 Chrome 中能显示首页及政策栏目链接，但独立 Firefox、Chrome、可见窗口、新建持久会话均不能获得有效正文。移除 Chrome 自动化标记的实验曾被自动审批拦截，经用户明确授权仅测试这两个官网后执行，结果仍无改善；该实验参数未加入生产采集代码。直达已确认的栏目地址也分别得到脚本页及 HTTP 412。由此只能确定会话行为有差异，尚不能证明具体是哪个识别规则；“换 Firefox”或“去掉一个标记”目前都不能解决。已记录栏目入口，后续需要验证站点支持的自动访问方式或取得公开接口/采集白名单，不能将人工可浏览等同于自动采集通过。
+
+山东在本机客户端和普通 Chrome 中超时，腾讯云终端复测连接失败；没有找到可验证的完整备用官方栏目。这一阶段不能断言是官网整体停服，也不能靠修改正文选择器解决。后续需定位官网或网络出口连通性，或验证省政府统一政策库的卫健委筛选入口及覆盖范围；其他部门转载的零散文件不能代替整站覆盖。
+
+本轮对比证据见 `evidence/national/blocked-followup-2026-11-17.json`。未解决的三省仍保留 `blocked`，所有新来源继续默认关闭。
+
 ## 实现方式
 
 `registry/provinces.json` 管理地区、官网、来源证据和批次；`registry/sources.json` 管理栏目入口、模板参数、分页、传输方式、允许访问的域名及验证状态。阻塞项 `config=null`，不会创建可运行采集源。`/api/v2/source-inventory` 展示完整登记与验证状态；`/api/v2/coverage` 仍展示实际运行源状态，登记不代表已上线。
 
-同一套 `adapters.read_list → parse_detail → pipeline` 处理 HTML/TRS、JCMS XML、异步浏览器列表、静态页码和动态翻页。网站差异保留在来源配置，新增省份不需要复制整个爬虫。特殊新站型可增加适配器，仍复用任务、存储和审计流程。
+同一套 `adapters.read_list → parse_detail → pipeline` 处理 HTML/TRS、JCMS XML、公开 JSON 列表、异步浏览器列表、静态页码和动态翻页。网站差异保留在来源配置，新增省份不需要复制整个爬虫。特殊新站型可增加适配器，仍复用任务、存储和审计流程。
 
 独立工作线程各自持有 HTTP/Firefox 会话。数据库域名租约将同一来源允许的官网、重定向及资源域名一起预留，避免多个工作线程同时请求同域；这是一种保守策略，共用 CDN 的来源可能降低并行度。不同域可并行。请求结束后保留间隔；失败与 Retry-After 冷却写入数据库。任务和域名租约均续期，任务提交时重新检查所有权，崩溃后可回收，旧工作线程不能提交新拥有者的结果。
 
@@ -78,6 +90,7 @@ PYTHONPATH=backend .venv/bin/python -m policy_v2.cli inventory
 PYTHONPATH=backend .venv/bin/python scripts/validate_national.py --batch 1 --pages 3 --output .runtime/batch-1.json
 PYTHONPATH=backend .venv/bin/python scripts/validate_national.py --region JL --pages 7 --output .runtime/jilin.json
 PYTHONPATH=backend .venv/bin/python scripts/validate_national.py --region FJ --pages 8 --output .runtime/fujian.json
+PYTHONPATH=backend .venv/bin/python scripts/validate_national.py --region HLJ --pages 9 --output .runtime/heilongjiang.json
 ```
 
 默认复用已保留页面；要衡量当前连通性，添加 `--refresh`。缓存解析通过不能代替实时连通性检查。每个脚本内部最多 4 个域并行、同域顺序访问；不要对同一域同时启动多个独立验证脚本。
@@ -94,7 +107,7 @@ PYTHONPATH=backend .venv/bin/python scripts/validate_national_attachments.py --o
 PYTHONPATH=backend .venv/bin/python -m policy_v2.cli worker --workers 4
 ```
 
-测试结果：后端 329 项通过；小程序 API 适配器 6 项和首页容错测试通过。现有依赖产生弃用警告，无失败测试。
+测试结果：追加修复后后端 351 项通过；此前小程序 API 适配器 6 项和首页容错测试通过，本次未改动前端。现有依赖产生弃用警告，无失败测试。
 
 测试命令：
 
@@ -107,9 +120,10 @@ node miniprogram/tests/index-resilience.test.js
 ## 证据与仍需完成的验收
 
 - `evidence/national/trials-final.json`：最终样本、来源配置哈希、日期、解析结果、过滤审计与翻页。
-- `evidence/national/attachments-final.json`：45 个附件的 URL、哈希、字节数、存储键及提取状态。
-- `backend/tests/fixtures/national/manifest.json`：278 份压缩原始页面和离线回归期望。
+- `evidence/national/attachments-final.json`：46 个附件的 URL、哈希、字节数、存储键及提取状态。
+- `backend/tests/fixtures/national/manifest.json`：290 份压缩原始页面和离线回归期望。
+- `evidence/national/hlj-recovery-pagination.json`：黑龙江完整列表翻页和 40 篇正文抽样；`hlj-recovery-attachments-final.json` 为去除文件图标后的附件验证。
 - 其他 `trials-*.json`、`attachments-*.json` 和 `inspections.json`：保留接入过程中的失败与修复证据，不以最终成功记录掩盖历史故障。
 - 验证期间的完整原文和附件留存在本地 `.runtime/national/`，该目录不提交 Git。Git 中保存代表性原页；生产采集使用配置的本地/COS 对象存储，而非依赖这些测试缓存。
 
-后续上线验收包括：从部署服务器复测所有来源、至少连续 3–7 天观察调度与增量更新、关闭再启动后的补偿测试，以及定期人工检查标题/日期/文种/发布机关和附件完整性。湖南已有间歇性 TLS EOF，需重点观察。河北的脚本挑战、黑龙江的过期证书、山东连接超时和青海 HTTP 412 未解决，继续保持未接入状态；不得通过关闭证书校验或使用非官网镜像将其标记通过。
+后续上线验收包括：从部署服务器复测所有来源、至少连续 3–7 天观察调度与增量更新、关闭再启动后的补偿测试，以及定期人工检查标题/日期/文种/发布机关和附件完整性。湖南已有间歇性 TLS EOF，需重点观察。河北、山东和青海继续保持未接入状态；黑龙江为显式公开 HTTP 方案，需要单独审核传输限制。不得通过关闭证书校验或使用非官网镜像将来源标记通过。

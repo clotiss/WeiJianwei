@@ -69,14 +69,15 @@ def parse_detail(data,url,item,source):
             attachments.append({'name':urlsplit(href).path.rsplit('/',1)[-1],'url':href,'status':'pending'})
     # Image-only official interpretations are retained as image attachments; OCR is explicit, not invented text.
     for a in body_el.select('img[src]'):
-        if re.search(r'/fileTypeImages/|/module/jslib/icons/|/spacer\.(?:gif|png)',a['src'],re.I):continue
+        if re.search(r'/fileTypeImages/|/module/jslib/icons/|/spacer\.(?:gif|png)|(?:^|/)images/(?:pdf|docx?|xlsx?|pptx?|wps)\.gif(?:$|[?#])',a['src'],re.I):continue
         attachments.append({'name':a.get('alt') or '正文图片','url':canonical(urljoin(url,a['src'])),'status':'pending','image':True})
     unique={}
     for attachment in attachments:
         target=urlsplit(attachment['url'])
         if target.scheme=='http' and target.hostname in source.config.get('upgrade_https_hosts',[]):
             attachment['url']='https:'+attachment['url'][5:];target=urlsplit(attachment['url'])
-        if attachment['status']=='pending' and (target.scheme!='https' or target.hostname not in source.config.get('hosts',[urlsplit(url).hostname])):
+        public_http=target.scheme=='http' and target.hostname in source.config.get('public_http_hosts',[])
+        if attachment['status']=='pending' and ((target.scheme!='https' and not public_http) or target.hostname not in source.config.get('hosts',[urlsplit(url).hostname])):
             attachment['status']='embedded' if target.scheme=='data' else 'external_reference'
         unique[attachment['url']]=attachment
     attachments=list(unique.values())

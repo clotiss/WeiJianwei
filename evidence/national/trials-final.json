@@ -361,7 +361,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "c463398d342feb469ef23104100f2e1a06929a90a5a4de0a3efb5991481f0292",
-    "reparsed_at": "2026-11-17T04:21:48.577384+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.733946+00:00"
   },
   {
     "id": "js-interpretation",
@@ -731,7 +731,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "768522aabf0c3a374e04dac6d0aa3dc5d9204b99d1af04b4e2a412119adc51f1",
-    "reparsed_at": "2026-11-17T04:21:48.649917+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.806608+00:00"
   },
   {
     "id": "gd-policy",
@@ -1275,7 +1275,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "6af1da3d03fc0c17a5094b56e87db57d2ae72959431d086816a9260ab0f8e84d",
-    "reparsed_at": "2026-11-17T04:21:48.907607+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.064472+00:00"
   },
   {
     "id": "gd-interpretation",
@@ -1692,7 +1692,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "3c55c0f17a57b72da249de482d689ecc3774f0c1e6f07a2970d753cf7d1c2f47",
-    "reparsed_at": "2026-11-17T04:21:49.001101+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.158317+00:00"
   },
   {
     "id": "bj-policy",
@@ -2079,7 +2079,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "5555c56b050cf846d09eb7ad975b1ec818c3af71d71b77d13dcdb960b0c6de7c",
-    "reparsed_at": "2026-11-17T04:21:49.062609+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.219751+00:00"
   },
   {
     "id": "bj-interpretation",
@@ -2492,7 +2492,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "610260708994306f0f402e04421ecaafe19290bcf02b51ca18788c983404d353",
-    "reparsed_at": "2026-11-17T04:21:49.101193+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.259394+00:00"
   },
   {
     "id": "sx-policy",
@@ -2830,7 +2830,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b9c201f68077ba028a7234e8b9bc768dcba0bfe34b15475a007ddbf482549495",
-    "reparsed_at": "2026-11-17T04:21:49.379694+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.532821+00:00"
   },
   {
     "id": "sx-interpretation",
@@ -3207,7 +3207,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b9c201f68077ba028a7234e8b9bc768dcba0bfe34b15475a007ddbf482549495",
-    "reparsed_at": "2026-11-17T04:21:53.247000+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.428689+00:00"
   },
   {
     "id": "tj-policy",
@@ -3864,7 +3864,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:49.212165+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.366170+00:00"
   },
   {
     "id": "tj-interpretation",
@@ -4309,7 +4309,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:49.308439+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.459979+00:00"
   },
   {
     "id": "ln-interpretation",
@@ -4670,7 +4670,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "26907844b6b6ebd5f857a972b4eb4fc5c7fb1289778b7d10d1b86b7856c5d0f7",
-    "reparsed_at": "2026-11-17T04:21:49.647640+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.815366+00:00"
   },
   {
     "id": "ln-policy",
@@ -5008,7 +5008,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "7ca4ee042967b581f059d1968a7cdb6e860c45e886509cad797de7c232368a02",
-    "reparsed_at": "2026-11-17T04:21:53.385622+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.575371+00:00"
   },
   {
     "id": "nm-policy",
@@ -5427,7 +5427,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "27430d83770aa4b036da85b39bc352c5a4dbe546b7561214c75fbc169acdde66",
-    "reparsed_at": "2026-11-17T04:21:49.482047+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.638430+00:00"
   },
   {
     "id": "nm-interpretation",
@@ -5861,7 +5861,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "27430d83770aa4b036da85b39bc352c5a4dbe546b7561214c75fbc169acdde66",
-    "reparsed_at": "2026-11-17T04:21:49.545694+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.704644+00:00"
   },
   {
     "id": "nhc-policy",
@@ -5965,12 +5965,6 @@
             "name": "2.日间医疗质量控制指标(2026年版)",
             "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/files/2.日间医疗质量控制指标(2026年版).pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ],
         "fixture": "backend/tests/fixtures/national/nhc-policy-detail-2.html.gz"
@@ -5992,12 +5986,6 @@
             "name": "《人类遗传资源管理条例实施细则》（国家卫生健康委员会令第16号）",
             "url": "https://www.nhc.gov.cn/fzs/c100048/202611/7a5740916ee54e689fd76e83363bab9e/files/《人类遗传资源管理条例实施细则》（国家卫生健康委员会令第16号）.pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/fzs/c100048/202611/7a5740916ee54e689fd76e83363bab9e/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       },
@@ -6037,12 +6025,6 @@
             "name": "2.罕见病目录申请表",
             "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/125babd50e8242b4bd415b7fe122e2c9/files/2.罕见病目录申请表.docx",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/125babd50e8242b4bd415b7fe122e2c9/images/doc.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       },
@@ -6068,12 +6050,6 @@
             "name": "社区卫生服务中心服务能力标准（2026版）",
             "url": "https://www.nhc.gov.cn/jws/c100073/202610/1368f8f5d0414d85bb20e920203aa22d/files/社区卫生服务中心服务能力标准（2026版）.pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/jws/c100073/202610/1368f8f5d0414d85bb20e920203aa22d/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       },
@@ -6096,7 +6072,8 @@
             "status": "pending",
             "image": true
           }
-        ]
+        ],
+        "fixture": "backend/tests/fixtures/national/nhc-policy-detail-7.html.gz"
       },
       {
         "url": "https://www.nhc.gov.cn/sps/c100088/202609/4f357dbdd51748fea20ce817d0466c40.shtml",
@@ -6129,12 +6106,6 @@
             "name": "孤独症谱系障碍儿童干预康复指南（2026年版）",
             "url": "https://www.nhc.gov.cn/fys/c100078/202609/486028fcef6e477c8ec1b8c88ce62c2d/files/孤独症谱系障碍儿童干预康复指南（2026年版）.pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/fys/c100078/202609/486028fcef6e477c8ec1b8c88ce62c2d/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       },
@@ -6225,12 +6196,6 @@
             "name": "2025年我国卫生健康事业发展统计公报",
             "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202608/1b45959033524f48867d90e822be5394/files/2025年我国卫生健康事业发展统计公报-20260828105402342.pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202608/1b45959033524f48867d90e822be5394/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       },
@@ -6322,12 +6287,6 @@
             "name": "WS290—2026",
             "url": "https://www.nhc.gov.cn/fzs/c100048/202607/b774a0e2dc8f46b38eb21c01de26c35e/files/WS 290—2026.pdf",
             "status": "pending"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/fzs/c100048/202607/b774a0e2dc8f46b38eb21c01de26c35e/images/pdf.gif",
-            "status": "pending",
-            "image": true
           }
         ]
       }
@@ -6339,7 +6298,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "3b957280bc2fac900b56e11b663a1d65d654617cbea01c06511dad2bb89e74e7",
-    "reparsed_at": "2026-11-17T04:21:48.435373+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.591180+00:00"
   },
   {
     "id": "nhc-interpretation",
@@ -6734,7 +6693,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "3b957280bc2fac900b56e11b663a1d65d654617cbea01c06511dad2bb89e74e7",
-    "reparsed_at": "2026-11-17T04:21:48.493508+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.648931+00:00"
   },
   {
     "id": "jl-policy",
@@ -7285,7 +7244,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:49.724106+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.894427+00:00"
   },
   {
     "id": "jl-interpretation",
@@ -7518,7 +7477,7 @@
     "sample_target": 5,
     "sample_ok": 5,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:49.752614+00:00"
+    "reparsed_at": "2026-11-17T04:58:28.922594+00:00"
   },
   {
     "id": "fj-interpretation",
@@ -8028,7 +7987,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:50.326952+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.530991+00:00"
   },
   {
     "id": "fj-policy",
@@ -8475,7 +8434,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:52.378486+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.573156+00:00"
   },
   {
     "id": "ha-policy",
@@ -8920,7 +8879,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "75ce4eeded058151fabd2b2fc5da50047c96f13bfea7c621ade01a52b7ee7e0e",
-    "reparsed_at": "2026-11-17T04:21:50.429719+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.635902+00:00"
   },
   {
     "id": "ha-interpretation",
@@ -9284,7 +9243,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "75ce4eeded058151fabd2b2fc5da50047c96f13bfea7c621ade01a52b7ee7e0e",
-    "reparsed_at": "2026-11-17T04:21:50.471740+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.677338+00:00"
   },
   {
     "id": "hb-interpretation",
@@ -9698,7 +9657,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "8de781549479944b95140994e7e0f589ab097b9a36a8c46ac8e952522413b6c3",
-    "reparsed_at": "2026-11-17T04:21:50.564582+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.770654+00:00"
   },
   {
     "id": "hb-policy",
@@ -10247,7 +10206,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "6558111907b7a9b6c532fca7e2dd435ae127698bb23c3b97c6b64ada92586abd",
-    "reparsed_at": "2026-11-17T04:21:53.749289+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.941011+00:00"
   },
   {
     "id": "cq-policy",
@@ -10618,7 +10577,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "d2902671e5cf135f95894e99fd74cd1295ed57925cb94e0eddc7d65379a5b534",
-    "reparsed_at": "2026-11-17T04:21:50.894222+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.094904+00:00"
   },
   {
     "id": "cq-interpretation",
@@ -10975,7 +10934,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b1258cad3c5a7f01dd3c6b63bcbd3e4e4d566e25d609fd1e5a6f91606796e32c",
-    "reparsed_at": "2026-11-17T04:21:52.043885+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.214400+00:00"
   },
   {
     "id": "gz-interpretation",
@@ -11461,7 +11420,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:50.977932+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.161424+00:00"
   },
   {
     "id": "gz-policy",
@@ -12051,7 +12010,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:53.186105+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.367065+00:00"
   },
   {
     "id": "ah-policy",
@@ -12701,7 +12660,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "713dece9d1a8483d6838b07421b08e54a601eaba6a61ad515a467bdbd5bd6066",
-    "reparsed_at": "2026-11-17T04:21:50.092280+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.276322+00:00"
   },
   {
     "id": "ah-interpretation",
@@ -13212,7 +13171,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "19c2dd32bc4a0dccb1cd580e3fb9d37e2addadcdefa1d4ac97b7c9e27a5f29d6",
-    "reparsed_at": "2026-11-17T04:21:53.585819+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.774751+00:00"
   },
   {
     "id": "zj-policy",
@@ -13743,7 +13702,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "062dc3b1f7396b6586034006bf174949a6e581b03c916d62fe793025b4417931",
-    "reparsed_at": "2026-11-17T04:21:49.852076+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.026113+00:00"
   },
   {
     "id": "zj-interpretation",
@@ -14170,7 +14129,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "062dc3b1f7396b6586034006bf174949a6e581b03c916d62fe793025b4417931",
-    "reparsed_at": "2026-11-17T04:21:49.924959+00:00"
+    "reparsed_at": "2026-11-17T04:58:29.099378+00:00"
   },
   {
     "id": "nx-policy",
@@ -14607,7 +14566,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "45ddba7feadc1a21960808585973ee06cee680b61f7e6fa93026a6de94eea1dc",
-    "reparsed_at": "2026-11-17T04:21:51.505613+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.667438+00:00"
   },
   {
     "id": "nx-interpretation",
@@ -15021,7 +14980,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "c4da6ff9b2460b3f3d2c7f53f78c3dfec48f4681c2e1900e39093ccb1a9c07d4",
-    "reparsed_at": "2026-11-17T04:21:51.560224+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.722841+00:00"
   },
   {
     "id": "sn-policy",
@@ -15507,7 +15466,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "312817e1b1a22d3be422acd9ba0c5fc13dd772257c64617964feb7808216459e",
-    "reparsed_at": "2026-11-17T04:21:51.269655+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.438440+00:00"
   },
   {
     "id": "sn-interpretation",
@@ -15896,12 +15855,6 @@
             "name": "居民死亡医学证明签发使用流程图",
             "url": "https://www.nhc.gov.cn/guihuaxxs/c100132/202602/61a1b698f5934b358e6223dbe1b552ce/files/%E5%B1%85%E6%B0%91%E6%AD%BB%E4%BA%A1%E5%8C%BB%E5%AD%A6%E8%AF%81%E6%98%8E%E7%AD%BE%E5%8F%91%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.pdf",
             "status": "external_reference"
-          },
-          {
-            "name": "正文图片",
-            "url": "https://www.nhc.gov.cn/guihuaxxs/c100132/202602/61a1b698f5934b358e6223dbe1b552ce/images/pdf.gif",
-            "status": "external_reference",
-            "image": true
           }
         ],
         "fixture": "backend/tests/fixtures/national/sn-interpretation-detail-19.html.gz"
@@ -15928,7 +15881,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "312817e1b1a22d3be422acd9ba0c5fc13dd772257c64617964feb7808216459e",
-    "reparsed_at": "2026-11-17T04:21:51.339096+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.503044+00:00"
   },
   {
     "id": "xj-policy",
@@ -16321,7 +16274,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "1ff89e956b420603d97e64753179176a916eee52dd575445d8e9f853ba3ff52b",
-    "reparsed_at": "2026-11-17T04:21:51.725122+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.888172+00:00"
   },
   {
     "id": "xj-interpretation",
@@ -16692,7 +16645,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "1ff89e956b420603d97e64753179176a916eee52dd575445d8e9f853ba3ff52b",
-    "reparsed_at": "2026-11-17T04:21:51.804681+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.969093+00:00"
   },
   {
     "id": "sh-interpretation",
@@ -17100,7 +17053,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "9f712c0d1b2395bf862e2a06756d1161a005f61734eddcff101fc28c51f7946d",
-    "reparsed_at": "2026-11-17T04:21:51.854892+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.020328+00:00"
   },
   {
     "id": "sh-policy",
@@ -17481,7 +17434,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "929504e427bdee9d70912fb537ba26099b8f1aef22bc95e1b89a87c92a4c0f75",
-    "reparsed_at": "2026-11-17T04:21:52.519824+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.719925+00:00"
   },
   {
     "id": "hn-policy",
@@ -17963,7 +17916,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "0f54e9b38127438a2771e487be88fe982902ec18f6ae0425877089b680fdf691",
-    "reparsed_at": "2026-11-17T04:21:48.720332+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.875134+00:00"
   },
   {
     "id": "hn-interpretation",
@@ -18333,7 +18286,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b04a7bf19f93927d9e1d2eaedbe3b9666933063ae0080f751c93fc993166e469",
-    "reparsed_at": "2026-11-17T04:21:48.796824+00:00"
+    "reparsed_at": "2026-11-17T04:58:27.956863+00:00"
   },
   {
     "id": "yn-policy",
@@ -18887,7 +18840,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:51.085952+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.267547+00:00"
   },
   {
     "id": "yn-interpretation",
@@ -19348,7 +19301,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:51.202357+00:00"
+    "reparsed_at": "2026-11-17T04:58:30.381003+00:00"
   },
   {
     "id": "gx-policy",
@@ -19853,7 +19806,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "858b0769dbb43e51d95570cb46c79faed88dfa96eeee1d4b0b6ca55331dad04d",
-    "reparsed_at": "2026-11-17T04:21:52.664918+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.868046+00:00"
   },
   {
     "id": "gx-interpretation",
@@ -20230,7 +20183,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "858b0769dbb43e51d95570cb46c79faed88dfa96eeee1d4b0b6ca55331dad04d",
-    "reparsed_at": "2026-11-17T04:21:52.737336+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.939781+00:00"
   },
   {
     "id": "gs-interpretation",
@@ -20629,7 +20582,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "6cdaf602cea78af4f0592a045d1be6620e60b0ebfef2f1ac9c9e256a91c10f30",
-    "reparsed_at": "2026-11-17T04:21:52.797564+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.999752+00:00"
   },
   {
     "id": "gs-policy",
@@ -21167,7 +21120,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "7f22cb0355aa56a7681d6bf626b6b910eb3db9594059897bca9d8246cc8d53f8",
-    "reparsed_at": "2026-11-17T04:21:53.473386+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.661448+00:00"
   },
   {
     "id": "xz-policy",
@@ -21353,7 +21306,7 @@
     "sample_ok": 10,
     "status": "sample_pass",
     "config_sha256": "d3fcd47a2b2599ae4e637c822b1feb8d2daf2c2782ef591b634da7fae94be266",
-    "reparsed_at": "2026-11-17T04:21:53.806736+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.997839+00:00"
   },
   {
     "id": "xz-interpretation",
@@ -21716,7 +21669,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "9c9f40469c8d5960f80cf95698c2f12f6be379bcfe9a91f7b45c8ec1bcb80cd2",
-    "reparsed_at": "2026-11-17T04:21:53.946957+00:00"
+    "reparsed_at": "2026-11-17T04:58:33.132278+00:00"
   },
   {
     "id": "jx-policy",
@@ -22202,7 +22155,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "1fa8f90da236ac2e6dc9353b4aa9baa6646a6994926ab671a0a61cd6e2f0c032",
-    "reparsed_at": "2026-11-17T04:21:52.937010+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.140200+00:00"
   },
   {
     "id": "jx-interpretation",
@@ -22570,7 +22523,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "4ed9fc2c1cd6e58c20af4bdaa8b5d6a476c1302a10f50ea873102d14a422aba7",
-    "reparsed_at": "2026-11-17T04:21:53.120544+00:00"
+    "reparsed_at": "2026-11-17T04:58:32.296985+00:00"
   },
   {
     "id": "sc-policy",
@@ -22963,7 +22916,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:51.934437+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.100914+00:00"
   },
   {
     "id": "sc-interpretation",
@@ -23454,7 +23407,7 @@
     "sample_target": 20,
     "sample_ok": 20,
     "status": "sample_pass",
-    "reparsed_at": "2026-11-17T04:21:54.078722+00:00"
+    "reparsed_at": "2026-11-17T04:58:33.212648+00:00"
   },
   {
     "id": "hi-interpretation",
@@ -23909,7 +23862,7 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b40562b471a2bcde7f15922eb64fdd9aa3c95b53f945df0c39b579cdd4e6e58d",
-    "reparsed_at": "2026-11-17T04:21:52.602901+00:00"
+    "reparsed_at": "2026-11-17T04:58:31.804967+00:00"
   },
   {
     "id": "hi-policy",
@@ -24322,6 +24275,1097 @@
     "sample_ok": 20,
     "status": "sample_pass",
     "config_sha256": "b40562b471a2bcde7f15922eb64fdd9aa3c95b53f945df0c39b579cdd4e6e58d",
-    "reparsed_at": "2026-11-17T04:21:54.479745+00:00"
+    "reparsed_at": "2026-11-17T04:58:33.592874+00:00"
+  },
+  {
+    "id": "hlj-policy",
+    "region": "HLJ",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+    "config_sha256": "c211b56627557fbce69cbe8c0121bacef961df22ffe45e81ebcc998baf57f479",
+    "checked_at": "2026-11-17T04:57:39.244896+00:00",
+    "lists": [
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+        "cached": true,
+        "path": ".runtime/blocked-debug/hlj-policy-list.json",
+        "sha256": "e73207d6d9dc4a03dda0b3326b02a3f8e8cce80f82153cab7c69e5c53a6ceaa9",
+        "fixture": "backend/tests/fixtures/national/hlj-policy-list-1.json.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/2578901f4a295c9e88f8bfb80e493e1482a1976161c06d49c7fde304a22775e9.html",
+        "sha256": "6e91f9c231558072b3e666be72804a5b8d4d66f3d4c5aabf20e2751e7b2a415b",
+        "fixture": "backend/tests/fixtures/national/hlj-policy-list-2.json.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=4",
+        "cached": false,
+        "path": ".runtime/national/trials/9949b1f13a9f476947395c5409a460aabfaf02d3acf8b8e6685d7bab9294d053.html",
+        "sha256": "b78b8bcc34ed49530e1e461cb3df2a339fb427131e9ca5878374dbe7a0d788ea"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=4",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=5",
+        "cached": false,
+        "path": ".runtime/national/trials/06c2f8c3842f93da4c4fc1c4a39393ca8dcffa747f0a3a0cb0dc82ebe08929d3.html",
+        "sha256": "2a978cd8088db9c42d6d45455f56ed6c18dca3abbc3ff254ef5cb8d4026912c4"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=5",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=6",
+        "cached": false,
+        "path": ".runtime/national/trials/ebf4ec8e2d052425aac5a7744edc46eb6ab53d65bccc6145adf5d8bb5bfd311c.html",
+        "sha256": "0eb13578418896c58a0b6083f8a276d4c8dfd278b966482cc26ecc414ad01d88"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=6",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=7",
+        "cached": false,
+        "path": ".runtime/national/trials/1d809f06619a44c59cbb6c06d2474f42c5778e0319cdc2aeec1d6dcf0fc3b3f0.html",
+        "sha256": "5d89c99f16521a9e60a0a1ae2639d07092a48be1d7a1673a703e3992be355732"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=7",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=8",
+        "cached": false,
+        "path": ".runtime/national/trials/c4beefab172b1257407bbaca4997288f00fe62c1ec08d26632bc952d2228276f.html",
+        "sha256": "5bc1a7f25da9eef9ead57531a331d5ffa055cf7e777543694d3abff06b0f7717"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=8",
+        "count": 20,
+        "audit": {
+          "total_records": 160,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": false,
+          "complete_listing": false
+        },
+        "next_url": null,
+        "cached": false,
+        "path": ".runtime/national/trials/3c7ae4527ab1a7f895c5362d97bd189fb12cb62dcca8bca6f94fea5193b9c6fc.html",
+        "sha256": "277505abbb80b9f651f89d593985bc2ace2d6f011d1d5d73c1196d18f41fc8da",
+        "fixture": "backend/tests/fixtures/national/hlj-policy-list-8.json.gz"
+      }
+    ],
+    "details": [
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202610/c00_31982946.shtml",
+        "list_title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+        "path": ".runtime/national/trials/e912c357646f24c5b55888e34ffce31fbe9b153f13879af5d7680373f630883b.html",
+        "sha256": "6058f3dec10f5cc6aa9224e8b42b767b54fdbe56a1f711fd3569cb6ef8d8d9d8",
+        "cached": true,
+        "status": "ok",
+        "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+        "published": "2026-10-10",
+        "body_chars": 886,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [],
+        "fixture": "backend/tests/fixtures/national/hlj-policy-detail-1.html.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+        "list_title": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/e275eef87cad02b9951e6bcf4e443a793ac929b7ac5cbc6955256d005f306509.html",
+        "sha256": "2ed26664f2c0cfa722f50554ddfcc6ea444522df871d231b2b1fcd8d129050d7",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+        "published": "2026-09-17",
+        "body_chars": 168,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31976622/files/关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知.pdf",
+            "status": "pending"
+          }
+        ],
+        "fixture": "backend/tests/fixtures/national/hlj-policy-detail-2.html.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31972694.shtml",
+        "list_title": "关于印发《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》的通知",
+        "path": ".runtime/national/trials/09b680d00e2581cb89ccfd9d25edca5a689c7beac3d6500f8b2691295e68ea33.html",
+        "sha256": "a74508afdea77d2aafae879dcb5db0e348007ed1184c3d5d2a59cefc46187561",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》的通知",
+        "published": "2026-09-01",
+        "body_chars": 168,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》的通知",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31972694/files/关于印发《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》的通知.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31963438.shtml",
+        "list_title": "严寒地区化工园区职业卫生管理要求",
+        "path": ".runtime/national/trials/73ae531ba387df51d167a9150b736541d42130bc1763c1cac58d07234c1dc1b5.html",
+        "sha256": "14f6bac0bc3e3dee5d7da188ee5fbee1a1778633b2b4a91f9aca59158d4d3cbe",
+        "cached": true,
+        "status": "ok",
+        "title": "严寒地区化工园区职业卫生管理要求",
+        "published": "2026-07-31",
+        "body_chars": 0,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_01.png",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_02.png",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_03.png",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_04.png",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_05.png",
+            "status": "pending",
+            "image": true
+          }
+        ],
+        "fixture": "backend/tests/fixtures/national/hlj-policy-detail-4.html.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31954910.shtml",
+        "list_title": "关于印发黑龙江省医疗机构食堂食品安全和运行管理办法的通知",
+        "path": ".runtime/national/trials/c6d8dca79b2fb3a590f8027eaa9f646c4d70e72c6f76a9d8cd717f66faae3b5f.html",
+        "sha256": "d64f52fe325d6dbb45cf6308917c59dcab8f437334960d32b6d965e2e09b964c",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发黑龙江省医疗机构食堂食品安全和运行管理办法的通知",
+        "published": "2026-07-02",
+        "body_chars": 5505,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31954906.shtml",
+        "list_title": "关于印发黑龙江省餐具、饮具集中消毒服务单位卫生管理办法的通知",
+        "path": ".runtime/national/trials/1cc45a3c514bbf6e4a8a6357148b9b320511b00b0392897b083f173316cbbc0b.html",
+        "sha256": "a17258d4b342d992fa6a8794eda22fa9fe5c6cea1e0852c8b3e1015d94f29280",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发黑龙江省餐具、饮具集中消毒服务单位卫生管理办法的通知",
+        "published": "2026-07-02",
+        "body_chars": 4936,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/c00_31947564.shtml",
+        "list_title": "国家卫生健康委关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知",
+        "path": ".runtime/national/trials/16f7f36ce4c96ec0dbc51a74d1899197e7c14d8216ccf1e2c18f3ffcc86724a1.html",
+        "sha256": "9ee5661c4ae07b07eda299ed1dd32f39cabad97594ee74b8defe3a556c4d4df3",
+        "cached": true,
+        "status": "ok",
+        "title": "国家卫生健康委关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知",
+        "published": "2026-04-30",
+        "body_chars": 5071,
+        "authority": "科技教育司",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "1.生物医学新技术临床转化应用申请书",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/31947564/files/1.生物医学新技术临床转化应用申请书-20260605174804735.docx",
+            "status": "pending"
+          },
+          {
+            "name": "2.生物医学新技术临床转化应用申请形式审查条件要求",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/31947564/files/2.生物医学新技术临床转化应用申请形式审查条件要求-20260605174813744.docx",
+            "status": "pending"
+          },
+          {
+            "name": "3.生物医学新技术临床转化应用优先审查审批申请表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/31947564/files/3.生物医学新技术临床转化应用优先审查审批申请表-20260605174821145.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/c00_31947558.shtml",
+        "list_title": "国家卫生健康委关于印发生物医学新技术与药品、医疗器械界定指导原则(暂行)的通知",
+        "path": ".runtime/national/trials/6d99ada4684ce622d8c0634aec64330653ff824ffcb62e1934b2839e47ce00ab.html",
+        "sha256": "b790fc9813f1abdb8f04fbfd9be729d37717fac9061b5fccba87cdc8671e52a8",
+        "cached": true,
+        "status": "ok",
+        "title": "国家卫生健康委关于印发生物医学新技术与药品、医疗器械界定指导原则(暂行)的通知",
+        "published": "2026-04-30",
+        "body_chars": 3744,
+        "authority": "科技教育司",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "生物医学新技术临床研究备案指导清单（第1版）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/31947558/files/生物医学新技术临床研究备案指导清单（第1版）.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/c00_31934329.shtml",
+        "list_title": "关于印发《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的通知",
+        "path": ".runtime/national/trials/48a7068ecc8744f2e7f3c1f5112259aa7a4f14813509f1f7c4a48aae9635966a.html",
+        "sha256": "d837d22853ea360f5826b4cd45246b8f8fdf9669a14bb381cd7750b3cf5198bc",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的通知",
+        "published": "2025-12-31",
+        "body_chars": 4627,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件1：普惠托育机构运营补贴资格申请表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/31934329/files/附件1：普惠托育机构运营补贴资格申请表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：申请黑龙江省普惠托育机构运营补贴人员名单及资金统计表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/31934329/files/附件2：申请黑龙江省普惠托育机构运营补贴人员名单及资金统计表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：普惠托育机构运营补贴汇总表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/31934329/files/附件3：普惠托育机构运营补贴汇总表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件4：黑龙江省普惠托育机构报备表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/31934329/files/附件4：黑龙江省普惠托育机构报备表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件5：黑龙江省普惠托育服务机构运营补贴资金预算（结算）表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/31934329/files/附件5：黑龙江省普惠托育服务机构运营补贴资金预算（结算）表.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202603/c00_31924809.shtml",
+        "list_title": "关于印发《黑龙江省育儿补贴制度实施细则》的通知",
+        "path": ".runtime/national/trials/4c359384f0fdcdc728130f05217e7de89ec9a2937a0252891e73d9baca7b19ec.html",
+        "sha256": "5fba7ea915b8f7d5505b0e7e839954376e77e502b32bb5bb52ef3450d632731a",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《黑龙江省育儿补贴制度实施细则》的通知",
+        "published": "2025-12-29",
+        "body_chars": 5703,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202603/c00_31924807.shtml",
+        "list_title": "黑龙江省卫生健康委 黑龙江省财政厅关于印发《黑龙江省育儿补贴制度实施方案》的通知",
+        "path": ".runtime/national/trials/8afcfe217730c7aae99cd1b0ce8ad2b6f98580781c78bd199a78196ff50acaf1.html",
+        "sha256": "1b96828e47c33019460b57aef1c98db281ae818d32c613d0df6bf9ed4a479da7",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委 黑龙江省财政厅关于印发《黑龙江省育儿补贴制度实施方案》的通知",
+        "published": "2025-12-13",
+        "body_chars": 2877,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202508/c00_31868473.shtml",
+        "list_title": "黑龙江省卫生健康委员会 黑龙江省中医药管理局关于印发《医疗机构名称审批核准工作规定(试行)》的通知",
+        "path": ".runtime/national/trials/52abd94819d042ed6c3312c6ff37c9e6b8bddd4d61cf6cb3b73ecbdc11610d56.html",
+        "sha256": "31c7b115514e7abb61c3e55474701b460271b2ac16624814c6799065566c262f",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会 黑龙江省中医药管理局关于印发《医疗机构名称审批核准工作规定(试行)》的通知",
+        "published": "2025-08-26",
+        "body_chars": 2943,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202507/c00_31857392.shtml",
+        "list_title": "关于印发《关于加强医疗监督跨部门执法联动工作的意见》的通知",
+        "path": ".runtime/national/trials/8436de1ebe74a6d6960450b9369abed46a9de3a2d3f996f52ec5780c3b757e2c.html",
+        "sha256": "4fa87b0ddf6891b79ccba651365cc33b6d246177aacab37ce20b96768fc5a74b",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《关于加强医疗监督跨部门执法联动工作的意见》的通知",
+        "published": "2025-07-15",
+        "body_chars": 4867,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202505/c00_31845431.shtml",
+        "list_title": "关于印发《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》的通知",
+        "path": ".runtime/national/trials/4c9546952235261827823c9ae4af8b223ce62fc0d2ede88b231573783f183c97.html",
+        "sha256": "b660a4fb2038edbb74fa8a6e9efd86656eb0d58300baa155e5831ebabb7afeac",
+        "cached": true,
+        "status": "ok",
+        "title": "关于印发《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》的通知",
+        "published": "2025-05-30",
+        "body_chars": 1756,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805733.shtml",
+        "list_title": "黑龙江省卫生健康委员会关于印发《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/6e7d0a619837ff14671d874b5c4050ea047288b3f76d7507e7449510515f6cb8.html",
+        "sha256": "feebbe5ad458c026278ba5f41d427d740fd3ff7d396d05a6a9f49186f33a556c",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会关于印发《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》的通知",
+        "published": "2025-01-24",
+        "body_chars": 1087,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805730.shtml",
+        "list_title": "黑龙江省卫生健康委员会关于印发《黑龙江省食品安全地方标准管理办法》的通知",
+        "path": ".runtime/national/trials/470c1094051d63857d5cf73c5a1fd537ba3f81cc4534207b0a573e89ae6eed8f.html",
+        "sha256": "0bba9cba4d85bc82dce7262230d830dda2d22cc0dee95598994f65b8647a83be",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会关于印发《黑龙江省食品安全地方标准管理办法》的通知",
+        "published": "2025-01-24",
+        "body_chars": 4477,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件1：黑龙江省食品安全地方标准立项建议书",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/31805730/files/附件1：黑龙江省食品安全地方标准立项建议书.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：黑龙江省食品安全地方标准计划项目调整申请表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/31805730/files/附件2：黑龙江省食品安全地方标准计划项目调整申请表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：黑龙江省食品安全地方标准修改申报单",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/31805730/files/附件3：黑龙江省食品安全地方标准修改申报单.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805721.shtml",
+        "list_title": "关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见",
+        "path": ".runtime/national/trials/ea57372c98055dc5b74c6444eaffc1ccef1f0bf9b967735a6b0047f460e1ca02.html",
+        "sha256": "00a5a88804cc9be0db118232b8e5eb2810874e475441d582c31f6e310c4967a0",
+        "cached": true,
+        "status": "ok",
+        "title": "关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见",
+        "published": "2025-01-24",
+        "body_chars": 3968,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31771234.shtml",
+        "list_title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业病诊断医师管理办法》的通知",
+        "path": ".runtime/national/trials/d9f59153277f1b4af99b9c533f465c9a00871da58f01014324027b3d5ae99447.html",
+        "sha256": "a682de354eea5fab16f0307bb408e9b4fa8d4f960825acd175c49f0d0490f701",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业病诊断医师管理办法》的通知",
+        "published": "2024-09-24",
+        "body_chars": 3469,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件1：申请职业病诊断医师资格专业项目对应表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771234/files/附件1：申请职业病诊断医师资格专业项目对应表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：黑龙江省职业病诊断医师资格申请表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771234/files/附件2：黑龙江省职业病诊断医师资格申请表.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：黑龙江省职业病诊断医师资格变更申请表",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771234/files/附件3：黑龙江省职业病诊断医师资格变更申请表.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31771224.shtml",
+        "list_title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业健康检查工作规范》的通知",
+        "path": ".runtime/national/trials/16e1ee2c9ce729181b5ba361fba0491478a227238658df06ec05016184582d75.html",
+        "sha256": "16fe9cfe82b017f8a8a40e0d467b88b4a0389d8b1248556dfd94c9de562d05fe",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业健康检查工作规范》的通知",
+        "published": "2024-09-24",
+        "body_chars": 6816,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件：1.职业健康检查协议书（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件：1.职业健康检查协议书（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：受检单位基本信息（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件2：受检单位基本信息（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：职业健康检查人员信息表（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件3：职业健康检查人员信息表（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件4：职业健康检查表（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件4：职业健康检查表（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件5：职业健康检查总结报告（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件5：职业健康检查总结报告（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件6：年度职业禁忌证人员名单（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件6：年度职业禁忌证人员名单（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件7：年度疑似职业病人名单（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件7：年度疑似职业病人名单（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件8：职业健康检查复查通知书（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件8：职业健康检查复查通知书（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件9：疑似职业病告知书（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件9：疑似职业病告知书（样式）.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件10：职业禁忌证告知书（样式）",
+            "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/31771224/files/附件10：职业禁忌证告知书（样式）.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31770234.shtml",
+        "list_title": "黑龙江省卫生健康委员会关于宣布失效一批省卫生健康委行政规范性文件的通知",
+        "path": ".runtime/national/trials/ab6c42e209f09c468bb54b5dc8783ddaae60f293b6a3d291475685b7099116ce.html",
+        "sha256": "4d2165d9942476107b47c9142c66d32b15b31ab8ae5b63539b3ac8769784555e",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省卫生健康委员会关于宣布失效一批省卫生健康委行政规范性文件的通知",
+        "published": "2024-09-20",
+        "body_chars": 629,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      }
+    ],
+    "errors": [],
+    "unique_items": 160,
+    "listing_exhausted": true,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass",
+    "reparsed_at": "2026-11-17T04:58:33.697039+00:00"
+  },
+  {
+    "id": "hlj-interpretation",
+    "region": "HLJ",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+    "config_sha256": "ec67d85c9f6e3d6193414e9b8ac43613bfd366741b93e642affbbd70d3494024",
+    "checked_at": "2026-11-17T04:57:51.547921+00:00",
+    "lists": [
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+        "cached": true,
+        "path": ".runtime/blocked-debug/hlj-interpretation-list.json",
+        "sha256": "2084b07282f3fefcda9c6fa5500d1947beba15aae8c063dadcaeff68335bcaf9",
+        "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-1.json.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/7b3c6fa0086081932daef1d7ef5914528c69647c84b6840f8522c662470a7aca.html",
+        "sha256": "76f6b019618c09843339e7d4d9a295d34d9f2296949a38565b071bd7635a1b36",
+        "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-2.json.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+        "count": 17,
+        "audit": {
+          "filtered_external": 3,
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 17,
+          "link_origins": {
+            "hlj.sina.cn": 1,
+            "www.chinahlj.cn": 1,
+            "m.dbw.cn": 1,
+            "wsjkw.hlj.gov.cn": 17
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=4",
+        "cached": false,
+        "path": ".runtime/national/trials/78cb3ad17ae02025871a1aeb5651c1c28497e83af6a5dec0a841a9896ddef86e.html",
+        "sha256": "6f2d742e961f98954049df31dc31d3e6a10f5b1c05fa82c10273ad111dd34a5e"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=4",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=5",
+        "cached": false,
+        "path": ".runtime/national/trials/be4f7260c3fbcc4913a37d9b7cb4c31d9636e0a103d2fd6c713c5ad1fc6ae003.html",
+        "sha256": "a766aabd647a8c3b9a9658b4b1c83d1a1266f3168b363be22ebed3f83073bc4e"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=5",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=6",
+        "cached": false,
+        "path": ".runtime/national/trials/1a5978bf2ddf9aed8fbe01959b04b0e89966ca7ba199ea1430c3fde5df85997b.html",
+        "sha256": "5c7256686af4c48f950e82cbdf73bf73a33cb84ef21644d6b9087baf4abe527d"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=6",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=7",
+        "cached": false,
+        "path": ".runtime/national/trials/62a573bda1823b715aaa32935809ac75695ca086daf91d7f3117417260a76c9c.html",
+        "sha256": "9b9e08b31bdc2559266370140d31012fdad641b696d452203fcb392b78bc22ae"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=7",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=8",
+        "cached": false,
+        "path": ".runtime/national/trials/c9de2f7b2dff83574be9a826b213c8d1f8db2c47fb903c94daba76f8dacb4880.html",
+        "sha256": "88b7aa7c2854e8f79df51011d0150027e19d0ebe540b9d2769937c0a94500d52"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=8",
+        "count": 20,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": false
+        },
+        "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=9",
+        "cached": false,
+        "path": ".runtime/national/trials/221fdf7b62279dff1b4676863dc13617fa0cb3a0b5f4f8a93a2d4f23f282bc0d.html",
+        "sha256": "c26c395b5ae40683a08ce145c2f520d5aac11130a0dd2b73f483b18eb3a33679"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=9",
+        "count": 17,
+        "audit": {
+          "total_records": 177,
+          "returned_records": 17,
+          "eligible_records": 17,
+          "link_origins": {
+            "wsjkw.hlj.gov.cn": 17
+          },
+          "pagination_detected": false,
+          "complete_listing": false
+        },
+        "next_url": null,
+        "cached": false,
+        "path": ".runtime/national/trials/5809c569b49c34db02f41ad06705ab9f5e057c704f3179d13f30cbe3de94f48b.html",
+        "sha256": "1a2aed527526cfa344704ad5567a6a3bcca6b55d7ed3431296a4639fee7b2c07",
+        "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-9.json.gz"
+      }
+    ],
+    "details": [
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202610/c00_31982947.shtml",
+        "list_title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+        "path": ".runtime/national/trials/dea3ac450dd9a56d1caa7d7741773b0be36efe87997a28e841f5975fbb93a815.html",
+        "sha256": "29d4a4c02745056b18cfbff6b5a17dc20062130b6785e63911b89d5ada658be3",
+        "cached": true,
+        "status": "ok",
+        "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+        "published": "2026-10-10",
+        "body_chars": 723,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [],
+        "fixture": "backend/tests/fixtures/national/hlj-interpretation-detail-1.html.gz"
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202609/c00_31976619.shtml",
+        "list_title": "《黑龙江省卫生健康委员会重点实验室管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/932d1e84d952d2de30111657d991448de8c232a2e8fb4e4b420ed0a3d32f1716.html",
+        "sha256": "8ac13ff3cd106cd50fd982ed43603167bbb1cbabbbb3439b3e5ac909d3112173",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省卫生健康委员会重点实验室管理办法(试行)》政策解读",
+        "published": "2026-09-17",
+        "body_chars": 900,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202609/c00_31972685.shtml",
+        "list_title": "《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》政策解读",
+        "path": ".runtime/national/trials/ca61d4841e5e37b37945587dc4fa2c12c3748cc7c6ddabdc216717f5ab09e73d.html",
+        "sha256": "b5ee97643c2863b18db363b536739110080e4b839735282f415152424d6ab89c",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》政策解读",
+        "published": "2026-09-04",
+        "body_chars": 1255,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31963435.shtml",
+        "list_title": "《严寒地区化工园区职业卫生管理要求》政策解读",
+        "path": ".runtime/national/trials/f1d0d5ee0bf6a1644f396599938d019a3f0cca94bfa1980b161bccf6837d9618.html",
+        "sha256": "89082c6ed98033a8cf5cd4bcee94a0a084a149c86b8db5d91a0fffb06e107e9e",
+        "cached": true,
+        "status": "ok",
+        "title": "《严寒地区化工园区职业卫生管理要求》政策解读",
+        "published": "2026-07-31",
+        "body_chars": 907,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31954911.shtml",
+        "list_title": "黑龙江省医疗机构食堂食品安全和运行管理办法政策解读",
+        "path": ".runtime/national/trials/b4ef6edbb65d30ec5382db8480a90b6d085e880452663dd0168185c72ba294dc.html",
+        "sha256": "fab3628104937d0bf810815710270fa681bfa2cc857d0cb2a7371f6a29e93db4",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省医疗机构食堂食品安全和运行管理办法政策解读",
+        "published": "2026-07-02",
+        "body_chars": 1271,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31954908.shtml",
+        "list_title": "黑龙江省餐具、饮具集中消毒服务单位卫生管理办法政策解读",
+        "path": ".runtime/national/trials/7eb4cef471b932c8aa3c700159ec792799caa17fe65647ac15af5fbdd585384b.html",
+        "sha256": "a0b783b8cd4fdeb20c32a69377deda7576039cac21a3fc86fbd04cd3d69c45de",
+        "cached": true,
+        "status": "ok",
+        "title": "黑龙江省餐具、饮具集中消毒服务单位卫生管理办法政策解读",
+        "published": "2026-07-02",
+        "body_chars": 1085,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202606/c00_31947563.shtml",
+        "list_title": "《关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知》解读",
+        "path": ".runtime/national/trials/2431c7538115c9dc14e0a7ebf68ef2e48b2dad7fdde162ac7918091c4e0a9cff.html",
+        "sha256": "4b9fb7264daed2fe2eedf119a9b10fe0e715744751a1e613ef58a270072eeef9",
+        "cached": true,
+        "status": "ok",
+        "title": "《关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知》解读",
+        "published": "2026-04-30",
+        "body_chars": 1093,
+        "authority": "科技教育司",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202603/c00_31924811.shtml",
+        "list_title": "关于《黑龙江省育儿补贴制度实施细则》的政策解读",
+        "path": ".runtime/national/trials/8685fba0742405b4fbc192022e4792bcd63c6dfc13dc1bbfbf8a01afc8e71570.html",
+        "sha256": "6d61960113e9e11c4ac8c9b74b40eff54754f403075b2031715bd59c948e4359",
+        "cached": true,
+        "status": "ok",
+        "title": "关于《黑龙江省育儿补贴制度实施细则》的政策解读",
+        "published": "2025-12-31",
+        "body_chars": 718,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202603/c00_31924810.shtml",
+        "list_title": "关于《黑龙江省育儿补贴制度实施方案》的政策解读",
+        "path": ".runtime/national/trials/6ab74ae7881c0d22f2baee10053165a1a068e0a7074db116436b2549c9759811.html",
+        "sha256": "0e6bff13795656b2b515587fdd85b190725d36c4ccb3c10ebd7fd76c075ebf79",
+        "cached": true,
+        "status": "ok",
+        "title": "关于《黑龙江省育儿补贴制度实施方案》的政策解读",
+        "published": "2025-12-31",
+        "body_chars": 1120,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202604/c00_31934336.shtml",
+        "list_title": "关于《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的政策解读",
+        "path": ".runtime/national/trials/d647b041a74611053dfc93121dd0d13dec3b62ae9a0a95e696fdeeaf8d1beea5.html",
+        "sha256": "090f94d60fd8fd66563b670cfba9d562383749887a320dd1973bb480baf420ec",
+        "cached": true,
+        "status": "ok",
+        "title": "关于《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的政策解读",
+        "published": "2025-12-31",
+        "body_chars": 871,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202508/c00_31868477.shtml",
+        "list_title": "《医疗机构名称审批核准工作规定(试行)》政策解读",
+        "path": ".runtime/national/trials/c9c0d213d1dc63c69ad34674e0a84d6ec5b0bb7b02db624a3e0a0f775cd5af43.html",
+        "sha256": "ee48df40a077ffd111203b3c3cf6025c98247832eb9b2ff8d5217b37408f62aa",
+        "cached": true,
+        "status": "ok",
+        "title": "《医疗机构名称审批核准工作规定(试行)》政策解读",
+        "published": "2025-08-26",
+        "body_chars": 967,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202507/c00_31857389.shtml",
+        "list_title": "《关于加强医疗监督跨部门执法联动工作的意见》政策解读",
+        "path": ".runtime/national/trials/e76f88fe1c28803c52b128d8d789a42d33abdf74d328b8dd60e50c701018dd47.html",
+        "sha256": "9163cfd4bd785ffd9b6c9b2087fe7c5a426d75228cbd9e405f798cfc1e63a252",
+        "cached": true,
+        "status": "ok",
+        "title": "《关于加强医疗监督跨部门执法联动工作的意见》政策解读",
+        "published": "2025-07-15",
+        "body_chars": 1090,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202505/c00_31845442.shtml",
+        "list_title": "《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》政策解读",
+        "path": ".runtime/national/trials/c58708b7b12c54986d9d91d53aa830e33022d9453046498ff9a7af3e8334f57e.html",
+        "sha256": "a96c1ca43c831c175170c247f92645329849e73350a4deb01f7bd1d9d0020337",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》政策解读",
+        "published": "2025-05-30",
+        "body_chars": 630,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805736.shtml",
+        "list_title": "《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/1309ff95e11f3d2671cd41e30e1e853da5ea2c77420372212817952b1225c332.html",
+        "sha256": "7f53b5b2aeb4e3de2717ac5e3238b38480fdae1a0d608f57aae874a9571fbfea",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》政策解读",
+        "published": "2025-01-24",
+        "body_chars": 680,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805735.shtml",
+        "list_title": "《黑龙江省食品安全地方标准管理办法》政策解读",
+        "path": ".runtime/national/trials/f8efdfd102d665a433ef0c280d3939e1b010d93c20cefce77441285d0ff026b8.html",
+        "sha256": "ee7b3b8a6aff8bf122f203db0788c2a481bde031422962dad18eb3f357768f27",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省食品安全地方标准管理办法》政策解读",
+        "published": "2025-01-24",
+        "body_chars": 812,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805734.shtml",
+        "list_title": "《关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见》政策解读",
+        "path": ".runtime/national/trials/cf21167e7a77ac1599b01807b213c7c9791aa5af2f3a70c4e287de0a605d7984.html",
+        "sha256": "4c639720eaab7f5254ba4ab974ddc23eaca5d944c983c2241e38602839a0fa20",
+        "cached": true,
+        "status": "ok",
+        "title": "《关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见》政策解读",
+        "published": "2025-01-24",
+        "body_chars": 952,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202502/c00_31810838.shtml",
+        "list_title": "健康龙江行动——慢性呼吸系统疾病防治行动实施方案(2024-2030年)政策解读",
+        "path": ".runtime/national/trials/fc5fd7ea92544e72588a16f1fff0927af8f6ab8fb07c374691357e723b95b5a1.html",
+        "sha256": "1860b9a3298bfd855de045460d640112e9673308e6f8be69f3c456d58e35350a",
+        "cached": true,
+        "status": "ok",
+        "title": "健康龙江行动——慢性呼吸系统疾病防治行动实施方案(2024-2030年)政策解读",
+        "published": "2024-12-20",
+        "body_chars": 1058,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202502/c00_31810834.shtml",
+        "list_title": "健康龙江行动——糖尿病防治行动实施方案(2024-2030年)政策解读",
+        "path": ".runtime/national/trials/d95488d6a6743c510d6d3db8315af69e82833907c6a414dbb32d33d29c9c42fa.html",
+        "sha256": "0157ebc734382d73b3b955cd92d9da8ccbc3e912f4ac14e317e94eda5964b269",
+        "cached": true,
+        "status": "ok",
+        "title": "健康龙江行动——糖尿病防治行动实施方案(2024-2030年)政策解读",
+        "published": "2024-12-20",
+        "body_chars": 1156,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771219.shtml",
+        "list_title": "《黑龙江省职业病诊断医师管理办法》政策解读",
+        "path": ".runtime/national/trials/19209c2a96e42ffa70d422f62d285d09d32015b3ee3410b14b603444303f65fd.html",
+        "sha256": "623a2356518e671f4233fc88c3a9ee1a904fad434b5ecbbda6647b618099f9ba",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省职业病诊断医师管理办法》政策解读",
+        "published": "2024-09-24",
+        "body_chars": 880,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771218.shtml",
+        "list_title": "《黑龙江省职业健康检查工作规范》政策解读",
+        "path": ".runtime/national/trials/7d51bc6bb08364415a0b6ab415a2765ae074f34448a8cef2a947f077cc7d13ed.html",
+        "sha256": "f0fb0512b0e4fc700d1521cd5db28a39ed75d0f1264f8232efe773a53555fe6a",
+        "cached": true,
+        "status": "ok",
+        "title": "《黑龙江省职业健康检查工作规范》政策解读",
+        "published": "2024-09-24",
+        "body_chars": 986,
+        "authority": "黑龙江省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [],
+        "fixture": "backend/tests/fixtures/national/hlj-interpretation-detail-20.html.gz"
+      }
+    ],
+    "errors": [],
+    "unique_items": 174,
+    "listing_exhausted": true,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass",
+    "reparsed_at": "2026-11-17T04:58:33.793728+00:00"
   }
 ]

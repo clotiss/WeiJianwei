@@ -1,0 +1,264 @@
+{
+  "date": "2026-11-17",
+  "scope": "Read-only diagnostics for HE, HLJ, SD, QH; no production changes.",
+  "initial_https_reproduction": [
+    {
+      "region": "HE",
+      "pass": false,
+      "bytes": 1334,
+      "policy_links": 0,
+      "error": "no_policy_directory"
+    },
+    {
+      "region": "HLJ",
+      "pass": false,
+      "error": "ConnectError:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)"
+    },
+    {
+      "region": "SD",
+      "pass": false,
+      "error": "ConnectTimeout:timed out"
+    },
+    {
+      "region": "QH",
+      "pass": false,
+      "error": "FetchError:http_412"
+    }
+  ],
+  "automated_firefox": [
+    {
+      "region": "HE",
+      "requests_failed": [],
+      "rejected": [],
+      "main_status": [
+        200
+      ],
+      "ready_error": "TimeoutError",
+      "title": "",
+      "bytes": 1388,
+      "links": 0,
+      "scripts": [
+        "/1ywuKELSO2ahQuWZ/js/app.d014751e.js"
+      ],
+      "body": ""
+    },
+    {
+      "region": "QH",
+      "requests_failed": [],
+      "rejected": [],
+      "main_status": [
+        412,
+        400
+      ],
+      "ready_error": "TimeoutError",
+      "title": "",
+      "bytes": 39,
+      "links": 0,
+      "scripts": [],
+      "body": ""
+    }
+  ],
+  "automated_chrome": [
+    {
+      "region": "HE",
+      "requests_failed": [],
+      "rejected": [],
+      "main_status": [
+        200
+      ],
+      "ready_error": "TimeoutError",
+      "title": "",
+      "bytes": 1388,
+      "links": 0,
+      "scripts": [
+        "/1ywuKELSO2ahQuWZ/js/app.d014751e.js"
+      ],
+      "body": ""
+    },
+    {
+      "region": "QH",
+      "requests_failed": [],
+      "rejected": [],
+      "main_status": [
+        412,
+        400
+      ],
+      "ready_error": "TimeoutError",
+      "title": "",
+      "bytes": 39,
+      "links": 0,
+      "scripts": [],
+      "body": ""
+    }
+  ],
+  "headed_chrome_without_request_interception": [
+    {
+      "region": "QH",
+      "links": 0,
+      "title": "",
+      "statuses": [
+        412,
+        400
+      ]
+    },
+    {
+      "region": "HE",
+      "links": 0,
+      "title": "",
+      "statuses": [
+        200
+      ]
+    }
+  ],
+  "new_persistent_chrome_context": [
+    {
+      "region": "QH",
+      "links": 0,
+      "title": "",
+      "statuses": [
+        412,
+        400
+      ]
+    },
+    {
+      "region": "HE",
+      "links": 0,
+      "title": "",
+      "statuses": [
+        200
+      ]
+    }
+  ],
+  "authorized_remove_enable_automation": {
+    "scope": [
+      "HE",
+      "QH"
+    ],
+    "production_enabled": false,
+    "result": [
+      {
+        "region": "QH",
+        "links": 0,
+        "title": "",
+        "statuses": [
+          412,
+          400
+        ]
+      },
+      {
+        "region": "HE",
+        "links": 0,
+        "title": "",
+        "statuses": [
+          200
+        ]
+      }
+    ]
+  },
+  "direct_columns": [
+    {
+      "id": "qh-policy",
+      "region": "QH",
+      "url": "https://wsjkw.qinghai.gov.cn/zwgk/zc/",
+      "checked_at": "2026-11-17T04:52:01.379789+00:00",
+      "status": "error",
+      "error": "FetchError:http_412"
+    },
+    {
+      "id": "qh-interpretation",
+      "region": "QH",
+      "url": "https://wsjkw.qinghai.gov.cn/zwgk/zcjd/",
+      "checked_at": "2026-11-17T04:52:01.615066+00:00",
+      "status": "error",
+      "error": "FetchError:http_412"
+    },
+    {
+      "id": "he-policy",
+      "region": "HE",
+      "url": "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml",
+      "checked_at": "2026-11-17T04:52:01.379542+00:00",
+      "status": "read",
+      "http_status": 200,
+      "final_url": "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml",
+      "bytes": 1334,
+      "sha256": "742140a92e09cbe606dc433e710a0220880ad75cbdf6b2a9f962d36cef2c78e1",
+      "path": ".runtime/national/pages/he-policy.html",
+      "title": "",
+      "links": []
+    },
+    {
+      "id": "he-interpretation",
+      "region": "HE",
+      "url": "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml",
+      "checked_at": "2026-11-17T04:52:04.556261+00:00",
+      "status": "read",
+      "http_status": 200,
+      "final_url": "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml",
+      "bytes": 1334,
+      "sha256": "742140a92e09cbe606dc433e710a0220880ad75cbdf6b2a9f962d36cef2c78e1",
+      "path": ".runtime/national/pages/he-interpretation.html",
+      "title": "",
+      "links": []
+    }
+  ],
+  "normal_user_chrome": [
+    {
+      "region": "HE",
+      "observation": "homepage_rendered",
+      "title": "首页 - 河北省卫生健康委员会",
+      "links": 153,
+      "columns": [
+        "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml",
+        "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml"
+      ]
+    },
+    {
+      "region": "QH",
+      "observation": "homepage_rendered",
+      "title": "青海省卫生健康委员会",
+      "columns": [
+        "https://wsjkw.qinghai.gov.cn/zwgk/zc/",
+        "https://wsjkw.qinghai.gov.cn/zwgk/zcjd/"
+      ]
+    },
+    {
+      "region": "SD",
+      "observation": "navigation_timeout"
+    }
+  ],
+  "tencent_server": {
+    "method": "Read-only urllib GET to four homepages, strict default SSL, 8-second timeout; observed in existing Chrome terminal.",
+    "results": {
+      "HE": "Network is unreachable",
+      "HLJ": "certificate has expired",
+      "SD": "Network is unreachable",
+      "QH": "HTTP Error 412: Precondition Failed"
+    }
+  },
+  "recovery": {
+    "region": "HLJ",
+    "transport": "explicit_same_official_host_public_http",
+    "https_certificate_fixed": false,
+    "report": "evidence/national/hlj-recovery-pagination.json",
+    "attachments": "evidence/national/hlj-recovery-attachments-final.json"
+  },
+  "remaining": [
+    "HE",
+    "SD",
+    "QH"
+  ],
+  "backend_tests": {
+    "passed": 351
+  },
+  "limits": [
+    "Browser session differences are observed; the exact rejection rule has not been established.",
+    "HTTP public content does not have authenticated transport.",
+    "Other departments or government reprints are not treated as complete health-commission coverage."
+  ],
+  "excluded_attachment_ui_icons": [
+    {
+      "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/images/pdf.gif",
+      "reason": "file_type_icon_not_document_image"
+    }
+  ]
+}

@@ -154,20 +154,6 @@
     "mime": "application/pdf"
   },
   {
-    "source": "nhc-policy",
-    "region": "CN",
-    "article": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663.shtml",
-    "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/images/pdf.gif",
-    "checked_at": "2026-11-17T04:14:47.667984+00:00",
-    "status": "stored",
-    "extraction": "needs_ocr",
-    "bytes": 914,
-    "sha256": "498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
-    "object_key": "raw/49/498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
-    "blocks": 0,
-    "mime": "image/gif"
-  },
-  {
     "source": "ha-policy",
     "region": "HA",
     "article": "https://wsjkw.henan.gov.cn/2026/11-03/3443949.html",
@@ -628,5 +614,33 @@
     "object_key": "raw/02/02767b4282171b49e5d4ea7f2e618d504dc52f7728c29bab7b40e913ea213bf2",
     "blocks": 0,
     "mime": "image/jpeg"
+  },
+  {
+    "source": "hlj-policy",
+    "region": "HLJ",
+    "article": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31976622/files/关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知.pdf",
+    "checked_at": "2026-11-17T04:58:26.768340+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 782431,
+    "sha256": "0bc61c6dc0c705b5e97f08aecd3565b8fcb7e678ceb68ad86de58870299a0200",
+    "object_key": "raw/0b/0bc61c6dc0c705b5e97f08aecd3565b8fcb7e678ceb68ad86de58870299a0200",
+    "blocks": 44,
+    "mime": "application/pdf"
+  },
+  {
+    "source": "hlj-policy",
+    "region": "HLJ",
+    "article": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31963438.shtml",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_01.png",
+    "checked_at": "2026-11-17T04:58:28.638353+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 129213,
+    "sha256": "af3dc2d8af358a5e3e34b54e080928b924dc74dce9662eb98518d1f1afdf82f4",
+    "object_key": "raw/af/af3dc2d8af358a5e3e34b54e080928b924dc74dce9662eb98518d1f1afdf82f4",
+    "blocks": 0,
+    "mime": "image/png"
   }
 ]

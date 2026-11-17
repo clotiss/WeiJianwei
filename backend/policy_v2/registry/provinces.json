@@ -104,7 +104,7 @@
     "homepage": "https://wsjkw.hlj.gov.cn",
     "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
     "batch": 2,
-    "inventory_status": "blocked",
+    "inventory_status": "sample_pass",
     "columns": [
       "hlj-policy",
       "hlj-interpretation"

@@ -3165,14 +3165,16 @@
     "region": "HE",
     "kind": "policy",
     "url": null,
-    "observed_url": null,
+    "observed_url": "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml",
     "status": "blocked",
     "blocker": "browser_challenge",
-    "notes": "官网返回脚本挑战；HTTP 页面无栏目，Firefox 导航超时。",
+    "notes": "普通 Chrome 可呈现官网和栏目链接；HTTP 客户端及独立 Firefox/Chrome 会话仅收到脚本页面。有界持久会话和经授权移除自动化标记测试均无改善；不视为官网整体不可用。",
     "evidence": [
-      "https://wsjkw.hebei.gov.cn/"
+      "https://wsjkw.hebei.gov.cn/",
+      "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml"
     ],
-    "config": null
+    "config": null,
+    "landing_url": "https://wsjkw.hebei.gov.cn/zcfg2/index.jhtml"
   },
   {
     "id": "he-interpretation",
@@ -3180,44 +3182,114 @@
     "region": "HE",
     "kind": "interpretation",
     "url": null,
-    "observed_url": null,
+    "observed_url": "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml",
     "status": "blocked",
     "blocker": "browser_challenge",
-    "notes": "官网返回脚本挑战；HTTP 页面无栏目，Firefox 导航超时。",
+    "notes": "普通 Chrome 可呈现官网和栏目链接；HTTP 客户端及独立 Firefox/Chrome 会话仅收到脚本页面。有界持久会话和经授权移除自动化标记测试均无改善；不视为官网整体不可用。",
     "evidence": [
-      "https://wsjkw.hebei.gov.cn/"
+      "https://wsjkw.hebei.gov.cn/",
+      "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml"
     ],
-    "config": null
+    "config": null,
+    "landing_url": "https://wsjkw.hebei.gov.cn/zcjd/index.jhtml"
   },
   {
     "id": "hlj-policy",
     "name": "黑龙江省卫生健康委员会",
     "region": "HLJ",
     "kind": "policy",
-    "url": null,
-    "observed_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109071/zfxxgk.shtml?tab=gkzc",
-    "status": "blocked",
-    "blocker": "certificate_expired",
-    "notes": "官网 HTTPS 证书过期；未关闭证书校验。HTTP 目录仅作来源线索。",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+    "observed_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/zfxxgk.shtml?tab=gfxwj",
+    "status": "sample_pass",
     "evidence": [
-      "https://wsjkw.hlj.gov.cn"
+      "http://wsjkw.hlj.gov.cn/wsjkw/c109073/zfxxgk.shtml?tab=gfxwj",
+      "http://wsjkw.hlj.gov.cn/common/getChannelList?channelCode=c109071&websiteCodeName=wsjkw"
     ],
-    "config": null
+    "config": {
+      "adapter": "government-json",
+      "list_selector": "li",
+      "body_selectors": [
+        "#zoomcon",
+        ".article_content",
+        ".TRS_Editor",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "public_http_hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "published_from_list": true,
+      "max_pages": 3,
+      "feed_channel_id": "7c2d68f103474f0db9ae12f104e66a5d"
+    },
+    "landing_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/zfxxgk.shtml?tab=gfxwj",
+    "scope_note": "官网 HTTPS 证书过期；本源读取同一官网公开 HTTP 接口及原文，无认证传输保障，不发送登录信息；所有 HTTPS 请求仍验证证书。",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-list-1.json.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 160,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:57:39.244896+00:00",
+      "config_sha256": "c211b56627557fbce69cbe8c0121bacef961df22ffe45e81ebcc998baf57f479",
+      "list_pages": 8,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
   },
   {
     "id": "hlj-interpretation",
     "name": "黑龙江省卫生健康委员会",
     "region": "HLJ",
     "kind": "interpretation",
-    "url": null,
+    "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
     "observed_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/zfxxgk.shtml?tab=zcjd",
-    "status": "blocked",
-    "blocker": "certificate_expired",
-    "notes": "官网 HTTPS 证书过期；未关闭证书校验。HTTP 目录仅作来源线索。",
+    "status": "sample_pass",
     "evidence": [
-      "https://wsjkw.hlj.gov.cn"
+      "http://wsjkw.hlj.gov.cn/wsjkw/c109075/zfxxgk.shtml?tab=zcjd",
+      "http://wsjkw.hlj.gov.cn/common/getChannelList?channelCode=c109071&websiteCodeName=wsjkw"
     ],
-    "config": null
+    "config": {
+      "adapter": "government-json",
+      "list_selector": "li",
+      "body_selectors": [
+        "#zoomcon",
+        ".article_content",
+        ".TRS_Editor",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "public_http_hosts": [
+        "wsjkw.hlj.gov.cn"
+      ],
+      "published_from_list": true,
+      "max_pages": 3,
+      "feed_channel_id": "1e9296f8c6c6402aa0b0f9d7f61a1111"
+    },
+    "landing_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/zfxxgk.shtml?tab=zcjd",
+    "scope_note": "官网 HTTPS 证书过期；本源读取同一官网公开 HTTP 接口及原文，无认证传输保障，不发送登录信息；所有 HTTPS 请求仍验证证书。",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-1.json.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 174,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:57:51.547921+00:00",
+      "config_sha256": "ec67d85c9f6e3d6193414e9b8ac43613bfd366741b93e642affbbd70d3494024",
+      "list_pages": 9,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
   },
   {
     "id": "sd-policy",
@@ -3228,7 +3300,7 @@
     "observed_url": null,
     "status": "blocked",
     "blocker": "connection_timeout",
-    "notes": "HTTPS 访问超时；HTTP 响应不是有效官网内容，未使用网关跳转。",
+    "notes": "本机 HTTPS 客户端与普通 Chrome 超时；腾讯云服务器复测连接失败。当前证据不足以区分官网故障和网络出口问题，尚无验证通过的备用官方栏目。",
     "evidence": [
       "https://wsjkw.shandong.gov.cn/"
     ],
@@ -3243,7 +3315,7 @@
     "observed_url": null,
     "status": "blocked",
     "blocker": "connection_timeout",
-    "notes": "HTTPS 访问超时；HTTP 响应不是有效官网内容，未使用网关跳转。",
+    "notes": "本机 HTTPS 客户端与普通 Chrome 超时；腾讯云服务器复测连接失败。当前证据不足以区分官网故障和网络出口问题，尚无验证通过的备用官方栏目。",
     "evidence": [
       "https://wsjkw.shandong.gov.cn/"
     ],
@@ -3255,14 +3327,16 @@
     "region": "QH",
     "kind": "policy",
     "url": null,
-    "observed_url": null,
+    "observed_url": "https://wsjkw.qinghai.gov.cn/zwgk/zc/",
     "status": "blocked",
     "blocker": "http_412",
-    "notes": "官网返回 HTTP 412；Firefox 未呈现有效栏目。",
+    "notes": "普通 Chrome 可呈现官网和栏目链接；采集客户端返回 HTTP 412，独立 Firefox/Chrome 会话最终空页。经授权移除自动化标记及新持久会话测试均无改善。",
     "evidence": [
-      "https://wsjkw.qinghai.gov.cn"
+      "https://wsjkw.qinghai.gov.cn",
+      "https://wsjkw.qinghai.gov.cn/zwgk/zc/"
     ],
-    "config": null
+    "config": null,
+    "landing_url": "https://wsjkw.qinghai.gov.cn/zwgk/zc/"
   },
   {
     "id": "qh-interpretation",
@@ -3270,13 +3344,15 @@
     "region": "QH",
     "kind": "interpretation",
     "url": null,
-    "observed_url": null,
+    "observed_url": "https://wsjkw.qinghai.gov.cn/zwgk/zcjd/",
     "status": "blocked",
     "blocker": "http_412",
-    "notes": "官网返回 HTTP 412；Firefox 未呈现有效栏目。",
+    "notes": "普通 Chrome 可呈现官网和栏目链接；采集客户端返回 HTTP 412，独立 Firefox/Chrome 会话最终空页。经授权移除自动化标记及新持久会话测试均无改善。",
     "evidence": [
-      "https://wsjkw.qinghai.gov.cn"
+      "https://wsjkw.qinghai.gov.cn",
+      "https://wsjkw.qinghai.gov.cn/zwgk/zcjd/"
     ],
-    "config": null
+    "config": null,
+    "landing_url": "https://wsjkw.qinghai.gov.cn/zwgk/zcjd/"
   }
 ]

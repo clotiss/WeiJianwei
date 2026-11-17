@@ -1,5 +1,6 @@
 """Freeze reviewed public samples and deterministic parser expectations (no network)."""
 import gzip
+import argparse
 import hashlib
 import json
 from datetime import datetime, timezone
@@ -13,15 +14,18 @@ FIXTURES=Path('backend/tests/fixtures/national')
 
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--report',type=Path,action='append',default=[],help='Merge additional reviewed trials after the retained final report.')
+    args=parser.parse_args()
     sources_path=Path('backend/policy_v2/registry/sources.json');sources=json.loads(sources_path.read_text())
     reports={}
-    for name in ['trials-final.json','trials-completion.json','trials-fj-pagination-v3.json']:
-        for row in json.loads((Path('evidence/national')/name).read_text()):reports[row['id']]=row
+    for path in [Path('evidence/national/trials-final.json'),*args.report]:
+        for row in json.loads(path.read_text()):reports[row['id']]=row
     manifest=[];FIXTURES.mkdir(parents=True,exist_ok=True)
     def raw(path):
         path=Path(path);data=path.read_bytes();return gzip.decompress(data) if path.suffix=='.gz' else data
-    def freeze(data,id,label):
-        path=FIXTURES/(id+'-'+label+'.html.gz');path.write_bytes(gzip.compress(data,mtime=0))
+    def freeze(data,id,label,extension='html'):
+        path=FIXTURES/(id+'-'+label+'.'+extension+'.gz');path.write_bytes(gzip.compress(data,mtime=0))
         return str(path)
     for source in sources:
         if not source.get('config'):continue
@@ -31,7 +35,7 @@ def main():
             for item in listing.items:items[item['url']]=item
             page.update(count=len(listing.items),audit=listing.audit,next_url=listing.next_url)
             if n in (0,1,len(report['lists'])-1):
-                fixture=freeze(data,source['id'],'list-'+str(n+1));page['fixture']=fixture
+                fixture=freeze(data,source['id'],'list-'+str(n+1),'json' if config['adapter']=='government-json' else 'html');page['fixture']=fixture
                 manifest.append(dict(source=source['id'],kind='list',fixture=fixture,url=page['url'],sha256=hashlib.sha256(data).hexdigest(),
                     expected={'items':listing.items,'next_url':listing.next_url,'audit':listing.audit}))
                 if n==0:source['fixture']=fixture

@@ -1,0 +1,30 @@
+[
+  {
+    "source": "hlj-policy",
+    "region": "HLJ",
+    "article": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31976622/files/关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知.pdf",
+    "checked_at": "2026-11-17T04:52:07.206483+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 782431,
+    "sha256": "0bc61c6dc0c705b5e97f08aecd3565b8fcb7e678ceb68ad86de58870299a0200",
+    "object_key": "raw/0b/0bc61c6dc0c705b5e97f08aecd3565b8fcb7e678ceb68ad86de58870299a0200",
+    "blocks": 44,
+    "mime": "application/pdf"
+  },
+  {
+    "source": "hlj-policy",
+    "region": "HLJ",
+    "article": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31976622/images/pdf.gif",
+    "checked_at": "2026-11-17T04:52:09.263972+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 914,
+    "sha256": "498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
+    "object_key": "raw/49/498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
+    "blocks": 0,
+    "mime": "image/gif"
+  }
+]

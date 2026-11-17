@@ -472,16 +472,38 @@
           "name": "2.日间医疗质量控制指标(2026年版)",
           "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/files/2.日间医疗质量控制指标(2026年版).pdf",
           "status": "pending"
-        },
-        {
-          "name": "正文图片",
-          "url": "https://www.nhc.gov.cn/yzygj/c100068/202611/47581dc273a6433d9d646ce15091e663/images/pdf.gif",
-          "status": "pending",
-          "image": true
         }
       ],
       "body_sha256": "b97206b3385989f6e24411b73c2edcf417c7080a2c282c5c92c932a61df30859",
       "body_chars": 335
+    }
+  },
+  {
+    "source": "nhc-policy",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/nhc-policy-detail-7.html.gz",
+    "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202609/82b967f696b34a2183cd28145ed72eaf.shtml",
+    "item": {
+      "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202609/82b967f696b34a2183cd28145ed72eaf.shtml",
+      "title": "关于印发医疗康复护理扩容提升工程实施方案的通知",
+      "published": "2026-10-08"
+    },
+    "sha256": "6806294f0e45c41cfa397d0e1f9ab98a12290d5de21d649e128c1bc3589967ef",
+    "expected": {
+      "title": "关于印发医疗康复护理扩容提升工程实施方案的通知",
+      "published": "2026-10-08",
+      "authority": "",
+      "kind": "policy",
+      "attachments": [
+        {
+          "name": "正文图片",
+          "url": "https://www.nhc.gov.cn/guihuaxxs/c100133/202609/82b967f696b34a2183cd28145ed72eaf/images/wpsDStOT3.png",
+          "status": "pending",
+          "image": true
+        }
+      ],
+      "body_sha256": "15b6c15dc4ed7c2f69a9c008575b31056e036c379a91b40ac5c9eac09b842427",
+      "body_chars": 4355
     }
   },
   {
@@ -10737,12 +10759,6 @@
           "name": "居民死亡医学证明签发使用流程图",
           "url": "https://www.nhc.gov.cn/guihuaxxs/c100132/202602/61a1b698f5934b358e6223dbe1b552ce/files/%E5%B1%85%E6%B0%91%E6%AD%BB%E4%BA%A1%E5%8C%BB%E5%AD%A6%E8%AF%81%E6%98%8E%E7%AD%BE%E5%8F%91%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.pdf",
           "status": "external_reference"
-        },
-        {
-          "name": "正文图片",
-          "url": "https://www.nhc.gov.cn/guihuaxxs/c100132/202602/61a1b698f5934b358e6223dbe1b552ce/images/pdf.gif",
-          "status": "external_reference",
-          "image": true
         }
       ],
       "body_sha256": "3ce0eea5dc69cb630e458f10b1c0516c8b21cd17443c52774aa5baf18835a8de",
@@ -19383,6 +19399,865 @@
       "attachments": [],
       "body_sha256": "84e575c3099c7b18dee2c820a39c1e978ed7bb0b636d6f9fd0b01bad4e23254c",
       "body_chars": 10600
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-list-1.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+    "sha256": "e73207d6d9dc4a03dda0b3326b02a3f8e8cce80f82153cab7c69e5c53a6ceaa9",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202610/c00_31982946.shtml",
+          "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+          "published": "2026-10-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+          "title": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+          "published": "2026-09-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31972694.shtml",
+          "title": "关于印发《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》的通知",
+          "published": "2026-09-01"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31963438.shtml",
+          "title": "严寒地区化工园区职业卫生管理要求",
+          "published": "2026-07-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31954910.shtml",
+          "title": "关于印发黑龙江省医疗机构食堂食品安全和运行管理办法的通知",
+          "published": "2026-07-02"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31954906.shtml",
+          "title": "关于印发黑龙江省餐具、饮具集中消毒服务单位卫生管理办法的通知",
+          "published": "2026-07-02"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/c00_31947564.shtml",
+          "title": "国家卫生健康委关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知",
+          "published": "2026-04-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202606/c00_31947558.shtml",
+          "title": "国家卫生健康委关于印发生物医学新技术与药品、医疗器械界定指导原则(暂行)的通知",
+          "published": "2026-04-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202604/c00_31934329.shtml",
+          "title": "关于印发《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的通知",
+          "published": "2025-12-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202603/c00_31924809.shtml",
+          "title": "关于印发《黑龙江省育儿补贴制度实施细则》的通知",
+          "published": "2025-12-29"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202603/c00_31924807.shtml",
+          "title": "黑龙江省卫生健康委 黑龙江省财政厅关于印发《黑龙江省育儿补贴制度实施方案》的通知",
+          "published": "2025-12-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202508/c00_31868473.shtml",
+          "title": "黑龙江省卫生健康委员会 黑龙江省中医药管理局关于印发《医疗机构名称审批核准工作规定(试行)》的通知",
+          "published": "2025-08-26"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202507/c00_31857392.shtml",
+          "title": "关于印发《关于加强医疗监督跨部门执法联动工作的意见》的通知",
+          "published": "2025-07-15"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202505/c00_31845431.shtml",
+          "title": "关于印发《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》的通知",
+          "published": "2025-05-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805733.shtml",
+          "title": "黑龙江省卫生健康委员会关于印发《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》的通知",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805730.shtml",
+          "title": "黑龙江省卫生健康委员会关于印发《黑龙江省食品安全地方标准管理办法》的通知",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202501/c00_31805721.shtml",
+          "title": "关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31771234.shtml",
+          "title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业病诊断医师管理办法》的通知",
+          "published": "2024-09-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31771224.shtml",
+          "title": "黑龙江省卫生健康委员会关于印发《黑龙江省职业健康检查工作规范》的通知",
+          "published": "2024-09-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31770234.shtml",
+          "title": "黑龙江省卫生健康委员会关于宣布失效一批省卫生健康委行政规范性文件的通知",
+          "published": "2024-09-20"
+        }
+      ],
+      "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+      "audit": {
+        "total_records": 160,
+        "returned_records": 20,
+        "eligible_records": 20,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 20
+        },
+        "pagination_detected": true,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-list-2.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+    "sha256": "6e91f9c231558072b3e666be72804a5b8d4d66f3d4c5aabf20e2751e7b2a415b",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202409/c00_31768762.shtml",
+          "title": "黑龙江省卫生健康委员会关于进一步优化黑龙江省食品企业标准备案管理工作的通知",
+          "published": "2024-09-12"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202408/c00_31759615.shtml",
+          "title": "关于印发《黑龙江省卫生健康行政确认裁量基准》《黑龙江省卫生健康行政给付裁量基准》《黑龙江省卫生健康行政强制裁量基准》《黑龙江省卫生健康行政检查裁量基准》的通知",
+          "published": "2024-08-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202403/c00_31718750.shtml",
+          "title": "关于印发《黑龙江省乙类大型医用设备配置许可管理实施细则》的通知",
+          "published": "2024-03-19"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202311/c00_31687135.shtml",
+          "title": "黑龙江省卫生健康委员会关于废止部分行政规范性文件的通知",
+          "published": "2023-11-22"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202308/c00_31658038.shtml",
+          "title": "省卫生健康委关于印发《黑龙江省规范卫生健康行政处罚裁量权实施办法》《黑龙江省卫生健康行政处罚裁量基准(2023年版)》的通知",
+          "published": "2023-08-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202306/c00_31641861.shtml",
+          "title": "关于印发《黑龙江省乙类大型医用设备配置许可与监督管理办法》的通知",
+          "published": "2023-06-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202211/c00_31524712.shtml",
+          "title": "关于印发黑龙江省公共场所卫生信用分类监管办法(试行)的通知",
+          "published": "2022-11-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202210/c00_31524711.shtml",
+          "title": "关于印发《医疗机构工作人员廉洁从业九项准则实施细则》的通知",
+          "published": "2022-10-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202210/c00_31524710.shtml",
+          "title": "关于印发黑龙江省餐具、饮具集中消毒服务单位卫生管理办法的通知",
+          "published": "2022-08-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202206/c00_30480043.shtml",
+          "title": "省卫生健康委关于印发全面推行包容审慎监管执法“四张清单”的通知",
+          "published": "2022-06-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202206/c00_30480046.shtml",
+          "title": "黑龙江省卫生健康委关于印发《黑龙江省老年病医院基本标准(试行)》的通知",
+          "published": "2022-06-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202203/c00_30480047.shtml",
+          "title": "黑龙江省卫生健康委关于废止涉及计划生育内容的规范性文件的通知",
+          "published": "2022-03-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202112/c00_30480055.shtml",
+          "title": "黑龙江省卫生健康委关于印发《黑龙江省 三级医院评审标准实施细则(2021年试行版)》 和《黑龙江省医院评审办法实施细则 (2021年试行版)》的通知",
+          "published": "2021-12-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202112/c00_30480056.shtml",
+          "title": "关于印发黑龙江省卫生健康领域包容免罚清单(第一批)的通知",
+          "published": "2021-11-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202111/c00_30480057.shtml",
+          "title": "关于印发《黑龙江省与人体健康有关的病原微生物实验室生物安全管理办法》 的通知",
+          "published": "2021-11-08"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202201/c00_30480059.shtml",
+          "title": "关于印发《黑龙江省职业病诊断机构备案管理办法(试行)》的通知",
+          "published": "2021-11-05"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202110/c00_30480060.shtml",
+          "title": "关于印发黑龙江省黄芪、西洋参、灵芝 按照传统既是食品又是中药材的物质管理试点方案的通知",
+          "published": "2021-10-29"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202110/c00_30480063.shtml",
+          "title": "关于发布《食品安全地方标准 生湿面制品小作坊生产卫生规范》等4项食品安全地方标准的公告",
+          "published": "2021-10-20"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202108/c00_30480065.shtml",
+          "title": "关于印发《黑龙江托育机构登记备案办法(试行)》的通知",
+          "published": "2021-08-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202109/c00_30480069.shtml",
+          "title": "关于印发《黑龙江省供水单位卫生许可管理工作规定(2021年修订稿)》的通知",
+          "published": "2021-07-25"
+        }
+      ],
+      "next_url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+      "audit": {
+        "total_records": 160,
+        "returned_records": 20,
+        "eligible_records": 20,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 20
+        },
+        "pagination_detected": true,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-list-8.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/7c2d68f103474f0db9ae12f104e66a5d?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=8",
+    "sha256": "277505abbb80b9f651f89d593985bc2ace2d6f011d1d5d73c1196d18f41fc8da",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480395.shtml",
+          "title": "关于加快推进全省母婴设施建设的通知",
+          "published": "2017-07-25"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480415.shtml",
+          "title": "关于印发黑龙江省农村贫困人口大病专项救治工作实施方案的通知",
+          "published": "2017-06-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480420.shtml",
+          "title": "关于印发2017年传统医学师承人员出师考核工作方案的通知",
+          "published": "2017-06-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480426.shtml",
+          "title": "关于印发《黑龙江省病原微生物实验室生物安全管理办法(试行)》 的通知",
+          "published": "2017-06-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480431.shtml",
+          "title": "关于开展集中清理医师注册信息有关工作的通知",
+          "published": "2017-06-07"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480437.shtml",
+          "title": "关于对黑卫规发〔2017〕9号文件部分内容进行调整的通知",
+          "published": "2017-06-07"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480441.shtml",
+          "title": "关于印发黑龙江省慢性病综合防控示范区建设实施方案(试行)的通知",
+          "published": "2017-06-02"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480444.shtml",
+          "title": "关于印发《黑龙江省护理事业发展规划(2016~2020年)》",
+          "published": "2017-05-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480449.shtml",
+          "title": "黑龙江省卫生计生委关于督促补办独生子女父母补充养老保险工作的通知",
+          "published": "2017-05-12"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480456.shtml",
+          "title": "“十三五”期间开展健康促进与教育工作的指导意见",
+          "published": "2017-04-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480463.shtml",
+          "title": "关于印发黑龙江省农村贫困住院患者县域内先诊疗后付费结算机制工作方案(暂行)的通知",
+          "published": "2017-04-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480468.shtml",
+          "title": "关于印发2017年黑龙江省卫生计生监督抽检计划的通知",
+          "published": "2017-04-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480471.shtml",
+          "title": "关于印发黑龙江省公立医疗机构药品采购 “两票制”实施方案(试行)的通知",
+          "published": "2017-04-26"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480475.shtml",
+          "title": "黑龙江省卫生计生委关于执行新一轮药品集中采购结果的通知",
+          "published": "2017-04-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480480.shtml",
+          "title": "关于深入推进同级医疗机构检验结果互认实行检验检测试剂采购两票制的通知(试行)",
+          "published": "2017-04-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480484.shtml",
+          "title": "黑龙江省卫生计生委关于印发国家基本公共卫生服务项目公益广告宣传方案的通知",
+          "published": "2017-03-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480487.shtml",
+          "title": "黑龙江省卫生计生委关于印发全省医疗机构和疾病预防控制机构卫生应急工作规范化建设实施方案的通知",
+          "published": "2017-03-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480493.shtml",
+          "title": "关于印发黑龙江省2016年度基本公共卫生服务项目绩效考核实施方案的通知",
+          "published": "2017-03-14"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480497.shtml",
+          "title": "关于进一步加强卫生计生综合监督行政执法工作的实施意见",
+          "published": "2017-02-25"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202006/c00_30480500.shtml",
+          "title": "关于促进单采血浆站健康发展的通知",
+          "published": "2017-01-17"
+        }
+      ],
+      "next_url": null,
+      "audit": {
+        "total_records": 160,
+        "returned_records": 20,
+        "eligible_records": 20,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 20
+        },
+        "pagination_detected": false,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-detail-1.html.gz",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202610/c00_31982946.shtml",
+    "item": {
+      "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202610/c00_31982946.shtml",
+      "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+      "published": "2026-10-10"
+    },
+    "sha256": "6058f3dec10f5cc6aa9224e8b42b767b54fdbe56a1f711fd3569cb6ef8d8d9d8",
+    "expected": {
+      "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+      "published": "2026-10-10",
+      "authority": "黑龙江省卫生健康委员会",
+      "kind": "policy",
+      "attachments": [],
+      "body_sha256": "ea542fb501b8816f0082fb3944675dd6dd0e0d33a340df50a6a4120e8f1dbcee",
+      "body_chars": 886
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-detail-2.html.gz",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+    "item": {
+      "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/c00_31976622.shtml",
+      "title": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+      "published": "2026-09-17"
+    },
+    "sha256": "2ed26664f2c0cfa722f50554ddfcc6ea444522df871d231b2b1fcd8d129050d7",
+    "expected": {
+      "title": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+      "published": "2026-09-17",
+      "authority": "黑龙江省卫生健康委员会",
+      "kind": "policy",
+      "attachments": [
+        {
+          "name": "关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202609/31976622/files/关于印发《黑龙江省卫生健康委员会重点实验室管理办法(试行)》的通知.pdf",
+          "status": "pending"
+        }
+      ],
+      "body_sha256": "c7585d56dc9b45bf6b546c322354859a17a72e470fa93957491266838ac400e0",
+      "body_chars": 168
+    }
+  },
+  {
+    "source": "hlj-policy",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/hlj-policy-detail-4.html.gz",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31963438.shtml",
+    "item": {
+      "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/c00_31963438.shtml",
+      "title": "严寒地区化工园区职业卫生管理要求",
+      "published": "2026-07-31"
+    },
+    "sha256": "14f6bac0bc3e3dee5d7da188ee5fbee1a1778633b2b4a91f9aca59158d4d3cbe",
+    "expected": {
+      "title": "严寒地区化工园区职业卫生管理要求",
+      "published": "2026-07-31",
+      "authority": "黑龙江省卫生健康委员会",
+      "kind": "policy",
+      "attachments": [
+        {
+          "name": "正文图片",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_01.png",
+          "status": "pending",
+          "image": true
+        },
+        {
+          "name": "正文图片",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_02.png",
+          "status": "pending",
+          "image": true
+        },
+        {
+          "name": "正文图片",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_03.png",
+          "status": "pending",
+          "image": true
+        },
+        {
+          "name": "正文图片",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_04.png",
+          "status": "pending",
+          "image": true
+        },
+        {
+          "name": "正文图片",
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109073/202607/31963438/images/严寒地区化工园区职业卫生管理要求(1)_05.png",
+          "status": "pending",
+          "image": true
+        }
+      ],
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_chars": 0
+    }
+  },
+  {
+    "source": "hlj-interpretation",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-1.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=1",
+    "sha256": "2084b07282f3fefcda9c6fa5500d1947beba15aae8c063dadcaeff68335bcaf9",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202610/c00_31982947.shtml",
+          "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+          "published": "2026-10-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202609/c00_31976619.shtml",
+          "title": "《黑龙江省卫生健康委员会重点实验室管理办法(试行)》政策解读",
+          "published": "2026-09-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202609/c00_31972685.shtml",
+          "title": "《黑龙江省卫生健康委员会主责省重点研发计划专项管理实施细则(试行)》政策解读",
+          "published": "2026-09-04"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31963435.shtml",
+          "title": "《严寒地区化工园区职业卫生管理要求》政策解读",
+          "published": "2026-07-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31954911.shtml",
+          "title": "黑龙江省医疗机构食堂食品安全和运行管理办法政策解读",
+          "published": "2026-07-02"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202607/c00_31954908.shtml",
+          "title": "黑龙江省餐具、饮具集中消毒服务单位卫生管理办法政策解读",
+          "published": "2026-07-02"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202606/c00_31947563.shtml",
+          "title": "《关于印发生物医学新技术临床转化应用审批工作规范(试行)的通知》解读",
+          "published": "2026-04-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202603/c00_31924811.shtml",
+          "title": "关于《黑龙江省育儿补贴制度实施细则》的政策解读",
+          "published": "2025-12-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202603/c00_31924810.shtml",
+          "title": "关于《黑龙江省育儿补贴制度实施方案》的政策解读",
+          "published": "2025-12-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202604/c00_31934336.shtml",
+          "title": "关于《黑龙江省普惠托育服务机构认定及运营补贴发放办法》的政策解读",
+          "published": "2025-12-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202508/c00_31868477.shtml",
+          "title": "《医疗机构名称审批核准工作规定(试行)》政策解读",
+          "published": "2025-08-26"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202507/c00_31857389.shtml",
+          "title": "《关于加强医疗监督跨部门执法联动工作的意见》政策解读",
+          "published": "2025-07-15"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202505/c00_31845442.shtml",
+          "title": "《黑龙江省医师附条件注册精神卫生专业执业范围实施办法》政策解读",
+          "published": "2025-05-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805736.shtml",
+          "title": "《黑龙江省等同认可省外食品安全地方标准管理办法(试行)》政策解读",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805735.shtml",
+          "title": "《黑龙江省食品安全地方标准管理办法》政策解读",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202501/c00_31805734.shtml",
+          "title": "《关于改革完善基层药品联动管理机制扩大基层药品种类的实施意见》政策解读",
+          "published": "2025-01-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202502/c00_31810838.shtml",
+          "title": "健康龙江行动——慢性呼吸系统疾病防治行动实施方案(2024-2030年)政策解读",
+          "published": "2024-12-20"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202502/c00_31810834.shtml",
+          "title": "健康龙江行动——糖尿病防治行动实施方案(2024-2030年)政策解读",
+          "published": "2024-12-20"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771219.shtml",
+          "title": "《黑龙江省职业病诊断医师管理办法》政策解读",
+          "published": "2024-09-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771218.shtml",
+          "title": "《黑龙江省职业健康检查工作规范》政策解读",
+          "published": "2024-09-24"
+        }
+      ],
+      "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+      "audit": {
+        "total_records": 177,
+        "returned_records": 20,
+        "eligible_records": 20,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 20
+        },
+        "pagination_detected": true,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-interpretation",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-2.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=2",
+    "sha256": "76f6b019618c09843339e7d4d9a295d34d9f2296949a38565b071bd7635a1b36",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31768763.shtml",
+          "title": "《黑龙江省卫生健康委员会关于进一步优化黑龙江省食品企业标准备案管理工作的通知》政策解读",
+          "published": "2024-09-14"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202408/c00_31760962.shtml",
+          "title": "健康龙江行动——心脑血管疾病防治行动实施方案(2024-2030年)政策解读",
+          "published": "2024-08-19"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202408/c00_31760959.shtml",
+          "title": "健康龙江行动——癌症防治行动实施方案(2024-2030年)政策解读",
+          "published": "2024-08-19"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202408/c00_31759616.shtml",
+          "title": "《黑龙江省卫生健康行政确认裁量基准》《黑龙江省卫生健康行政给付裁量基准》《黑龙江省卫生健康行政强制裁量基准》《黑龙江省卫生健康行政检查裁量基准》政策解读",
+          "published": "2024-08-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202404/c00_31728923.shtml",
+          "title": "《黑龙江省大型医院巡查工作实施方案(2024-2026年度)》政策解读",
+          "published": "2024-04-24"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202404/c00_31724599.shtml",
+          "title": "《全面推进紧密型县域医疗卫生共同体建设实施方案》起草说明",
+          "published": "2024-04-09"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202403/c00_31718749.shtml",
+          "title": "《黑龙江省乙类大型医用设备配置许可管理实施细则》政策解读",
+          "published": "2024-03-19"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202308/c00_31658133.shtml",
+          "title": "《黑龙江省卫生健康行政处罚裁量基准(2023版)》政策解读",
+          "published": "2023-08-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202308/c00_31658129.shtml",
+          "title": "《黑龙江省规范卫生健康行政处罚裁量权实施办法》政策解读",
+          "published": "2023-08-10"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202306/c00_31645493.shtml",
+          "title": "黑龙江省公共场所卫生信用分类监管办法(试行)政策解读",
+          "published": "2023-06-30"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202306/c00_31641860.shtml",
+          "title": "关于《黑龙江省乙类大型医用设备配置许可与监督管理办法的通知》的政策解读",
+          "published": "2023-05-25"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202211/c00_31524716.shtml",
+          "title": "关于《黑龙江省公共场所卫生信用分类监管办法(试行)》的政策解读",
+          "published": "2022-11-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202210/c00_31524715.shtml",
+          "title": "关于《医疗机构工作人员廉洁从业九项准则实施细则》的政策解读",
+          "published": "2022-10-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202210/c00_31524714.shtml",
+          "title": "关于《黑龙江省餐具、饮具集中消毒服务单位卫生管理办法》的政策解读",
+          "published": "2022-08-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202206/c00_30480513.shtml",
+          "title": "关于《省卫生健康委关于印发全面推行包容审慎监管执法“四张清单”的通知》的政策解读",
+          "published": "2022-06-18"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202212/c00_31524713.shtml",
+          "title": "关于《黑龙江省职业病防治规划(2021-2025年)》的政策解读",
+          "published": "2022-03-09"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202112/c00_30480515.shtml",
+          "title": "关于《黑龙江省三级医院评审标准实施细则 (2021年试行版)》的政策解读",
+          "published": "2021-12-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202112/c00_30480517.shtml",
+          "title": "《关于印发黑龙江省卫生健康领域包容免罚清单(第一批)的通知》的政策解读",
+          "published": "2021-11-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202201/c00_30480519.shtml",
+          "title": "关于《黑龙江省职业病诊断机构备案管理办法(试行)》政策解读",
+          "published": "2021-11-05"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202111/c00_30480523.shtml",
+          "title": "关于《黑龙江省与人体健康有关的病原微生物实验室生物安全管理办法》的政策解读",
+          "published": "2021-11-01"
+        }
+      ],
+      "next_url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=3",
+      "audit": {
+        "total_records": 177,
+        "returned_records": 20,
+        "eligible_records": 20,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 20
+        },
+        "pagination_detected": true,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-interpretation",
+    "kind": "list",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-list-9.json.gz",
+    "url": "http://wsjkw.hlj.gov.cn/common/search/1e9296f8c6c6402aa0b0f9d7f61a1111?_isAgg=true&_isJson=true&_pageSize=20&_template=index&_rangeTimeGte=&_channelName=&page=9",
+    "sha256": "1a2aed527526cfa344704ad5567a6a3bcca6b55d7ed3431296a4639fee7b2c07",
+    "expected": {
+      "items": [
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480837.shtml",
+          "title": "《关于对黑卫规发〔2017〕9号文件部分 内容进行调整的通知》的政策解读",
+          "published": "2017-06-07"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480838.shtml",
+          "title": "《关于开展集中清理医师注册信息有关工作的通知》的政策解读",
+          "published": "2017-06-07"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480841.shtml",
+          "title": "关于《黑龙江省慢性病综合防控示范区建设实施方案(试行)》的政策解读",
+          "published": "2017-06-05"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480843.shtml",
+          "title": "《关于印发(2016~2020年)》的政策解读",
+          "published": "2017-05-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480845.shtml",
+          "title": "《黑龙江省卫生计生委关于督促补办独生子女父母补充养老保险工作的通知》的政策解读",
+          "published": "2017-05-12"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480848.shtml",
+          "title": "“十三五”期间开展健康促进与教育工作指导意见的政策解读",
+          "published": "2017-04-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480850.shtml",
+          "title": "《关于印发黑龙江省农村贫困住院患者县域内先诊疗后付费结算机制工作方案(暂行)的通知》政策解读",
+          "published": "2017-04-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480852.shtml",
+          "title": "《关于印发2017年黑龙江省卫生计生监督抽检计划的通知》的政策解读",
+          "published": "2017-04-27"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480854.shtml",
+          "title": "《黑龙江省公立医疗机构药品采购“两票制”实施方案(试行)》的政策解读",
+          "published": "2017-04-26"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480856.shtml",
+          "title": "《黑龙江省卫生计生委关于执行新一轮药品集中采购结果的通知》的政策解读",
+          "published": "2017-04-13"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480859.shtml",
+          "title": "《国家基本公共卫生服务项目公益广告宣传方案》的政策解读",
+          "published": "2017-03-31"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480861.shtml",
+          "title": "关于《黑龙江省卫生计生委关于印发全省医疗机构和疾病预防控制机构卫生应急工作规范化建设实施方案的通知》的政策解读",
+          "published": "2017-03-28"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480863.shtml",
+          "title": "《黑龙江省2016年度基本公共卫生服务项目绩效考核实施方案》的政策解读",
+          "published": "2017-03-14"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480865.shtml",
+          "title": "《关于进一步加强卫生计生综合监督行政执法工作的实施意见》的政策解读",
+          "published": "2017-02-25"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202102/c00_30480868.shtml",
+          "title": "《关于促进单采血浆站健康发展的通知》 的政策解读",
+          "published": "2017-01-17"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480870.shtml",
+          "title": "解读我省《规范和推进家庭医生签约服务实施意见》",
+          "published": "2016-12-15"
+        },
+        {
+          "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202006/c00_30480872.shtml",
+          "title": "《黑龙江省医师多点执业实施办法》解读",
+          "published": "2015-12-04"
+        }
+      ],
+      "next_url": null,
+      "audit": {
+        "total_records": 177,
+        "returned_records": 17,
+        "eligible_records": 17,
+        "link_origins": {
+          "wsjkw.hlj.gov.cn": 17
+        },
+        "pagination_detected": false,
+        "complete_listing": false
+      }
+    }
+  },
+  {
+    "source": "hlj-interpretation",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-detail-1.html.gz",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202610/c00_31982947.shtml",
+    "item": {
+      "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202610/c00_31982947.shtml",
+      "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+      "published": "2026-10-10"
+    },
+    "sha256": "29d4a4c02745056b18cfbff6b5a17dc20062130b6785e63911b89d5ada658be3",
+    "expected": {
+      "title": "关于加强餐具饮具集中消毒服务单位委托代工生产监管的指导意见",
+      "published": "2026-10-10",
+      "authority": "黑龙江省卫生健康委员会",
+      "kind": "interpretation",
+      "attachments": [],
+      "body_sha256": "9e9040c7559e97e2aae65da6b4401566e8b2f9bc91f92387442abf24adb6a0d2",
+      "body_chars": 723
+    }
+  },
+  {
+    "source": "hlj-interpretation",
+    "kind": "detail",
+    "fixture": "backend/tests/fixtures/national/hlj-interpretation-detail-20.html.gz",
+    "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771218.shtml",
+    "item": {
+      "url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/202409/c00_31771218.shtml",
+      "title": "《黑龙江省职业健康检查工作规范》政策解读",
+      "published": "2024-09-24"
+    },
+    "sha256": "f0fb0512b0e4fc700d1521cd5db28a39ed75d0f1264f8232efe773a53555fe6a",
+    "expected": {
+      "title": "《黑龙江省职业健康检查工作规范》政策解读",
+      "published": "2024-09-24",
+      "authority": "黑龙江省卫生健康委员会",
+      "kind": "interpretation",
+      "attachments": [],
+      "body_sha256": "6f544f0dda3f4261a9bc48d1de2f273038d75ceb63352b0d81e8df4d3d01ba34",
+      "body_chars": 986
     }
   }
 ]

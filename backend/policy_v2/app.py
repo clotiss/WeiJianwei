@@ -137,7 +137,7 @@ def regions():
 @app.get("/api/v2/source-inventory")
 def source_inventory():
     from .sources import inventory, source_definitions
-    fields=('id','name','region','kind','url','status','blocker','notes','scope_note','validation')
+    fields=('id','name','region','kind','url','landing_url','status','blocker','notes','scope_note','validation')
     return {"region_basis":"collection_source", "provinces":inventory(),
             "sources":[{k:s[k] for k in fields if k in s} for s in source_definitions()]}
 
