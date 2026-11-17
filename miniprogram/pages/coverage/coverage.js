@@ -1,5 +1,5 @@
 const api = require('../../utils/api');
-const names = require('../../config/regions.json');
+const names = require('../../config/regions');
 const statuses = {paused:'未启用监控', cooling_down:'更新受阻，等待重试', error:'最近更新失败', active:'监控已启用'};
 Page({
   data:{sources:[], loading:true, loadError:false, errorText:'', provinceCount:0, enabledCount:0},

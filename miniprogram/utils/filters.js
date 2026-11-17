@@ -1,4 +1,4 @@
-const names = require('../config/regions.json');
+const names = require('../config/regions');
 function decode(value) {
   try { return decodeURIComponent(value || ''); } catch (_) { return ''; }
 }

@@ -1,4 +1,4 @@
-const regions = require('../config/regions.json');
+const regions = require('../config/regions');
 const V2_TYPES = { '规范性文件': 'policy', '政策解读': 'interpretation' };
 const loginFlights = new Map();
 const globalData = () => getApp().globalData;

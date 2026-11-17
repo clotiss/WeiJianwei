@@ -59,3 +59,22 @@ node miniprogram/tests/run.js
 自动测试不等于微信真机通过。本轮没有生成预览二维码或上传体验版，也没有使用微信运行时编译 WXML/WXSS。
 
 接下来需要：部署独立 HTTPS V2 测试服务，配置对应小程序登录凭据与合法域名，在开发者工具编译并生成预览；iOS/Android 分别验证筛选、正文、收藏、弱网重试、登录失效、字体及安全区。全国收藏、附件打开、真实微信登录均以真机验收为准。生产切换仍按 `deploy/V2-ROLL-OUT.md` 执行。
+
+## 模拟器白屏修复与补充验收
+
+2026-11-17 在已安装的微信开发者工具中复现首页空白：页面 data 为空，搜索控件未渲染，实际运行时错误为 `module 'config/regions.json.js' is not defined, require args is '../config/regions.json'`。Node 的 `require` 能加载 JSON，因此此前 Node 页面测试没有发现这一差异。
+
+将地区名称表改为 `config/regions.js`，使用 `module.exports`，更新 API、筛选和来源页三个引用。新增 `module-loading.test.js`，按小程序 JavaScript 模块注册规则加载 App 和全部页面：修复前因 `regions.json.js` 不存在失败，修复后通过。现有自动验证扩展为 6 组，全部通过。
+
+微信开发者工具重新编译后，首页控件及政策卡片恢复。本机真实模拟器补充验证通过：页面渲染、省份与国家级筛选方法、筛选范围继承搜索、文件卡片跳转方法、详情、正文和来源覆盖页；快照共 294 条文件、33 个地区选项（全国、国家及 31 省），来源登记 64 个栏目。本次自动化通过官方 SDK 调用页面交互方法并检查视图；原生 picker 的手动选取手势仍需人工验收。
+
+复验命令（需本机预览后端已启动、开发者工具服务端口已开启）：
+
+```sh
+npm install --prefix .runtime/devtools-automation --no-audit --no-fund --ignore-scripts miniprogram-automator
+/Applications/wechatwebdevtools.app/Contents/MacOS/cli auto \
+  --project "$PWD/miniprogram" --auto-port 9420
+node scripts/test_miniprogram_simulator.cjs
+```
+
+模拟器验收不等于手机真机验收；HTTPS 测试服务、真实账号收藏、iOS/Android 仍按前述步骤验收。开发者工具自动改写的项目设置保留，不包含在此修复提交中。
