@@ -26,3 +26,8 @@ page {
   color: var(--text);
   background-color: var(--bg);
 }
+
+.inline-error { margin: 12px 0; padding: 14px; border-radius: 8px; background: #fff1ec; color: #984327; font-size: 13px; line-height: 1.6; }
+.status-note { margin: 10px 0; padding: 12px; border-radius: 8px; background: #edf4fa; color: #506c83; font-size: 12px; line-height: 1.7; }
+.scope-note { font-size: 12px; line-height: 1.7; color: #62798b; margin-bottom: 12px; }
+.page-loading { padding: 30px 10px; color: #62798b; text-align: center; }

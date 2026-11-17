@@ -1,56 +1,25 @@
-<!--
-============================================================================
-文件详情页模板
-============================================================================
-
-页面结构：
-  顶部：标题 + 收藏星标
-  → 元信息（发文字号、日期、发文机关、分类）
-  → AI 关键要点卡片
-  → 查看原文按钮
-  → 原文链接及附件按钮
-
-加载态和正常态通过 wx:if/wx:else 切换
--->
-
-<!-- 数据加载完成后显示 -->
-<view class="container" wx:if="{{!loading}}" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
-
-  <!-- ===== 标题 + 收藏星标 ===== -->
-  <view class="title-row">
-    <view class="title">{{doc.title}}</view>
-    <!-- 收藏星标：★ 已收藏（实心蓝） / ☆ 未收藏（空心灰） -->
-    <view class="star {{isFav ? 'star-active' : ''}}" bindtap="toggleFav">
-      {{isFav ? '★' : '☆'}}
+<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+  <view wx:elif="{{loadError}}" class="inline-error" bindtap="fetchDetail">{{errorText}} · 点击重试</view>
+  <block wx:else>
+    <view class="title-row"><view class="title">{{doc.title}}</view></view>
+    <view class="meta" wx:if="{{doc.doc_number}}">文号：{{doc.doc_number}}</view>
+    <view class="meta">发布日期：{{doc.publish_date || '未标注'}}</view>
+    <view class="meta">发布机构：{{doc.issuing_authority || '未标注，请以原文为准'}}</view>
+    <view class="meta" wx:if="{{doc.region_name}}">官网来源地区：{{doc.region_name}}</view>
+    <view class="meta">{{doc.category || '待分类'}} · {{doc.doc_type}}</view>
+    <button class="favorite-action" loading="{{favBusy}}" disabled="{{favBusy}}" bindtap="toggleFav">{{favBusy ? '同步中' : (favKnown && isFav ? '★ 已收藏 · 点击取消' : '☆ 收藏文件')}}</button>
+    <view wx:if="{{favError}}" class="inline-error" bindtap="retryFavorite">{{favError}}</view>
+    <view class="section" wx:if="{{summary.length}}">
+      <view class="section-title">关键内容</view>
+      <view class="summary-box"><view wx:for="{{summary}}" wx:key="index" class="summary-item"><text class="summary-num">{{index + 1}}</text><text>{{item}}</text></view></view>
+      <view class="scope-note">辅助阅读摘要，具体要求请以官网原文为准</view>
     </view>
-  </view>
-
-  <!-- ===== 元信息 ===== -->
-  <!-- 发文字号（如"国卫办发〔2024〕15号"）— 可能为空 -->
-  <view class="meta" wx:if="{{doc.doc_number}}">{{doc.doc_number}}</view>
-  <view class="meta">📅 {{doc.publish_date}}  🏛 {{doc.issuing_authority || '国家卫生健康委'}}</view>
-  <view class="meta">📂 {{doc.category}} · {{doc.doc_type}}</view>
-
-  <!-- ===== AI 关键要点 ===== -->
-  <!-- 只有 summary 数组有内容时才显示此区块 -->
-  <view class="section" wx:if="{{summary.length > 0}}">
-    <view class="section-title">📌 关键内容</view>
-    <view class="summary-box">
-      <!-- 遍历要点数组，显示编号 + 内容 -->
-      <view wx:for="{{summary}}" wx:key="index" class="summary-item">
-        <text class="summary-num">{{index + 1}}</text>
-        <text>{{item}}</text>
-      </view>
+    <view class="btn-original" bindtap="openPlaintext">阅读已收录正文</view>
+    <view class="btn-original secondary" wx:if="{{doc.original_url}}" bindtap="openOriginal">复制官网原文链接</view>
+    <view class="section" wx:if="{{attachments.length}}">
+      <view class="section-title">附件（{{attachments.length}}）</view>
+      <view wx:for="{{attachments}}" wx:key="index" class="attach-item" bindtap="openAttachment" data-url="{{item.url}}"><view>{{item.name || '附件'}}</view><view class="attachment-note">{{item.statusLabel}} · 复制官网链接</view></view>
     </view>
-  </view>
-
-  <!-- ===== 查看原文按钮 ===== -->
-  <!-- 跳转到 plaintext 页面，以纯文本形式阅读完整正文 -->
-  <view class="btn-original" bindtap="openPlaintext">📄 查看原文</view>
-
-  <!-- ===== 原文链接及附件按钮 ===== -->
-  <view class="btn-original" style="margin-top:8px" bindtap="openOriginal">🔗 原文链接及附件</view>
+  </block>
 </view>
-
-<!-- 数据加载中 -->
-<view wx:else class="loading">加载中...</view>

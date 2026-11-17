@@ -38,3 +38,10 @@
   font-size: 12px;
   color: #999;
 }
+.file-card { padding: 16px; border-color: #e6edf2; border-radius: 12px; margin-bottom: 12px; }
+.badges { margin-bottom: 10px; display: flex; align-items: center; }
+.region { color: #236397; background: #eaf3fb; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+.kind { margin-left: 10px; color: #63798a; font-size: 11px; }
+.title { font-size: 16px; line-height: 1.6; color: #203d53; margin-bottom: 10px; }
+.authority { font-size: 12px; color: #697d8e; line-height: 1.6; margin-bottom: 4px; }
+.meta { color: #718393; line-height: 1.6; }

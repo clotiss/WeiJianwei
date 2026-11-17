@@ -1,245 +1,100 @@
-/**
- * ===========================================================================
- * 首页 — 政策文件列表 + 分类筛选 + 搜索入口
- * ===========================================================================
- *
- * 本页面是小程序的首页（主入口），功能包括：
- * 1. 文件列表展示（分页加载，上滑加载更多）
- * 2. 分类标签筛选（顶部横向滚动的领域标签）
- * 3. 文件类型切换（规范性文件 / 政策解读 / 全部）
- * 4. 最新发布时间提示
- * 5. 订阅消息引导（首次打开弹窗）
- * 6. 下拉刷新
- *
- * 页面生命周期：
- *   onLoad → onShow → [用户交互] → onHide → onShow → ...
- *
- * 数据流：
- *   后端 API → setData → WXML 自动渲染 → 用户操作 → 重新请求
- */
-
-const api = require('../../utils/api');          // API 请求工具
-const storage = require('../../utils/storage');   // 本地存储工具
-const app = getApp();                             // 全局 App 实例
+const api = require('../../utils/api');
+const filters = require('../../utils/filters');
 
 Page({
-  /**
-   * data — 页面的响应式数据
-   * 修改 data 必须通过 this.setData({...}) 触发 WXML 重新渲染
-   */
   data: {
-    categories: [],                // 所有分类名称数组
-    docTypes: ['全部类型', '规范性文件', '政策解读'],  // 类型筛选选项
-    activeCategory: '全部',        // 当前选中的分类
-    activeType: '全部类型',        // 当前选中的文件类型
-    documents: [],                 // 当前显示的文件列表
-    page: 1,                       // 当前页码
-    hasMore: true,                 // 是否还有更多数据
-    loading: true,                 // 是否正在加载中
-    loadError: false,
-    collectionUpdate: '',
-    updateNotice: '',
-    latestUpdate: '',              // 最新文件发布时间
-
-    // ---- 悬浮按钮 ----
-    showChat: false,               // AI 对话浮窗是否显示
-    floatBtnX: 0,                  // 悬浮按钮 X 坐标
-    floatBtnY: 0,                  // 悬浮按钮 Y 坐标
-    floatBtnMoving: false,         // 是否正在拖拽中
-
-    // ---- 订阅弹窗状态 ----
-    _subscribing: false,           // 防止重复弹出订阅引导
+    useV2:false, categories:[], categoryRow1:[], categoryRow2:[], categoriesError:false,
+    regions:[{code:'', name:'全国'}], regionIndex:0, activeRegion:'', includeNational:true,
+    regionsLoading:false, regionsError:false,
+    docTypes:['全部类型', '规范性文件', '政策解读'], activeCategory:'全部', activeType:'全部类型',
+    documents:[], total:0, page:1, hasMore:true, loading:true, loadError:false, errorText:'',
+    collectionUpdate:'', updateNotice:'', latestUpdate:'',
+    showChat:false, floatBtnX:0, floatBtnY:0, floatBtnMoving:false
   },
-
-  // =========================================================================
-  // 生命周期：页面加载时执行（只执行一次）
-  // =========================================================================
   onLoad() {
-    // 页面初始化时先加载分类列表
-    this.fetchCategories();
-
-    // 设置悬浮按钮默认位置（右下角）
-    const sys = wx.getSystemInfoSync();
-    const btnSize = 56;  // 按钮大小（px），与 CSS 保持一致
-    this.setData({
-      floatBtnX: sys.windowWidth - btnSize - 16,
-      floatBtnY: sys.windowHeight - btnSize - 120,
-    });
-  },
-
-  // =========================================================================
-  // 生命周期：页面显示时执行（每次切换到该页面都会触发）
-  // 包括首次进入、从其他页面返回、从后台切回前台
-  // =========================================================================
-  onShow() {
-    // 分类列表为空时重试（可能首次加载失败）
-    if (this.data.categories.length === 0) {
-      this.fetchCategories();
+    this.setData({useV2:api.useV2()});
+    if (this.data.useV2) this.fetchRegions();
+    else {
+      const sys = wx.getSystemInfoSync();
+      this.setData({floatBtnX:sys.windowWidth - 72, floatBtnY:sys.windowHeight - 176});
     }
-
-    // 提醒授权只由用户主动点击触发，不在首次打开时弹窗。
-
-    // 每次显示页面时重新加载数据（确保数据新鲜）
-    // 刷新成功后替换，失败时保留已显示的内容。
-    this.fetchDocuments({ reset: true });       // 加载文件列表
-    this.fetchLatestUpdate();    // 加载最新发布时间
   },
-
-  // =========================================================================
-  // 下拉刷新 — 用户从顶部下拉时触发
-  // 需要配合 index.json 中设置 enablePullDownRefresh: true
-  // =========================================================================
+  onShow() {
+    if (!this.data.categories.length) this.fetchCategories();
+    this.fetchDocuments({reset:true});
+    this.fetchLatestUpdate();
+  },
+  onUnload() { this._listRequest++; this._latestRequest++; },
   onPullDownRefresh() {
-    // Promise.all 并行请求，两个都完成后再停止下拉动画
-    Promise.all([this.fetchDocuments({ reset: true }), this.fetchLatestUpdate()])
+    return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate(),
+      this.fetchCategories(), this.data.useV2 ? this.fetchRegions() : Promise.resolve()])
       .finally(() => wx.stopPullDownRefresh());
   },
-
-  // =========================================================================
-  // 数据获取方法
-  // =========================================================================
-
-  /**
-   * 获取分类列表
-   * 从后端获取所有已有分类，拆分为两行用于首页布局
-   */
+  currentFilters() {
+    return {region:this.data.activeRegion, include_national:this.data.includeNational,
+      category:this.data.activeCategory, doc_type:this.data.activeType};
+  },
+  fetchRegions() {
+    this.setData({regionsLoading:true, regionsError:false});
+    return api.getRegions().then(items => {
+      const regions = [{code:'', name:'全国'}, ...items];
+      this.setData({regions, regionIndex:Math.max(0, regions.findIndex(item => item.code === this.data.activeRegion)), regionsLoading:false});
+    }).catch(() => this.setData({regionsLoading:false, regionsError:true}));
+  },
   fetchCategories() {
-    api.getCategories().then(res => {
-      // 在分类列表前面加上"全部"选项
+    return api.getCategories().then(res => {
       const all = ['全部', ...(res.categories || [])];
-      // 将分类列表分为两行（首页双行横向滚动布局）
       const mid = Math.ceil(all.length / 2);
-      this.setData({
-        categories: all,
-        categoryRow1: all.slice(0, mid),   // 第一行
-        categoryRow2: all.slice(mid)        // 第二行
-      });
-    }).catch(() => {});  // 加载失败静默处理
+      this.setData({categories:all, categoryRow1:all.slice(0, mid), categoryRow2:all.slice(mid), categoriesError:false});
+    }).catch(() => this.setData({categoriesError:true}));
   },
-
-  /**
-   * 获取文件列表（分页）
-   * 首页显示和筛选/分页切换都调用此方法
-   */
-  fetchDocuments({ reset = false, nextPage } = {}) {
+  fetchDocuments({reset = false, nextPage} = {}) {
     const requestId = this._listRequest = (this._listRequest || 0) + 1;
-    const { activeCategory, activeType } = this.data;
     const page = reset ? 1 : (nextPage || this.data.page);
-    this.setData({ loading: true, loadError: false });
-    return api.getDocuments({ category: activeCategory, doc_type: activeType, page, page_size: 20 })
-      .then(res => {
-        if (requestId !== this._listRequest) return;
-        const docs = page === 1 ? res.items : this.data.documents.concat(res.items);
-        const freshness = res.freshness || {};
-        const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
-        const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
-        this.setData({ documents: docs, page, hasMore: docs.length < res.total, loading: false,
-          collectionUpdate: stamp,
-          updateNotice: freshness.unavailable_sources ? '部分来源暂时更新失败，已收录内容仍可阅读' : '' });
-      }).catch(() => {
-        if (requestId !== this._listRequest) return;
-        this.setData({ loading: false, loadError: true });
-        wx.showToast({ title: this.data.documents.length ? '更新失败，保留已加载内容' : '加载失败，请重试', icon: 'none' });
-      });
+    this.setData({loading:true, loadError:false, errorText:''});
+    return api.getDocuments({...this.currentFilters(), page, page_size:20}).then(res => {
+      if (requestId !== this._listRequest) return;
+      const docs = page === 1 ? res.items : this.data.documents.concat(res.items);
+      const freshness = res.freshness || {};
+      const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
+      const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
+      this.setData({documents:docs, total:res.total, page, hasMore:docs.length < res.total && res.items.length > 0,
+        loading:false, collectionUpdate:stamp,
+        updateNotice:freshness.unavailable_sources ? '部分来源更新暂时失败，已收录内容仍可阅读' : ''});
+    }).catch(error => {
+      if (requestId !== this._listRequest) return;
+      this.setData({loading:false, loadError:true, errorText:api.errorMessage(error)});
+      wx.showToast({title:this.data.documents.length ? '更新失败，保留已加载内容' : api.errorMessage(error), icon:'none'});
+    });
   },
-
-  retryDocuments() {
-    return this.fetchDocuments({ reset: true });
-  },
-
-  /**
-   * 获取最新文件发布时间
-   * 展示在首页顶部，让用户感知数据新鲜度
-   */
+  retryDocuments() { return this.fetchDocuments({reset:true}); },
   fetchLatestUpdate() {
-    return api.getLatestUpdate().then(res => {
-      const ts = res.latest_update || '';
-      // 只取日期部分（前 10 字符 YYYY-MM-DD）
-      this.setData({ latestUpdate: ts ? ts.slice(0, 10) : '' });
+    const requestId = this._latestRequest = (this._latestRequest || 0) + 1;
+    return api.getLatestUpdate(this.currentFilters()).then(res => {
+      if (requestId !== this._latestRequest) return;
+      this.setData({latestUpdate:(res.latest_update || '').slice(0, 10)});
     }).catch(() => {});
   },
-
-  // =========================================================================
-  // 用户交互事件
-  // =========================================================================
-
-  /**
-   * 分类标签点击
-   * e.currentTarget.dataset.category 从 wxml 的 data-category 属性获取
-   */
-  onCategoryTap(e) {
-    const cat = e.currentTarget.dataset.category;
-    // 切换分类时重置页码并清空列表
-    this.setData({ activeCategory: cat, page: 1, documents: [] });
-    this.fetchDocuments();  // 重新加载
+  resetFilters(patch) {
+    this.setData({...patch, page:1, documents:[], total:0, latestUpdate:'', collectionUpdate:'', updateNotice:''});
+    return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate()]);
   },
-
-  /**
-   * 文件类型切换（全部 / 规范性文件 / 政策解读）
-   */
-  onTypeTap(e) {
-    const type = e.currentTarget.dataset.type;
-    this.setData({ activeType: type, page: 1, documents: [] });
-    this.fetchDocuments();
+  onRegionChange(e) {
+    const index = Number(e.detail.value), region = this.data.regions[index];
+    if (region) return this.resetFilters({regionIndex:index, activeRegion:region.code});
   },
-
-  /**
-   * 上滑加载更多
-   * 增加页码 → 调用 fetchDocuments() 追加数据
-   */
-  loadMore() {
-    if (this.data.loading || !this.data.hasMore) return;
-    this.fetchDocuments({ nextPage: this.data.page + 1 });                          // 加载下一页
-  },
-
-  // =========================================================================
-  // 页面跳转
-  // =========================================================================
-  // =========================================================================
-  // 悬浮按钮 + AI 对话浮窗
-  // =========================================================================
-
-  /** 点击悬浮按钮 → 打开对话浮窗 */
-  onFloatBtnTap() {
-    if (this.data.floatBtnMoving) return;  // 拖拽中不触发
-    this.setData({ showChat: true });
-  },
-
-  /** 悬浮按钮拖拽中 */
-  onFloatBtnMove(e) {
-    this.setData({
-      floatBtnX: e.detail.x,
-      floatBtnY: e.detail.y,
-      floatBtnMoving: true,
-    });
-  },
-
-  /** 悬浮按钮拖拽结束 */
-  onFloatBtnEnd() {
-    // 延迟取消 moving 标记，防止 touchend 后立即触发 tap
-    setTimeout(() => this.setData({ floatBtnMoving: false }), 200);
-  },
-
-  /** 关闭对话浮窗 */
-  onChatClose() {
-    this.setData({ showChat: false });
-  },
-
-  /** 转发 */
-  onShareAppMessage() {
-    return { title: '卫健委政策速查 — AI 智能政策文件搜索', path: '/pages/index/index' };
-  },
-
-  goSearch() {
-    wx.navigateTo({ url: '/pages/search/search' });
-  },
-  goFavorites() {
-    wx.navigateTo({ url: '/pages/favorites/favorites' });
-  },
-  goCategory() {
-    // 跳转到分类列表页，携带当前筛选条件
-    wx.navigateTo({
-      url: `/pages/category/category?category=${this.data.activeCategory}&doc_type=${this.data.activeType}`
-    });
-  }
+  onNationalChange(e) { return this.resetFilters({includeNational:!!e.detail.value}); },
+  onCategoryTap(e) { return this.resetFilters({activeCategory:e.currentTarget.dataset.category}); },
+  onTypeTap(e) { return this.resetFilters({activeType:e.currentTarget.dataset.type}); },
+  loadMore() { if (!this.data.loading && this.data.hasMore) return this.fetchDocuments({nextPage:this.data.page + 1}); },
+  onReachBottom() { return this.loadMore(); },
+  onFloatBtnTap() { if (!this.data.useV2 && !this.data.floatBtnMoving) this.setData({showChat:true}); },
+  onFloatBtnMove(e) { this.setData({floatBtnX:e.detail.x, floatBtnY:e.detail.y, floatBtnMoving:true}); },
+  onFloatBtnEnd() { setTimeout(() => this.setData({floatBtnMoving:false}), 200); },
+  onChatClose() { this.setData({showChat:false}); },
+  goSearch() { wx.navigateTo({url:'/pages/search/search?' + filters.toQuery(this.currentFilters())}); },
+  goFavorites() { wx.navigateTo({url:'/pages/favorites/favorites'}); },
+  goCategory() { wx.navigateTo({url:'/pages/category/category?' + filters.toQuery(this.currentFilters())}); },
+  goCoverage() { wx.navigateTo({url:'/pages/coverage/coverage'}); },
+  onShareAppMessage() { return {title:'卫健委政策速查', path:'/pages/index/index'}; }
 });

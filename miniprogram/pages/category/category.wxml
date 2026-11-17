@@ -1,28 +1,10 @@
-<!--
-============================================================================
-分类列表页模板
-============================================================================
-
-简洁的两段式布局：
-  顶栏（返回 + 分类名 + 类型）
-  → 总条数
-  → 文件卡片列表
-  → 加载更多
--->
-
 <view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
-  <!-- ===== 顶栏 ===== -->
-  <view class="header">
-    <view class="back" bindtap="goBack">←</view>
-    <view class="header-title">📂 {{category}} · {{docType}}</view>
-  </view>
-
-  <!-- 总条数 -->
-  <view class="total">共 {{total}} 条</view>
-
-  <!-- 文件卡片列表 — 复用 file-card 组件 -->
+  <view class="header"><view class="back" bindtap="goBack">←</view><view class="header-title">政策列表</view></view>
+  <view class="scope-note">{{scope}}</view>
+  <view class="total" wx:if="{{!loading && !loadError}}">共 {{total}} 条已收录文件</view>
+  <view class="inline-error" wx:if="{{loadError}}" bindtap="fetchList">{{errorText}} · 点击重试</view>
   <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
-
-  <!-- 加载更多 -->
-  <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">↓ 加载更多</view>
+  <view wx:if="{{loading}}" class="page-loading">加载中…</view>
+  <view wx:elif="{{!loadError && !documents.length}}" class="page-loading">当前筛选下暂无已收录文件</view>
+  <view wx:elif="{{hasMore}}" class="load-more" bindtap="loadMore">加载更多</view>
 </view>

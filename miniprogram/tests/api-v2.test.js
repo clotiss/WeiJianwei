@@ -1,43 +1,60 @@
 const assert = require('node:assert/strict');
-
-const calls = [];
-const stored = {};
-let failFavoriteOnce = false;
-global.getApp = () => ({ globalData: {
-  API_BASE: 'https://api.example/v1', API_V2_BASE: 'https://api.example/v2', USE_POLICY_V2: true
-} });
-global.wx = { request(options) {
-  calls.push(options);
-  const data = options.url.includes('/auth/wechat') ? { access_token: 'mock-token' } : options.url.includes('/topics') ? ['基层医疗'] : {
-    items: [{ id: 7, title: '政策标题', document_number: '国卫办发〔2026〕1号',
-      authority: '国家卫健委', published: '2026-11-16', type: 'interpretation',
-      topic: '基层医疗', original_url: 'https://official.example/a.shtml',
-      summary: [{ text: '要点', quote: '原文证据' }], attachments: [] }],
-    total: 1
-  };
-  const statusCode = failFavoriteOnce && options.url.includes('/me/favorites/') ? 401 : 200;
-  if (statusCode === 401) failFavoriteOnce = false;
-  options.success({ statusCode, data });
-}, getStorageSync(key) { return stored[key]; }, setStorageSync(key, value) { stored[key] = value; },
-login(options) { options.success({ code: 'mock-code' }); } };
-
+const {resolveEnvironment} = require('../config/environments');
+const calls = [], stored = {};
+let loginCount = 0, failures = 0, denyAll = false;
+const state = {API_BASE:'https://api.example/v1', API_V2_BASE:'https://api.example/v2', USE_POLICY_V2:true, environment:'develop'};
+global.getApp = () => ({globalData:state});
+global.wx = {
+  getStorageSync:key => stored[key], setStorageSync:(key, value) => { stored[key] = value; },
+  login(options) { loginCount++; setImmediate(() => options.success({code:'mock-code'})); },
+  request(options) {
+    calls.push(options);
+    const path = new URL(options.url).pathname;
+    const statusCode = path.includes('/me/') && (denyAll || failures-- > 0) ? 401 : 200;
+    const data = path.endsWith('/auth/wechat') ? {access_token:'token-' + loginCount, expires_at:'2099-01-01T00:00:00Z'} :
+      path.endsWith('/me/favorites') ? [{id:7,region:'GD',title:'广东政策',type:'policy'}] :
+      path.endsWith('/topics') ? ['基层医疗'] : {items:[], total:0};
+    setImmediate(() => options.success({statusCode, data}));
+  }
+};
 const api = require('../utils/api');
 (async () => {
-  const list = await api.getDocuments({ category: '基层医疗', doc_type: '政策解读', page: 1, page_size: 20 });
-  assert.equal(calls[0].url, 'https://api.example/v2/policies?topic=%E5%9F%BA%E5%B1%82%E5%8C%BB%E7%96%97&content_type=interpretation&limit=20&offset=0');
-  assert.equal(list.total, 1);
-  assert.equal(list.items[0].doc_type, '政策解读');
-  assert.equal(JSON.parse(list.items[0].summary)[0], '要点');
-  assert.deepEqual(await api.getCategories(), { categories: ['基层医疗'] });
-  await api.loginV2();
-  assert.equal(stored.policy_v2_token, 'mock-token');
-  await api.getV2Favorites();
-  assert.equal(calls[calls.length - 1].header.Authorization, 'Bearer mock-token');
-  stored.policy_v2_token = '';
-  failFavoriteOnce = true;
-  const beforeRetry = calls.length;
-  await api.syncV2Favorite(7, true);
-  assert.equal(calls.length - beforeRetry, 3); // 401 → wx.login → retry
-  assert.equal(calls[calls.length - 1].method, 'PUT');
-  console.log('V2 mini-program API adapter: 6 checks passed');
-})().catch(error => { console.error(error); process.exitCode = 1; });
+  // No anonymous V1 data is migrated into V2, and the previous unscoped token is ignored.
+  stored.favorites = [{id:7, title:'旧库另一个文件'}]; stored.policy_v2_token = 'unscoped-legacy-token';
+  const favorites = await api.getV2Favorites();
+  assert.equal(loginCount, 1);
+  assert.equal(favorites[0].region_name, '广东');
+  assert.equal(favorites[0].title, '广东政策');
+  assert.equal(calls.at(-1).header.Authorization, 'Bearer token-1');
+  assert.deepEqual(stored.favorites, [{id:7, title:'旧库另一个文件'}]);
+  // Public requests never include a bearer token.
+  await api.getDocuments({}); assert.deepEqual(calls.at(-1).header, {});
+  failures = 2;
+  await Promise.all([api.getV2Favorites(), api.addV2Favorite(7)]);
+  assert.equal(loginCount, 2, 'concurrent 401 requests share one login');
+  assert.equal(calls.at(-1).header.Authorization, 'Bearer token-2');
+  // Retry is bounded even when the refreshed token is rejected.
+  denyAll = true;
+  const before = calls.length;
+  await assert.rejects(api.getV2Favorites(), error => error.statusCode === 401);
+  assert.equal(calls.length - before, 3);
+  denyAll = false;
+  const previousLogins = loginCount;
+  state.API_V2_BASE = 'https://staging.example/v2';
+  assert.equal(api.hasV2Session(), false);
+  await Promise.all([api.getV2Favorites(), api.getV2Favorites()]);
+  assert.equal(loginCount, previousLogins + 1, 'different environment must establish its own session');
+  assert.ok(Object.keys(stored).filter(key => key.startsWith('policy_v2_session:')).length === 2);
+  assert.deepEqual(await api.getCategories(), {categories:['基层医疗']});
+  await assert.rejects(api.agentSearch('广东'), error => error.code === 'agent_unavailable');
+  Object.assign(state, resolveEnvironment('trial'));
+  const beforeMissing = calls.length;
+  await assert.rejects(api.getDocuments({}), error => error.code === 'endpoint_not_configured');
+  await assert.rejects(api.getV2Favorites(), error => error.code === 'endpoint_not_configured');
+  assert.equal(calls.length, beforeMissing, 'unconfigured trial must not hit production');
+  assert.equal(resolveEnvironment('develop').USE_POLICY_V2, true);
+  assert.equal(resolveEnvironment('unknown').USE_POLICY_V2, false);
+  Object.assign(state, resolveEnvironment('release'));
+  await api.getDocuments({page:1}); assert.ok(calls.at(-1).url.startsWith('https://wjwjwjw.top/api/v1/documents'));
+  console.log('V2 auth, account favorites, environment isolation, legacy fallback passed');
+})().catch(error => {console.error(error); process.exitCode=1;});

@@ -167,6 +167,8 @@ NHC 网站有 WZWS WAF 反爬保护。用 Playwright + Firefox 无头浏览器�
 
 ## 五、前端开发
 
+新版 V2 的页面接入、接口地址配置、本机真实数据预览和真机待办见 [小程序新版接入记录](docs/miniprogram-v2-integration-2026-11-17.md)。
+
 ### 5.1 导入项目
 
 1. 打开微信开发者工具

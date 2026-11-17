@@ -1,124 +1,52 @@
-<!--
-============================================================================
-首页 — 政策文件列表 + 分类筛选（WXML 模板）
-============================================================================
-
-WXML 是微信小程序的模板语言，类似 HTML 但有微信特有的语法：
-- wx:if / wx:else → 条件渲染（值为 false 时元素不渲染到 DOM）
-- wx:for / wx:key → 列表渲染（类似 Vue 的 v-for / React 的 map）
-- {{}} → 数据绑定（单向绑定，从 JS data 到模板）
-- bindtap / bindinput → 事件绑定（用户操作 → 触发 JS 方法）
-- data-* → 向事件处理函数传递自定义参数
-
-页面布局（从上到下）：
-  顶部搜索栏 + 收藏/订阅按钮
-  → 最新发布时间
-  → 分类标签（双行横向滚动）
-  → 文件类型切换栏
-  → 文件列表（卡片形式）
-  → 加载更多 / 查看更多
--->
-
 <view class="container">
-  <!-- ===== 顶部栏：搜索框 + 收藏 ===== -->
+  <view class="intro" wx:if="{{useV2}}">
+    <view class="eyebrow">卫生健康 · 政策资料</view>
+    <view class="intro-title">关注你所在地区的政策</view>
+    <view class="intro-note">按官网来源筛选，发布机构与适用范围请以原文为准</view>
+  </view>
   <view class="top-bar">
-    <!-- 搜索框（点击跳转关键词搜索页） -->
-    <view class="search-box" bindtap="goSearch">
-      <text class="search-icon">🔍</text>
-      <text class="search-placeholder">搜索标题、发文机构...</text>
+    <view class="search-box" bindtap="goSearch"><text class="search-icon">⌕</text><text class="search-placeholder">{{useV2 ? '搜索标题、文号、正文' : '搜索标题、发文机构'}}</text></view>
+    <view class="fav-btn" bindtap="goFavorites">我的收藏</view>
+  </view>
+  <view class="region-panel" wx:if="{{useV2}}">
+    <view class="region-row">
+      <picker mode="selector" range="{{regions}}" range-key="name" value="{{regionIndex}}" bindchange="onRegionChange" disabled="{{regionsLoading || regionsError}}">
+        <view class="region-picker">{{regionsLoading ? '加载地区…' : regions[regionIndex].name}} <text class="chevron">⌄</text></view>
+      </picker>
+      <view class="coverage-link" bindtap="goCoverage">来源与更新 ›</view>
     </view>
-    <!-- 收藏按钮 -->
-    <view class="fav-btn" bindtap="goFavorites">收藏</view>
+    <view class="national-toggle" wx:if="{{activeRegion && activeRegion !== 'CN'}}">
+      <text>同时查看国家级文件</text><switch checked="{{includeNational}}" bindchange="onNationalChange" color="#1a6fb5" />
+    </view>
+    <view class="inline-error" wx:if="{{regionsError}}" bindtap="fetchRegions">地区加载失败，点击重试</view>
   </view>
-
-  <!-- ===== 最近发布时间 ===== -->
-  <view class="update-time" wx:if="{{latestUpdate}}">
-    🕐 最新发布文件：{{latestUpdate}}
-  </view>
-
-  <view class="update-time" wx:if="{{collectionUpdate}}">最近采集成功：{{collectionUpdate}}</view>
-  <view class="update-time" wx:if="{{updateNotice}}">{{updateNotice}}</view>
-  <view class="update-time" wx:if="{{loadError}}" bindtap="retryDocuments">
-    {{documents.length ? '更新暂时失败，已保留内容，点击重试' : '加载失败，点击重试'}}
-  </view>
-
-  <!-- ===== 分类标签（双行横向滚动） ===== -->
-  <!-- scroll-view: 微信的可滚动容器，scroll-x 启用横向滚动 -->
+  <view class="inline-error" wx:if="{{categoriesError}}" bindtap="fetchCategories">分类加载失败，点击重试</view>
   <scroll-view class="category-scroll" scroll-x enable-flex>
     <view class="category-rows">
-      <!-- 第一行分类标签 -->
-      <view class="category-row">
-        <view
-          wx:for="{{categoryRow1}}"
-          wx:key="*this"
-          class="tag {{activeCategory === item ? 'tag-active' : ''}}"
-          bindtap="onCategoryTap"
-          data-category="{{item}}"
-        >{{item}}</view>
-      </view>
-      <!-- 第二行分类标签 -->
-      <view class="category-row">
-        <view
-          wx:for="{{categoryRow2}}"
-          wx:key="*this"
-          class="tag {{activeCategory === item ? 'tag-active' : ''}}"
-          bindtap="onCategoryTap"
-          data-category="{{item}}"
-        >{{item}}</view>
-      </view>
+      <view class="category-row"><view wx:for="{{categoryRow1}}" wx:key="*this" class="tag {{activeCategory === item ? 'tag-active' : ''}}" bindtap="onCategoryTap" data-category="{{item}}">{{item}}</view></view>
+      <view class="category-row"><view wx:for="{{categoryRow2}}" wx:key="*this" class="tag {{activeCategory === item ? 'tag-active' : ''}}" bindtap="onCategoryTap" data-category="{{item}}">{{item}}</view></view>
     </view>
   </scroll-view>
-
-  <!-- ===== 文件类型切换栏 ===== -->
-  <view class="type-bar">
-    <view
-      wx:for="{{docTypes}}"
-      wx:key="*this"
-      class="type-item {{activeType === item ? 'type-active' : ''}}"
-      bindtap="onTypeTap"
-      data-type="{{item}}"
-    >{{item}}</view>
-  </view>
-
-  <!-- ===== 文件列表 ===== -->
-  <!-- 加载中 → 显示骨架屏（占位灰色方块） -->
-  <skeleton wx:if="{{loading && documents.length === 0}}" count="{{4}}" />
-
-  <!-- 加载完成 → 显示文件卡片列表 -->
+  <view class="type-bar"><view wx:for="{{docTypes}}" wx:key="*this" class="type-item {{activeType === item ? 'type-active' : ''}}" bindtap="onTypeTap" data-type="{{item}}">{{item}}</view></view>
+  <view class="update-time" wx:if="{{latestUpdate}}">当前范围最新发布：{{latestUpdate}}</view>
+  <view class="update-time" wx:if="{{collectionUpdate}}">最近一轮采集完成：{{collectionUpdate}}</view>
+  <view class="status-note" wx:if="{{updateNotice}}">{{updateNotice}}</view>
+  <view class="inline-error" wx:if="{{loadError}}" bindtap="retryDocuments">{{documents.length ? '更新失败，已保留内容' : errorText}} · 点击重试</view>
+  <skeleton wx:if="{{loading && !documents.length}}" count="{{4}}" />
   <view wx:else>
-    <!-- file-card 自定义组件，遍历 documents 数组渲染 -->
     <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
-
-    <!-- 空状态提示 -->
-    <view wx:if="{{documents.length === 0 && !loadError}}" class="empty">暂无文件</view>
-
-    <!-- 加载更多按钮（hasMore 为真时显示） -->
-    <view wx:if="{{hasMore && documents.length > 0 && !loading}}" class="load-more" bindtap="loadMore">
-      ↓ 加载更多
+    <view wx:if="{{!documents.length && !loadError}}" class="empty">
+      <view>当前筛选下暂无已收录文件</view>
+      <view class="empty-hint">可切换地区或分类；未收录不代表官网没有发布</view>
     </view>
-
-    <!-- 查看更多按钮（跳转分类列表页） -->
-    <view class="view-more" bindtap="goCategory">
-      查看更多 →
-    </view>
+    <view wx:if="{{loading}}" class="load-more">正在加载…</view>
+    <view wx:elif="{{hasMore && documents.length}}" class="load-more" bindtap="loadMore">加载更多</view>
+    <view wx:elif="{{documents.length}}" class="update-time end-note">已显示当前范围全部 {{total}} 条</view>
+    <view wx:if="{{documents.length}}" class="view-more" bindtap="goCategory">查看筛选结果 →</view>
   </view>
-
-  <!-- ===== 可拖拽悬浮按钮 ===== -->
-  <movable-area class="float-area">
-    <movable-view
-      class="float-btn {{floatBtnMoving ? 'float-btn--moving' : ''}}"
-      direction="all"
-      x="{{floatBtnX}}"
-      y="{{floatBtnY}}"
-      bindtap="onFloatBtnTap"
-      bindchange="onFloatBtnMove"
-      bindtouchend="onFloatBtnEnd"
-      damping="{{40}}"
-    >
-      <text class="float-btn-icon">🤖</text>
-    </movable-view>
+  <view class="future-entry" wx:if="{{useV2}}"><text>医疗招聘</text><text class="future-label">筹备中 · 后续开放</text></view>
+  <movable-area class="float-area" wx:if="{{!useV2}}">
+    <movable-view class="float-btn {{floatBtnMoving ? 'float-btn--moving' : ''}}" direction="all" x="{{floatBtnX}}" y="{{floatBtnY}}" bindtap="onFloatBtnTap" bindchange="onFloatBtnMove" bindtouchend="onFloatBtnEnd" damping="{{40}}"><text class="float-btn-icon">🤖</text></movable-view>
   </movable-area>
-
-  <!-- ===== AI 对话浮窗 ===== -->
-  <agent-chat show="{{showChat}}" bind:close="onChatClose" />
+  <agent-chat wx:if="{{!useV2}}" show="{{showChat}}" bind:close="onChatClose" />
 </view>

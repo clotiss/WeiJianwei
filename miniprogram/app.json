@@ -6,7 +6,8 @@
     "pages/search/search",
     "pages/agent/agent",
     "pages/favorites/favorites",
-    "pages/plaintext/plaintext"
+    "pages/plaintext/plaintext",
+    "pages/coverage/coverage"
   ],
   "window": {
     "navigationBarTitleText": "卫健委政策速查",

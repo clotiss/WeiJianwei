@@ -18,8 +18,7 @@ From the repository root, run:
 ```sh
 node --check miniprogram/utils/api.js
 node --check miniprogram/app.js
-node miniprogram/tests/api-v2.test.js
-node miniprogram/tests/index-resilience.test.js
+node miniprogram/tests/run.js
 PYTHONPATH=backend python scripts/probe_sources.py --pages 2
 ```
 
@@ -37,7 +36,7 @@ Install browser OS dependencies in a Linux staging image with Playwright's docum
 4. Verify private object writes, hash checks, attachment extraction, failure retry, task recovery, and backup restoration in staging.
 5. Migrate a copy of the legacy SQLite database with `python -m policy_v2.cli migrate /path/to/legacy.db`. Compare totals and ID mappings. Legacy rows have no fabricated raw snapshot. Global legacy favorites have no account identity and need a product decision before they can be assigned to user accounts.
 6. Validate source adapters on a small, manually reviewed sample. See `evidence/sources/manifest.json` for timestamped live results and transient failures. On 2026-11-17, NHC's two columns, first two pages and sample details succeeded with a shared Firefox context. NHC HTML now uses Firefox directly; waits require both document readiness and valid content, and record initial/final HTTP status separately. Jiangsu's two columns and sample details succeeded, with cross-domain NHC reposts filtered. Guangdong's first two pages and sample details succeeded. Hunan's default TLS negotiation failed with `BAD_ECPOINT` on both the developer machine and Tencent Cloud Ubuntu. A host-specific P-256 context restored verified HTTPS access; CA and hostname validation remain enabled. Hunan's table rows, actual pagination script and `#j-show-body` content parse successfully, but later local and Tencent Cloud probes still encountered intermittent handshake/read timeouts and TLS EOF errors. Keep sources paused until staging observations establish acceptable stability. Do not weaken TLS or automate challenge solving.
-7. Test the mini-program against the staging API in WeChat Developer Tools and on iOS/Android. Only then set `USE_POLICY_V2` for the staged build.
+7. Configure the deployed HTTPS staging endpoint in `miniprogram/config/environments.js` (`trial.API_V2_BASE`; `develop.API_V2_BASE` for phone previews). Develop/trial use V2; trial intentionally has no endpoint until staging exists. Test in WeChat Developer Tools and on iOS/Android. After acceptance, explicitly change the release profile to V2. See `docs/miniprogram-v2-integration-2026-11-17.md`.
 8. Rehearse rollback with V1 reads still available. Keep V2 writes isolated; do not stop the legacy collector until the cutover window and replay procedure are approved.
 
 ## Current limits

@@ -87,3 +87,8 @@
 
 /* 加载态 */
 .loading { text-align: center; color: #aaa; padding: 60px 0; }
+.favorite-action { margin-top: 18px; font-size: 14px; color: #1a6fb5; background: #e8f2fa; border-radius: 8px; }
+.favorite-action::after { border: 0; }
+.secondary { background: #fff; color: #1a6fb5; border: 1px solid #dce7ef; margin-top: 10px; }
+.attachment-note { color: #62798b; font-size: 11px; line-height: 1.6; margin-top: 4px; }
+.meta { line-height: 1.7; }

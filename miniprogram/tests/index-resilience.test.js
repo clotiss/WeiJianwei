@@ -6,10 +6,11 @@ const requests = [];
 let definition;
 const api = {
   getDocuments(params) { return new Promise((resolve, reject) => requests.push({params, resolve, reject})); },
-  getLatestUpdate() { return Promise.reject(new Error('offline')); }
+  getLatestUpdate() { return Promise.reject(new Error('offline')); },
+  errorMessage() { return '加载失败，请重试'; }
 };
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../pages/index/index.js'), 'utf8'), {
-  require: name => name.endsWith('/api') ? api : {}, getApp: () => ({}),
+  require: name => name.endsWith('/api') ? api : require('../utils/filters'), getApp: () => ({}),
   Page: value => { definition = value; }, wx: { showToast() {}, stopPullDownRefresh() {} }, setTimeout
 });
 function page() {

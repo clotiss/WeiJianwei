@@ -1,7 +1,12 @@
 {
   "description": "卫健委政策文件速查",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "tests"
+      }
+    ],
     "include": []
   },
   "setting": {

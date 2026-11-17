@@ -39,6 +39,10 @@ Page({
   // =========================================================================
 
   onLoad() {
+    if (api.useV2()) {
+      this.setData({messages:[{role:'assistant', content:'全国政策问答尚未开放，请返回首页使用关键词搜索。', thinking_steps:[], documents:[]}]});
+      return;
+    }
     // 生成会话 ID，启用多轮对话
     this._startNewSession();
     // 显示欢迎语
@@ -63,6 +67,7 @@ Page({
 
   /** 点击发送按钮 */
   onSend() {
+    if (api.useV2()) { wx.showToast({title:'请使用首页关键词搜索', icon:'none'}); return; }
     const query = this.data.inputValue.trim();
     if (!query || this.data.loading) return;
 

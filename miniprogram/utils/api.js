@@ -1,126 +1,108 @@
-/**
- * ===========================================================================
- * API 请求工具 — 封装 wx.request 的所有后端接口调用
- * ===========================================================================
- */
-
-const app = getApp();
-
-function requestV2(path, options = {}) {
-  const { params = {} } = options;
-  const qs = Object.entries(params).filter(([, v]) => v !== '' && v !== undefined)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
-  const token = wx.getStorageSync('policy_v2_token');
-  const header = path.indexOf('/me/') === 0 && token ? { Authorization: 'Bearer ' + token } : {};
+const regions = require('../config/regions.json');
+const V2_TYPES = { '规范性文件': 'policy', '政策解读': 'interpretation' };
+const loginFlights = new Map();
+const globalData = () => getApp().globalData;
+const useV2 = () => !!globalData().USE_POLICY_V2;
+const sessionKey = () => 'policy_v2_session:' + (globalData().environment || 'default') + ':' + globalData().API_V2_BASE;
+function session() { return wx.getStorageSync(sessionKey()) || {}; }
+function query(params = {}) {
+  return Object.entries(params).filter(([, value]) => value !== '' && value !== undefined && value !== null)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&');
+}
+function send(base, path, options = {}) {
+  if (!base) return Promise.reject({ code: 'endpoint_not_configured' });
+  const qs = query(options.params);
   return new Promise((resolve, reject) => wx.request({
-    url: app.globalData.API_V2_BASE + path + (qs ? '?' + qs : ''),
-    method: options.method || 'GET', data: options.data, header,
+    url: base + path + (qs ? '?' + qs : ''), method: options.method || 'GET',
+    data: options.data, header: options.header || {}, timeout: 15000,
     success(res) { if (res.statusCode >= 200 && res.statusCode < 300) resolve(res.data); else reject(res); },
     fail: reject
   }));
 }
-
-const V2_TYPES = { '规范性文件': 'policy', '政策解读': 'interpretation' };
-function legacyShape(item) {
-  const summary = (item.summary || []).map(point => typeof point === 'string' ? point : (point.text || ''));
-  return { id: item.id, title: item.title, doc_number: item.document_number || '',
-    issuing_authority: item.authority || '', publish_date: item.published || '',
-    category: item.topic || '', doc_type: item.type === 'interpretation' ? '政策解读' : '规范性文件',
-    original_url: item.original_url || '', content: item.body || '',
-    summary: JSON.stringify(summary.filter(Boolean)), attachments: JSON.stringify(item.attachments || []) };
+const request = (path, options) => send(globalData().API_BASE, path, options);
+const requestV2 = (path, options) => send(globalData().API_V2_BASE, path, options);
+function loginV2() {
+  const key = sessionKey();
+  if (loginFlights.has(key)) return loginFlights.get(key);
+  const base = globalData().API_V2_BASE;
+  if (!base) return Promise.reject({ code: 'endpoint_not_configured' });
+  const pending = new Promise((resolve, reject) => wx.login({
+    success: result => result.code ? resolve(result.code) : reject({code:'wechat_login_code_missing'}), fail: reject
+  })).then(code => send(base, '/auth/wechat', {method:'POST', data:{code}}))
+    .then(value => {
+      if (!value.access_token) throw {code:'invalid_session'};
+      wx.setStorageSync(key, value);
+      return value;
+    }).finally(() => loginFlights.delete(key));
+  loginFlights.set(key, pending);
+  return pending;
 }
-
-function request(path, options = {}) {
-  const { method = 'GET', data, params } = options;
-  let url = app.globalData.API_BASE + path;
-
-  if (params) {
-    const qs = Object.entries(params)
-      .filter(([_, v]) => v !== '' && v !== undefined)
-      .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
-      .join('&');
-    if (qs) url += '?' + qs;
-  }
-
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url,
-      method,
-      data,
-      success(res) {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve(res.data);
-        } else {
-          reject(res);
-        }
-      },
-      fail(err) {
-        reject(err);
-      }
-    });
-  });
+function authorized(path, options = {}) {
+  const previous = session();
+  const expired = previous.expires_at && Date.parse(previous.expires_at) <= Date.now();
+  const initial = !previous.access_token || expired ? loginV2() : Promise.resolve(previous);
+  const call = value => requestV2(path, {...options, header:{Authorization:'Bearer ' + value.access_token}});
+  return initial.then(value => call(value).catch(error => {
+    if (error.statusCode !== 401) throw error;
+    // Concurrent 401s reuse an already renewed token, or join the same login.
+    const current = session();
+    const renewed = current.access_token && current.access_token !== value.access_token
+      ? Promise.resolve(current) : loginV2();
+    return renewed.then(call); // Retry once; a second 401 is surfaced to the page.
+  }));
 }
-
+function documentShape(item) {
+  const summary = (Array.isArray(item.summary) ? item.summary : [])
+    .map(point => typeof point === 'string' ? point : (point.text || '')).filter(Boolean);
+  return { id:item.id, title:item.title, region:item.region || '', region_name:regions[item.region] || item.region || '',
+    doc_number:item.document_number || '', issuing_authority:item.authority || '', publish_date:item.published || '',
+    category:item.topic || '', doc_type:item.type === 'interpretation' ? '政策解读' : item.type === 'policy' ? '规范性文件' : '其他',
+    original_url:item.original_url || '', content:item.body || '', revision:item.revision,
+    summary:JSON.stringify(summary), attachments:JSON.stringify(item.attachments || []) };
+}
+function policyParams(params = {}) {
+  const page = Math.max(1, Number(params.page) || 1);
+  const size = Math.min(100, Math.max(1, Number(params.page_size) || 20));
+  return { q:params.q || '', region:params.region || '', include_national:params.include_national !== false,
+    topic:params.category === '全部' ? '' : (params.category || ''),
+    content_type:V2_TYPES[params.doc_type] || '', limit:size, offset:(page - 1) * size };
+}
+function policyList(params) {
+  const filters = policyParams(params);
+  return requestV2('/policies', {params:filters}).then(res => ({
+    items:(res.items || []).map(documentShape), total:res.total || 0,
+    page:filters.offset / filters.limit + 1, page_size:filters.limit, freshness:res.freshness || null
+  }));
+}
+function errorMessage(error, fallback = '加载失败，请重试') {
+  if (error && error.code === 'endpoint_not_configured') return '体验服务尚未配置';
+  if (error && error.data && error.data.detail === 'wechat_login_not_configured') return '账号收藏暂未开放，请稍后重试';
+  if (error && error.statusCode === 401) return '微信登录失效，请重试';
+  if (error && error.statusCode === 404) return '内容或服务暂不可用';
+  return fallback;
+}
 module.exports = {
-  getDocuments(params) {
-    if (app.globalData.USE_POLICY_V2) {
-      const page = Math.max(1, Number(params.page) || 1), size = Number(params.page_size) || 20;
-      return requestV2('/policies', { params: { q: params.q || '', region: params.region || '',
-        topic: params.category === '全部' ? '' : (params.category || ''),
-        content_type: params.doc_type === '全部类型' ? '' : (V2_TYPES[params.doc_type] || ''),
-        limit: size, offset: (page - 1) * size } }).then(res => ({
-          items: (res.items || []).map(legacyShape), total: res.total || 0,
-          page, page_size: size, freshness: res.freshness || null
-        }));
-    }
-    return request('/documents', { params });
+  useV2, errorMessage, loginV2,
+  hasV2Session: () => !!session().access_token,
+  getDocuments(params) { return useV2() ? policyList(params) : request('/documents', {params}); },
+  searchDocuments(params) { return useV2() ? policyList(params) : request('/documents/search', {params}); },
+  getDocumentDetail(id) { return useV2() ? requestV2(`/policies/${id}`).then(documentShape) : request(`/documents/${id}`); },
+  getLatestUpdate(params = {}) {
+    return useV2() ? policyList({...params, page:1, page_size:1})
+      .then(res => ({latest_update:res.items.length ? res.items[0].publish_date : ''})) : request('/documents/latest-update');
   },
-  getDocumentDetail(id) {
-    if (app.globalData.USE_POLICY_V2) return requestV2(`/policies/${id}`).then(legacyShape);
-    return request(`/documents/${id}`);
-  },
-  searchDocuments(params) {
-    if (app.globalData.USE_POLICY_V2) {
-      return requestV2('/policies', { params: { q: params.q || '', limit: params.page_size || 20,
-        offset: ((params.page || 1) - 1) * (params.page_size || 20) } }).then(res => ({
-          ...res, items: (res.items || []).map(legacyShape), page: params.page || 1,
-          page_size: params.page_size || 20
-        }));
-    }
-    return request('/documents/search', { params });
-  },
-  getLatestUpdate() {
-    if (app.globalData.USE_POLICY_V2) return requestV2('/policies', { params: { limit: 1, offset: 0 } })
-      .then(res => ({ latest_update: res.items && res.items.length ? res.items[0].published : '' }));
-    return request('/documents/latest-update');
-  },
-  getCategories() {
-    if (app.globalData.USE_POLICY_V2) return requestV2('/topics').then(categories => ({ categories }));
-    return request('/documents/categories');
-  },
-  loginV2() {
-    return new Promise((resolve, reject) => wx.login({
-      success: result => result.code ? resolve(result.code) : reject(new Error('wechat_login_code_missing')),
-      fail: reject
-    })).then(code => requestV2('/auth/wechat', { method: 'POST', data: { code } }))
-      .then(session => { wx.setStorageSync('policy_v2_token', session.access_token); return session; });
-  },
-  getV2Favorites() { return requestV2('/me/favorites'); },
-  addV2Favorite(id) { return requestV2(`/me/favorites/${id}`, { method: 'PUT' }); },
-  removeV2Favorite(id) { return requestV2(`/me/favorites/${id}`, { method: 'DELETE' }); },
-  syncV2Favorite(id, favorited) {
-    const send = () => favorited ? this.addV2Favorite(id) : this.removeV2Favorite(id);
-    return send().catch(error => {
-      if (!error || error.statusCode !== 401) throw error;
-      return this.loginV2().then(send);
-    });
-  },
-  getV2Follows() { return requestV2('/me/follows'); },
-  addV2Follow(rule) { return requestV2('/me/follows', { method: 'POST', data: rule }); },
+  getCategories() { return useV2() ? requestV2('/topics').then(categories => ({categories})) : request('/documents/categories'); },
+  getRegions() { return requestV2('/regions'); },
+  getCoverage() { return requestV2('/coverage'); },
+  getSourceInventory() { return requestV2('/source-inventory'); },
+  getV2Favorites() { return authorized('/me/favorites').then(items => items.map(documentShape)); },
+  addV2Favorite(id) { return authorized(`/me/favorites/${id}`, {method:'PUT'}); },
+  removeV2Favorite(id) { return authorized(`/me/favorites/${id}`, {method:'DELETE'}); },
+  syncV2Favorite(id, favorited) { return authorized(`/me/favorites/${id}`, {method:favorited ? 'PUT' : 'DELETE'}); },
+  getV2Follows() { return authorized('/me/follows'); },
+  addV2Follow(rule) { return authorized('/me/follows', {method:'POST', data:rule}); },
   agentSearch(query, session_id) {
-    return request('/agent/search', {
-      method: 'POST',
-      data: { query, session_id }
-    });
+    if (useV2()) return Promise.reject({code:'agent_unavailable', message:'全国政策问答尚未开放'});
+    return request('/agent/search', {method:'POST', data:{query, session_id}});
   }
 };
