@@ -134,6 +134,14 @@ def regions():
     return [{"code": k, "name": v} for k, v in REGIONS.items()]
 
 
+@app.get("/api/v2/source-inventory")
+def source_inventory():
+    from .sources import inventory, source_definitions
+    fields=('id','name','region','kind','url','status','blocker','notes','scope_note','validation')
+    return {"region_basis":"collection_source", "provinces":inventory(),
+            "sources":[{k:s[k] for k in fields if k in s} for s in source_definitions()]}
+
+
 @app.get("/api/v2/topics")
 def topics():
     return TOPICS

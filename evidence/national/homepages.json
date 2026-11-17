@@ -1,0 +1,1062 @@
+[
+  {
+    "region": "BJ",
+    "name": "北京",
+    "url": "https://wjw.beijing.gov.cn",
+    "checked_at": "2026-11-17T03:32:51.300269+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.beijing.gov.cn",
+    "status": "homepage_read",
+    "title": "北京市卫生健康委员会",
+    "bytes": 160524,
+    "column_candidates": [
+      {
+        "label": "政策文件",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zcwj2024/zcwjss/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zcjd2024/"
+      },
+      {
+        "label": "法律法规",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zcwj2022/flfg/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zfxxgk2020/gkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zfxxgk2020/gkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/zfxxgk2020/gknb/"
+      },
+      {
+        "label": "政府信息公开目录",
+        "url": "https://wjw.beijing.gov.cn/zwgk_20040/"
+      },
+      {
+        "label": "政务公开惠民便民地图",
+        "url": "https://wjw.beijing.gov.cn/bmfw_20143/ylfw/yljgdzdt/"
+      }
+    ]
+  },
+  {
+    "region": "HE",
+    "name": "河北",
+    "url": "https://wsjkw.hebei.gov.cn/",
+    "checked_at": "2026-11-17T03:32:51.301465+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.hebei.gov.cn/",
+    "status": "homepage_read",
+    "title": "",
+    "bytes": 1334,
+    "column_candidates": []
+  },
+  {
+    "region": "TJ",
+    "name": "天津",
+    "url": "https://wsjk.tj.gov.cn",
+    "checked_at": "2026-11-17T03:32:51.301273+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjk.tj.gov.cn",
+    "status": "homepage_read",
+    "title": "天津市卫生健康委员会",
+    "bytes": 97480,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wsjk.tj.gov.cn/ZWGK3158/"
+      },
+      {
+        "label": "重要政策举措及实施效果",
+        "url": "https://www.gov.cn/zhengce/zczhjd/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZFXXGK5869/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZFXXGK5869/ZFXXGKZN6553/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZFXXGK5869/ZFXXGKZD5383/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZFXXGK5869/ZFXXGKNB2486/"
+      }
+    ]
+  },
+  {
+    "region": "NM",
+    "name": "内蒙古",
+    "url": "https://wjw.nmg.gov.cn",
+    "checked_at": "2026-11-17T03:32:51.944973+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.nmg.gov.cn",
+    "status": "homepage_read",
+    "title": "内蒙古自治区卫生健康委员会",
+    "bytes": 99645,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wjw.nmg.gov.cn/zwgk/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wjw.nmg.gov.cn/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "法律法规",
+        "url": "https://wjw.nmg.gov.cn/ztlm/dqzt/fzjs/flfg/"
+      },
+      {
+        "label": "行政规范性文件",
+        "url": "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/gfxwj/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/zcjd/"
+      },
+      {
+        "label": "政策问答库",
+        "url": "https://wjw.nmg.gov.cn/hdjl/zcwdk/index.html"
+      }
+    ]
+  },
+  {
+    "region": "HLJ",
+    "name": "黑龙江",
+    "url": "https://wsjkw.hlj.gov.cn",
+    "checked_at": "2026-11-17T03:32:52.517642+00:00",
+    "status": "error",
+    "error": "ConnectError:[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)"
+  },
+  {
+    "region": "LN",
+    "name": "辽宁",
+    "url": "https://wsjk.ln.gov.cn",
+    "checked_at": "2026-11-17T03:32:52.433971+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjk.ln.gov.cn",
+    "status": "homepage_read",
+    "title": "辽宁省卫生健康委员会",
+    "bytes": 98965,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjk.ln.gov.cn/wsjk/zfxxgk/zfxxgkzn/lnswsjkwyhzfxxgkzn/index.shtml"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjk.ln.gov.cn/wsjk/zfxxgk/zfxxgkzn/index.shtml"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/index.shtml"
+      },
+      {
+        "label": "《中医医疗质量控制中心管理规定》政策解读",
+        "url": "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/2026110516193940696/index.shtml"
+      },
+      {
+        "label": "医疗机构麻醉药品和精神药品管理规定解读",
+        "url": "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/2026101214162997377/index.shtml"
+      },
+      {
+        "label": "政务公开",
+        "url": "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zwgk/index.shtml"
+      }
+    ]
+  },
+  {
+    "region": "SX",
+    "name": "山西",
+    "url": "https://wjw.shanxi.gov.cn",
+    "checked_at": "2026-11-17T03:32:51.301612+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.shanxi.gov.cn",
+    "status": "homepage_read",
+    "title": "山西省卫生健康委员会网站",
+    "bytes": 207399,
+    "column_candidates": [
+      {
+        "label": "法规处",
+        "url": "https://wjw.shanxi.gov.cn/zyzn/fgc/"
+      },
+      {
+        "label": "药物政策与食品安全监测处",
+        "url": "https://wjw.shanxi.gov.cn/zyzn/ywzcyspaqjcc/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wjw.shanxi.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wjw.shanxi.gov.cn/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wjw.shanxi.gov.cn/zfxxgk/zfxxgkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wjw.shanxi.gov.cn/zfxxgk/zfxxgknb/"
+      },
+      {
+        "label": "法律法规",
+        "url": "https://wjw.shanxi.gov.cn/zfxxgk/fdzdgknr/flfg/"
+      }
+    ]
+  },
+  {
+    "region": "JS",
+    "name": "江苏",
+    "url": "https://wjw.jiangsu.gov.cn",
+    "checked_at": "2026-11-17T03:32:53.235670+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.jiangsu.gov.cn",
+    "status": "homepage_read",
+    "title": "江苏省卫生健康委员会",
+    "bytes": 58899,
+    "column_candidates": [
+      {
+        "label": "江苏省法规规章规范性文件数据库",
+        "url": "https://wjk.jsrd.gov.cn:8004/#/home"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "http://wjw.jiangsu.gov.cn/col/col49377/index.html"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wjw.jiangsu.gov.cn/col/col49379/index.html"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wjw.jiangsu.gov.cn/col/col93258/index.html"
+      },
+      {
+        "label": "政府信息公开意见箱",
+        "url": "http://wjw.jiangsu.gov.cn/jact/front/main.do?sysid=125"
+      },
+      {
+        "label": "政策法规",
+        "url": "http://wjw.jiangsu.gov.cn/col/col49491/index.html"
+      }
+    ]
+  },
+  {
+    "region": "ZJ",
+    "name": "浙江",
+    "url": "https://wsjkw.zj.gov.cn/",
+    "checked_at": "2026-11-17T03:32:53.669458+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.zj.gov.cn/",
+    "status": "homepage_read",
+    "title": "浙江省卫生健康委员会",
+    "bytes": 58304,
+    "column_candidates": [
+      {
+        "label": "规范性文件",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html"
+      }
+    ]
+  },
+  {
+    "region": "SH",
+    "name": "上海",
+    "url": "https://wsjkw.sh.gov.cn",
+    "checked_at": "2026-11-17T03:32:52.966344+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.sh.gov.cn",
+    "status": "homepage_read",
+    "title": "上海市卫生健康委员会",
+    "bytes": 80137,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.sh.gov.cn/xxgk/"
+      },
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.sh.gov.cn#tab1-2"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.sh.gov.cn#tab3-2"
+      },
+      {
+        "label": "关于修订后的《上海市护理站管理办法》政策解读",
+        "url": "https://wsjkw.sh.gov.cn/zcjd/20260922/5dda908825f84a24b001676462bb0c92.html"
+      },
+      {
+        "label": "《上海市卫生健康发展“十五五”规划》解读",
+        "url": "https://wsjkw.sh.gov.cn/zcjd/20260731/5de8291583ab4e53beaf06e3d10a1ae1.html"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjkw.sh.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wsjkw.sh.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjkw.sh.gov.cn/zfxxgk/?type=1"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjkw.sh.gov.cn/zfxxgk/?type=2"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjkw.sh.gov.cn/zfxxgk/?type=4"
+      },
+      {
+        "label": "政府信息公开申请",
+        "url": "https://xxgk.sh.gov.cn/zwgk_interface/pages/zwgkfront/publicApplyOU.html?ouguid=U_3_20"
+      }
+    ]
+  },
+  {
+    "region": "JX",
+    "name": "江西",
+    "url": "https://hc.jiangxi.gov.cn",
+    "checked_at": "2026-11-17T03:32:54.839219+00:00",
+    "status": "error",
+    "error": "ConnectError:[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1010)"
+  },
+  {
+    "region": "JL",
+    "name": "吉林",
+    "url": "https://wsjkw.jl.gov.cn",
+    "checked_at": "2026-11-17T03:32:52.451698+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.jl.gov.cn",
+    "status": "homepage_read",
+    "title": "吉林省卫生健康委员会",
+    "bytes": 73217,
+    "column_candidates": [
+      {
+        "label": "法规处（行政审批办公室）",
+        "url": "https://wsjkw.jl.gov.cn/jggk/wncs/fzjs/"
+      },
+      {
+        "label": "药物政策与基本药物制度处",
+        "url": "https://wsjkw.jl.gov.cn/jggk/wncs/yzgl/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfxxgkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfxxgknb/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/zcjd/"
+      },
+      {
+        "label": "规范性文件及解读",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/"
+      },
+      {
+        "label": "省卫生健康委废止的行政规范性文件目录",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/202512/t20251211_9370423.html"
+      },
+      {
+        "label": "2025年规范性文件目录",
+        "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/202507/t20250730_9291660.html"
+      }
+    ]
+  },
+  {
+    "region": "FJ",
+    "name": "福建",
+    "url": "https://wjw.fujian.gov.cn/",
+    "checked_at": "2026-11-17T03:32:54.156837+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.fujian.gov.cn/",
+    "status": "homepage_read",
+    "title": "福建省卫生健康委员会",
+    "bytes": 165473,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wjw.fujian.gov.cn/xxgk/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "http://wjw.fujian.gov.cn/xxgk/zfxxgkzl/zfxxgkml/"
+      },
+      {
+        "label": "政策文件",
+        "url": "http://wjw.fujian.gov.cn/xxgk/fgwj/"
+      },
+      {
+        "label": "法律法规",
+        "url": "http://wjw.fujian.gov.cn/xxgk/fgwj/flfg/"
+      },
+      {
+        "label": "解读回应",
+        "url": "https://wjw.fujian.gov.cn/jdhy/"
+      },
+      {
+        "label": "省政府政策文件解读",
+        "url": "http://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/szfzcjd/"
+      },
+      {
+        "label": "福建省卫健委政策文件解读",
+        "url": "http://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/"
+      },
+      {
+        "label": "国家政策文件解读",
+        "url": "http://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/qtzcjd/"
+      },
+      {
+        "label": "政策问答库",
+        "url": "https://wjw.fujian.gov.cn/jdhy/zcwdk/"
+      },
+      {
+        "label": "政务公开",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/"
+      },
+      {
+        "label": "政策",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/zc/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/zfxxgkgd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/zfxxgkndbg/"
+      },
+      {
+        "label": "政府信息公开申请",
+        "url": "https://wjw.fujian.gov.cn/xxgk/zfxxgkzl/ysqgk/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/"
+      },
+      {
+        "label": "法律法规",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/flfg/"
+      },
+      {
+        "label": "国家政策解读",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/qtzcjd/"
+      },
+      {
+        "label": "本省政策解读",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/szfzcjd/"
+      }
+    ]
+  },
+  {
+    "region": "HA",
+    "name": "河南",
+    "url": "https://wsjkw.henan.gov.cn",
+    "checked_at": "2026-11-17T03:32:55.150550+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.henan.gov.cn",
+    "status": "homepage_read",
+    "title": "河南省卫生健康委员会",
+    "bytes": 58975,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.henan.gov.cn/zfxxgk/wj/"
+      },
+      {
+        "label": "规范性文件",
+        "url": "http://wsjkw.henan.gov.cn/zfxxgk/gfxwj/"
+      },
+      {
+        "label": "政策解读",
+        "url": "http://wsjkw.henan.gov.cn/zfxxgk/xxgkml/zcfg/zcjd/"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "http://wsjkw.henan.gov.cn/zfxxgk/wj/"
+      }
+    ]
+  },
+  {
+    "region": "HB",
+    "name": "湖北",
+    "url": "https://wjw.hubei.gov.cn",
+    "checked_at": "2026-11-17T03:32:55.398881+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.hubei.gov.cn",
+    "status": "homepage_read",
+    "title": "湖北省卫生健康委员会",
+    "bytes": 84188,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "http://wjw.hubei.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wjw.hubei.gov.cn/zfxxgk/zc/gfwj/"
+      },
+      {
+        "label": "AI解读",
+        "url": "https://wjw.hubei.gov.cn/zfxxgk/zc/zcjd_1/202311/t20231128_4974635.shtml"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wjw.hubei.gov.cn/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开 年度报告",
+        "url": "https://wjw.hubei.gov.cn/zfxxgk/zfxxgkgzndbg/"
+      },
+      {
+        "label": "隐私政策",
+        "url": "http://wjw.hubei.gov.cn/yszc/"
+      }
+    ]
+  },
+  {
+    "region": "AH",
+    "name": "安徽",
+    "url": "https://wjw.ah.gov.cn",
+    "checked_at": "2026-11-17T03:32:54.013621+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.ah.gov.cn",
+    "status": "homepage_read",
+    "title": "安徽省卫生健康委员会",
+    "bytes": 93205,
+    "column_candidates": [
+      {
+        "label": " 政务公开",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=2"
+      },
+      {
+        "label": "政务公开",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=2"
+      },
+      {
+        "label": "政策法规",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=4&action=list&nav=3&catId=43797231"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/58319291.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/58243181.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/58226741.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57966231.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57662831.html"
+      },
+      {
+        "label": "专家解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57018821.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57044531.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56955571.html"
+      },
+      {
+        "label": "【媒体解读】安徽出台医疗机构管理办法",
+        "url": "https://wjw.ah.gov.cn/public/7001/58334591.html"
+      },
+      {
+        "label": "【政策宣讲】安徽住培政策宣讲进校园活动收官",
+        "url": "https://wjw.ah.gov.cn/public/7001/58247621.html"
+      },
+      {
+        "label": "咨询安徽省住院医师规范化培训政策",
+        "url": "https://wjw.ah.gov.cn/content/article/58143801"
+      }
+    ]
+  },
+  {
+    "region": "GD",
+    "name": "广东",
+    "url": "https://wsjkw.gd.gov.cn",
+    "checked_at": "2026-11-17T03:32:56.189982+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.gd.gov.cn",
+    "status": "homepage_read",
+    "title": "广东省卫生健康委员会门户网站，广东省卫生健康委官方网站",
+    "bytes": 95181,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.gd.gov.cn/zwgk/index.html"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html"
+      },
+      {
+        "label": "《家庭病床服务指南（试行）》政策解读",
+        "url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4897338.html"
+      },
+      {
+        "label": "政府信息公开目录",
+        "url": "https://wsjkw.gd.gov.cn/gkmlpt/index"
+      }
+    ]
+  },
+  {
+    "region": "GX",
+    "name": "广西",
+    "url": "https://wsjkw.gxzf.gov.cn/",
+    "checked_at": "2026-11-17T03:32:56.274998+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.gxzf.gov.cn/",
+    "status": "homepage_read",
+    "title": "广西壮族自治区卫生健康委员会网站",
+    "bytes": 118348,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/"
+      },
+      {
+        "label": "法律法规",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/flfg/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/"
+      },
+      {
+        "label": "中华人民共和国政府信息公开条例",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/flfg/gjflfggz/t6187207.shtml"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xxgkndbg/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/flfggz/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xxgkzn/"
+      },
+      {
+        "label": "政策文件",
+        "url": "http://wsjkw.gxzf.gov.cn/jgdj_49813/zcwj_49818"
+      }
+    ]
+  },
+  {
+    "region": "CQ",
+    "name": "重庆",
+    "url": "https://wsjkw.cq.gov.cn",
+    "checked_at": "2026-11-17T03:32:57.076091+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.cq.gov.cn",
+    "status": "homepage_read",
+    "title": "重庆市卫生健康委员会",
+    "bytes": 81632,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/"
+      },
+      {
+        "label": "政务公开",
+        "url": "https://wsjkw.cq.gov.cn"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zfxxgkml/zcwj/xzgfxwj2/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/"
+      },
+      {
+        "label": "重庆市传染病疫情信息公布管理办法政策解读",
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202609/t20260924_16127950.html"
+      },
+      {
+        "label": "政策解读《重庆市中医药科研项目管理办法》",
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202607/t20260708_15807697.html"
+      }
+    ]
+  },
+  {
+    "region": "SC",
+    "name": "四川",
+    "url": "https://wsjkw.sc.gov.cn",
+    "checked_at": "2026-11-17T03:32:57.579662+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.sc.gov.cn",
+    "status": "homepage_read",
+    "title": "四川省卫生健康委员会",
+    "bytes": 52304,
+    "column_candidates": [
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xxgkzn/publishzwxxgkzn.shtml"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xhtml/zfxxgkzd.html"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xxgknb/publishzwxxgknb.shtml"
+      }
+    ]
+  },
+  {
+    "region": "GZ",
+    "name": "贵州",
+    "url": "https://wjw.guizhou.gov.cn/",
+    "checked_at": "2026-11-17T03:32:58.193540+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.guizhou.gov.cn/",
+    "status": "homepage_read",
+    "title": "贵州省卫生健康委员会",
+    "bytes": 74636,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/jcxxgk/zcwj/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/jcxxgk/zcjd/"
+      },
+      {
+        "label": "【图解】关于探索建立总药师制度的指导意见政策",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/jcxxgk/zcjd/202302/t20230214_78925293.html"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/zfxxgk/zfxxgkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wjw.guizhou.gov.cn/zwgk/zfxxgk/zfxxgknb/"
+      },
+      {
+        "label": "贷款贴息政策",
+        "url": "https://wjw.guizhou.gov.cn/ztzl_500663/dktxzc/index.html"
+      },
+      {
+        "label": "重要政策举措及实施效果",
+        "url": "https://www.gov.cn/zhengce/zczhjd/"
+      }
+    ]
+  },
+  {
+    "region": "HI",
+    "name": "海南",
+    "url": "https://wst.hainan.gov.cn/",
+    "checked_at": "2026-11-17T03:32:56.739054+00:00",
+    "status": "error",
+    "error": "ConnectError:[Errno 54] Connection reset by peer"
+  },
+  {
+    "region": "XZ",
+    "name": "西藏",
+    "url": "https://wjw.xizang.gov.cn/",
+    "checked_at": "2026-11-17T03:32:59.056753+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.xizang.gov.cn/",
+    "status": "homepage_read",
+    "title": "西藏自治区卫生健康委员会",
+    "bytes": 42516,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "http://wjw.xizang.gov.cn/zwgk/"
+      },
+      {
+        "label": "政策法规",
+        "url": "http://wjw.xizang.gov.cn/zwgk/zcwj/"
+      }
+    ]
+  },
+  {
+    "region": "YN",
+    "name": "云南",
+    "url": "https://ynswsjkw.yn.gov.cn/",
+    "checked_at": "2026-11-17T03:32:58.644233+00:00",
+    "http_status": 200,
+    "final_url": "https://ynswsjkw.yn.gov.cn/",
+    "status": "homepage_read",
+    "title": "云南省卫生健康委员会",
+    "bytes": 74434,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zfxxgkzn/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/xzgfxwj/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zfxxgkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zfwznb/zfxxgknb/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/zcjd/"
+      },
+      {
+        "label": "《云南省国民健康“十五五”规划》政策解读",
+        "url": "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/zcjd/202611/t20261113_4384172.html"
+      }
+    ]
+  },
+  {
+    "region": "GS",
+    "name": "甘肃",
+    "url": "https://wsjk.gansu.gov.cn",
+    "checked_at": "2026-11-17T03:33:00.219305+00:00",
+    "status": "error",
+    "error": "FetchError:http_412"
+  },
+  {
+    "region": "QH",
+    "name": "青海",
+    "url": "https://wsjkw.qinghai.gov.cn",
+    "checked_at": "2026-11-17T03:33:00.567829+00:00",
+    "status": "error",
+    "error": "FetchError:http_412"
+  },
+  {
+    "region": "HN",
+    "name": "湖南",
+    "url": "https://wjw.hunan.gov.cn/",
+    "checked_at": "2026-11-17T03:32:55.898662+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.hunan.gov.cn/",
+    "status": "homepage_read",
+    "title": "湖南省卫生健康委员会",
+    "bytes": 82441,
+    "column_candidates": [
+      {
+        "label": "政府信息公开 >",
+        "url": "https://wjw.hunan.gov.cn/wjw/xxgk/index.html"
+      },
+      {
+        "label": "政策法规",
+        "url": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/index.html"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wjw.hunan.gov.cn/wjw/xxgk/index.html"
+      },
+      {
+        "label": "《湖南省医疗卫生服务体系“十四五”规划》解读",
+        "url": "https://wjw.hunan.gov.cn/wjw/xxgk/ghjh/202211/t20221130_29141528.html"
+      },
+      {
+        "label": "湖南婚假政策调查问卷",
+        "url": "https://wjw.hunan.gov.cn/wjw/hdjl/dczj/zjzt/202611/t20261111_34099971.html"
+      },
+      {
+        "label": "湖南省卫生健康政策法规工作调查问卷",
+        "url": "https://wjw.hunan.gov.cn/wjw/hdjl/dczj/zjzt/202611/t20261111_34099969.html"
+      }
+    ]
+  },
+  {
+    "region": "NX",
+    "name": "宁夏",
+    "url": "https://wsjkw.nx.gov.cn",
+    "checked_at": "2026-11-17T03:33:00.979926+00:00",
+    "http_status": 200,
+    "final_url": "https://wsjkw.nx.gov.cn",
+    "status": "homepage_read",
+    "title": "宁夏回族自治区卫生健康委员会",
+    "bytes": 63821,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "http://wsjkw.nx.gov.cn/zfxxgk_279/"
+      },
+      {
+        "label": "换一种“打开”方式解读传统",
+        "url": "https://wsjkw.nx.gov.cn/xwzx_279/gzdt_46361/202607/t20260707_5283768.html"
+      },
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/"
+      },
+      {
+        "label": "政策法规",
+        "url": "http://wsjkw.nx.gov.cn/zfxxgk_279/zcfg/"
+      },
+      {
+        "label": "政策法规解读",
+        "url": "http://wsjkw.nx.gov.cn/zfxxgk_279/zcfgjd/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/xxgkzn/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/zfxxgknb/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/xxgkzd/"
+      },
+      {
+        "label": "政府信息公开申请",
+        "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/ysqgk/"
+      }
+    ]
+  },
+  {
+    "region": "XJ",
+    "name": "新疆",
+    "url": "https://wjw.xinjiang.gov.cn/",
+    "checked_at": "2026-11-17T03:33:01.422752+00:00",
+    "http_status": 200,
+    "final_url": "https://wjw.xinjiang.gov.cn/",
+    "status": "homepage_read",
+    "title": "新疆维吾尔自治区卫生健康委员会",
+    "bytes": 58400,
+    "column_candidates": [
+      {
+        "label": "政务公开",
+        "url": "https://wjw.xinjiang.gov.cn/hfpc/zwgk/zwgk.shtml"
+      },
+      {
+        "label": "《自治区短缺药品清单管理办法》政策解读",
+        "url": "https://wjw.xinjiang.gov.cn/hfpc/zhgl41/202611/2e09fd7fb9ad45f2bc07cf07b308536c.shtml"
+      },
+      {
+        "label": "《医疗康复护理扩容提升工程实施方案》政策解读",
+        "url": "https://wjw.xinjiang.gov.cn/hfpc/zcjd/202610/51a2895554284a6093de768fa00730f5.shtml"
+      },
+      {
+        "label": "医疗机构麻醉药品和精神药品管理规定解读",
+        "url": "https://wjw.xinjiang.gov.cn/hfpc/zcjd/202609/50eae19249f14b7390cbc5d3a4312c48.shtml"
+      }
+    ]
+  },
+  {
+    "region": "SN",
+    "name": "陕西",
+    "url": "https://sxwjw.shaanxi.gov.cn/",
+    "checked_at": "2026-11-17T03:32:59.587740+00:00",
+    "http_status": 200,
+    "final_url": "https://sxwjw.shaanxi.gov.cn/",
+    "status": "homepage_read",
+    "title": "陕西省卫生健康委员会",
+    "bytes": 69555,
+    "column_candidates": [
+      {
+        "label": "政府信息公开",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zcjd/"
+      },
+      {
+        "label": "行政规范性文件",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/xzgfxwj/"
+      },
+      {
+        "label": "《关于加强医院法治建设的意见》政策解读",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zcjd/t_3673912.html"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zfxxgkzn/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zfxxgkzd/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zfxxgknb/"
+      }
+    ]
+  },
+  {
+    "region": "SD",
+    "name": "山东",
+    "url": "https://wsjkw.shandong.gov.cn/",
+    "checked_at": "2026-11-17T03:32:55.143934+00:00",
+    "status": "error",
+    "error": "ConnectTimeout:timed out"
+  }
+]

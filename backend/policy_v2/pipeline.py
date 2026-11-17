@@ -6,12 +6,14 @@ from datetime import datetime, timezone
 from sqlalchemy import select
 
 from .db import transaction
+from .domains import DomainBusy
 from .enrichment import classify, tokens
 from .extraction import extract
 from .models import Document, RawObject, Revision, Snapshot, Source, Task
 from .network import SafeFetcher
-from .parsing import parse_detail, parse_list, jcms_group
-from .queue import claim, enqueue, finish, defer
+from .parsing import parse_detail
+from .adapters import read_list
+from .queue import claim, enqueue, finish, defer, keep_lease, assert_ownership, TaskLeaseLost
 from .source_health import cooldown_until, record_failure, record_success
 from .storage import make_store
 
@@ -32,16 +34,24 @@ def discover(factory, source_id):
     bucket = int(time.time() // max(60, spec["interval"]))
     key = "list:" + hashlib.sha256(f"{source_id}:{url}:{bucket}".encode()).hexdigest()
     with transaction(factory) as db:
+        existed=db.scalar(select(Task.id).where(Task.key==key))
         task = enqueue(db, "list", key, {"source_id": source_id, "url": url, "page_number": 1, "bucket": bucket})
-        return int(task is not None)
+        if existed is None:
+            db.get(Source,source_id).last_scheduled=time.time()
+        return int(task is not None and existed is None)
 
 
 def process_one(factory, settings, worker="worker", fetcher=None):
     task = claim(factory, settings.task_lease_seconds)
     if not task:
         return False
+    with keep_lease(factory,task,settings.task_lease_seconds):
+        return _process_claimed(factory,settings,task,fetcher)
+
+
+def _process_claimed(factory, settings, task, fetcher):
     owned_fetcher = fetcher is None
-    fetcher = fetcher or SafeFetcher(settings)
+    fetcher = fetcher or SafeFetcher(settings, factory)
     try:
         with factory() as db:
             source = db.get(Source, task["payload"].get("source_id"))
@@ -64,10 +74,11 @@ def process_one(factory, settings, worker="worker", fetcher=None):
                 spec = {"id": source.id, "kind": source.kind, "name": source.name,
                         "region": source.region, "config": config}
             data, mime, final_url = fetcher.get(url, config["hosts"], page_kind="list", config=config)
-            items, next_url = parse_list(data, final_url, config)
-            listing_audit = jcms_group(data, final_url, config)[2] if config.get('adapter') == 'jcms' else None
+            listing = read_list(data, final_url, config)
+            items, next_url, listing_audit = listing.items, listing.next_url, listing.audit
             stored = store.put(data, mime)
             with transaction(factory) as db:
+                assert_ownership(db,task)
                 raw = db.get(RawObject, stored["sha"])
                 if not raw:
                     db.add(RawObject(**stored))
@@ -82,7 +93,7 @@ def process_one(factory, settings, worker="worker", fetcher=None):
                             {"source_id": source_id, "item": item, "snapshot_id": snap.id})
                 page_number = int(task["payload"].get("page_number", 1))
                 bucket = task["payload"].get("bucket", int(time.time() // max(60, int(config.get("interval_seconds", 21600)))))
-                max_pages = min(3, max(1, int(config.get("max_pages", 1))))
+                max_pages = min(100, max(1, int(config.get("max_pages", 3))))
                 if next_url and page_number < max_pages:
                     next_key = "list:" + hashlib.sha256(f"{source_id}:{next_url}:{bucket}".encode()).hexdigest()
                     enqueue(db, "list", next_key, {"source_id": source_id, "url": next_url,
@@ -99,6 +110,7 @@ def process_one(factory, settings, worker="worker", fetcher=None):
             parsed = parse_detail(data, final_url, item, type("RegisteredSource", (), spec)())
             stored = store.put(data, mime)
             with transaction(factory) as db:
+                assert_ownership(db,task)
                 raw = db.get(RawObject, stored["sha"])
                 if not raw: db.add(RawObject(**stored))
                 snap = Snapshot(source_id=spec["id"], url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx")); db.add(snap); db.flush()
@@ -117,6 +129,7 @@ def process_one(factory, settings, worker="worker", fetcher=None):
                         search_tokens=tokens(" ".join([parsed["title"], parsed["body"]])))
                     db.add(rev); db.flush(); doc.current_revision=rev.id; doc.status="ready" if parsed["kind"]!='excluded' else "excluded"
                     for attachment in parsed["attachments"]:
+                        if attachment['status'] != 'pending': continue
                         enqueue(db, "attachment", "attachment:" + hashlib.sha256((str(rev.id) + attachment["url"]).encode()).hexdigest(),
                                 {"revision_id": rev.id, "url": attachment["url"], "source_id": spec["id"]})
                 doc.updated=datetime.now(timezone.utc).timestamp()
@@ -126,10 +139,11 @@ def process_one(factory, settings, worker="worker", fetcher=None):
             with factory() as db:
                 source = db.get(Source, payload["source_id"])
                 allowed_hosts = list(source.config["hosts"])
-            data, mime, final_url = fetcher.get(payload["url"], allowed_hosts, page_kind="attachment")
+            data, mime, final_url = fetcher.get(payload["url"], allowed_hosts, page_kind="attachment", config=source.config)
             metadata = store.put(data, mime)
             blocks, status = extract(data, final_url)
             with transaction(factory) as db:
+                assert_ownership(db,task)
                 raw = db.get(RawObject, metadata["sha"])
                 if not raw: db.add(RawObject(**metadata))
                 revision = db.get(Revision, payload["revision_id"])
@@ -143,6 +157,10 @@ def process_one(factory, settings, worker="worker", fetcher=None):
         else:
             raise ValueError("unknown_task_kind")
         record_success(factory, task["payload"].get("source_id"))
+    except DomainBusy as exc:
+        defer(factory, task, exc.until)
+    except TaskLeaseLost:
+        pass  # A replacement worker owns the task; do not write or finish its work.
     except Exception as exc:
         until = record_failure(factory, task["payload"].get("source_id"), exc, settings)
         finish(factory, task, f"{type(exc).__name__}:{exc}"[:1000], settings.task_max_attempts, retry_at=until)

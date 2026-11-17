@@ -3,6 +3,14 @@ from sqlalchemy import Column, Integer, String, Text, Boolean, JSON, ForeignKey,
 from .db import Base
 
 def now(): return datetime.now(timezone.utc).timestamp()
+class DomainState(Base):
+    __tablename__='v2_domains'
+    host=Column(String(255),primary_key=True)
+    owner=Column(String(100))
+    lease_until=Column(Float,nullable=False,default=0)
+    next_allowed=Column(Float,nullable=False,default=0)
+    cooldown_until=Column(Float,nullable=False,default=0)
+
 class Source(Base):
     __tablename__='v2_sources'
     id=Column(String(40),primary_key=True)

@@ -1,0 +1,62 @@
+[
+  {
+    "source": "js-policy",
+    "region": "JS",
+    "article": "https://wjw.jiangsu.gov.cn/art/2026/9/30/art_81326_11836965.html",
+    "url": "https://wjw.jiangsu.gov.cn/module/download/downfile.jsp?classid=0&filename=418bc6508e57453fb7435ebfe73d99e7.docx",
+    "checked_at": "2026-11-17T04:17:50.652348+00:00",
+    "status": "error",
+    "error": "FetchError:attachment_returned_html"
+  },
+  {
+    "source": "jx-policy",
+    "region": "JX",
+    "article": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2117909933027033088.html",
+    "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2117909933027033088/uc4JBhge.pdf",
+    "checked_at": "2026-11-17T04:17:50.652614+00:00",
+    "status": "stored",
+    "extraction": "ready",
+    "bytes": 203890,
+    "sha256": "d7294e1e561552d27c93c1fe30ca21dcdc867292b779a17a4d99a5cd0dadc62b",
+    "object_key": "raw/d7/d7294e1e561552d27c93c1fe30ca21dcdc867292b779a17a4d99a5cd0dadc62b",
+    "blocks": 8,
+    "mime": "application/pdf"
+  },
+  {
+    "source": "gs-interpretation",
+    "region": "GS",
+    "article": "https://wsjk.gansu.gov.cn/wsjk/c113462/202607/174371500.shtml",
+    "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202607/174371500/files/d3feb35ab8ca40a3b4458512a1c5d66f.pdf",
+    "checked_at": "2026-11-17T04:17:50.652551+00:00",
+    "status": "stored",
+    "extraction": "ready",
+    "bytes": 333724,
+    "sha256": "47539cb8b14a85a690634d4aab69014c35731ad7739c0fe4738f851160601303",
+    "object_key": "raw/47/47539cb8b14a85a690634d4aab69014c35731ad7739c0fe4738f851160601303",
+    "blocks": 1,
+    "mime": "application/pdf"
+  },
+  {
+    "source": "gs-interpretation",
+    "region": "GS",
+    "article": "https://wsjk.gansu.gov.cn/wsjk/c113462/202607/174371500.shtml",
+    "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202607/174371500/images/8f824d16b9654630b2740a96937bc169.gif",
+    "checked_at": "2026-11-17T04:17:56.864753+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 914,
+    "sha256": "498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
+    "object_key": "raw/49/498d011878d09854e1dfa346929481e69214486014c34fc222dc53212627256b",
+    "blocks": 0,
+    "mime": "image/gif"
+  },
+  {
+    "source": "zj-policy",
+    "region": "ZJ",
+    "article": "https://wsjkw.zj.gov.cn/col/col1229123408/art/2026/art_fc69b74a0e2e41f1a9f228e1a4126fc9.html",
+    "url": "https://wsjkw.zj.gov.cn/api-gateway/jpaas-web-server/front/document/download?fileUrl=YW5UzzlvCwcM%2FNHHX%2FtT6EQwPlKUX1Y%2FQztShFhjP35NhNFgX4XL%2Fji4hwcQxCPZAWSqNB9a4qNFedKGJZR301q6uODqc8A9pMML4jUgp002JiiG6GUTwXlIDr3Ui%2FnsJYurr1EV3vT3QeN6rCgKJmsgziH2FQgvTRQFcXo0aw8%3D&fileName=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8D%AB%E7%94%9F%E5%81%A5%E5%BA%B7%E5%A7%94%E3%80%80%E6%B5%99%E6%B1%9F%E7%9C%81%E4%B8%AD%E5%8C%BB%E8%8D%AF%E7%AE%A1%E7%90%86%E5%B1%80%E3%80%80%E6%B5%99%E6%B1%9F%E7%9C%81%E7%96%BE%E7%97%85%E9%A2%84%E9%98%B2%E6%8E%A7%E5%88%B6%E5%B1%80%E5%85%B3%E4%BA%8E%E3%80%8A%E5%8D%B0%E5%8F%91%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8C%BB%E7%96%97%E5%8D%AB%E7%94%9F%E6%9C%BA%E6%9E%84%E5%AF%B9%E5%A4%96%E6%95%B0%E6%8D%AE%E5%90%88%E4%BD%9C%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%28%E8%AF%95%E8%A1%8C%29%E3%80%8B%E7%9A%84%E9%80%9A%E7%9F%A5.pdf",
+    "checked_at": "2026-11-17T04:17:50.652445+00:00",
+    "status": "error",
+    "error": "FetchError:url_not_allowed"
+  }
+]

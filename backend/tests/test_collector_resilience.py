@@ -136,8 +136,8 @@ def test_hunan_tls_keeps_verification_and_is_host_scoped(monkeypatch):
         def close(self): pass
     monkeypatch.setattr(network.httpx, 'Client', Client)
     with SafeFetcher(Settings()) as fetcher:
-        hn = fetcher._http_client('wjw.hunan.gov.cn')
-        assert hn is fetcher._http_client('wjw.hunan.gov.cn')
+        hn = fetcher._http_client('wjw.hunan.gov.cn', {'tls_curve':'prime256v1'})
+        assert hn is fetcher._http_client('wjw.hunan.gov.cn', {'tls_curve':'prime256v1'})
         assert hn is not fetcher._http_client('wjw.jiangsu.gov.cn')
     assert len(contexts) == 2
     assert all(c.verify_mode == ssl.CERT_REQUIRED and c.check_hostname for c in contexts)

@@ -1,5 +1,7 @@
 import random
 import uuid
+from contextlib import contextmanager
+from threading import Event, Thread
 from sqlalchemy import select,or_,and_,update
 from sqlalchemy.exc import IntegrityError
 from .models import Task,Attempt,now
@@ -30,6 +32,28 @@ def claim(factory,lease_seconds=300,clock=None):
 def heartbeat(factory,task,lease):
     with transaction(factory) as db:
         return db.execute(update(Task).where(Task.id==task['id'],Task.owner==task['owner'],Task.state=='running').values(lease_until=now()+lease)).rowcount==1
+
+
+class TaskLeaseLost(Exception): pass
+
+
+def assert_ownership(db, task):
+    row=db.scalar(select(Task).where(Task.id==task['id']).with_for_update())
+    if not row or row.owner!=task['owner'] or row.state!='running' or row.lease_until<now():
+        raise TaskLeaseLost('task_lease_lost')
+
+
+@contextmanager
+def keep_lease(factory, task, seconds):
+    stop=Event()
+    def renew():
+        while not stop.wait(max(.1,seconds/3)):
+            try:
+                if not heartbeat(factory,task,seconds):return
+            except Exception:return  # The write transaction rechecks ownership before persisting.
+    thread=Thread(target=renew,daemon=True);thread.start()
+    try:yield
+    finally:stop.set();thread.join()
 
 def finish(factory,task,error=None,max_attempts=3,retry_at=0):
     with transaction(factory) as db:

@@ -117,3 +117,13 @@ def test_wechat_login_favorite_and_follow_are_account_scoped(monkeypatch):
         assert client.delete(f"/api/v2/me/favorites/{doc_id}",headers=headers).json()["favorited"] is False
         assert client.get("/api/v2/me/favorites",headers=headers).json()==[]
         assert client.get("/api/v2/me/favorites").status_code==401
+
+
+def test_national_inventory_distinguishes_registration_from_enabled_coverage():
+    with TestClient(app_module.app) as client:
+        result=client.get('/api/v2/source-inventory').json()
+        assert result['region_basis']=='collection_source'
+        assert len(result['provinces'])==31 and len(result['sources'])==64
+        blocked=[s for s in result['sources'] if s['status']=='blocked']
+        assert len(blocked)==8 and all(s['blocker'] for s in blocked)
+        assert len(client.get('/api/v2/regions').json())==32

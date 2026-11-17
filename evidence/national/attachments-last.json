@@ -1,0 +1,58 @@
+[
+  {
+    "source": "zj-policy",
+    "region": "ZJ",
+    "article": "https://wsjkw.zj.gov.cn/col/col1229123408/art/2026/art_fc69b74a0e2e41f1a9f228e1a4126fc9.html",
+    "url": "https://wsjkw.zj.gov.cn/api-gateway/jpaas-web-server/front/document/download?fileUrl=YW5UzzlvCwcM%2FNHHX%2FtT6EQwPlKUX1Y%2FQztShFhjP35NhNFgX4XL%2Fji4hwcQxCPZAWSqNB9a4qNFedKGJZR301q6uODqc8A9pMML4jUgp002JiiG6GUTwXlIDr3Ui%2FnsJYurr1EV3vT3QeN6rCgKJmsgziH2FQgvTRQFcXo0aw8%3D&fileName=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8D%AB%E7%94%9F%E5%81%A5%E5%BA%B7%E5%A7%94%E3%80%80%E6%B5%99%E6%B1%9F%E7%9C%81%E4%B8%AD%E5%8C%BB%E8%8D%AF%E7%AE%A1%E7%90%86%E5%B1%80%E3%80%80%E6%B5%99%E6%B1%9F%E7%9C%81%E7%96%BE%E7%97%85%E9%A2%84%E9%98%B2%E6%8E%A7%E5%88%B6%E5%B1%80%E5%85%B3%E4%BA%8E%E3%80%8A%E5%8D%B0%E5%8F%91%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8C%BB%E7%96%97%E5%8D%AB%E7%94%9F%E6%9C%BA%E6%9E%84%E5%AF%B9%E5%A4%96%E6%95%B0%E6%8D%AE%E5%90%88%E4%BD%9C%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%28%E8%AF%95%E8%A1%8C%29%E3%80%8B%E7%9A%84%E9%80%9A%E7%9F%A5.pdf",
+    "checked_at": "2026-11-17T04:20:50.327501+00:00",
+    "status": "stored",
+    "extraction": "ready",
+    "bytes": 496159,
+    "sha256": "581f92ce28071d2e5133454d96f9828bce9e7b66416627f10fa4feddc664929c",
+    "object_key": "raw/58/581f92ce28071d2e5133454d96f9828bce9e7b66416627f10fa4feddc664929c",
+    "blocks": 8,
+    "mime": "application/pdf"
+  },
+  {
+    "source": "zj-policy",
+    "region": "ZJ",
+    "article": "https://wsjkw.zj.gov.cn/col/col1229123408/art/2025/art_d507f7daaa5d4892bf243d8a5a35ff7c.html",
+    "url": "https://wsjkw.zj.gov.cn/cms_files/filemanager/1515271/picture/202512/S565aba74d71d40c98ea031a079fc3d5b-800.png",
+    "checked_at": "2026-11-17T04:20:53.241522+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 590487,
+    "sha256": "5dc54e4305e107934541c8c36b9b2bf45bf9dbc6c9cac75e75b27c6eb54ed579",
+    "object_key": "raw/5d/5dc54e4305e107934541c8c36b9b2bf45bf9dbc6c9cac75e75b27c6eb54ed579",
+    "blocks": 0,
+    "mime": "image/png"
+  },
+  {
+    "source": "js-policy",
+    "region": "JS",
+    "article": "https://wjw.jiangsu.gov.cn/art/2026/9/30/art_81326_11836965.html",
+    "url": "https://wjw.jiangsu.gov.cn/module/download/downfile.jsp?classid=0&filename=418bc6508e57453fb7435ebfe73d99e7.docx",
+    "checked_at": "2026-11-17T04:20:50.327419+00:00",
+    "status": "stored",
+    "extraction": "ready",
+    "bytes": 29557,
+    "sha256": "2dd5323b0ebdbfeb7f9107fc2db6ddf1bd72f977276682d1c1623ec55b811649",
+    "object_key": "raw/2d/2dd5323b0ebdbfeb7f9107fc2db6ddf1bd72f977276682d1c1623ec55b811649",
+    "blocks": 8,
+    "mime": "application/zip"
+  },
+  {
+    "source": "js-interpretation",
+    "region": "JS",
+    "article": "https://wjw.jiangsu.gov.cn/art/2025/2/21/art_7292_11496703.html",
+    "url": "https://wjw.jiangsu.gov.cn/picture/0/5d4fb47e270c4ea0ada66366cbcf8b14.jpg",
+    "checked_at": "2026-11-17T04:20:54.023430+00:00",
+    "status": "stored",
+    "extraction": "needs_ocr",
+    "bytes": 3090080,
+    "sha256": "02767b4282171b49e5d4ea7f2e618d504dc52f7728c29bab7b40e913ea213bf2",
+    "object_key": "raw/02/02767b4282171b49e5d4ea7f2e618d504dc52f7728c29bab7b40e913ea213bf2",
+    "blocks": 0,
+    "mime": "image/jpeg"
+  }
+]

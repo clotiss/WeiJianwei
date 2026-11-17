@@ -2,10 +2,13 @@
 from io import BytesIO
 from pathlib import PurePosixPath
 import zipfile
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
 
 def extract(data,url):
     ext=PurePosixPath(urlsplit(url).path).suffix.lower()
+    query={k.lower():v for k,v in parse_qs(urlsplit(url).query).items()}
+    if ext not in ('.pdf','.docx','.xlsx','.png','.jpg','.jpeg','.gif','.webp'):
+        ext=PurePosixPath(query.get('filename',[''])[0]).suffix.lower() or ext
     if ext in ('.docx','.xlsx'):
         with zipfile.ZipFile(BytesIO(data)) as z:
             if sum(x.file_size for x in z.infolist())>100*1024*1024:raise ValueError('expanded_archive_too_large')

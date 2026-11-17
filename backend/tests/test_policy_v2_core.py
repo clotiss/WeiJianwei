@@ -144,7 +144,7 @@ def test_worker_processes_registered_list_and_detail_into_versioned_document(tmp
     detail = '''<html><head><meta name="PubDate" content="2026-10-10"></head><body><article id="article">
     <p>This is an official policy text that is long enough to be retained as a usable document body.</p></article></body></html>'''.encode()
     class FakeFetcher:
-        def __init__(self, settings): pass
+        def __init__(self, settings, factory=None): pass
         def get(self, url, hosts, **kwargs): return (listing if url.endswith('index.html') else detail, 'text/html', url)
     monkeypatch.setattr(pipeline, "SafeFetcher", FakeFetcher)
     settings = Settings(object_root=tmp_path / "objects", task_lease_seconds=30, task_max_attempts=2)
@@ -239,7 +239,7 @@ def test_fetcher_uses_firefox_directly_for_nhc_html(monkeypatch):
     fetcher = SafeFetcher(Settings(domain_delay_seconds=0))
     monkeypatch.setattr(fetcher, "validate", lambda url, hosts: "www.nhc.gov.cn")
     monkeypatch.setattr(fetcher, "_get_firefox", lambda url, hosts, *args: (b"rendered", "text/html", url))
-    assert fetcher.get("https://www.nhc.gov.cn/policies.shtml", ["www.nhc.gov.cn"]) == (
+    assert fetcher.get("https://www.nhc.gov.cn/policies.shtml", ["www.nhc.gov.cn"], config={"transport":"firefox"}) == (
         b"rendered", "text/html", "https://www.nhc.gov.cn/policies.shtml"
     )
 

@@ -1,0 +1,436 @@
+[
+  {
+    "region": "BJ",
+    "name": "北京",
+    "organization": "北京市卫生健康委员会",
+    "homepage": "https://wjw.beijing.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 1,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "bj-policy",
+      "bj-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "TJ",
+    "name": "天津",
+    "organization": "天津市卫生健康委员会",
+    "homepage": "https://wsjk.tj.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 1,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "tj-policy",
+      "tj-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HE",
+    "name": "河北",
+    "organization": "河北省卫生健康委员会",
+    "homepage": "https://wsjkw.hebei.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 1,
+    "inventory_status": "blocked",
+    "columns": [
+      "he-policy",
+      "he-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "SX",
+    "name": "山西",
+    "organization": "山西省卫生健康委员会",
+    "homepage": "https://wjw.shanxi.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 1,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "sx-policy",
+      "sx-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "NM",
+    "name": "内蒙古",
+    "organization": "内蒙古自治区卫生健康委员会",
+    "homepage": "https://wjw.nmg.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 1,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "nm-policy",
+      "nm-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "LN",
+    "name": "辽宁",
+    "organization": "辽宁省卫生健康委员会",
+    "homepage": "https://wsjk.ln.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 2,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "ln-interpretation",
+      "ln-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "JL",
+    "name": "吉林",
+    "organization": "吉林省卫生健康委员会",
+    "homepage": "https://wsjkw.jl.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 2,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "jl-policy",
+      "jl-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HLJ",
+    "name": "黑龙江",
+    "organization": "黑龙江省卫生健康委员会",
+    "homepage": "https://wsjkw.hlj.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 2,
+    "inventory_status": "blocked",
+    "columns": [
+      "hlj-policy",
+      "hlj-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "SH",
+    "name": "上海",
+    "organization": "上海市卫生健康委员会",
+    "homepage": "https://wsjkw.sh.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 2,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "sh-interpretation",
+      "sh-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "JS",
+    "name": "江苏",
+    "organization": "江苏省卫生健康委员会",
+    "homepage": "https://wjw.jiangsu.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 2,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "js-policy",
+      "js-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "ZJ",
+    "name": "浙江",
+    "organization": "浙江省卫生健康委员会",
+    "homepage": "https://wsjkw.zj.gov.cn/",
+    "directory_evidence": "https://wsjkw.zj.gov.cn/",
+    "batch": 3,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "zj-policy",
+      "zj-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "AH",
+    "name": "安徽",
+    "organization": "安徽省卫生健康委员会",
+    "homepage": "https://wjw.ah.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 3,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "ah-policy",
+      "ah-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "FJ",
+    "name": "福建",
+    "organization": "福建省卫生健康委员会",
+    "homepage": "https://wjw.fujian.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 3,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "fj-interpretation",
+      "fj-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "JX",
+    "name": "江西",
+    "organization": "江西省卫生健康委员会",
+    "homepage": "https://hc.jiangxi.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 3,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "jx-policy",
+      "jx-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "SD",
+    "name": "山东",
+    "organization": "山东省卫生健康委员会",
+    "homepage": "https://wsjkw.shandong.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 3,
+    "inventory_status": "blocked",
+    "columns": [
+      "sd-policy",
+      "sd-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HA",
+    "name": "河南",
+    "organization": "河南省卫生健康委员会",
+    "homepage": "https://wsjkw.henan.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 4,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "ha-policy",
+      "ha-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HB",
+    "name": "湖北",
+    "organization": "湖北省卫生健康委员会",
+    "homepage": "https://wjw.hubei.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 4,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "hb-interpretation",
+      "hb-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HN",
+    "name": "湖南",
+    "organization": "湖南省卫生健康委员会",
+    "homepage": "https://wjw.hunan.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/",
+    "batch": 4,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "hn-policy",
+      "hn-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "GD",
+    "name": "广东",
+    "organization": "广东省卫生健康委员会",
+    "homepage": "https://wsjkw.gd.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 4,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "gd-policy",
+      "gd-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "GX",
+    "name": "广西",
+    "organization": "广西壮族自治区卫生健康委员会",
+    "homepage": "https://wsjkw.gxzf.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 4,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "gx-policy",
+      "gx-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "HI",
+    "name": "海南",
+    "organization": "海南省卫生健康委员会",
+    "homepage": "https://wst.hainan.gov.cn/",
+    "directory_evidence": "https://wst.hainan.gov.cn/swjw/xxgk/0100/index_m.html",
+    "batch": 5,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "hi-interpretation",
+      "hi-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "CQ",
+    "name": "重庆",
+    "organization": "重庆市卫生健康委员会",
+    "homepage": "https://wsjkw.cq.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 5,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "cq-policy",
+      "cq-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "SC",
+    "name": "四川",
+    "organization": "四川省卫生健康委员会",
+    "homepage": "https://wsjkw.sc.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 5,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "sc-policy",
+      "sc-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "GZ",
+    "name": "贵州",
+    "organization": "贵州省卫生健康委员会",
+    "homepage": "https://wjw.guizhou.gov.cn/",
+    "directory_evidence": "https://wjw.guizhou.gov.cn/ztzl_500663/wzgzndbb/202501/P020250108372626512505.pdf",
+    "batch": 5,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "gz-interpretation",
+      "gz-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "YN",
+    "name": "云南",
+    "organization": "云南省卫生健康委员会",
+    "homepage": "https://ynswsjkw.yn.gov.cn/",
+    "directory_evidence": "https://www.yn.gov.cn/bsfw/ztfw/yljk/",
+    "batch": 5,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "yn-policy",
+      "yn-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "XZ",
+    "name": "西藏",
+    "organization": "西藏自治区卫生健康委员会",
+    "homepage": "https://wjw.xizang.gov.cn/",
+    "directory_evidence": "https://www.xizang.gov.cn/zwgk/zdxxlygk/czyjsgk/202602/t20260209_523847.html",
+    "batch": 6,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "xz-policy",
+      "xz-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "SN",
+    "name": "陕西",
+    "organization": "陕西省卫生健康委员会",
+    "homepage": "https://sxwjw.shaanxi.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 6,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "sn-policy",
+      "sn-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "GS",
+    "name": "甘肃",
+    "organization": "甘肃省卫生健康委员会",
+    "homepage": "https://wsjk.gansu.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 6,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "gs-interpretation",
+      "gs-policy"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "QH",
+    "name": "青海",
+    "organization": "青海省卫生健康委员会",
+    "homepage": "https://wsjkw.qinghai.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 6,
+    "inventory_status": "blocked",
+    "columns": [
+      "qh-policy",
+      "qh-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "NX",
+    "name": "宁夏",
+    "organization": "宁夏回族自治区卫生健康委员会",
+    "homepage": "https://wsjkw.nx.gov.cn",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 6,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "nx-policy",
+      "nx-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  },
+  {
+    "region": "XJ",
+    "name": "新疆",
+    "organization": "新疆维吾尔自治区卫生健康委员会",
+    "homepage": "https://wjw.xinjiang.gov.cn/",
+    "directory_evidence": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "batch": 7,
+    "inventory_status": "sample_pass",
+    "columns": [
+      "xj-policy",
+      "xj-interpretation"
+    ],
+    "scope": "省级卫健委官网政策与解读栏目；地区表示采集站点归属，不推定原发机关。"
+  }
+]

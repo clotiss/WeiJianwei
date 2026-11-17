@@ -1,0 +1,3401 @@
+[
+  {
+    "id": "sc-policy",
+    "region": "SC",
+    "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new.shtml",
+    "checked_at": "2026-11-17T03:56:24.347565+00:00",
+    "lists": [
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new.shtml",
+        "count": 8,
+        "audit": {
+          "dated_records": 8,
+          "returned_records": 8,
+          "eligible_records": 8,
+          "link_origins": {
+            "wsjkw.sc.gov.cn": 8
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new_2.shtml",
+        "cached": true,
+        "path": ".runtime/national/pages/sc-extra-6.html",
+        "sha256": "71ff6637d1adb54e1e05bd0a7b00c9d7d0464a809b60659dfde71155b715ce81"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new_2.shtml",
+        "count": 8,
+        "audit": {
+          "dated_records": 8,
+          "returned_records": 8,
+          "eligible_records": 8,
+          "link_origins": {
+            "wsjkw.sc.gov.cn": 8
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new_3.shtml",
+        "cached": false,
+        "path": ".runtime/national/trials/058f8cf3a8862e1ec8d643a0fd14bd6edeb42146cfcae7693f07fd20879e06cb.html",
+        "sha256": "ca0326c51007de7c00e49cc2486f40ca8fc45bedb4376202d5b470e0eed960ab"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/10/23/674c3fd8c0e3453e8545f7e6e83749a4.shtml",
+        "list_title": "重庆市疾病预防控制局 四川省疾病预防控制局关于印发《川渝疾病预防控制领域轻微或首次违法行为不予行政处罚事项管理办法》等文件的通知",
+        "path": ".runtime/national/trials/3c9b61602f3ac99300eef01696f99ef461f4896515a70cf503c3d2fc55d155a9.html",
+        "sha256": "14159a0fb41a1a5781999bb8f8a418544fd99bbf30d23f67adc7445d894084b0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/10/30/c26c7c8e25be4dbb8f473c0d54ef4a1f.shtml",
+        "list_title": "四川省卫生健康委员会 四川省财政厅 四川省药品监督管理局关于印发《四川省1类创新药临床试验财政专项补助实施方案》的通知",
+        "path": ".runtime/national/trials/0e1da02a2defc991f58953f31961b234595c86b2f32a6b5a500109a15b1e3b5a.html",
+        "sha256": "ddc5953252169d72d4705b01246b7b6fa6579492a32b92e520169219c631a3d9",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/9/2/93a57aab41ed4df3a34a1f3de49c1f12.shtml",
+        "list_title": "关于加强现制现售饮用水部门联合监督管理的通知",
+        "path": ".runtime/national/trials/026cfb9159365e07df794684ac345f64b84888c182df06c47a61359630b59865.html",
+        "sha256": "c3ca0e4f975307520c2a5b6c78f7e797d197d85d0afa6d80d67343bf9b1d0dc2",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/8/13/268723705cab4a66918494b8ac3036cb.shtml",
+        "list_title": "关于印发《四川省地方病控制和消除实施方案(2026—2030年)》的通知",
+        "path": ".runtime/national/trials/56d76cb848d0f0b2974f8e268e00abe66a19c3f747e2fe235fce35660a211548.html",
+        "sha256": "ed88d34a7b3f4030f37f1fe68655c29489e1952041ebc4e6cef083ebe61a8571",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/4/14/16ac20852a744564b6252a13550a32ff.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省食品安全地方标准管理办法》的通知",
+        "path": ".runtime/national/trials/31d1b759267dc27a1bb73a3901d54bbf67cae65565a6a065e35ceb684cadfec3.html",
+        "sha256": "9de43f771ca599c657486c94b2d4f128a4583b0f0709ae2fe023c7808457c6fa",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/3/13/d826761ea8d24a6cbc65eae2036cb070.shtml",
+        "list_title": "关于印发四川省人体捐献器官获取收费和财务管理办法实施细则的通知",
+        "path": ".runtime/national/trials/b261404340df253d57bfa44630a36e391223c47e7ea03577474b7c0ecedd2a44.html",
+        "sha256": "36dd5a981ca3d2a088da8801f9ec4e2c0ac116d078f560bb08ecea006a24ea1c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2026/2/5/006fda7058eb452b8c620aefb62995d8.shtml",
+        "list_title": "关于印发《四川省护士执业注册实施细则》的通知",
+        "path": ".runtime/national/trials/1eedcb9a94e00013a45d0c2f6ad4423926d88b8713f279ec0b0f13efbe43a363.html",
+        "sha256": "65c6f1d85103d923d72b072b701000be9b5145b0c87f66fc6d86d4bef55f71ad",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2025/8/15/dd64aa6c91f844c486cd84318817ee15.shtml",
+        "list_title": "四川省卫生健康委员会 四川省中医药管理局 四川省疾病预防控制局 关于印发《四川省卫生健康行政处罚裁量权基准实施规则》的通知",
+        "path": ".runtime/national/trials/ba684604564340fefd58004312bed9ad0f0895ac512d99727c1bbabce5b4fe43.html",
+        "sha256": "56dba47ad0daff34d6a9598cdb97d84c71779920dc5b04b42877f49068e2a770",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2025/7/30/1b32469426ec49099d35baeb4b76fe7c.shtml",
+        "list_title": "关于印发《四川省普惠托育服务机构认定及补助管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/60b71aa6499303244445cf49a478577ee99e8d994f1ba53ae8644c17e213e0a9.html",
+        "sha256": "041d4bbdc381f7c2a6a30e1fe982ccc441d5ac3d64f4a13b15b80cbbfba83130",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2025/5/13/a82d5b8c776b4941bed18100a74ad65e.shtml",
+        "list_title": "关于印发《四川省公共场所卫生许可告知承诺管理办法(2025 年版)》的通知",
+        "path": ".runtime/national/trials/cec19f8020b08fe3b4cefe7bc6e582cf45d3cbc25189337addfab1932856b8c6.html",
+        "sha256": "2250f416b392118a55a53a26902bd26c05721c143a271641152b3cbcd5654b19",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2025/1/10/6f8b0242cf8f4534a2d063d4f970d3ad.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省住院医师规范化培训管理办法》的通知",
+        "path": ".runtime/national/trials/30e2b5c4b84e19ee75e60123b469948fbcb2f7a3ef976b2eca36b96b620a01f4.html",
+        "sha256": "aa26d14672bc2f4742f27f961a14c5d1f73c696e0b80788d709dde35ac9b8e45",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2025/1/9/7cfe24e83d714ac1b018e20a0412dba1.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省卫生健康委员会委管社会组织管理办法》的通知",
+        "path": ".runtime/national/trials/34fd6c20bbccc7c80279e1ec9ca5f3236c33db97ecfe88611b619cabeeeb7bca.html",
+        "sha256": "0b9d9ce3668e06240f30dc8a5ee03108dcc1a2e97b11129359bfbb9a0ca194d5",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2024/11/22/3b5e199ba0974cb78a1fc30f7c67acc9.shtml",
+        "list_title": "四川省卫生健康委员会 四川省中医药管理局 四川省疾病预防控制局关于印发《四川省卫生健康监督执法“双随机、一公开”抽查工作细则》的通知",
+        "path": ".runtime/national/trials/83ea0240cd833b8aec2cdafd37ee26dbf52d4a8d757e9b98c10ae1d8ede20b39.html",
+        "sha256": "097f1caaf87d84d9bbce9d746e25e69822eda57c3593e29d2313a222f0d6f593",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2024/11/13/2bee40a82128433989b5655bedf657a0.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省卫生健康委员会医学重点实验室管理办法》的通知",
+        "path": ".runtime/national/trials/089044394a0e384ffd0d2daff40c7c073f2a6cf27f42ca0a1b0bb3b3971b1512.html",
+        "sha256": "496d876799bd7e192764c3143c14d4318790dab59bd7ece2f55546364f8a0a6a",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2024/11/13/362d60ff445e4a4bae844ab2fb06e56e.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省卫生健康委员会医学科技项目管理办法》的通知",
+        "path": ".runtime/national/trials/71ae1e613a9ddf3619905d31e5f91fcf563f6c822d0ac5f26b76f0530bae112b.html",
+        "sha256": "fd96fabd474d19634f3b4f574af20eb4bf578e67ca15d6b9c6fd8bb806b6c3ed",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/2024/1/2/83869d4a20a84b848a453e78a021ea10.shtml",
+        "list_title": "四川省卫生健康委员会关于印发《四川省妇幼保健机构评审实施办法(2023年版)》的通知",
+        "path": ".runtime/national/trials/7b08a7e457039097ec623c87f586a28144d24495c84edf37c187c99dec43dde6.html",
+        "sha256": "37415440a340a4b64f804dc8825cc90a3b15bb7b5b13beaab09c10b260496e1c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 16,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "fj-policy",
+    "region": "FJ",
+    "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/",
+    "checked_at": "2026-11-17T03:56:24.347913+00:00",
+    "lists": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/",
+        "count": 70,
+        "audit": {
+          "dated_records": 70,
+          "filtered_non_document": 1,
+          "returned_records": 71,
+          "eligible_records": 70,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 70
+          },
+          "pagination_detected": false,
+          "complete_listing": null
+        },
+        "next_url": null,
+        "cached": true,
+        "path": ".runtime/national/pages/fj-extra-9.html",
+        "sha256": "d9fc74a40658efdeacc1f757aa2103761e411f3fe4812b8160db372db1ce8beb"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243687.htm",
+        "list_title": "福建省卫生健康委员会关于公布部分三级医院评审结果的通知",
+        "path": ".runtime/national/trials/caea97d2d0b65a1adeacc45bb941beeb2614438f5f995cf6445f9a8fe9515cb3.html",
+        "sha256": "bbf9fb5d816c48800a51044e95f349a1363ccd8a73ecb13992be2a8b42310d90",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布部分三级医院评审结果的通知",
+        "published": "2026-11-02",
+        "body_chars": 281,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243686.htm",
+        "list_title": "福建省卫生健康委员会关于发布福建省《食品安全地方标准 白凤菜》(DBS35/012-2026)的通告",
+        "path": ".runtime/national/trials/23b8b5d509f42d204a721d162c04567231d694de0e63683c084badb6b53b0f67.html",
+        "sha256": "b9f970f924974158665ba2d4727dbea209f09fe62cbd001b19f391f526929f08",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于发布福建省《食品安全地方标准 白凤菜》(DBS35/012-2026)的通告",
+        "published": "2026-11-02",
+        "body_chars": 115,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243685.htm",
+        "list_title": "福建省卫生健康委员会关于公布第二轮“人工智能+医疗卫生”应用场景创新项目入围名单的通知",
+        "path": ".runtime/national/trials/dc9a2b2678f7a7735bf5edf5bfef4156ea36fe4e8567236f807e51f36ffd21bb.html",
+        "sha256": "d24611a54365172a69bb7d449beab53f634165fa97bbdaaf39ebadc03625d398",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布第二轮“人工智能+医疗卫生”应用场景创新项目入围名单的通知",
+        "published": "2026-10-30",
+        "body_chars": 853,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261103_7243995.htm",
+        "list_title": "福建省中医药管理局关于公布第五届全国说医解药科普大赛福建分赛区获奖名单的通知",
+        "path": ".runtime/national/trials/3663799c74343fca1c14be518a250fcab8552b052a1bf45b433c8736ae8b6d0d.html",
+        "sha256": "dbb94926f42da65826afa2facabd751960f8dd78a5833a03dac42a66d0cfb226",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省中医药管理局关于公布第五届全国说医解药科普大赛福建分赛区获奖名单的通知",
+        "published": "2026-10-30",
+        "body_chars": 471,
+        "authority": "福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243684.htm",
+        "list_title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于印发《福建省临床医学研究专业职称评审实施办法(试行)》的通知",
+        "path": ".runtime/national/trials/2993c2c88375d67cd5b1019a7f64342a01b7f1a469a168fe0c26bd0b9312e7b0.html",
+        "sha256": "b3bf85ea9a12028d84eec7ea215bdd671092c388977a1b699bfb61d971fd1f5c",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于印发《福建省临床医学研究专业职称评审实施办法(试行)》的通知",
+        "published": "2026-10-27",
+        "body_chars": 6242,
+        "authority": "福建省卫生健康委员会、福建省人力资源和社会保障厅",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261026_7240705.htm",
+        "list_title": "福建省卫生健康委员会等十三部门关于印发《福建省提升中药质量促进中医药产业高质量发展的若干措施》的通知",
+        "path": ".runtime/national/trials/7f2b67aaa2ae377394f1932c567bf2de1d1fd68693fcf9d8ac0183c1b89e551b.html",
+        "sha256": "21e6f71f4267f2fa832fa50a50940308368afcd1009ac06ab350b8597abc2cfd",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会等十三部门关于印发《福建省提升中药质量促进中医药产业高质量发展的若干措施》的通知",
+        "published": "2026-10-26",
+        "body_chars": 4370,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261015_7226151.htm",
+        "list_title": "福建省卫生健康委员会关于征求《食品安全地方标准 福州鱼丸生产卫生规范(征求意见稿)》意见的函",
+        "path": ".runtime/national/trials/b9a32f5027af991983f41cf1d109ef2a20a235d6e384bb6f634e388d75317e2a.html",
+        "sha256": "8788dc6d59eea49399e06671b98c0fc67519f0a2085236ba0fb5dbe3b1c9256a",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于征求《食品安全地方标准 福州鱼丸生产卫生规范(征求意见稿)》意见的函",
+        "published": "2026-10-15",
+        "body_chars": 415,
+        "authority": "福建省卫生健康委员会",
+        "kind": "excluded",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261015_7226150.htm",
+        "list_title": "福建省卫生健康委员会关于公布第八届全国卫生健康系统职业技能竞赛中医药监督、中药调剂、中医诊疗技术操作职业技能竞赛福建省初赛获奖名单及参加全国竞赛名单的通知",
+        "path": ".runtime/national/trials/33cbea153700e1e69b568dbd86c84bba5d4acef800fa933b00803b34038f1def.html",
+        "sha256": "f840b0715208310b51b5c5603ba73230040c97eac675c4340543988790ca9d96",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布第八届全国卫生健康系统职业技能竞赛中医药监督、中药调剂、中医诊疗技术操作职业技能竞赛福建省初赛获奖名单及参加全国竞赛名单的通知",
+        "published": "2026-10-15",
+        "body_chars": 414,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261014_7225306.htm",
+        "list_title": "福建省卫生健康委员会关于做好2026年福建省临床、口腔类别住院医师规范化培训公共科目理论考试的通知",
+        "path": ".runtime/national/trials/9843ed17b02d5e85447209f8264ce9f3cf498258c3eca4055df377a61b8879e8.html",
+        "sha256": "1f465b3de4ea64dc5fb72ce128070cc8a5ff0c1e8ded722496fb1453405781ee",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于做好2026年福建省临床、口腔类别住院医师规范化培训公共科目理论考试的通知",
+        "published": "2026-10-13",
+        "body_chars": 1505,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261013_7224699.htm",
+        "list_title": "福建省卫生健康委员会 福建省总工会关于公布2026年福建省药学职业技能竞赛暨第八届全国卫生健康系统职业技能竞赛药学(药学门诊方向)福建省选拔赛获奖名单的通知",
+        "path": ".runtime/national/trials/b811f64ef8312eff6e5f0df2871ba1d0af0969c50455cf47fe5a42867fc1be48.html",
+        "sha256": "491c18eb09da48e47560c31a63a34d525a08f816b05df227889f031cfe4519b2",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省总工会关于公布2026年福建省药学职业技能竞赛暨第八届全国卫生健康系统职业技能竞赛药学(药学门诊方向)福建省选拔赛获奖名单的通知",
+        "published": "2026-10-12",
+        "body_chars": 267,
+        "authority": "福建省卫生健康委员会、福建省总工会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261013_7224698.htm",
+        "list_title": "福建省卫生健康委员会关于确定2026年福建省西学中培训推广基地的通知",
+        "path": ".runtime/national/trials/85f1fbd7b7f76c38c6f97d991e2272a41d3185c9214e05fc62ef56a0a68dac0c.html",
+        "sha256": "9a8caee0ec143f82f15aa4c966f5b544a239ec71a92cc3b8e68a325e3ea4c748",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于确定2026年福建省西学中培训推广基地的通知",
+        "published": "2026-10-08",
+        "body_chars": 1341,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261008_7222127.htm",
+        "list_title": "福建省卫生健康委员会关于征求《食品安全地方标准 贡丸生产卫生规范(征求意见稿)》意见的函",
+        "path": ".runtime/national/trials/8960053fd96fd28d5148445a55bd9bd90a3375e65e021f11234522caa3a1fbe6.html",
+        "sha256": "abc827bbc0fe8192850e214acbffbb9b91887821b60642aa695a2edec2837f93",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于征求《食品安全地方标准 贡丸生产卫生规范(征求意见稿)》意见的函",
+        "published": "2026-09-30",
+        "body_chars": 382,
+        "authority": "福建省卫生健康委员会",
+        "kind": "excluded",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261008_7222126.htm",
+        "list_title": "福建省卫生健康委员会 福建省中医药管理局关于印发《福建省“十五五”中医药振兴发展规划》的通知",
+        "path": ".runtime/national/trials/190fbee9f00a84e57eb94226ccfe52e70672a386efb2b1ecf74d584a326ed933.html",
+        "sha256": "661d4a45bc993aa340947dde1847129c52fb028b34c6582f103be5f6cf9a9d37",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省中医药管理局关于印发《福建省“十五五”中医药振兴发展规划》的通知",
+        "published": "2026-09-30",
+        "body_chars": 7241,
+        "authority": "福建省卫生健康委员会、福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261020_7238387.htm",
+        "list_title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于公布2026年度全省卫生系列高级专业技术职务实践技能考试合格标准与合格人员名单的通知",
+        "path": ".runtime/national/trials/3199d545e7b45bba8f498364e2c69fe9efbc97d13c6b4ca9c99eac7275652563.html",
+        "sha256": "db86440a5b01cd28262b2bf0f13a3f95d5522925405c6b1b2c59cbdee9dcff56",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于公布2026年度全省卫生系列高级专业技术职务实践技能考试合格标准与合格人员名单的通知",
+        "published": "2026-09-30",
+        "body_chars": 220,
+        "authority": "福建省卫生健康委员会、福建省人力资源和社会保障厅",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260928_7219138.htm",
+        "list_title": "福建省卫生健康委员会关于公布健康知识普及行动—2026年新时代健康科普作品征集活动福建省级优秀作品名单的通知",
+        "path": ".runtime/national/trials/43af04c12243f5646c9eb5f203d55a06a37e4c0969a97ca045251dd597f016df.html",
+        "sha256": "2ef577588a4513d62c9cc3080e5091718b31f3a8fefe9a5feb473399d60cc0b6",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布健康知识普及行动—2026年新时代健康科普作品征集活动福建省级优秀作品名单的通知",
+        "published": "2026-09-24",
+        "body_chars": 2276,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217541.htm",
+        "list_title": "福建省卫生健康委员会关于开展2026年福建省中医药文化周活动的通知",
+        "path": ".runtime/national/trials/ded0d87d4e305e3e8895d9074b6709cb02e01a78ac4b06a1eda5c37d223d323e.html",
+        "sha256": "ee8a3ed4610d14b8cd91a05b118f08f0c41911937da2381ce57e5d3199234300",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于开展2026年福建省中医药文化周活动的通知",
+        "published": "2026-09-23",
+        "body_chars": 1752,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217540.htm",
+        "list_title": "福建省卫生健康委员会关于印发《福建省妇幼保健机构儿童过敏性疾病规范化门诊建设标准(试行)》等3个妇幼保健机构规范化门诊建设标准的通知",
+        "path": ".runtime/national/trials/a2b7d818091cd9d0a81f62b4c84e1752287c581715126632c848de0dcce85710.html",
+        "sha256": "c90d41798107a991dc04a349252b753fdc459d0605e26cbd0cacf88afebbc166",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于印发《福建省妇幼保健机构儿童过敏性疾病规范化门诊建设标准(试行)》等3个妇幼保健机构规范化门诊建设标准的通知",
+        "published": "2026-09-19",
+        "body_chars": 22470,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217539.htm",
+        "list_title": "福建省卫生健康委员会关于开展计划生育扶助制度及托育补助数据抽查复核工作的通知",
+        "path": ".runtime/national/trials/de6fa4ab3dee032f3a3ff04711eb0ec8a6de1f3cfe5cbbe3242ae7957a4a1bde.html",
+        "sha256": "b642ce4ed00fe54eb131a3d57b8079b9d67bdb20baa9059b79cf7f59469bbb70",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于开展计划生育扶助制度及托育补助数据抽查复核工作的通知",
+        "published": "2026-09-18",
+        "body_chars": 1428,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260918_7215634.htm",
+        "list_title": "福建省中医药管理局关于下达2026年度省中医药科技项目资助计划的通知",
+        "path": ".runtime/national/trials/cda5692b35d5649f7d6f10d4ee184b035241e7c16e3deebf1ae62fdea19fba81.html",
+        "sha256": "c11e932cd86eea8bb6d8e9e08f816862297cac288c56cac7c31b036b4537ec94",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省中医药管理局关于下达2026年度省中医药科技项目资助计划的通知",
+        "published": "2026-09-18",
+        "body_chars": 584,
+        "authority": "福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260911_7212472.htm",
+        "list_title": "福建省卫生健康委员会关于公布2026年职业健康专技人员系列考试合格人员名单的通知",
+        "path": ".runtime/national/trials/5b6385fb40828951e34c16d78f9eb7d5602658ea4d9d6781100928d043978faa.html",
+        "sha256": "978b4c7a30beb464a3375f01ca831e9489b91555aa96f7c49859b15fbbfa0d40",
+        "cached": false,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布2026年职业健康专技人员系列考试合格人员名单的通知",
+        "published": "2026-09-07",
+        "body_chars": 376,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      }
+    ],
+    "errors": [],
+    "unique_items": 70,
+    "listing_exhausted": true,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass"
+  },
+  {
+    "id": "cq-interpretation",
+    "region": "CQ",
+    "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/",
+    "checked_at": "2026-11-17T03:56:24.347744+00:00",
+    "lists": [
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/",
+        "count": 15,
+        "audit": {
+          "dated_records": 15,
+          "returned_records": 15,
+          "eligible_records": 15,
+          "link_origins": {
+            "wsjkw.cq.gov.cn": 15
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/index_1.html",
+        "cached": true,
+        "path": ".runtime/national/pages/cq-extra-8.html",
+        "sha256": "87dafc8671b348964fed46f5ac2eaaa5338915a777ef4b3fb7111bbbb1a70b7f"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/index_1.html",
+        "count": 15,
+        "audit": {
+          "dated_records": 15,
+          "returned_records": 15,
+          "eligible_records": 15,
+          "link_origins": {
+            "wsjkw.cq.gov.cn": 15
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/index_2.html",
+        "cached": false,
+        "path": ".runtime/national/trials/5316102ff9f46fa5491152d35256faae0dce0f46be626d3e8b9f2081edae8a47.html",
+        "sha256": "d6da9c6409d0b374edd447d12fe9fd275a6780b424185225558b3860ad4dfe38"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202610/t20261023_16277479.html",
+        "list_title": "《川渝疾病预防控制领域轻微或首次违法行为不予行政处罚事项管理办法》等文件政策解读",
+        "path": ".runtime/national/trials/940e6cbec5a3d521a34f5a8e9ac992f557c39331d3f779434c3879fcd958c6b1.html",
+        "sha256": "703e2c29c4a517ab0cbc873510d1bc1a7fe29c1c6cffbc049e8e166e2063a220",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202610/t20261023_16276853.html",
+        "list_title": "《重庆市医院评审实施细则(2026年版)》政策解读",
+        "path": ".runtime/national/trials/0cef5ff710ff1653a4f7bd9314cd84e92d9f2f71b6ff8f7e9d11f50ce35d18e6.html",
+        "sha256": "9dff1195d744bcaccc7d1156fdecc5c053360d102e3000d0c8a86a9ffb6e0497",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202610/t20261023_16276761.html",
+        "list_title": "《重庆市医疗机构门诊预约诊疗服务管理规范》政策解读",
+        "path": ".runtime/national/trials/aa4bd4054004c53737049a78d4b3e6da26c0f0ea86f214379ed3fd9568986fd8.html",
+        "sha256": "c843a143df4a8c61a5cdc45ab20b52d0cdd8d782e548c09094c4c935c8a0df73",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202609/t20260924_16127950.html",
+        "list_title": "重庆市传染病疫情信息公布管理办法政策解读",
+        "path": ".runtime/national/trials/567c0a47d95fb8fb2721db7fc7489369becc3200016f3d995db7ff4e3570fb00.html",
+        "sha256": "a6f3f797a6e9dd1256ec755f48a1aa5e405ca2455ca4186c103dbf8ab15db18d",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202607/t20260722_15840887.html",
+        "list_title": "政策解读《重庆市托幼机构和中小学校消毒隔离工作技术指南》",
+        "path": ".runtime/national/trials/98650499fcea08a016e67cda59e2e9445c18ffe70009ffd8fcde9956b251463a.html",
+        "sha256": "41591ebb8638c914694dfedc946244b15448101c5048d4443afe24d3cac44a05",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202607/t20260722_15839323.html",
+        "list_title": "政策解读《重庆市公共场所卫生许可告知承诺管理办法》",
+        "path": ".runtime/national/trials/e84b4ad61bec01971b27dc90f722d4a3205161e8bce55f9fbe0d65617aa4adea.html",
+        "sha256": "7a920c4db516463d4bd7d3f7b3b77416afa5dee446f814c7419d817a39cf57a5",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202607/t20260708_15807697.html",
+        "list_title": "政策解读《重庆市中医药科研项目管理办法》",
+        "path": ".runtime/national/trials/e70704a216a1b4354b2d8e9770d7f6e29bee79569f563817f4b55ef248013c84.html",
+        "sha256": "6b1b1e12145cd6cc08780118da8c1603aeb300400796cacd39c7d0e740c81469",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202601/t20260129_15362610.html",
+        "list_title": "政策解读《重庆市非免疫规划疫苗集中采购实施方案》",
+        "path": ".runtime/national/trials/1dd32577a78b11db53a06139a218306cc79ae9fb6b29aa39688bbf5cf3da886d.html",
+        "sha256": "e9749218528f6adba4b986db2834e5f98ecfd514ae7a1271d4ea387096ce4bf0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202601/t20260111_15305282.html",
+        "list_title": "政策解读《重庆市创新医疗器械推广应用项目管理办法(试行)》",
+        "path": ".runtime/national/trials/912fdea2ae5b99d37b5b072f3a1e360ad9a2b8013705d433a808cd6db6ced2a6.html",
+        "sha256": "abe87c6e4bbaec82c860875aa8715aadb68b00398a3371d090d1a5198124f79a",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202512/t20251223_15262850.html",
+        "list_title": "政策解读《重庆市卫生健康行政检查(行政强制)裁量权基准》及适用规则",
+        "path": ".runtime/national/trials/7b0ef8d5b490f72ca01ec0c5264ee10d18625bde41f86f678e046703809aa3f9.html",
+        "sha256": "60f3c04e08abd708df197901373c32c79fbd877cdf2f4e32a9d62fb445504289",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202512/t20251223_15262821.html",
+        "list_title": "政策解读《重庆市卫生健康监督工作实施“三书一函”制度》",
+        "path": ".runtime/national/trials/1bf61c06adc05755c34a952744601ccbb9f4f0e7afd59dfee85713f811d1c4d1.html",
+        "sha256": "7dae5733288388f15917b1d551f7281977711557f7e0d5e16aabe13e0c30a850",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202511/t20251105_15143171.html",
+        "list_title": "政策解读《重庆市中药炮制技术传承基地建设管理办法》及《重庆市中药炮制技术传承基地建设标准》",
+        "path": ".runtime/national/trials/662711b3fc1c8f83e7f11551a2069fc04b7b41895bfd7e081f7a044fa56ad63e.html",
+        "sha256": "de724edeb8b4e6852f93fda84eb0a2bc0e3bfa978414e1852f1c18672a508bfc",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202509/t20250915_15008176.html",
+        "list_title": "政策解读《重庆市非中医类别执业医师学习中医药及开展中医药执业活动管理办法(试行)》",
+        "path": ".runtime/national/trials/e1eea879adaa9880c7becd7f25f2fe0950faedfe150c5e40088d4ede70abcf3b.html",
+        "sha256": "0af5fa5dd3b51ad8f08f9397e3fe8a7e4e07e3befe50e0fdfb65ad786a4ebc65",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202506/t20250627_14754572.html",
+        "list_title": "政策解读《重庆市医疗质量控制中心管理办法》",
+        "path": ".runtime/national/trials/74f9457ea4a71ff94df3dd85ad20da6bf24a27bba947b73867bc06a5f14b29a7.html",
+        "sha256": "b810aad16972c6ddcfc3ae4f02e144fd980148d0fc61160628c9dd82259ba32c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202506/t20250613_14712833.html",
+        "list_title": "政策解读《重庆市卫生健康委员会关于印发重庆市院前急救网络医疗机构管理办法(修订)的通知》",
+        "path": ".runtime/national/trials/7bfc44a2b1e64b54a2a0283c281c4dd221ee03cb7ee205871358ed24a64c5ba2.html",
+        "sha256": "e426b2940203cd2243cc01d3ec264ec93d60df8deefdbceb61723aee01e703bd",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202506/t20250613_14711786.html",
+        "list_title": "政策解读《重庆市卫生健康委员会关于进一步规范临床营养科相关工作的通知》",
+        "path": ".runtime/national/trials/c5154e9e9dd376e9ece8f2bd5bd852334132a37b19f2a70e9d8aba121800502f.html",
+        "sha256": "b98d5d4f0ceea5488207ab9db6860c65df8118d79248db36218796a387b83cb0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202503/t20250319_14418962.html",
+        "list_title": "政策解读《重庆市食品安全地方标准管理办法》",
+        "path": ".runtime/national/trials/c45658f17dd228c4a78114e6b6f607ab0720a70e9781c60b2afae32bb574324c.html",
+        "sha256": "100d74a394a6e6d4c98223a01c4ff865b11db68ce5af95714fcceb4a2303cbe1",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202412/t20241231_14038076.html",
+        "list_title": "政策解读《重庆市全面推动紧密型区县域医疗卫生共同体高质量发展实施方案》",
+        "path": ".runtime/national/trials/5c849fae525b7a23093bfb0f47fb3ab65123e1c35ddf275dd9a56ed89d49a10e.html",
+        "sha256": "c8164a4e6679169c53f1d65d9510514195603cb974cee4cbdb07566e36a87f8d",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202412/t20241220_13911019.html",
+        "list_title": "政策解读《重庆市居民电子健康档案管理服务规范(试行)》",
+        "path": ".runtime/national/trials/672128b08ff08df9184f6d4eef1ac8f5f16a9ec729a04bb63b0954669a3dc563.html",
+        "sha256": "fa1010901ceb4b1ed9bdcf0db36482501028ca1d024e37b956ff1ca8850fd0ac",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/202411/t20241111_13785181.html",
+        "list_title": "政策解读《重庆市学校结核病防控工作规范(2024版)》",
+        "path": ".runtime/national/trials/a24b3fd12fd1be9e62c356fa778f622093f9e91d0c1f79ae60223098f469d91f.html",
+        "sha256": "a994606153eb03f1fde01098f44972f88ba1485f1d4909d1dbe0f662bf42bfde",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 30,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "sh-policy",
+    "region": "SH",
+    "url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index.html",
+    "checked_at": "2026-11-17T03:56:24.348090+00:00",
+    "lists": [
+      {
+        "url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index.html",
+        "count": 20,
+        "audit": {
+          "dated_records": 20,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.sh.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index_2.html",
+        "cached": true,
+        "path": ".runtime/national/pages/sh-extra-10.html",
+        "sha256": "d7c5c12abb6aaec54fcfe3b74a3d80dfec252c691f0fd4fbb3d4f1d3c9286f90"
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index_2.html",
+        "count": 20,
+        "audit": {
+          "dated_records": 20,
+          "returned_records": 20,
+          "eligible_records": 20,
+          "link_origins": {
+            "wsjkw.sh.gov.cn": 20
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index_3.html",
+        "cached": false,
+        "path": ".runtime/national/trials/df05e2a5f8b14faf1738df54c3e859b34fba6d4df1c511ef34fde897b73c4a41.html",
+        "sha256": "a3a9dfbea33f13b2856bc33da58def3ad1469e5f9eef723c0337531ea99db3e6"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260928/e1a4b7d3842e4098856db6cee84301ef.html",
+        "list_title": "上海市卫生健康委员会 上海市疾病预防控制局关于印发《上海市职业健康行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/153866d53f74cab8c1cb42827476d9c7e27cc0e28c6d3a25ba2544933d875732.html",
+        "sha256": "2f3030d23d0089309ad5953f13e24d615b6643f7c5194fa5e64e099a677c5a21",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会 上海市疾病预防控制局关于印发《上海市职业健康行政处罚裁量权基准》的通知",
+        "published": "2026-09-28",
+        "body_chars": 46556,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260924/a073c82dd73b4be4bcdfd04d61430d96.html",
+        "list_title": "关于印发《上海市公共场所卫生行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/0cfa45b86183fc692cbf840781c03313c5b9a906dea105b69347a59b4534966c.html",
+        "sha256": "e427554069df20c5f0d6798220ef3c35c6354a5bba9a00f38a85fdf686c83c22",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《上海市公共场所卫生行政处罚裁量权基准》的通知",
+        "published": "2026-09-24",
+        "body_chars": 15772,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260924/ce22a985b87d4bcb9417c287e3d58203.html",
+        "list_title": "关于印发《上海市饮用水卫生行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/8f4e5c326631f864b8323fdf0738fc74c8731e9530c88f267b73245c3c363be3.html",
+        "sha256": "b6c369f5963e93e4915644c3eccb82f02ebca0ed79d6b8a577ce6e8262fd952e",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《上海市饮用水卫生行政处罚裁量权基准》的通知",
+        "published": "2026-09-24",
+        "body_chars": 22203,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260924/3aad07c3cff34fd786c052bf61afd018.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市医疗事故行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/3d641b5ac74d4c4146a1ff794bb2b7cab5c56662af9e63232bb76851b447f6ed.html",
+        "sha256": "f89e485129c5b5dba24d05d0bfb3d749a614fb89a483de1dfcf003e0cdb3dad6",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市医疗事故行政处罚裁量权基准》的通知",
+        "published": "2026-09-24",
+        "body_chars": 3074,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260918/a5d8082d57054ef0bf00af3c784b8bfd.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市护理站管理办法》的通知",
+        "path": ".runtime/national/trials/0668e9e4453281726dbb1ce5590fc94b9c917065081d2559cf606e7cc4a73b73.html",
+        "sha256": "65b16f1e98779ace0780900505f2d4973d04f68968ded09991649da7b0537b7e",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市护理站管理办法》的通知",
+        "published": "2026-09-18",
+        "body_chars": 2589,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260728/f2ada2e9a2ec4f0c899b4a194e67f070.html",
+        "list_title": "上海市卫生健康委员会关于印发修订后的《上海市中医类别执业医师开展康复服务执业管理规定》的通知",
+        "path": ".runtime/national/trials/2630888e0723e786de0259822bd0466f4ac21d7d31139be7afd3df14c85283e7.html",
+        "sha256": "d6df83cc0986fcb306df5f50e7590ea7221710e36c56c3c025bea7ccc77c385b",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发修订后的《上海市中医类别执业医师开展康复服务执业管理规定》的通知",
+        "published": "2026-07-28",
+        "body_chars": 1232,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260630/2009192ba95f4b64b731fefc1de50c4d.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市医师行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/08158a671c60f36c38d7a3526ba49e3a55cfa38c538df0907aa7618e6caab810.html",
+        "sha256": "3814377d1dce3f8f72ff097dd958fb136f8bec448ca938bf1316c6206a37e198",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市医师行政处罚裁量权基准》的通知",
+        "published": "2026-06-30",
+        "body_chars": 13770,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260630/cea4fc1fd7744017820a1bab6703441d.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市医疗机构行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/7a5ea24502523704dfb195bc71ecf0f98ea3f3a6d8ab03e42644e2ae2c0482b1.html",
+        "sha256": "d5283dede02a70eb17883de1d73af24b080dd7a642d288f638973f2f9af81bf6",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市医疗机构行政处罚裁量权基准》的通知",
+        "published": "2026-06-30",
+        "body_chars": 3747,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260414/c650712de1e64eec87c9c5ae763945b1.html",
+        "list_title": "上海市卫生健康委员会 上海市疾病预防控制局关于印发《上海市非免疫规划疫苗接种单位备案管理办法》的通知",
+        "path": ".runtime/national/trials/a313084670954cb7257f15b38e9ea0fc763ea51f8ff263e0ff9ca6da0aff9020.html",
+        "sha256": "706214831ce66219e9f9b6a946df2d62ed59f92222be5723ec182af8adf35783",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会 上海市疾病预防控制局关于印发《上海市非免疫规划疫苗接种单位备案管理办法》的通知",
+        "published": "2026-04-14",
+        "body_chars": 2629,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件.doc",
+            "url": "https://wsjkw.sh.gov.cn/cmsres/af/af3dc575a92d40e2804e1c6c839aebfa/c9a6ee90f5d43732e3f6cf4dcaa8493c.doc",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/yzgl3/20260213/b22b8c54c8cd49ae808740468b84820f.html",
+        "list_title": "上海市卫生健康委员会关于延长《关于印发〈上海市乙类大型医用设备配置许可管理实施细则〉的通知》行政规范性文件有效期的公告",
+        "path": ".runtime/national/trials/57f6ff42e9bd17e38ad5eeff3fb660733772e4613e806ab7bbd0e5dc4feed20a.html",
+        "sha256": "4d1c59b45ec7208d19a4d271f2bfe11893c0495c593e57e5c263ef2758d63ab5",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于延长《关于印发〈上海市乙类大型医用设备配置许可管理实施细则〉的通知》行政规范性文件有效期的公告",
+        "published": "2026-02-13",
+        "body_chars": 348,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20201231/6f9db36d4db84c38b8472df0ae3e77b2.html",
+        "list_title": "关于印发《上海市乙类大型医用设备配置许可管理实施细则》的通知",
+        "path": ".runtime/national/trials/c6dfa8edf11b907b74a65c75808359581d8a7fe0c34c5ea5e89a893276a90e7a.html",
+        "sha256": "fc818e1aa4c109156169ee0369972244e194d658fe06f486b6f7f8bf19c2069b",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《上海市乙类大型医用设备配置许可管理实施细则》的通知",
+        "published": "2026-02-11",
+        "body_chars": 523,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "上海市乙类大型医用设备配置许可管理实施细则.docx",
+            "url": "https://wsjkw.sh.gov.cn/cmsres/0b/0b0b838ebced48f1b707c522cba62937/85ae9d1792c77347ed62e798788b777d.docx",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20260129/a9e440078362493e951c3bf6a180c401.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市肿瘤登记管理办法》的通知",
+        "path": ".runtime/national/trials/a863700ca397b7b88532a5ec2ef0324e41870fdab6221b3b610b80fde5fecd70.html",
+        "sha256": "f7034f12f6f6a29793ec6c48ed87692b5329f074c084711e29ee6f59a3d13e04",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市肿瘤登记管理办法》的通知",
+        "published": "2026-01-29",
+        "body_chars": 2968,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20251230/132150d45e9e428b9511c8b7441bf4ec.html",
+        "list_title": "上海市卫生健康委员会、上海市疾病预防控制局关于印发修订后的《上海市伤害住院病例登记报告办法》的通知",
+        "path": ".runtime/national/trials/26038c127eb7cc969d27ececf14d774fbd0d0ff6fddecc3387f2097f497f826b.html",
+        "sha256": "bf91ac877e4b43b459a64f9f7a5f00e83b23aab7c1d8aac0817d63d605b1b7d1",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会、上海市疾病预防控制局关于印发修订后的《上海市伤害住院病例登记报告办法》的通知",
+        "published": "2025-12-30",
+        "body_chars": 2377,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20251125/18c38397eed0444088fc82d99a61dd7c.html",
+        "list_title": "上海市卫生健康委员会关于废止《上海市心理咨询从业人员实习考核管理办法》的通知",
+        "path": ".runtime/national/trials/9d843c7888e7a6fe3a119db3ac5e426ee8d3cfe827e9f1399cd819ce35822753.html",
+        "sha256": "18765269eaf0a1b239b3a1cd774e7acb12110ac376190812372e4a82c340af36",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于废止《上海市心理咨询从业人员实习考核管理办法》的通知",
+        "published": "2025-11-25",
+        "body_chars": 221,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20251106/ffaa924fbeb148dc8ad576bf3ffb595f.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市职业病诊断医师管理办法》的通知",
+        "path": ".runtime/national/trials/86dc3003f7423063045abca3f0137d26e492707d96aafb20bcff071ec80f85f6.html",
+        "sha256": "54b4164665091f1965fc14f032b6a56ab3d02a481aa2c13db8234d6b377322a6",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市职业病诊断医师管理办法》的通知",
+        "published": "2025-11-11",
+        "body_chars": 437,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "上海市职业病诊断医师管理办法.doc",
+            "url": "https://wsjkw.sh.gov.cn/cmsres/44/447d4abe81e1461494b024fe25fa5c02/05a817ba5fafcf981acde2d60ff03f42.doc",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20251106/d7e1af768acd4ea39304bd3ca02526f1.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市病媒生物预防控制行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/95f7bef44a1a949c380c8424695d7a354eab70b73a6517afe50ec5642c152738.html",
+        "sha256": "77c59b66d590fd1e0c3812576d0fefd489c9e0aebb497705600f97ab865e8a15",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市病媒生物预防控制行政处罚裁量权基准》的通知",
+        "published": "2025-11-06",
+        "body_chars": 402,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "上海市病媒生物预防控制行政处罚裁量权基准.doc",
+            "url": "https://wsjkw.sh.gov.cn/cmsres/73/731f165010b2462ea49bef1dc0dd1000/a6168f6a1cd77d62188694a226eb776b.doc",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20250923/7256d78ff7b74f47ba2d01bd346461da.html",
+        "list_title": "上海市卫生健康委员会等部门关于印发《上海市产后母婴生活照护服务机构跨部门综合监管管理办法》的通知",
+        "path": ".runtime/national/trials/c17fd02c8eb3e5e3cf1866f21224d6f48665d35e5a51df1280bf2f57e1374455.html",
+        "sha256": "0e86146da1b48fd9fe6e6c6a791563008262f596261de3c9c69f7d55f60c0ba0",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会等部门关于印发《上海市产后母婴生活照护服务机构跨部门综合监管管理办法》的通知",
+        "published": "2025-09-26",
+        "body_chars": 4142,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20250826/29ba1ee46e024c27a5300d2e84ee4bc9.html",
+        "list_title": "上海市卫生健康委员会关于印发《上海市公共场所控制吸烟行政处罚裁量权基准》的通知",
+        "path": ".runtime/national/trials/d0d5ab206edb398a1f65a8d2c9344ee9e09d3c26c874f1450dfa09be528ab2ba.html",
+        "sha256": "a51a76d835c4212b91473669687372a824a54ee723d4ba13acc0be98ea50631f",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于印发《上海市公共场所控制吸烟行政处罚裁量权基准》的通知",
+        "published": "2025-08-26",
+        "body_chars": 1795,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20250513/e67f509f73a9495080d1b49a3fcc1582.html",
+        "list_title": "上海市卫生健康委员会 上海市中医药管理局关于印发《上海市实施〈中华人民共和国中医药法〉行政处罚裁量基准》的通知",
+        "path": ".runtime/national/trials/16f384a6d2b00c0caf484cbebae73316668e5acdf2523002974192d7835eafa9.html",
+        "sha256": "bb684bc01320281058dcde5efc8ff0dccc02c296bef8e7cea8299642f850bf74",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会 上海市中医药管理局关于印发《上海市实施〈中华人民共和国中医药法〉行政处罚裁量基准》的通知",
+        "published": "2025-04-18",
+        "body_chars": 5739,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wsjkw.sh.gov.cn/zcfg2/20250401/6c61cf2a37674239811d69fdfe22c685.html",
+        "list_title": "上海市卫生健康委员会关于延长《关于修订下发〈上海市《出生医学证明》管理办法〉的通知》行政规范性文件有效期的公告",
+        "path": ".runtime/national/trials/09752420de8031acdb663c4ad03c22b1cd30a3da5cbab821000429b575b4379d.html",
+        "sha256": "0a7e2fc663eb75853b37aefb3b3b2e13982bf400e78e5b4301255fdd557c61f5",
+        "cached": false,
+        "status": "ok",
+        "title": "上海市卫生健康委员会关于延长《关于修订下发〈上海市《出生医学证明》管理办法〉的通知》行政规范性文件有效期的公告",
+        "published": "2025-04-01",
+        "body_chars": 348,
+        "authority": "上海市卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      }
+    ],
+    "errors": [],
+    "unique_items": 40,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass"
+  },
+  {
+    "id": "hi-interpretation",
+    "region": "HI",
+    "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/",
+    "checked_at": "2026-11-17T03:56:56.697912+00:00",
+    "lists": [
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/",
+        "count": 17,
+        "audit": {
+          "dated_records": 20,
+          "filtered_external": 3,
+          "returned_records": 20,
+          "eligible_records": 17,
+          "link_origins": {
+            "wst.hainan.gov.cn": 17,
+            "www.nhc.gov.cn": 3
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/index_1.html",
+        "cached": true,
+        "path": ".runtime/national/pages/hi-extra-2.html",
+        "sha256": "6a55c928411661e4221e425de89c3216374d7e36eddcb359aa7f381a5bf222ce"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/index_1.html",
+        "count": 19,
+        "audit": {
+          "dated_records": 20,
+          "filtered_external": 1,
+          "returned_records": 20,
+          "eligible_records": 19,
+          "link_origins": {
+            "wst.hainan.gov.cn": 19,
+            "www.nhc.gov.cn": 1
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/index_2.html",
+        "cached": false,
+        "path": ".runtime/national/trials/5dc75620fca423c00edd22b0213763c08da7bd4c579b6bc6f41456342611d98b.html",
+        "sha256": "4e51bc99327133f8a6db0399a202242351989514ab350e004faf95f2ed2bb892"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202608/t20260819_4130843.html",
+        "list_title": "《关于加强医院法治建设的意见》政策解读",
+        "path": ".runtime/national/trials/8846f2902f83fdb2d63651d24e081e4ba1d683cdf7485526f525a3addfac85ae.html",
+        "sha256": "ac18ddb81ce4db6891ffbaf27c66a124362740b17fa2362fa0bf963a4866e15f",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202503/t20250305_3827725.html",
+        "list_title": "《海南省非急救医疗转运服务管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/e3c1368a8cf28b5249f9a36a9f03fc2110a61921dbc0507d33b4fe90cef2454b.html",
+        "sha256": "33c2d94bbceac60f50f562881bfc2c277f2ef66007477f0d4fbc84a1e1eed8b3",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/ywdt/tzgg/202501/t20250110_3800972.html",
+        "list_title": "《海南省托育服务机构登记和备案管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/e207042cf3621033ac61114a810651d38e7c956482d7dc205161a053c9b82da5.html",
+        "sha256": "4a9bc2969fdb7cfeb74921af2c736356b7e3f2442afa227feab2fc10cbe5a468",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/ywdt/tzgg/202501/t20250110_3800970.html",
+        "list_title": "《海南省幼儿园托班开设及备案管理办法 (试行)》政策解读",
+        "path": ".runtime/national/trials/226bfad3b9c92da55c15f1205efbafa56718371dd374d7b6f761548e7e6c7122.html",
+        "sha256": "d1b3f748a4a9c9c4cb2d52b9c65a16de61ae5692f673bc17faf6e74ba5c2f605",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/ywdt/tzgg/202501/t20250110_3800967.html",
+        "list_title": "《海南省托育服务机构管理实施办法(试行)》政策解读",
+        "path": ".runtime/national/trials/fcb47ce01a741f1ea6706f7395892ec3c43a39dabe3a79f564d494a176fdf0f4.html",
+        "sha256": "6c81a5a1b983bdb6af4706e4be04d419834b86287b3ec1753045825d7ae492ce",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202412/t20241220_3789687.html",
+        "list_title": "《海南自由贸易港博鳌乐城国际医疗旅游先行区医疗药品信用监管信息管理办法》解读",
+        "path": ".runtime/national/trials/2e61319aff9c34adc5d363b9e6e5e021bffea73a28d0c6b6c420195554119df6.html",
+        "sha256": "c5dd64b53240d7d7a41fdedf1dd3117c4355f04e492650b90dac676796243208",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202405/t20240529_3671480.html",
+        "list_title": "《海南博鳌乐城国际医疗旅游先行区 临床急需进口药品医疗器械使用科室 资格评估和监督管理办法》解读",
+        "path": ".runtime/national/trials/a0328e7a1a70fc85c483980055ba469946f7001907125d77af96f7b02b90f340.html",
+        "sha256": "b4dc9d8d8f57c77e4294b3e5a30eb14a40920adf58e6b493d099762bafbdf3a0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202405/t20240527_3669915.html",
+        "list_title": "政策解读:关于印发《海南省大型医院巡查工作方案(2024—2026年)》的通知",
+        "path": ".runtime/national/trials/01d52ea0dc7201180fbcefa108eb483fac2fca54b862569102b455bd6b45a01c.html",
+        "sha256": "a547697a2b46f3e09bc05eeafee8ebc4afb5da908c7074a360c095aebab797ad",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202404/t20240415_3646433.html",
+        "list_title": "《海南省住院医师规范化培训管理办法》政策解读",
+        "path": ".runtime/national/trials/2320a5fc6b43eb6c2ac0acfaaebe45b7c1943ee1f49fbf37f3a2ce8b0b113664.html",
+        "sha256": "fa7d805d4d16d61158879cea215eebc661c11a5e7302a993d8262a79c1a8819c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202403/t20240318_3621707.html",
+        "list_title": "《海南博鳌乐城国际医疗旅游先行区医疗机构医疗合作备案管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/8f204eacdfdd4a199f08a9462b277d8a13554203838be21dacfd2cf0a12e0f92.html",
+        "sha256": "3a57fb3e2cccd6f3512e9f0fa368f674bf048de4a3d3c5a72534d79b4d997fde",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202306/t20230613_3434463.html",
+        "list_title": "《海南省卫生健康委员会行政处罚裁量权管理办法》的政策解读",
+        "path": ".runtime/national/trials/8a2e5b417e2818823bfc44dc69bbbea403ed1f7a33b167a47920770d1bbd9e84.html",
+        "sha256": "5164beab90df9048915538e1302c768ff3a828fbf4d60302065ea5d98d66f954",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202212/t20221227_3336238.html",
+        "list_title": "《关于对新型冠状病毒感染实施“乙类乙管”的总体方案》解读问答",
+        "path": ".runtime/national/trials/d86066081651fb84453aef00c5247ed92f2d04bc8393872cc25e43c64e2f3290.html",
+        "sha256": "d4e2ea17a1d5c46302ebf928d868fa6cfc5c8ef1aa9e18d61bf604950c7645d5",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202212/t20221227_3336244.html",
+        "list_title": "《关于对新型冠状病毒感染实施“乙类乙管”的总体方案》解读问答",
+        "path": ".runtime/national/trials/a224a7e40c703431192c016704a5e7e51bfc1c3e6f0149ad8f45ab733fcd1dfc.html",
+        "sha256": "c00fb6f6f3c855f4e3203199bbed9686d8245a130dace5606aaa0e690a3c034d",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202301/t20230105_3340734.html",
+        "list_title": "《海南省医疗卫生人员不良执业行为记分管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/caca81006a0e4659ec9ba72c3324b268e2eaaa153cc3bb21cc09e02b5d1750a3.html",
+        "sha256": "fc5e2a1f61d2fdca9b3799c6fb8405eac6b18ea27c8afe5ac5525643417fb439",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202301/t20230105_3340735.html",
+        "list_title": "《海南省医疗机构不良执业行为记分管理办法(2022年版)》政策解读",
+        "path": ".runtime/national/trials/1a580bbd532621d5ee92588aa11b44a0793fa065b4584c019827a43d23e204b1.html",
+        "sha256": "9df29085cd593860fb65d5f6382a6910d947debd91fb23b0b4bd6ecc3c735d8e",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202212/t20221208_3325816.html",
+        "list_title": "《海南省卫生监督协管服务规范(2022版)》政策解读",
+        "path": ".runtime/national/trials/01df953beca35b91c09fb16c2805c23d56b85b803c07bc5f43adf5be257dffde.html",
+        "sha256": "b05700fd8042419e58728c6b1912cec14ba736c663342dd8a4462ed3c250fe19",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202210/t20221017_3286084.html",
+        "list_title": "《海南省加快推进数字疗法产业发展的若干措施》政策解读新闻发布会",
+        "path": ".runtime/national/trials/f88d332baef2279516b13e139540187c0b4718d5a6af07da5c73b66dc74b712c.html",
+        "sha256": "82c311ff5d94b5a314ad31ec88724c3e2d084372b81f9e1877eb5517d8d4b2d1",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202202/t20220218_3144631.html",
+        "list_title": "《海南省卫生监督协管管理办法(试行)》的政策解读",
+        "path": ".runtime/national/trials/caf13682aeea82414044497499cb48febc67ab066993eae5df22f3337817eb72.html",
+        "sha256": "1e95eef348b62d1869a517c825de29c80aa98f48f09fe0b16147c87ceb56f8d5",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202202/t20220218_3144624.html",
+        "list_title": "《海南省消毒产品生产企业卫生许可告知承诺管理办法(试行)》的政策解读",
+        "path": ".runtime/national/trials/b2135a610999939cc22f24ba8c7f4ee238a9f48fcd96e8a7a6fe7337a6daa91a.html",
+        "sha256": "5e6dd1ee101a5c62714c6a38c48dbb6eaa7def312c7593a8afea3305ce6e23f3",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202202/t20220218_3144621.html",
+        "list_title": "《海南省卫生健康领域实施初次违法免罚清单》(第一批)的政策解读",
+        "path": ".runtime/national/trials/afb3bbbbbe7ef816298139066823774d117512b44d8aed96ad57e33304392aec.html",
+        "sha256": "6c9a01da730f34e3de15da61cd45326da10480d61a4a18207cccca07481aade9",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 36,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "gs-interpretation",
+    "region": "GS",
+    "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml",
+    "checked_at": "2026-11-17T03:57:04.674214+00:00",
+    "lists": [
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml",
+        "count": 18,
+        "audit": {
+          "dated_records": 20,
+          "filtered_external": 2,
+          "returned_records": 20,
+          "eligible_records": 18,
+          "link_origins": {
+            "wsjk.gansu.gov.cn": 18,
+            "www.nhc.gov.cn": 2
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2_2.shtml",
+        "cached": true,
+        "path": ".runtime/national/pages/gs-column-3.html",
+        "sha256": "cca199f6a938d662bb929e2f4bd2cca0bc325db2b8020821f29abe38ffa0798b"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2_2.shtml",
+        "count": 1,
+        "audit": {
+          "dated_records": 20,
+          "filtered_external": 19,
+          "returned_records": 20,
+          "eligible_records": 1,
+          "link_origins": {
+            "www.nhc.gov.cn": 15,
+            "www.gov.cn": 4,
+            "wsjk.gansu.gov.cn": 1
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2_3.shtml",
+        "cached": false,
+        "path": ".runtime/national/trials/1d3f4330487f727541f3328d4ebba34afb29cd072567df66a345ae7cd43fdbfd.html",
+        "sha256": "35c101ffa66957081381f847333cc727cc0035471dc805d9cde70aac9f605e9a"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202610/174408907.shtml",
+        "list_title": "《甘肃省进一步健全城市社区卫生服务体系提升服务能力的十项措施》政策解读 2026-10-14",
+        "path": ".runtime/national/trials/e99adfa03ace94783fd4e76311002e321374ecc3f02afc2910eb357628aa6d96.html",
+        "sha256": "713330b7c69a28e8b52bfa64940f623ad8d6c81dc02b2b595af84f38f857bf4b",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202607/174371500.shtml",
+        "list_title": "《甘肃省加强居民死亡医学证明信息登记和电子证照管理工作实施细则》政策解读 2026-06-25",
+        "path": ".runtime/national/trials/d4c5ec9897960caebb3e6532ef18f81671408f1bdaeeb272625e976eec77e355.html",
+        "sha256": "b3861174f7dc6ba89b1fceed3714c7e42a08e3bb1f6d0fcad9ea1806f2d005d6",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202608/174374906.shtml",
+        "list_title": "《甘肃省基层医疗卫生机构医疗质量改善三年行动实施方案(2026-2028年)》政策解读 2026-06-22",
+        "path": ".runtime/national/trials/c4f4920c43274a62ee2d30e996142c1d44ae159bd3218e948dd1fbb0942b421c.html",
+        "sha256": "d5c82ca584e50069b47de1e7dc6d5cb7b0ce1dac98e040380990af2139c03510",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202512/174263839.shtml",
+        "list_title": "《甘肃省职业健康检查机构备案管理办法》《甘肃省职业病诊断机构备案管理办法》政策解... 2025-12-30",
+        "path": ".runtime/national/trials/456ae168b043cb65a86ca8f0e1b24790125211599563503d709dc12d6ba51341.html",
+        "sha256": "b457b3167acc605f2fd7c4f277c490c6df1b101f0ae1871f3186f15abf9a3890",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202512/174250838.shtml",
+        "list_title": "《甘肃省推进耳与听力健康工作实施方案》政策图解 2025-12-05",
+        "path": ".runtime/national/trials/14f9354dd9e6181217b6454f2a370db8e88e601ecccb6ccb8cc6f1ddf6827a24.html",
+        "sha256": "283d8d61d1a0323b5fe248b5ddd1a38c76dc2a64dc2089d0aedae0f8adb1fdd1",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202512/174250830.shtml",
+        "list_title": "《甘肃省推进耳与听力健康工作实施方案》政策解读 2025-12-05",
+        "path": ".runtime/national/trials/ee299910d32a5c24e4e0a076577c0956ca92d7f6e17d354f25886bfd1adf9032.html",
+        "sha256": "4adcf1058443f008fb72d9ad7dbe09590eb23eabbef2d47f877939a5cca76e3e",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202511/174237699.shtml",
+        "list_title": "甘肃省育儿补贴制度重点条文解读 2025-11-11",
+        "path": ".runtime/national/trials/6cc4e5fc0857c8e1fa8dbc6f9a0bf97bae526cd52ed587276e3dc7243bcd70bb.html",
+        "sha256": "40a17ab66a8780d4e48793e859035fbaa2411bea3e0c6bde0c4a1e65ee37e92b",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202506/174160701.shtml",
+        "list_title": "《甘肃省健康餐饮行动计划(2025-2027年)》政策解读 2025-06-18",
+        "path": ".runtime/national/trials/94e8261991d5bc6d73ffc6a6cbc940fbd7831ccd5b8ad114934ac2e83393db28.html",
+        "sha256": "7977c935f8ffc586b597d35a3b1486401ef9a3e3f29204c95b32fc9a39abc83c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202506/174153302.shtml",
+        "list_title": "《关于印发甘肃省“儿科和精神卫生服务年”行动实施方案(2025-2027年)的通知》政策解读 2025-06-06",
+        "path": ".runtime/national/trials/06cb6124229998ddcf1215dbf9390b56f2a9661bd93e3ec59c60e0b34bf4c730.html",
+        "sha256": "4f4f051405fe7d5cbd53f671d9e7cbd4677e8596ea537270b0d37d386bdc4f33",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113837/202506/174152875.shtml",
+        "list_title": "甘肃省省级健康影响评估专家库暂行管理办法政策解读 2025-06-05",
+        "path": ".runtime/national/trials/b7e10e6633c2a313a7e24a79db859ef30a11bd5d7ef229edbf61be2526e0b364.html",
+        "sha256": "f555dcf975d105d72bd55f3a82a365950285d5f55adfc8d8101ddbfd8cc58931",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113837/202506/174152773.shtml",
+        "list_title": "关于印发《甘肃省省级健康影响评估专家库暂行管理办法》的通知 2025-06-05",
+        "path": ".runtime/national/trials/7fca4afe562ce01098552c9006d900f2f9cace966f036a725ff93486e1c00764.html",
+        "sha256": "8942a7a65517eb204ec784bd0e52c4f7fcc72d65bb71a779525f466cce34b55e",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202502/174219858.shtml",
+        "list_title": "《关于甘肃省改革完善基层药品联动管理机制 扩大基层药品种类实施方案》政策解读 2025-02-14",
+        "path": ".runtime/national/trials/1ab47ed2a8aeda4a53ffe57b82299667a47eaf1c79e2390d717d0834889496d6.html",
+        "sha256": "d33c25143528fcd20e9fcb75d7bfd481db624ad037a16dfad7e3ccf5bcd212b0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202509/174220918.shtml",
+        "list_title": "甘肃省进一步推进医疗机构检查检验结果互认实施方案(2025年-2030年)政策解读 2025-01-24",
+        "path": ".runtime/national/trials/457b9e39575376ba6425957ad3dc29171235541d1b95eb1916c347098982da4f.html",
+        "sha256": "e0b969830192baf026e420ff396f66d8a0661c3d5da4b318f8ec02bb208112f5",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202409/173995562.shtml",
+        "list_title": "《甘肃省医疗质量控制中心管理办法》政策解读 2024-09-27",
+        "path": ".runtime/national/trials/5ffb994593b096b324688a411da6a5ff0e9c80566a7007fbe2b65da11502a1b6.html",
+        "sha256": "42a12d6b4ec12ca9394033784e9ef01f25cf4e2892fbab11a04b6ebd85cd26f1",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202409/173985481.shtml",
+        "list_title": "《甘肃省食品安全地方标准管理办法(修订)》政策解读 2024-09-10",
+        "path": ".runtime/national/trials/c948825919905840fa7bbeae9dbfe77affdf1e56c149db02f322ec18ae70014b.html",
+        "sha256": "9fb4b0390c48642e0170d50f95b85a99360428fd9effc70861b31dc6c4d52dd2",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202407/173952568.shtml",
+        "list_title": "《甘肃省卫生健康委员会关于印发加强公立医院法治建设实施意见的通知》政策解读 2024-07-17",
+        "path": ".runtime/national/trials/3b5cb673993e97abf6423cf7d499fa10e31bdacb9c39c439cd2ad98021a7ed91.html",
+        "sha256": "0432c18c63ec8dfb9709ab1e52dbca2620b085bedb8158bde16a1f30c900562f",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202406/173932811.shtml",
+        "list_title": "《甘肃省推进儿童医疗卫生服务高质量发展实施方案》政策解读 2024-06-14",
+        "path": ".runtime/national/trials/a16092a574c6a7043660461d42c1cdab0dbb6ac77df8d71cbb19fabf55e0e5e2.html",
+        "sha256": "bca078d6440b1d173492f44f5f255e30d2672f78f7fbdb771bbbcd534dd25e0b",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202404/173900981.shtml",
+        "list_title": "《关于全面推进基层首诊制度落实的指导意见》政策解读 2024-04-25",
+        "path": ".runtime/national/trials/5087e7b8048b87f26dca1708f5750da28facb3ddc39f92bcddaaa3ddbbfad27b.html",
+        "sha256": "078859bdee57dff39dea30b8beea38086a7076fc509454b445cba632aabf18c9",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/202308/169916535.shtml",
+        "list_title": "《基层卫生健康便民惠民服务举措》政策解读 2023-08-08",
+        "path": ".runtime/national/trials/4d256025d6528ec948ea5748fe33d3eab8377132c8ed899cbc73035a92c95173.html",
+        "sha256": "5ecaacf7e2ce04dd903d37b2a9323e739b3e83caa5ac5927ce24948e74ec38c2",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 19,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "gz-policy",
+    "region": "GZ",
+    "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html",
+    "checked_at": "2026-11-17T03:57:38.960233+00:00",
+    "lists": [
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.guizhou.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html#collector-page=2",
+        "cached": true,
+        "path": ".runtime/national/pages/gz-column-browser.html",
+        "sha256": "e7c9d1e8929cd28059af22953fd920eb8b1ade734a2ef05fac56ea2218fbd178"
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html#collector-page=2",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.guizhou.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html#collector-page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/71da545a6ff027fe07c00a224e22426d2df9b73fa6dc1e0c15063f5a07941f63.html",
+        "sha256": "f4ac5a4b133eb30407860bd5daa5473d97aa5a90c7fab162f9c7f641e5082c75"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202611/t20261117_91111059.html",
+        "list_title": "省卫生健康委 省中医药局关于印发《贵州省医疗机构设置审批管理若干规定》的通知",
+        "path": ".runtime/national/trials/c0dae5b2c7ab21fd14001fcd0ae825b6af2b55665acaeb0c42482468bcd0fa7f.html",
+        "sha256": "a20374ddf459217b338798a9e98836ca21fffeeaa8a1c0685b1a21bf23c4650d",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委 省中医药局关于印发《贵州省医疗机构设置审批管理若干规定》的通知",
+        "published": "2026-11-17",
+        "body_chars": 154,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省医疗机构设置审批管理若干规定.docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202611/P020261117380261442184.docx",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/t20260930_90953762.html",
+        "list_title": "省卫生健康委等6部门关于印发《贵州省加强医疗护理员培训和规范化管理工作实施方案(试行)》的通知",
+        "path": ".runtime/national/trials/13ea3b2951973dec1f5d995ba2952c4bd4891411cdc879247be3a446e9c46484.html",
+        "sha256": "b4c95f45d6b3e8a762866bd4cee6d2aee9fb51d9e7966657a9c25373b4ff51ec",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委等6部门关于印发《贵州省加强医疗护理员培训和规范化管理工作实施方案(试行)》的通知",
+        "published": "2026-09-30",
+        "body_chars": 272,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "《贵州省加强医疗护理员培训和规范管理工作实施方案（试行）》.docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260930387740605459.docx",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/t20260930_90952870.html",
+        "list_title": "省卫生健康委关于印发《贵州省三级综合医院评审标准实施细则(2026版)》的通知",
+        "path": ".runtime/national/trials/f113d8f1d1095d634e04f49469a43423d68f6dc3fb70e113f9cb6340d320f704.html",
+        "sha256": "aeead960d7712ad8ac82478ca340dc1e9b73aad4207e302e3c49476dd6c75951",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发《贵州省三级综合医院评审标准实施细则(2026版)》的通知",
+        "published": "2026-09-30",
+        "body_chars": 242,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "《贵州省三级综合医院评审标准实施细则（2026年版）》.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260930345926105412.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/t20260929_90948888.html",
+        "list_title": "省卫生健康委 省中医药局 省疾病预防控制局关于印发《贵州省卫生健康行政审批“阳光评审”+“云勘验”工作规定(试行)》和《贵州省卫生健康(含中医药、疾控)行政许可裁量基准(试行)》等六项制度的通知",
+        "path": ".runtime/national/trials/43ef4b423652a86a4b7d82ff249ecaed19576e09914d311b610be0fb0501b06e.html",
+        "sha256": "83dda5e124f3fe4facacf47ab33ffbddd960961d16998fa7a32b209755896929",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委 省中医药局 省疾病预防控制局关于印发《贵州省卫生健康行政审批“阳光评审”+“云勘验”工作规定(试行)》和《贵州省卫生健康(含中医药、疾控)行政许可裁量基准(试行)》等六项制度的通知",
+        "published": "2026-09-29",
+        "body_chars": 650,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件1：《贵州省卫生健康行政审批“阳光评审”“云勘验”工作规定（试行） (1).docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766100803.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：《贵州省卫生健康（含中医药、疾控）行政许可裁量基准（试行）》.xlsx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766144143.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：《贵州省卫生健康（含中医药、疾控）行政确认裁量基准（试行）》.xlsx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766180254.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "附件4：《贵州省卫生健康（含中医药、疾控）行政给付裁量基准（试行）》.xlsx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766212150.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "附件5：《贵州省卫生健康（含中医药、疾控）行政强制裁量基准（试行）》.xlsx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766244961.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "附件6：《贵州省卫生健康（含中医药、疾控）行政检查裁量基准（试行）》 (1).docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766278562.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件6-1：《贵州省卫生健康（含中医药、疾控）行政机关一般性行政检查目录（试行）》.xlsx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260929421766306779.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/t20260928_90945025.html",
+        "list_title": "省卫生健康委关于印发《贵州省卫生健康委员会重点实验室管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/33243219ca1c493ebc81de0fc8582285bbf6bf9d8e39ac884d666d086436c573.html",
+        "sha256": "465cfa72edaceb38e617ebf69bd1e219ca9bc3a4b5c1ff0906561cef69e56b06",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发《贵州省卫生健康委员会重点实验室管理办法(试行)》的通知",
+        "published": "2026-09-28",
+        "body_chars": 192,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "《贵州省卫生健康委员会重点实验室管理办法（试行）》.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202609/P020260928564084226260.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/t20260731_90683201.html",
+        "list_title": "省卫生健康委关于印发《贵州省基层医疗卫生机构医疗质量改善三年行动实施方案(2026—2028年)》的通知",
+        "path": ".runtime/national/trials/f43eb562f24ddaf5a54b737c1f5198eba06e87455ece0a895dd674b0153d0330.html",
+        "sha256": "7b44a4e1310b1d605c8648abf9934cfbdbf05ea24b65893b43b8d1646b57a460",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发《贵州省基层医疗卫生机构医疗质量改善三年行动实施方案(2026—2028年)》的通知",
+        "published": "2026-07-31",
+        "body_chars": 332,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省基层医疗卫生机构医疗质量改善三年行动实施方案（2026—2028年）.docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/P020260731594331742772.docx",
+            "status": "pending"
+          },
+          {
+            "name": "基层医疗卫生机构医疗质量改善三年行动（2026—2028年）自查整改表.docx",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/P020260731594331815273.docx",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/t20260728_90669503.html",
+        "list_title": "省卫生健康委等6部门关于进一步规范从业人员预防性健康体检工作的通知",
+        "path": ".runtime/national/trials/9effc41194827faace012ffb13d49cd774e7bd90db1bff6a71459329977e06d5.html",
+        "sha256": "bd53c7e716e2540ea844424953b68e3372221c5ea66747e9afed7b662e36a35d",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委等6部门关于进一步规范从业人员预防性健康体检工作的通知",
+        "published": "2026-07-28",
+        "body_chars": 2728,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/t20260715_90626491.html",
+        "list_title": "省卫生健康委 省中医药局 省疾病预防控制局关于进一步做好家庭医生签约服务工作的通知",
+        "path": ".runtime/national/trials/28a4f21f8237475082abf924f8ba5419e84b84c412dd45f68bab528ec8ecc263.html",
+        "sha256": "6487d7edc9233c149170be9fc7d069f22a6bfb640d8923771ea809dc055090b3",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委 省中医药局 省疾病预防控制局关于进一步做好家庭医生签约服务工作的通知",
+        "published": "2026-07-15",
+        "body_chars": 3545,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省家庭医生签约基本服务包（2026版）.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202607/P020260715640686973074.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251230_89103539.html",
+        "list_title": "省卫生健康委关于印发《贵州省继续医学教育学分管理实施细则(试行)》的通知",
+        "path": ".runtime/national/trials/30b08abcc65623d7734bbee4bcc71445c44abe94c950fa28a5087d4675ac9353.html",
+        "sha256": "9d2e4fb608c545c7f11e01585fa3fd325f95bde52d62c3c91e0c68645d05cf9b",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发《贵州省继续医学教育学分管理实施细则(试行)》的通知",
+        "published": "2025-12-30",
+        "body_chars": 222,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省继续医学教育学分管理实施细则（试行）.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251230557038993686.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251226_89093856.html",
+        "list_title": "省卫生健康委关于印发《贵州省卫生健康委员会业务主管社会组织管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/afc55c2a0f3aed97bab0c73d784214ae33aaaeb30591a79a88f952894a2c9839.html",
+        "sha256": "2ecc0e57e0a7b902dfb8937792cc2b932746b6b2aca92d9e43cf0d6ab6cfed34",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发《贵州省卫生健康委员会业务主管社会组织管理办法(试行)》的通知",
+        "published": "2025-12-26",
+        "body_chars": 217,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省卫生健康委员会业务主管社会组织管理办法（试行）",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251226591874150225.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251225_89086992.html",
+        "list_title": "贵州省山地紧急医学救援队伍管理办法",
+        "path": ".runtime/national/trials/12ced210f893ef3afa3e0ee082bb21f1455b2d33bdab256cf2948293b92fff63.html",
+        "sha256": "db7f7630490be3ec9f0bcaef255c739aca1f268e4bcab6433184c731475cafab",
+        "cached": false,
+        "status": "ok",
+        "title": "贵州省山地紧急医学救援队伍管理办法",
+        "published": "2025-12-25",
+        "body_chars": 4636,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件下载.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251225388035621177.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251223_89080027.html",
+        "list_title": "贵州省等同采纳省外食品安全地方标准管理办法(试行)",
+        "path": ".runtime/national/trials/6b4ee84c51e7519d774c2a4a1cd71f4bb87d15aef0a06da842fd72162468ba28.html",
+        "sha256": "e26b65487869a95c7b6b94a2aa9fb24c58ebb670515d517491e221c895b5cea9",
+        "cached": false,
+        "status": "ok",
+        "title": "贵州省等同采纳省外食品安全地方标准管理办法(试行)",
+        "published": "2025-12-23",
+        "body_chars": 1563,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251218_89069894.html",
+        "list_title": "贵州省公立医院法治建设实施方案",
+        "path": ".runtime/national/trials/570b0e2aee7a8a8072841ca0634ae7706d923bec5372cb240bb6c73b562f31bf.html",
+        "sha256": "a44394cb9fd0fe15697f5d6d39d19c29be4b79d25efa5cfd84673418d9b8f816",
+        "cached": false,
+        "status": "ok",
+        "title": "贵州省公立医院法治建设实施方案",
+        "published": "2025-12-18",
+        "body_chars": 3837,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251216_89053678.html",
+        "list_title": "省卫生健康委关于废止、宣布失效和修改部分行政规范性文件、其他政策文件的决定",
+        "path": ".runtime/national/trials/55ba0b0a32a69f1ce72004db643c666ca9a5f09f52f26d07779a69fc5fd03c38.html",
+        "sha256": "4689dcd565efe5f5698e4594cf0a4b3373b260519b045d19f94ffa128fabbbca",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于废止、宣布失效和修改部分行政规范性文件、其他政策文件的决定",
+        "published": "2025-12-16",
+        "body_chars": 292,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "1．省卫生健康委决定废止的行政规范性文件目录",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251216425585622987.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "2．省卫生健康委决定宣布失效的行政规范性文件目录",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251216425585669485.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "3．省卫生健康委决定修改的行政规范性文件目录",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251216425585683277.doc",
+            "status": "pending"
+          },
+          {
+            "name": "4．省卫生健康委决定废止的其他政策文件目录",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251216425585719667.xlsx",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_xls.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251218_89069909.html",
+        "list_title": "贵州省民宿卫生管理办法(试行)",
+        "path": ".runtime/national/trials/34df090cf84852593477b70d00dc37226ab3c2e8ee5cac44fa2be8b382f55bf3.html",
+        "sha256": "870cc485a3445096ad56279d38a68e071f9222973ca847f755336af549040843",
+        "cached": false,
+        "status": "ok",
+        "title": "贵州省民宿卫生管理办法(试行)",
+        "published": "2025-12-12",
+        "body_chars": 1527,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/t20251205_89019145.html",
+        "list_title": "省卫生健康委 省中医药局关于进一步规范限制类医疗技术临床应用管理有关工作的通知",
+        "path": ".runtime/national/trials/65df7d1862421b484852ea97124c4f4ddbc5854bb17e3a61c616b3567b4b4b0f.html",
+        "sha256": "d33f8b758dc0eb1d4ad79818fe8bd0bf8e2736f847cd49dfddc77cde75e45870",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委 省中医药局关于进一步规范限制类医疗技术临床应用管理有关工作的通知",
+        "published": "2025-12-05",
+        "body_chars": 2467,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "附件下载.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202512/P020251205381826244223.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202511/t20251125_88976173.html",
+        "list_title": "省委组织部等10部门关于印发《省外三甲医院帮扶县(市、特区)级医疗机构实施方案》的通知",
+        "path": ".runtime/national/trials/02de09fcb29df5c32fc3dd4c9ec31ef2503ccc32ebe75dc4321928713ab8c6f1.html",
+        "sha256": "cc5daff0ee659bbfb762951547d814df793288504a6fd7dee1481a14d25ee45c",
+        "cached": false,
+        "status": "ok",
+        "title": "省委组织部等10部门关于印发《省外三甲医院帮扶县(市、特区)级医疗机构实施方案》的通知",
+        "published": "2025-11-25",
+        "body_chars": 288,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "省外三甲医院帮扶县（市、特区）级医疗机构实施方案.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202511/P020251125357267956823.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202511/t20251120_88960476.html",
+        "list_title": "省卫生健康委 省中医药局 省疾控局 省军区保障局关于印发贵州省“儿科和精神卫生服务年”行动实施方案(2025-2027年)的通知",
+        "path": ".runtime/national/trials/5ce72a6e762d1c0e39601f9393c48aa058e05e8c308d9b00338bdb1de1f08eb0.html",
+        "sha256": "9d55a458a20355a324f1c8fa634e9c33ff9ae3e6b3b0ed7e681bc3cdda56d967",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委 省中医药局 省疾控局 省军区保障局关于印发贵州省“儿科和精神卫生服务年”行动实施方案(2025-2027年)的通知",
+        "published": "2025-11-20",
+        "body_chars": 203,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省“儿科和精神卫生服务年”行动实施方案（2025-2027年）.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202511/P020251120360136330344.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/t20250811_88443068.html",
+        "list_title": "省卫生健康委关于印发贵州省“血费减免一次都不跑”实施方案的通知",
+        "path": ".runtime/national/trials/338d8a5535354eee962e4bc062c3889d014525414740c7580b28c72aef97474e.html",
+        "sha256": "e18efe3f953441218d0f8efa82ffe4d69229bd11024276c7e6b59403d49961f9",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委关于印发贵州省“血费减免一次都不跑”实施方案的通知",
+        "published": "2025-08-11",
+        "body_chars": 216,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省“血费减免一次都不跑”实施方案",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250811567697891380.doc",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/t20250805_88399406.html",
+        "list_title": "省卫生健康委等12部门关于印发贵州省个人身后“一件事”工作实施方案的通知",
+        "path": ".runtime/national/trials/8ae55e0dfab98ef148458e9894f000235425ba5bbadb2a86de8b17561f08d50c.html",
+        "sha256": "8ab5584e17d104a4fffce6c7a725f1d01f6ea19a03e25d3a51e8b66721813bd1",
+        "cached": false,
+        "status": "ok",
+        "title": "省卫生健康委等12部门关于印发贵州省个人身后“一件事”工作实施方案的通知",
+        "published": "2025-08-05",
+        "body_chars": 372,
+        "authority": "贵州省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "贵州省个人身后“一件事”工作实施方案.doc",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250805588359583047.doc",
+            "status": "pending"
+          },
+          {
+            "name": "附件1：贵州省个人身后 “一件事”办事指南（备案件）",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250805588359638441.docx",
+            "status": "pending"
+          },
+          {
+            "name": "附件2：贵州省个人身后“一件事”业务流程图",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250805588359694660.pdf",
+            "status": "pending"
+          },
+          {
+            "name": "附件3：贵州省个人身后 “一件事”申请表（备案件）",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250805588359738097.doc",
+            "status": "pending"
+          },
+          {
+            "name": "P020250805588359694660.pdf",
+            "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/202508/P020250805588359694660.pdf",
+            "status": "pending"
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          },
+          {
+            "name": "正文图片",
+            "url": "https://wjw.guizhou.gov.cn/govapp/lib/ueditor_demo/ueditor2/dialogs/attachment/fileTypeImages/icon_doc.gif",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "unique_items": 20,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass"
+  },
+  {
+    "id": "gx-policy",
+    "region": "GX",
+    "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/",
+    "checked_at": "2026-11-17T03:57:03.933253+00:00",
+    "lists": [
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/",
+        "count": 30,
+        "audit": {
+          "dated_records": 30,
+          "returned_records": 30,
+          "eligible_records": 30,
+          "link_origins": {
+            "wsjkw.gxzf.gov.cn": 30
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/index_1.shtml",
+        "cached": true,
+        "path": ".runtime/national/pages/gx-deep-3.html",
+        "sha256": "fb163bcbf5d6fd73e5c3d57ccce7eeaf1e32b15ec522548654a198f632753437"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/index_1.shtml",
+        "count": 30,
+        "audit": {
+          "dated_records": 30,
+          "returned_records": 30,
+          "eligible_records": 30,
+          "link_origins": {
+            "wsjkw.gxzf.gov.cn": 30
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/index_2.shtml",
+        "cached": false,
+        "path": ".runtime/national/trials/df117f05ddb0e1443367dfcd2a233ef59a75fbe7792d7924177327f0228b8bc7.html",
+        "sha256": "5d582b9f179432569ca86431ee1181c4f8822e79f05e8d6fddcc72f602a24de7"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t26131532.shtml",
+        "list_title": "自治区卫生健康委关于印发广西普惠托育服务机构认定标准和管理规定的通知",
+        "path": ".runtime/national/trials/ae7c093b20db16d0586e8624a0b30f7a382e7d4fd01ad4ad37ea2969e24cdc61.html",
+        "sha256": "2775e9076d6ec262e033fc3d2ff98bfcd1bf11fa473d192b588cd18446cd8a7d",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t18615795.shtml",
+        "list_title": "自治区卫生健康委关于宣布失效一批行政规范性文件的通知",
+        "path": ".runtime/national/trials/f4c92045165c843bc9143b5f228bf0e256208c379536a10d83ea0ad15e8ae77b.html",
+        "sha256": "e6d0320d44b66468f09a0350136cca8642f0a2f488d927effef44f6ffa843436",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t18730413.shtml",
+        "list_title": "自治区卫生健康委关于印发广西壮族自治区互联网诊疗监管实施办法(试行)的通知",
+        "path": ".runtime/national/trials/66dbdea143a7e3001434375757a9d0705cfdaf642872b9e4ccb56aaeb3ff58a7.html",
+        "sha256": "0de0e60e8d285f1d72d1d8f6edb59b627e2cc386cb499cedb1a1f12df30c48ec",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t17760775.shtml",
+        "list_title": "自治区卫生健康委 自治区中医药局 自治区疾控局关于印发《广西壮族自治区卫生健康领域轻微违法行为依法不予行政处罚事项清单》的通知",
+        "path": ".runtime/national/trials/9aef91e1ab3cdd1292e45482f3491efe624322dbff953f13aea92787ed940e26.html",
+        "sha256": "d0c0104d1df375cea4b64e4e74d6df0ca0dcebe54c16adef90ae9fd6bc106a97",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t17760765.shtml",
+        "list_title": "自治区卫生健康委 自治区中医药局 自治区疾控局关于印发《广西壮族自治区卫生健康领域行政处罚裁量权规则》的通知",
+        "path": ".runtime/national/trials/2236fc5343fa9bcc5374ddd43af170bc2c2e62a367d38722553f02cc4580e4b8.html",
+        "sha256": "f3caca85af4179c7ce1ec07b1bfe97e60df6d2cfc1d9be05632ef9626e274d1b",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t17727076.shtml",
+        "list_title": "自治区卫生健康委关于印发广西壮族自治区医疗机构外送样本检测管理暂行规定的通知",
+        "path": ".runtime/national/trials/72976645a409792e23ca243c3e46d0e8f587495a6f688c6282c90e4b1a966729.html",
+        "sha256": "4ce15637034d0270f2245e69b93f428ebffaf732ba08c13d131007cf7b22c504",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t17255479.shtml",
+        "list_title": "自治区卫生健康委关于宣布失效一批行政规范性文件的通知",
+        "path": ".runtime/national/trials/ba2b86ce2594a8ace990408cd30cb0396231368b93fb8e6354b6894607805629.html",
+        "sha256": "eaf2428a1a59ab85c593f538d074040d41b0294ca5873c2ebd18047011a591d6",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t16531614.shtml",
+        "list_title": "自治区卫生健康委 自治区中医药局关于印发进一步明确全区医疗机构管理有关规定的通知",
+        "path": ".runtime/national/trials/3153c82d4355994a0dd0cb8b31ac50243b94ed3f64c7dec50b8cf540685bbb1a.html",
+        "sha256": "32e8a51a13f70c1899c8f421f610660ab078eba4ce90ef3bbfc130b5807b5cf4",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t14012740.shtml",
+        "list_title": "自治区卫生健康委关于宣布失效一批行政规范性文件的通知",
+        "path": ".runtime/national/trials/c05fddab402a90f4f4fb8358f6cf23745410b753d8e5c42aa3adc6e361ac97e8.html",
+        "sha256": "f272acadb8f1530cdff0aa460451759d8fec2a042624aa470a77883faa9a6311",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13998704.shtml",
+        "list_title": "广西壮族自治区卫生健康委员会等6部门关于印发广西壮族自治区家庭医生签约服务高质量发展实施意见的通知",
+        "path": ".runtime/national/trials/33cf605eee6cd22d1e70ee1ee2c541ef3eff49e02988ea9c58e07912f689ae54.html",
+        "sha256": "0ec4be1ae21f833d1f8169a9f244926fe9bec94af02504afe759eccf82e44a22",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13998613.shtml",
+        "list_title": "自治区卫生健康委 自治区中医药局 自治区残联关于进一步做好残疾人家庭医生签约服务工作的通知",
+        "path": ".runtime/national/trials/2eea8b45357ad4d6c5c73fc55f29c0c337b18a8acff93aadfb4aaaaf7f864bec.html",
+        "sha256": "013912f71f5bc039943bd73c60e15636babdccb960b86d62ec500af814b7698d",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13954848.shtml",
+        "list_title": "自治区卫生健康委关于印发广西母婴安全行动提升计划实施方案(2021-2025年)的通知",
+        "path": ".runtime/national/trials/f51e5e19aef32b0419ec5b3b01b1a12c25ee6aa01ccdc99eea5f2ed9416b7cd7.html",
+        "sha256": "a9318383d81f1410d9f0e3a4777846afcf7a159d2ec78666191d4836da514c95",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13954463.shtml",
+        "list_title": "自治区卫生健康委关于印发广西健康儿童行动提升计划实施方案(2021-2025年)的通知",
+        "path": ".runtime/national/trials/7d16143936ae77a533f5e66af044497833014cbe69a057c241508bcba83dda66.html",
+        "sha256": "5e82123b8333df899de3c23d37f0e15b7c2f9979878f7df77fbca80433939990",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13727080.shtml",
+        "list_title": "自治区卫生健康委关于贯彻落实职业健康领域 “证照分离”改革措施的通知",
+        "path": ".runtime/national/trials/d80746c9c515f49edac829d47712b1b9cfa5df484de7913e1a7c33f5e0191971.html",
+        "sha256": "0f71daad39d246b028121797ffa6162487e090deec74db4a4245013115909bbf",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13725902.shtml",
+        "list_title": "自治区卫生健康委关于进一步加强职业病诊断与鉴定管理工作的通知",
+        "path": ".runtime/national/trials/dae92b1b064d81367c1982386edb98e7cc5aec347087484d18e74eb041d00a22.html",
+        "sha256": "2fb11ff0378355c2f9e37b932b61593056d842e79fe04d8cee3d10728f4b8a2c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13831894.shtml",
+        "list_title": "自治区卫生健康委关于印发《广西示范性托育机构评估办法(试行)》的通知",
+        "path": ".runtime/national/trials/80269230827b81e6c2ff6cac721a4c3aa4bb25f5e9603e0171fb4e5272ae5e3a.html",
+        "sha256": "a64c452a686e30363b04f281eb214f14f20f256f5339f4c2319828c1fe65d57a",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13998347.shtml",
+        "list_title": "广西壮族自治区卫生健康委员会 广西壮族自治区财政厅 广西壮族自治区中医药管理局关于做好2021年基本公共卫生服务项目工作的通知",
+        "path": ".runtime/national/trials/c82b3a2387929594b9838e9cef2dffc7f562b4b87fbed3f0667fc61267d42b76.html",
+        "sha256": "96c9da34bfa30529c7a087190a5df20daa7cc9f6821f656cc892e05cbeb94f91",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13953781.shtml",
+        "list_title": "自治区卫生健康委关于印发广西妇幼健康领域“证照分离”改革工作实施方案的通知",
+        "path": ".runtime/national/trials/752a33ecd80d2e5fbbfdfc1b4e88eac22ebd4c06dcfbd6e6ff8614023206aeaa.html",
+        "sha256": "a336a4ffc32a43f74303a7e2f47ea7d581c706f4c8ec3ea6401b8264e02b73c0",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t13809908.shtml",
+        "list_title": "自治区卫生健康委关于印发《广西食品安全企业标准备案管理办法》的通知",
+        "path": ".runtime/national/trials/b32b8e099686eebd4917093757688509864749935dd992ce6d78075c3f01b2e0.html",
+        "sha256": "0ec444fc2143b4a553f1c600b437b3d888940051ce21c5b183d8141beabb2f11",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/t14007429.shtml",
+        "list_title": "自治区卫生健康委关于印发广西壮族自治区医师不良执业行为记分管理办法的通知",
+        "path": ".runtime/national/trials/f802c9361ee216b7c65e353520025da35a6e7e0fe279da6e42d2775c1f8ea89a.html",
+        "sha256": "0c9df36dfe536e986820d8d386d69182bf037eb9198ae1b705fbb43cf6d6ce10",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 60,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "gx-interpretation",
+    "region": "GX",
+    "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/",
+    "checked_at": "2026-11-17T03:57:44.168864+00:00",
+    "lists": [
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/",
+        "count": 30,
+        "audit": {
+          "dated_records": 30,
+          "returned_records": 30,
+          "eligible_records": 30,
+          "link_origins": {
+            "wsjkw.gxzf.gov.cn": 30
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/index_1.shtml",
+        "cached": true,
+        "path": ".runtime/national/pages/gx-deep-4.html",
+        "sha256": "e00bcd929fe4100345be8b8a86dce3f5fe9a93f2013240e73ea5778b4e4a5df2"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/index_1.shtml",
+        "count": 30,
+        "audit": {
+          "dated_records": 30,
+          "returned_records": 30,
+          "eligible_records": 30,
+          "link_origins": {
+            "wsjkw.gxzf.gov.cn": 30
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/index_2.shtml",
+        "cached": false,
+        "path": ".runtime/national/trials/2dcce154416e988652d1c5577b56fcf2e09d79a6ed9f785b28cf3e0856993d6d.html",
+        "sha256": "18f9f65ceb201ae2d26350583c70b4c7bd4ac7a8cb24319377e69aadfa45c944"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t28122110.shtml",
+        "list_title": "《广西壮族自治区食品安全地方标准管理办法》政策解读",
+        "path": ".runtime/national/trials/a3437d0b0b7901a08ae2658df016bfc08b1bf71800734c78e27fc5c098e6717f.html",
+        "sha256": "026345b1b72c410efec199b7e5577863d1337b76e82ca2115ab5f4f338195e73",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27850271.shtml",
+        "list_title": "《广西健康产业发展行动计划(2026—2028年)》 政策解读",
+        "path": ".runtime/national/trials/7d8bcb17e670e8ea9abe977d292160cfc24e810c77591353a366da6bc052435d.html",
+        "sha256": "0fdb25162b0a5f327155e4c51dda046632952f3afee7cbd3849241ac8c20aab7",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27821687.shtml",
+        "list_title": "《广西“明眸皓齿 壮美少年”五健实施方案(2026-2030年)》政策解读",
+        "path": ".runtime/national/trials/13689211e8bac89788c783adf3a77c146405b698a83bb16a6fea3dd420385aea.html",
+        "sha256": "4fc871d8bc68d7178db9168231b60aedeca5835ed61e93f705b51c83054e50bc",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27468260.shtml",
+        "list_title": "《广西中医药产业高质量发展三年行动方案(2026—2028年)》政策解读",
+        "path": ".runtime/national/trials/1ed6b19f81bca9ea990d26625b0fdfc4dfe47a5a2a35347fe8a6cdc6a0886178.html",
+        "sha256": "39abb672725298b6d29e8b6cec040149f018cbc553f7596ad78a6c98a634d753",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27429758.shtml",
+        "list_title": "《广西壮族自治区三级医院评审标准实施细则(2026年版)》政策解读",
+        "path": ".runtime/national/trials/968a5b7ff76019e7b864da75a93d1db3a5a3983c0ab92400e0deaa1d9be62c97.html",
+        "sha256": "c4687b72263bd7fb2c96e0e36681a60fb40e88f6ab87c17d0375de2bfeb18788",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27316995.shtml",
+        "list_title": "《自治区卫生健康委 自治区生态环境厅 自治区住房城乡建设厅 自治区市场监管局 自治区数据局关于印发〈推动开办诊所“一件事”实施方案〉的通知》政策解读",
+        "path": ".runtime/national/trials/1199e3ba398f7e21d19167e0f5e380bac4ed90b8bd0ff32368f96d7a95c23653.html",
+        "sha256": "6682d715f477a63ad99424e408627fbdeb6381545fbeb229fc9028c50bc78503",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27246087.shtml",
+        "list_title": "《卫生健康领域政务服务事项“零材料”办理工作方案》政策解读",
+        "path": ".runtime/national/trials/f19233a166605283727acf450aa513f134bd3778635bcf845e6d75c456ba2bce.html",
+        "sha256": "c3f5f6329132de1a92082475be930835569b0e8d05c2c2a2c319cd5b43111010",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27079130.shtml",
+        "list_title": "《广西壮族自治区医疗机构医师附条件注册精神卫生专业执业范围实施方案(2025版)》政策解读",
+        "path": ".runtime/national/trials/b9905e99028102c43646c476d039c86847b305309135903fa17db8d6a235820d.html",
+        "sha256": "29678ada484501515120b1ed45da33e17cd20dd83856488828e840f4c8bc686e",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27083239.shtml",
+        "list_title": "《广西壮族自治区继续医学教育学分实施细则(试行)》政策解读",
+        "path": ".runtime/national/trials/2d3a8a2caa7d2e19c60753baac47a64f4caa56d627b7cc0b9ba97faba310c790.html",
+        "sha256": "1216a59a48c437be9937a22faf3c897287c05c6e61c7f236dc84db8f91f20646",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27083157.shtml",
+        "list_title": "《广西壮族自治区继续医学教育管理实施办法(试行)》政策解读",
+        "path": ".runtime/national/trials/ddaee5885349da4486ac8cf2226bfd61ee53ef8728254103629a1813b218eeb2.html",
+        "sha256": "3c341cf68bc5ea395d2d391af1b5a39784aac05f823b0aab334f1f95e24491ca",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27071642.shtml",
+        "list_title": "《广西壮族自治区住院医师规范化培训管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/9a8c9347eaf463eaa8a0d9f247efe91b6e6b9c8d5f47897ff32c48764f5399cf.html",
+        "sha256": "51276aa2ce323b3cf70f3471f51845d05c5b967836128a7c1c80e9a6c8a4893a",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27029343.shtml",
+        "list_title": "《广西壮族自治区医疗卫生与计划生育事业发展专项资金管理办法》政策解读",
+        "path": ".runtime/national/trials/6006ce38f7a7da47129816eb0c8aae54fc007eafc1c905e7a4dfd54227805b6b.html",
+        "sha256": "32e81cf5976178535c3a1ff014139eb6619d53c233fc03d4dc37c9cee75dc79a",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27188430.shtml",
+        "list_title": "《广西壮族自治区育儿补贴制度实施方案》政策解读",
+        "path": ".runtime/national/trials/75c54cacde41407bda61dfebf88cb5e8d87f1ed3d14d3d1286383ac519172e74.html",
+        "sha256": "115ec8a9cc4aff885a4a62d199ac86af31b474b65adeb12d52af70c4e9df9b19",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27902971.shtml",
+        "list_title": "《广西非免疫规划疫苗集中采购实施方案(2025年版)》政策解读",
+        "path": ".runtime/national/trials/1a643e312e9d4643536c0d2a0b367f42587ec32687ee560fcfa1efab6af94d85.html",
+        "sha256": "591a6d3c05cae5bcb60f84b9312e28ec476884e85057b7a5efb64d40951b40e9",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t26126126.shtml",
+        "list_title": "【一图读懂】《关于开展银发医养行动的通知》解读",
+        "path": ".runtime/national/trials/5f198090a860c3aff0bda89eafd4f95fbd2a42ad32f5453f18efac49f20e35fe.html",
+        "sha256": "0a46366c419c54748e0ab094d07ddd2d5bd0ce993254fae84498bf7287b2e944",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t26126045.shtml",
+        "list_title": "《成人健康体检项目推荐指引(2025年版)》解读",
+        "path": ".runtime/national/trials/18545303922fdc5e162c4d1375933cb8729c5ac9bef314e7bd248c24f24e5bbd.html",
+        "sha256": "0b56ea7db36f291847a40a0b0034e48d226074d4191982587b942ea42e1801ce",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t26125929.shtml",
+        "list_title": "《关于开展非法救护车专项整治工作的通知》解读",
+        "path": ".runtime/national/trials/fd5dff13957d5c96b3f0036b9a15ffa2fc7d7bf2e26d424be23f97e0db469331.html",
+        "sha256": "c5416736b78f15301ee331cb1b9c9b6bef8ff11399a272c24aef9563cc39f0e8",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t27357974.shtml",
+        "list_title": "《广西壮族自治区二级和三级妇幼保健院评审标准实施细则(2025版)》政策解读",
+        "path": ".runtime/national/trials/d1982db245dbf0174dd3563921abc9c69f9b7e65d1cc03cc431182846ea22ae8.html",
+        "sha256": "0ccc7e91229197dfeed4aa83391cbe3e9e701eb9c7851b385942960a72b5435c",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t25964916.shtml",
+        "list_title": "《广西普惠托育服务机构认定标准和管理规定》政策解读",
+        "path": ".runtime/national/trials/0f8e8477a3f5c68df252bac98c2e956838b49854881f121d7c42e0b8927178bb.html",
+        "sha256": "e44c95190c68522fd70e31c4bb2acf3cfa55b0c055f84011e71ce65d54d3d5d7",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/t25957913.shtml",
+        "list_title": "《医疗卫生强基工程实施方案》政策解读",
+        "path": ".runtime/national/trials/c373a1efdb8dc6cb372a88824885ff629a01c0d6ec6424878ee820540d3f0dd6.html",
+        "sha256": "7278ec2987d203074fdc26d44aa58b64258bac2b9cdf61b28e2b38b76cfdfe99",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 60,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 0,
+    "status": "needs_work"
+  },
+  {
+    "id": "jx-policy",
+    "region": "JX",
+    "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html",
+    "checked_at": "2026-11-17T03:57:04.904307+00:00",
+    "lists": [
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html",
+        "count": 14,
+        "audit": {
+          "filtered_non_document": 1,
+          "dated_records": 15,
+          "filtered_external": 1,
+          "returned_records": 16,
+          "eligible_records": 14,
+          "link_origins": {
+            "hc.jiangxi.gov.cn": 14,
+            "www.nhc.gov.cn": 1
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html#collector-page=2",
+        "cached": true,
+        "path": ".runtime/national/pages/jx-column-1-list.html",
+        "sha256": "f09941bb40513edb7813b4a8f63b42368b5dcca7b94b26adadf8b7d3252d4d5f"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html#collector-page=2",
+        "count": 15,
+        "audit": {
+          "filtered_non_document": 1,
+          "dated_records": 15,
+          "returned_records": 16,
+          "eligible_records": 15,
+          "link_origins": {
+            "hc.jiangxi.gov.cn": 15
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html#collector-page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/28d72a64cd4dce48b9cbd83014b76a48fcec52771db49508900679de63f010c6.html",
+        "sha256": "8b2d0c60639c638c7ddca0525caabfd92da7a0b976c1d25f81872def4e0e9791"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2117909933027033088.html",
+        "list_title": "关于印发《江西省医疗纠纷投诉处理办法(试行)》的通知",
+        "path": ".runtime/national/trials/9bb8c68e757ef777a831109774c03a0b362f291a5e69a48fa7ab08af7bc7ecdf.html",
+        "sha256": "22de79237303e613b1cec297f7352326459574a3c5f3f9936392eed942c86d35",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《江西省医疗纠纷投诉处理办法(试行)》的通知",
+        "published": "2026-10-30",
+        "body_chars": 30,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《江西省医疗纠纷投诉处理办法（试行）》的通知．pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2117909933027033088/uc4JBhge.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2110674003807502336.html",
+        "list_title": "关于印发江西省职业健康检查机构管理办法的通知",
+        "path": ".runtime/national/trials/2ce44886bf8cd7d22aba49acb0e01597b2f6e0babe0d9a235aded78ab49abe1d.html",
+        "sha256": "d0d67a2b545cdc9b56aa21dfa95c4c3037c51f1c7c882d9bfd4aff232366499a",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发江西省职业健康检查机构管理办法的通知",
+        "published": "2026-10-09",
+        "body_chars": 26,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发江西省职业健康检查机构管理办法的通知．pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2110674003807502336/m5rwlOdJ.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2101501518336831488.html",
+        "list_title": "关于印发《江西省普惠托育机构认定和管理办法》的通知",
+        "path": ".runtime/national/trials/6c954dbd61bb1e0c0f9fde914e3773190993a7a6e26683483e17d541c5c4ac65.html",
+        "sha256": "453355c811cd5d39b610936e06ce932e223dd32e1571bfea73e1699e639e6c80",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《江西省普惠托育机构认定和管理办法》的通知",
+        "published": "2026-09-15",
+        "body_chars": 33,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《江西省普惠托育机构认定和管理办法》的通知．ofd．pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2101501518336831488/zrs0TKvE.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2089265968337723392.html",
+        "list_title": "关于加强全省托育机构安全生产管理工作的通知",
+        "path": ".runtime/national/trials/af772cac3caefc30f27962fe2f67ab17fd5efd4c69ae63a61ac1b3cf9a610869.html",
+        "sha256": "22389db8c077cbd6b20fc4486bbe97a209769260836ee0c332cc1ac602eabbdd",
+        "cached": false,
+        "status": "ok",
+        "title": "关于加强全省托育机构安全生产管理工作的通知",
+        "published": "2026-08-01",
+        "body_chars": 35,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于加强全省托育机构安全生产管理工作的通知（正式公文）．ofd．pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2089265968337723392/DTz8DkUh.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2084538541476749312.html",
+        "list_title": "关于推动我省医疗卫生机构做好长期护理保险有关工作的意见",
+        "path": ".runtime/national/trials/b4c9d8ba43f8cff9eb7bedf7cbaa4be29d5abc05b6557616bf6f7f9cc0a358ec.html",
+        "sha256": "e561eb14582cf235be88eab0ec51356f4a70ae5abc55aaf81e8e0d52489b7589",
+        "cached": false,
+        "status": "ok",
+        "title": "关于推动我省医疗卫生机构做好长期护理保险有关工作的意见",
+        "published": "2026-07-31",
+        "body_chars": 31,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于推动我省医疗卫生机构做好长期护理保险有关工作的意见．pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2084538541476749312/nDoNsOUi.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2071495801455681536.html",
+        "list_title": "关于印发《江西省血吸虫病防治管理规范》的通知",
+        "path": ".runtime/national/trials/e7f0eb676ffec7defbfa0209bca7f2596c3418713a165ffb53772227d8b2f7ab.html",
+        "sha256": "1277eebb74431c035715a4ad99181a4165dec12d8fae26ab95f1cbcfac12e658",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《江西省血吸虫病防治管理规范》的通知",
+        "published": "2026-06-29",
+        "body_chars": 26,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《江西省血吸虫病防治管理规范》的通知.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2071495801455681536/JfpvKCjl.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2059568988762980352.html",
+        "list_title": "关于印发江西省脑机接口临床研究项目伦理审查工作指引的通知",
+        "path": ".runtime/national/trials/a607bdd553e887bffca611f3ea1568ccc90ca7af0b7be87de83a7f3115689f16.html",
+        "sha256": "df20398a24eb7d7ec8b37f1fb0cc6ef526251669aa041c897db5211c0f991607",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发江西省脑机接口临床研究项目伦理审查工作指引的通知",
+        "published": "2026-05-27",
+        "body_chars": 32,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发江西省脑机接口临床研究项目伦理审查工作指引的通知.ofd",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2059568988762980352/xQUvjSlh.ofd",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2059166165114077184.html",
+        "list_title": "关于印发江西省推进临床研究项目伦理审查规范高效开展的若干措施的通知",
+        "path": ".runtime/national/trials/bdb14d9a167e6a6ae3b3945978b04e63e579c738f8b3bfa83b61f8275517742d.html",
+        "sha256": "d532aa30c7e87096ae03281182326fd39d12e1ad787cf774cf7f5ec22d3e63d7",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发江西省推进临床研究项目伦理审查规范高效开展的若干措施的通知",
+        "published": "2026-05-21",
+        "body_chars": 37,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发江西省推进临床研究项目伦理审查规范高效开展的若干措施的通知.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2059166165114077184/LQDGcQOQ.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2057037181463085056.html",
+        "list_title": "关于印发《江西省卫生健康行政处罚裁量权实施办法》《江西省卫生健康行政处罚裁量权基准》(2026年版)的通知",
+        "path": ".runtime/national/trials/fb0ce0b5fedd2391d3e527b15db027f8fa962385c77d02f56466db0c9c02b6f5.html",
+        "sha256": "a05e9f5e15ffaf2515a4c2f044c825cbc5399df8f5315a0ef385d26936720428",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《江西省卫生健康行政处罚裁量权实施办法》《江西省卫生健康行政处罚裁量权基准》(2026年版)的通知",
+        "published": "2026-05-20",
+        "body_chars": 35,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "ndZdERXh.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2057037181463085056/ndZdERXh.pdf",
+            "status": "pending"
+          },
+          {
+            "name": "行政处罚裁量权实施办法（附件1、2）1780040696702.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2057037181463085056/ndZdERXh.pdf",
+            "status": "pending"
+          },
+          {
+            "name": "WYyUSDdL.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2057037181463085056/WYyUSDdL.pdf",
+            "status": "pending"
+          },
+          {
+            "name": "2r70Rzgu.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2057037181463085056/2r70Rzgu.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2049681074706976768.html",
+        "list_title": "关于加强全省民营医疗机构安全生产和消防安全管理工作的通知",
+        "path": ".runtime/national/trials/572d6d63051a57ecc83c14afd9be07d783142033ae754456a14d54c82c62560d.html",
+        "sha256": "7bbc2f9c57b2199aa6fa3033205d8016cfbea7d3b76ffcd67fa47548e2f700be",
+        "cached": false,
+        "status": "ok",
+        "title": "关于加强全省民营医疗机构安全生产和消防安全管理工作的通知",
+        "published": "2026-04-28",
+        "body_chars": 3829,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2046411195148201984.html",
+        "list_title": "关于印发《江西省医疗机构不良执业行为记分管理办法(2026年版)》《江西省医务人员不良执业行为记分管理办法(2026年版)》的通知",
+        "path": ".runtime/national/trials/325403b5339791c70bffc3b129d59fd822865fec48133aa825290fdd28f8ed64.html",
+        "sha256": "67763d4332e8045c935d783f1f0f44e1114b0efc9cd7a2d05ba63c06ba73433a",
+        "cached": false,
+        "status": "ok",
+        "title": "关于印发《江西省医疗机构不良执业行为记分管理办法(2026年版)》《江西省医务人员不良执业行为记分管理办法(2026年版)》的通知",
+        "published": "2026-04-17",
+        "body_chars": 388,
+        "authority": "江西省卫生健康委员会",
+        "kind": "policy",
+        "attachments": [
+          {
+            "name": "关于印发《江西省医疗机构不良执业行为记分管理办法（2026年版）》《江西省医务人员不良执业行为记分管理办法（2026年版）》的通知.pdf",
+            "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/2046411195148201984/H2qtkQhC.pdf",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2066343142870540288.html",
+        "list_title": "关于印发《江西省职业病诊断医师管理办法(试行)》的通知",
+        "path": ".runtime/national/trials/c6f17e1ad75d78e795acfb10ca5b2f2b0f83b3990e815fff7a993e14e3a085e5.html",
+        "sha256": "660be6c648767586df4a6689cac45a57439cba6bddf382566947928872a429c6",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041410251765907456.html",
+        "list_title": "关于印发江西省农村订单定向医学生免费培养工作方案的通知",
+        "path": ".runtime/national/trials/082cb04d4a2c108b8b2552db2b8424421ea081b0181c433d322ea52197179c90.html",
+        "sha256": "9198dfa4423b5ab2ecd62a664656d416dfb60095d7445116c01ad89ab54078a6",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041408763840757760.html",
+        "list_title": "关于印发《关于推动支持创新药临床配备使用的若干措施》的通知",
+        "path": ".runtime/national/trials/88eaf67317771c2265c64661b0d9b6a449778f5321c58b81de633d506be94365.html",
+        "sha256": "7c649aa7ce25a380bdc76aa8a46e7a84f31adca6033d4e9cb5e9db87243e5218",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041411860000473088.html",
+        "list_title": "关于印发《江西省医院安全防范建设标准(2025年版)》的通知",
+        "path": ".runtime/national/trials/fbad95de5b23f131ab3c7036767dcea539a469c365d339684f827170954d837f.html",
+        "sha256": "6bb03c1a10444a8490c6b80d106ebab6cce2ea4a601d1afade1b77a1ae641cb6",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041413190047825920.html",
+        "list_title": "关于印发《江西省公立医疗机构外配处方管理规定(2025年版)》的通知",
+        "path": ".runtime/national/trials/1ad85ee5ce569371ce59210f8e1f8a251369bcfcdc69d95e22979f9193711a85.html",
+        "sha256": "14bc2b088482a181beb9a0e6077efbbdf63ddc5049008ce16f7880089f5d0ea8",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041412079429681152.html",
+        "list_title": "关于印发《江西省公立医疗机构外送样本检测管理规定(2025年版)》的通知",
+        "path": ".runtime/national/trials/0d87fd431453c81bf9b163fc29d7c707652f27d40756acfcfb7cd74562aefd5d.html",
+        "sha256": "9c4fa5682a92ab77a8385c3a18bf0585b8692c65073231c3063fc8f8bad268fb",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041413404695527424.html",
+        "list_title": "关于印发《江西省医疗机构医师附条件注册精神卫生专业执业范围管理办法》的通知",
+        "path": ".runtime/national/trials/a0f1a8534b60a1f79ff7585f30763496c29d52837046bc76d85e3b534a8565e9.html",
+        "sha256": "75a6411ed0448a454dfc06675d91f5bd7b893db16eae6aaf211704f512e882d8",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2041413866228350976.html",
+        "list_title": "关于规范引导我省公立医疗机构特需医疗服务发展的若干意见(试行)",
+        "path": ".runtime/national/trials/b89e54eac9f04a4f33bee683e5b740ccbc445746b3809f3bf18a55e3c5370179.html",
+        "sha256": "72c1ca8e990b187469a92920350f86c88b6ba8b99ca08ab56e7a7eaa2fbb7621",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/content/content_2042080023579000832.html",
+        "list_title": "关于印发《江西省紧密型县域医共体中心(云)药房和集中(云)审方中心建设参考标准》的通知",
+        "path": ".runtime/national/trials/fe0a4f225d8c12c3ec2220b3526fb6d8acb978d59b639cc67939b57ba31501c5.html",
+        "sha256": "e2a13252e7be275917ec577949a8d575f7811cfc9639f4f3cac18de3f653c396",
+        "cached": false,
+        "status": "error",
+        "error": "ParseError:body_selector_missing"
+      }
+    ],
+    "errors": [],
+    "unique_items": 29,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 11,
+    "status": "needs_work"
+  },
+  {
+    "id": "jx-interpretation",
+    "region": "JX",
+    "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html",
+    "checked_at": "2026-11-17T03:57:57.200675+00:00",
+    "lists": [
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html",
+        "count": 7,
+        "audit": {
+          "filtered_non_document": 1,
+          "dated_records": 15,
+          "filtered_external": 8,
+          "returned_records": 16,
+          "eligible_records": 7,
+          "link_origins": {
+            "www.nhc.gov.cn": 6,
+            "hc.jiangxi.gov.cn": 7,
+            "www.ndcpa.gov.cn": 1,
+            "www.natcm.gov.cn": 1
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html#collector-page=2",
+        "cached": true,
+        "path": ".runtime/national/pages/jx-column-2-list.html",
+        "sha256": "24c1ad93a9d019f4612522f8cb4539484bb2cc82dbea66063d02dc1bf68b2149"
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html#collector-page=2",
+        "count": 14,
+        "audit": {
+          "filtered_non_document": 1,
+          "dated_records": 15,
+          "filtered_external": 1,
+          "returned_records": 16,
+          "eligible_records": 14,
+          "link_origins": {
+            "hc.jiangxi.gov.cn": 14,
+            "www.jiangxi.gov.cn": 1
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html#collector-page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/28489ceffabf49c550cc393ecb8fd518582e2585e0a1ed3f38691c4e49ea5265.html",
+        "sha256": "f0995923ee2ffafc8befbbc94476b98dc57c1ff83a272a04cba2b46b448b64dc"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2117912646292930560.html",
+        "list_title": "《江西省医疗纠纷投诉处理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/2221b853ae38fb3346f2b08f05ffbdf73d2b041af19b81082e5b5d32c64f5765.html",
+        "sha256": "1b34bc9ed009ddebf73d65f980dfcdceb7d999acf3a01f3c271c2b02eee87218",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省医疗纠纷投诉处理办法(试行)》政策解读",
+        "published": "2026-10-30",
+        "body_chars": 2844,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2110675201092550656.html",
+        "list_title": "《江西省职业健康检查机构管理办法》政策解读",
+        "path": ".runtime/national/trials/2757434863f157d50c436bc01da598ce9e18f6f7ed4e8d443366b61aa3f79c4f.html",
+        "sha256": "ae96a4125caf9775b90c8f969a7713553bd3aa6cfd6a1a3f1c03da9b222aadd5",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省职业健康检查机构管理办法》政策解读",
+        "published": "2026-10-09",
+        "body_chars": 1060,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2101502027957350400.html",
+        "list_title": "《江西省普惠托育机构认定和管理办法》政策解读",
+        "path": ".runtime/national/trials/4d0262c7fc7c108b6a483debd2e6a9980b608ef9383ac61e31100eff0c21aa39.html",
+        "sha256": "d66af3e6fb071fbc014b90181321b714d5368185df85a3878694e8b889d2bc2e",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省普惠托育机构认定和管理办法》政策解读",
+        "published": "2026-09-15",
+        "body_chars": 1516,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2093165469487411200.html",
+        "list_title": "《关于加强全省托育机构安全生产管理工作的通知》政策解读",
+        "path": ".runtime/national/trials/e864b6d587e828afc9bcf1222daa7e15c8f027c480ba53b53106a4ad916163a8.html",
+        "sha256": "097baa2cfa62f82c38abddb09a7f13758dce0b85195f3321c9ea5934a84db3d0",
+        "cached": false,
+        "status": "ok",
+        "title": "《关于加强全省托育机构安全生产管理工作的通知》政策解读",
+        "published": "2026-08-01",
+        "body_chars": 1692,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2092443641994092544.html",
+        "list_title": "《关于推动我省医疗卫生机构做好长期护理保险有关工作的意见》政策解读",
+        "path": ".runtime/national/trials/12c6b00e4a20f2e47dd7eb245d8f81d290b908ac80051556e2982c785aa3ac1e.html",
+        "sha256": "81f4830ffaa4df6b8b2447f53878717a53ad41433ef9a09996969f73633999d0",
+        "cached": false,
+        "status": "ok",
+        "title": "《关于推动我省医疗卫生机构做好长期护理保险有关工作的意见》政策解读",
+        "published": "2026-07-31",
+        "body_chars": 750,
+        "authority": "老龄健康处",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2077329605445459968.html",
+        "list_title": "《国民健康“十五五”规划》12个关键点",
+        "path": ".runtime/national/trials/a39ed82c344f4f09aba22a519c71fe620225af0751e3a83126b86ef0dfad4af9.html",
+        "sha256": "4b2dd0ee627214e9448233a8062abb58dc6661be4a793df842c4ee4e12460033",
+        "cached": false,
+        "status": "ok",
+        "title": "《国民健康“十五五”规划》12个关键点",
+        "published": "2026-07-15",
+        "body_chars": 5561,
+        "authority": "国家卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2071499911336730624.html",
+        "list_title": "《江西省血吸虫病防治管理规范》政策解读",
+        "path": ".runtime/national/trials/75e693e430c204fef04b81aca3c41842cb644634f5c80a8cfa95b70fc12e3cf4.html",
+        "sha256": "da160db877206d5b4276050f6b3f31d734a787ea34180ab3af45901537d72c25",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省血吸虫病防治管理规范》政策解读",
+        "published": "2026-06-29",
+        "body_chars": 665,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2066425740112224256.html",
+        "list_title": "《江西省卫生健康领域科技成果转移转化服务体系建设三年工作指引(2026—2028年)》政策解读",
+        "path": ".runtime/national/trials/39d15eee950c6bec065b4e5e630b0ef05b9e80a50dc7a02a4ad25704b34d862f.html",
+        "sha256": "17763bc8049b8127a6fdda50bc8f8095173ced9cf676905f69da9d69dc90c2e0",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省卫生健康领域科技成果转移转化服务体系建设三年工作指引(2026—2028年)》政策解读",
+        "published": "2026-06-15",
+        "body_chars": 1243,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2059569407912361984.html",
+        "list_title": "关于江西省脑机接口临床研究项目伦理审查工作指引的政策解读",
+        "path": ".runtime/national/trials/3bd3961659c2efc3f744896cfc2fcb040adfc47de6e2a3150b19e4f5e543bcf1.html",
+        "sha256": "91bb8b4659b889f206e5ddd397f0df14eaa66bc175f325e6ad8533ee7d896915",
+        "cached": false,
+        "status": "ok",
+        "title": "关于江西省脑机接口临床研究项目伦理审查工作指引的政策解读",
+        "published": "2026-05-27",
+        "body_chars": 850,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2059166807463346176.html",
+        "list_title": "《江西省推进临床研究项目伦理审查规范高效开展的若干措施》政策解读",
+        "path": ".runtime/national/trials/6c966f7d4a4a5d31f817bd3649302f81e137df61d4a6867a680e20b349e9291a.html",
+        "sha256": "8f0d5466ce57da31461a97499f1d91e6f4aa1a949c51e6af8eff65da49243465",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省推进临床研究项目伦理审查规范高效开展的若干措施》政策解读",
+        "published": "2026-05-21",
+        "body_chars": 865,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2056551189849358336.html",
+        "list_title": "《江西省卫生健康行政处罚裁量权实施办法(2026年版)》《江西省卫生健康行政处罚裁量权基准(2026年版)》政策解读",
+        "path": ".runtime/national/trials/1aa2b1a7f5cadbf362ba59c4e8da6ba1f4356d8706624875a5446a9e8fc487df.html",
+        "sha256": "8785dc6111baee0b0cd42cf93bc196c26603be818b38ec9707e9cb7c22a8fb65",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省卫生健康行政处罚裁量权实施办法(2026年版)》《江西省卫生健康行政处罚裁量权基准(2026年版)》政策解读",
+        "published": "2026-04-29",
+        "body_chars": 1231,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2049681839773192192.html",
+        "list_title": "《关于加强全省民营医疗机构安全生产和消防安全管理工作的通知》政策解读",
+        "path": ".runtime/national/trials/47419274568a046c0ce793ac4a467b90f3ae7538223639d9058e47be4d4bb418.html",
+        "sha256": "5969fdb1e5beb014469ad05d887f626ce9b2786d43a98ae794e9b42554da98d6",
+        "cached": false,
+        "status": "ok",
+        "title": "《关于加强全省民营医疗机构安全生产和消防安全管理工作的通知》政策解读",
+        "published": "2026-04-28",
+        "body_chars": 1250,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2046411611021832192.html",
+        "list_title": "《江西省医疗机构不良执业行为记分管理办法(2026年版)》《江西省医务人员不良执业行为记分管理办法(2026年版)》政策解读",
+        "path": ".runtime/national/trials/69e3b8f36c37e918adf2c3eaed8c5136ee2f0286162908379cd584a40463b98b.html",
+        "sha256": "3a7d03123d030d1e9a5092b8cb35cf566e45ecdd3e222b033c61b23ae2355137",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省医疗机构不良执业行为记分管理办法(2026年版)》《江西省医务人员不良执业行为记分管理办法(2026年版)》政策解读",
+        "published": "2026-04-17",
+        "body_chars": 849,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2022228448977620992.html",
+        "list_title": "《江西省农村订单定向医学生免费培养工作方案》政策解读",
+        "path": ".runtime/national/trials/22972ffed2c78babb79bb6762ccce13369c01b0fb16c34b4ba06b1f6944688b9.html",
+        "sha256": "1e9104fe24420911a36cf51f10bd4f793f9dfe49330cb3f6c59f6cfa03903be0",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省农村订单定向医学生免费培养工作方案》政策解读",
+        "published": "2026-02-12",
+        "body_chars": 1179,
+        "authority": "委科教处",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2021857055266050048.html",
+        "list_title": "《江西省职业病诊断医师管理办法(试行)》政策解读",
+        "path": ".runtime/national/trials/48e99216eddbb53a92832984a22e9fda81dd710ffd087620e0e116c19bdf5c58.html",
+        "sha256": "ab6f9acf214bf21d777ea8a42a2c73f0abc5e0e1f34f2424a78b4a34415a8573",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省职业病诊断医师管理办法(试行)》政策解读",
+        "published": "2026-02-10",
+        "body_chars": 2012,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_2021406518808678400.html",
+        "list_title": "《关于推动支持创新药临床配备使用的若干措施》的政策解读",
+        "path": ".runtime/national/trials/7e352ba17e33fb9522759a688a6d59b5e41de2d4e85889aef6e4464d34b9288c.html",
+        "sha256": "f219b5ae81f127d1c52f9f9d4c6942b342bd97132223331f650ca5db8b02d7f0",
+        "cached": false,
+        "status": "ok",
+        "title": "《关于推动支持创新药临床配备使用的若干措施》的政策解读",
+        "published": "2026-02-05",
+        "body_chars": 1036,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_1995430135494348800.html",
+        "list_title": "《江西省医疗机构医师附条件注册精神卫生专业执业范围管理办法》政策解读",
+        "path": ".runtime/national/trials/a48461409d5693deab211d1ccd2b9d57a1cbb20532ff345fec95390da49ceae9.html",
+        "sha256": "25d52a4e37aa64dc17e0df29ba3b3ce92079e5dcf1bb5759d8fac2d2dfeba89e",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省医疗机构医师附条件注册精神卫生专业执业范围管理办法》政策解读",
+        "published": "2025-10-13",
+        "body_chars": 1640,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_1970745494345129984.html",
+        "list_title": "《江西省结核病防治管理规范(试行)》政策解读",
+        "path": ".runtime/national/trials/dd8d8d1442e195076eb03be07c2fa2e0793cd5ad962499432aa4f13e95680452.html",
+        "sha256": "4d5e8da20d865911849b8b08aed84b0709d3c892cbd2201f000a483c85333f07",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省结核病防治管理规范(试行)》政策解读",
+        "published": "2025-09-24",
+        "body_chars": 930,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_1995428905502117888.html",
+        "list_title": "《江西省互联网诊疗监管实施办法(试行)》政策解读",
+        "path": ".runtime/national/trials/47ecde7303cb0e1904b7c0c8b14f2137dfb31595b6973a3b14c6385301624a47.html",
+        "sha256": "74fb62c4391d583b04a9eaf936adb6d59b0dfb740e75983b7ca1f7ecb8268803",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省互联网诊疗监管实施办法(试行)》政策解读",
+        "published": "2025-08-28",
+        "body_chars": 1300,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/content/content_1995427767826518016.html",
+        "list_title": "《江西省互联网医院管理办法》政策解读",
+        "path": ".runtime/national/trials/59f9b03e86f01355c950584ae2a480bb1c4141f658095821d36baff055765653.html",
+        "sha256": "659a394402ec6dfe7402cae8d9452072ca7d77281c79c6da8c542584aedd7d0e",
+        "cached": false,
+        "status": "ok",
+        "title": "《江西省互联网医院管理办法》政策解读",
+        "published": "2025-08-28",
+        "body_chars": 1483,
+        "authority": "江西省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      }
+    ],
+    "errors": [],
+    "unique_items": 21,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "sample_pass"
+  }
+]

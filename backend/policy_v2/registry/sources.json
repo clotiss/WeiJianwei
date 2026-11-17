@@ -1,0 +1,3282 @@
+[
+  {
+    "id": "nhc-policy",
+    "name": "国家卫生健康委",
+    "region": "CN",
+    "kind": "policy",
+    "url": "https://www.nhc.gov.cn/wjw/gfxwjj/list.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://www.nhc.gov.cn/wjw/gfxwjj/list.shtml"
+    ],
+    "config": {
+      "adapter": "nhc",
+      "list_selector": ".zxxx_list li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "www.nhc.gov.cn"
+      ],
+      "list_hosts": [
+        "www.nhc.gov.cn"
+      ],
+      "max_pages": 3,
+      "pagination": "nhc-static",
+      "transport": "firefox"
+    },
+    "fixture": "backend/tests/fixtures/national/nhc-policy-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 72,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:20.668971+00:00",
+      "config_sha256": "3b957280bc2fac900b56e11b663a1d65d654617cbea01c06511dad2bb89e74e7",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "nhc-interpretation",
+    "name": "国家卫生健康委",
+    "region": "CN",
+    "kind": "interpretation",
+    "url": "https://www.nhc.gov.cn/wjw/zcjd/list.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://www.nhc.gov.cn/wjw/zcjd/list.shtml"
+    ],
+    "config": {
+      "adapter": "nhc",
+      "list_selector": ".zxxx_list li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "www.nhc.gov.cn"
+      ],
+      "list_hosts": [
+        "www.nhc.gov.cn"
+      ],
+      "max_pages": 3,
+      "pagination": "nhc-static",
+      "transport": "firefox"
+    },
+    "fixture": "backend/tests/fixtures/national/nhc-interpretation-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 72,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:25.376501+00:00",
+      "config_sha256": "3b957280bc2fac900b56e11b663a1d65d654617cbea01c06511dad2bb89e74e7",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "js-policy",
+    "name": "江苏省卫生健康委员会",
+    "region": "JS",
+    "kind": "policy",
+    "url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.jiangsu.gov.cn/col/col81326/index.html"
+    ],
+    "config": {
+      "adapter": "jcms",
+      "list_selector": "li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.jiangsu.gov.cn",
+        "www.nhc.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.jiangsu.gov.cn"
+      ],
+      "max_pages": 3,
+      "jcms_column_id": 81326,
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html"
+    },
+    "fixture": "backend/tests/fixtures/national/js-policy-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 47,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:20.669511+00:00",
+      "config_sha256": "c463398d342feb469ef23104100f2e1a06929a90a5a4de0a3efb5991481f0292",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "js-interpretation",
+    "name": "江苏省卫生健康委员会",
+    "region": "JS",
+    "kind": "interpretation",
+    "url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.jiangsu.gov.cn/col/col7292/index.html"
+    ],
+    "config": {
+      "adapter": "jcms",
+      "list_selector": "li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.jiangsu.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.jiangsu.gov.cn"
+      ],
+      "max_pages": 3,
+      "jcms_column_id": 7292,
+      "include_title_pattern": "解读|图解|一图读懂|问答|答记者问",
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html"
+    },
+    "fixture": "backend/tests/fixtures/national/js-interpretation-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 26,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:20.981126+00:00",
+      "config_sha256": "768522aabf0c3a374e04dac6d0aa3dc5d9204b99d1af04b4e2a412119adc51f1",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "hn-policy",
+    "name": "湖南省卫生健康委员会",
+    "region": "HN",
+    "kind": "policy",
+    "url": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html"
+    ],
+    "config": {
+      "adapter": "trs",
+      "list_selector": ".table_list tr",
+      "body_selectors": [
+        "#j-show-body",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.hunan.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.hunan.gov.cn"
+      ],
+      "max_pages": 3,
+      "pagination": "hunan-trs",
+      "published_selector": ".main_con_ftit",
+      "published_from_list": true,
+      "tls_curve": "prime256v1"
+    },
+    "fixture": "backend/tests/fixtures/national/hn-policy-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 59,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:20.669727+00:00",
+      "config_sha256": "0f54e9b38127438a2771e487be88fe982902ec18f6ae0425877089b680fdf691",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending",
+      "stability_note": "本轮样本通过；前轮发生 TLS EOF，仍需连续运行观察。"
+    }
+  },
+  {
+    "id": "hn-interpretation",
+    "name": "湖南省卫生健康委员会",
+    "region": "HN",
+    "kind": "interpretation",
+    "url": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/zcjd/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/zcjd/index.html"
+    ],
+    "config": {
+      "adapter": "trs",
+      "list_selector": ".table_list tr",
+      "body_selectors": [
+        "#j-show-body",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.hunan.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.hunan.gov.cn"
+      ],
+      "max_pages": 3,
+      "pagination": "hunan-trs",
+      "published_selector": ".main_con_ftit",
+      "published_from_list": true,
+      "include_title_pattern": "解读|图解|问答",
+      "tls_curve": "prime256v1"
+    },
+    "fixture": "backend/tests/fixtures/national/hn-interpretation-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 37,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:21.216934+00:00",
+      "config_sha256": "b04a7bf19f93927d9e1d2eaedbe3b9666933063ae0080f751c93fc993166e469",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending",
+      "stability_note": "本轮样本通过；前轮发生 TLS EOF，仍需连续运行观察。"
+    }
+  },
+  {
+    "id": "gd-policy",
+    "name": "广东省卫生健康委员会",
+    "region": "GD",
+    "kind": "policy",
+    "url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html"
+    ],
+    "config": {
+      "adapter": "gd",
+      "list_selector": ".section.list li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.gd.gov.cn",
+        "www.nhc.gov.cn",
+        "www.gd.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.gd.gov.cn"
+      ],
+      "max_pages": 3
+    },
+    "fixture": "backend/tests/fixtures/national/gd-policy-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 28,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:20.670006+00:00",
+      "config_sha256": "6af1da3d03fc0c17a5094b56e87db57d2ae72959431d086816a9260ab0f8e84d",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gd-interpretation",
+    "name": "广东省卫生健康委员会",
+    "region": "GD",
+    "kind": "interpretation",
+    "url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html"
+    ],
+    "config": {
+      "adapter": "gd",
+      "list_selector": ".section.list li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.gd.gov.cn",
+        "www.nhc.gov.cn",
+        "www.gd.gov.cn",
+        "www.nhc.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.gd.gov.cn"
+      ],
+      "max_pages": 3
+    },
+    "fixture": "backend/tests/fixtures/national/gd-interpretation-list-1.html.gz",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 60,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:21.119004+00:00",
+      "config_sha256": "3c55c0f17a57b72da249de482d689ecc3774f0c1e6f07a2970d753cf7d1c2f47",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "bj-policy",
+    "name": "北京市卫生健康委员会",
+    "region": "BJ",
+    "kind": "policy",
+    "url": "https://wjw.beijing.gov.cn/zwgk_20040/zcwj2024/zcwjss/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.beijing.gov.cn/zwgk_20040/zcwj2024/zcwjss/"
+    ],
+    "fixture": "backend/tests/fixtures/national/bj-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".search2-con1",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "Pager\\(\\{size:(?P<total>\\d+),\\s*current:(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      },
+      "title_selector": ".pc-hide"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 30,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:21.167346+00:00",
+      "config_sha256": "5555c56b050cf846d09eb7ad975b1ec818c3af71d71b77d13dcdb960b0c6de7c",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "bj-interpretation",
+    "name": "北京市卫生健康委员会",
+    "region": "BJ",
+    "kind": "interpretation",
+    "url": "https://wjw.beijing.gov.cn/zwgk_20040/zcjd2024/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.beijing.gov.cn/zwgk_20040/zcjd2024/"
+    ],
+    "fixture": "backend/tests/fixtures/national/bj-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".weinei_left_con_line",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.beijing.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "Pager\\(\\{size:(?P<total>\\d+),\\s*current:(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      },
+      "title_selector": ".pc-hide"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 72,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:21.622799+00:00",
+      "config_sha256": "610260708994306f0f402e04421ecaafe19290bcf02b51ca18788c983404d353",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "tj-policy",
+    "name": "天津市卫生健康委员会",
+    "region": "TJ",
+    "kind": "policy",
+    "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZCFG6243_1/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.tj.gov.cn/ZWGK3158/ZCFG6243_1/"
+    ],
+    "fixture": "backend/tests/fixtures/national/tj-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".default_pgContainer li",
+      "body_selectors": [
+        ".article_content",
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "var currentPage\\s*=\\s*(?P<current>\\d+).*?var countPage\\s*=\\s*(?P<total>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 105,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:13:28.028734+00:00",
+      "config_sha256": "01fc439fe0a35de8dd1b24057767ef646199511d1f874185e72fa6c153b8a276",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "tj-interpretation",
+    "name": "天津市卫生健康委员会",
+    "region": "TJ",
+    "kind": "interpretation",
+    "url": "https://wsjk.tj.gov.cn/ZWGK3158/ZCJD2018/zcjd0971/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.tj.gov.cn/ZWGK3158/ZCJD2018/zcjd0971/"
+    ],
+    "fixture": "backend/tests/fixtures/national/tj-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".default_pgContainer li",
+      "body_selectors": [
+        ".article_content",
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.tj.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "var currentPage\\s*=\\s*(?P<current>\\d+).*?var countPage\\s*=\\s*(?P<total>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 53,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:34.780420+00:00",
+      "config_sha256": "01fc439fe0a35de8dd1b24057767ef646199511d1f874185e72fa6c153b8a276",
+      "list_pages": 4,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sx-policy",
+    "name": "山西省卫生健康委员会",
+    "region": "SX",
+    "kind": "policy",
+    "url": "https://wjw.shanxi.gov.cn/zfxxgk/fdzdgknr/flfg/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.shanxi.gov.cn/zfxxgk/fdzdgknr/flfg/gfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/sx-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".demo-right li",
+      "body_selectors": [
+        ".ze-art",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "var currentPage\\s*=\\s*(?P<current>\\d+).*?var countPage\\s*=\\s*(?P<total>\\d+)",
+        "template": "index_{page}.shtml"
+      },
+      "title_from_list": true
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 27,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:23.566255+00:00",
+      "config_sha256": "b9c201f68077ba028a7234e8b9bc768dcba0bfe34b15475a007ddbf482549495",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "nm-policy",
+    "name": "内蒙古自治区卫生健康委员会",
+    "region": "NM",
+    "kind": "policy",
+    "url": "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/gfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/nm-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "#table1 tr",
+      "body_selectors": [
+        "#pare",
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:24.285291+00:00",
+      "config_sha256": "27430d83770aa4b036da85b39bc352c5a4dbe546b7561214c75fbc169acdde66",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "nm-interpretation",
+    "name": "内蒙古自治区卫生健康委员会",
+    "region": "NM",
+    "kind": "interpretation",
+    "url": "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.nmg.gov.cn/zfxxgk/fdzzgknr/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/nm-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "#table1 tr",
+      "body_selectors": [
+        "#pare",
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.nmg.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 39,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:24.872581+00:00",
+      "config_sha256": "27430d83770aa4b036da85b39bc352c5a4dbe546b7561214c75fbc169acdde66",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ln-interpretation",
+    "name": "辽宁省卫生健康委员会",
+    "region": "LN",
+    "kind": "interpretation",
+    "url": "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/index.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.ln.gov.cn/wsjk/index/syxwxx/zcjd/index.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/ln-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".jgsz_right_con li",
+      "body_selectors": [
+        ".news-text",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": false,
+      "date_from_detail": true,
+      "next_selector": "a[title=\"下一页\"][tagname]",
+      "next_attribute": "tagname"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 58,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:24.773955+00:00",
+      "config_sha256": "26907844b6b6ebd5f857a972b4eb4fc5c7fb1289778b7d10d1b86b7856c5d0f7",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "jl-policy",
+    "name": "吉林省卫生健康委员会",
+    "region": "JL",
+    "kind": "policy",
+    "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/jl-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".xxl.xl",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      },
+      "exclude_title_pattern": "解读|图解|问答",
+      "attachment_selectors": [
+        ".e_C a[href$=\".xlsx\"]",
+        ".e_C a[href$=\".xls\"]",
+        ".e_C a[href$=\".docx\"]",
+        ".e_C a[href$=\".doc\"]",
+        ".e_C a[href$=\".pdf\"]"
+      ]
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 72,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:28.028943+00:00",
+      "config_sha256": "64e480f638fe5df447184bad56a0078704bbc89745fbd53e80285d98baf1303a",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "jl-interpretation",
+    "name": "吉林省卫生健康委员会",
+    "region": "JL",
+    "kind": "interpretation",
+    "url": "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.jl.gov.cn/zfxxgk/zfwj/gfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/jl-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".xxl.xl",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.jl.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      },
+      "include_title_pattern": "解读|图解|问答",
+      "attachment_selectors": [
+        ".e_C a[href$=\".xlsx\"]",
+        ".e_C a[href$=\".xls\"]",
+        ".e_C a[href$=\".docx\"]",
+        ".e_C a[href$=\".doc\"]",
+        ".e_C a[href$=\".pdf\"]"
+      ]
+    },
+    "validation": {
+      "sample_ok": 5,
+      "sample_target": 5,
+      "unique_items": 5,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:35.325186+00:00",
+      "config_sha256": "292ee93aa9bc1f299c6c71a282e0b79dca1cbaa04302b44e91688740d6c4d7a9",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "zj-policy",
+    "name": "浙江省卫生健康委员会",
+    "region": "ZJ",
+    "kind": "policy",
+    "url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.zj.gov.cn/col/col1229055217/index.html",
+      "https://zjjcmspublicnew.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cms_files/filemanager/1515271/attach/20269/564bf21859c4463cbc063735ca2ff8c2.pdf"
+    ],
+    "fixture": "backend/tests/fixtures/national/zj-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".page-content li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.zj.gov.cn",
+        "zjjcmspublicnew.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.zj.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.zj.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": ".layui-laypage-next:not(.layui-disabled)",
+      "browser_page_attribute": "data-page"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 41,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:26.793630+00:00",
+      "config_sha256": "062dc3b1f7396b6586034006bf174949a6e581b03c916d62fe793025b4417931",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "zj-interpretation",
+    "name": "浙江省卫生健康委员会",
+    "region": "ZJ",
+    "kind": "interpretation",
+    "url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.zj.gov.cn/col/col1229055223/index.html",
+      "https://zjjcmspublicnew.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cms_files/filemanager/1515271/attach/20269/564bf21859c4463cbc063735ca2ff8c2.pdf"
+    ],
+    "fixture": "backend/tests/fixtures/national/zj-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".page-content li",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.zj.gov.cn",
+        "zjjcmspublicnew.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.zj.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.zj.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": ".layui-laypage-next:not(.layui-disabled)",
+      "browser_page_attribute": "data-page"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 42,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:44.458274+00:00",
+      "config_sha256": "062dc3b1f7396b6586034006bf174949a6e581b03c916d62fe793025b4417931",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ah-policy",
+    "name": "安徽省卫生健康委员会",
+    "region": "AH",
+    "kind": "policy",
+    "url": "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng"
+    ],
+    "fixture": "backend/tests/fixtures/national/ah-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "#tab_0_0 .r_xh_b tr",
+      "body_selectors": [
+        ".gzk-article-con",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": "#page_public_info_type_tab_0_0 a[aria-label=\"跳转至下一页\"]",
+      "browser_page_attribute": "paged"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:27.634708+00:00",
+      "config_sha256": "713dece9d1a8483d6838b07421b08e54a601eaba6a61ad515a467bdbd5bd6066",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "fj-interpretation",
+    "name": "福建省卫生健康委员会",
+    "region": "FJ",
+    "kind": "interpretation",
+    "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/fj-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".nyncgl-box-list li:not([style*=\"display: none\"])",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.fujian.gov.cn",
+        "www.fujian.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.fujian.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.fujian.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_ready_selector": ".fy_list_04 a",
+      "browser_jump_input": ".fy_inp",
+      "browser_jump_submit": ".fy_go",
+      "browser_total_selector": ".fy_list_04 > span em:nth-of-type(2)"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 80,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:16:58.723042+00:00",
+      "config_sha256": "81e4b4cb7f82ba7ae2e6cb4a5963e12e95bb1eafcdffe6abb4e27088e728ce80",
+      "list_pages": 8,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ha-policy",
+    "name": "河南省卫生健康委员会",
+    "region": "HA",
+    "kind": "policy",
+    "url": "https://wsjkw.henan.gov.cn/zfxxgk/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.henan.gov.cn/zfxxgk/gfxwj/",
+      "https://xcoss.henan.gov.cn",
+      "https://oss.henan.gov.cn"
+    ],
+    "fixture": "backend/tests/fixtures/national/ha-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".zfxxgk_zdgkc li",
+      "body_selectors": [
+        ".artibody",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.henan.gov.cn",
+        "xcoss.henan.gov.cn",
+        "oss.henan.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.henan.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.henan.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "mode": "count_attribute",
+        "selector": "#pageDec",
+        "total_attribute": "pagecount",
+        "size_attribute": "pagesize",
+        "template": "index_{page}.html",
+        "current_url_pattern": "index_(\\d+)\\.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 44,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:28.891895+00:00",
+      "config_sha256": "75ce4eeded058151fabd2b2fc5da50047c96f13bfea7c621ade01a52b7ee7e0e",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ha-interpretation",
+    "name": "河南省卫生健康委员会",
+    "region": "HA",
+    "kind": "interpretation",
+    "url": "https://wsjkw.henan.gov.cn/zfxxgk/xxgkml/zcfg/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.henan.gov.cn/zfxxgk/xxgkml/zcfg/zcjd/",
+      "https://xcoss.henan.gov.cn",
+      "https://oss.henan.gov.cn"
+    ],
+    "fixture": "backend/tests/fixtures/national/ha-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".zfxxgk_zdgkc li",
+      "body_selectors": [
+        ".artibody",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.henan.gov.cn",
+        "xcoss.henan.gov.cn",
+        "oss.henan.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.henan.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.henan.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "mode": "count_attribute",
+        "selector": "#pageDec",
+        "total_attribute": "pagecount",
+        "size_attribute": "pagesize",
+        "template": "index_{page}.html",
+        "current_url_pattern": "index_(\\d+)\\.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 44,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:29.852043+00:00",
+      "config_sha256": "75ce4eeded058151fabd2b2fc5da50047c96f13bfea7c621ade01a52b7ee7e0e",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "hb-interpretation",
+    "name": "湖北省卫生健康委员会",
+    "region": "HB",
+    "kind": "interpretation",
+    "url": "https://wjw.hubei.gov.cn/zfxxgk/zc/zcjd_1/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.hubei.gov.cn/zfxxgk/zc/zcjd_1/"
+    ],
+    "fixture": "backend/tests/fixtures/national/hb-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".article-box .info-list li",
+      "body_selectors": [
+        "#article-box",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.shtml"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 60,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:31.700466+00:00",
+      "config_sha256": "8de781549479944b95140994e7e0f589ab097b9a36a8c46ac8e952522413b6c3",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "cq-policy",
+    "name": "重庆市卫生健康委员会",
+    "region": "CQ",
+    "kind": "policy",
+    "url": "https://wsjkw.cq.gov.cn/zwgk_242/zfxxgkml/zcwj/xzgfxwj2/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.cq.gov.cn/zwgk_242/zfxxgkml/zcwj/xzgfxwj2/"
+    ],
+    "fixture": "backend/tests/fixtures/national/cq-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".zcwjk-list-c",
+      "body_selectors": [
+        ".zwxl-article",
+        ".zcwjk-xlcon",
+        ".view.TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      },
+      "title_selector": ".tit"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 30,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:32.190005+00:00",
+      "config_sha256": "d2902671e5cf135f95894e99fd74cd1295ed57925cb94e0eddc7d65379a5b534",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gz-interpretation",
+    "name": "贵州省卫生健康委员会",
+    "region": "GZ",
+    "kind": "interpretation",
+    "url": "https://wjw.guizhou.gov.cn/zwgk/jcxxgk/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.guizhou.gov.cn/zwgk/jcxxgk/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/gz-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".NewsList li",
+      "body_selectors": [
+        "#Zoom",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "scope_note": "图文正文与音视频原链接均保留；音视频标记 needs_transcription，不自动下载或声称已转写。",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 105,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:13:28.029122+00:00",
+      "config_sha256": "096e4dc8e00877bc9b0cf44e0e4e82b61715865c19ea91e2fd4cc383f15741a3",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "yn-policy",
+    "name": "云南省卫生健康委员会",
+    "region": "YN",
+    "kind": "policy",
+    "url": "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/xzgfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/xzgfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/yn-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".tb1 .tml",
+      "body_selectors": [
+        ".gfxwj-content",
+        ".zfxxgk_zn",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "list_hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 25,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:28.029305+00:00",
+      "config_sha256": "88da5358df32a47cabb1c218c2d08bc3eb3652b73be0e3db8c3966029f374ced",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "yn-interpretation",
+    "name": "云南省卫生健康委员会",
+    "region": "YN",
+    "kind": "interpretation",
+    "url": "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://ynswsjkw.yn.gov.cn/zwgk/zcwj/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/yn-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".ullist li",
+      "body_selectors": [
+        ".gfxwj-content",
+        ".zfxxgk_zn",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "list_hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "ynswsjkw.yn.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "scope_note": "图文正文与音视频原链接均保留；音视频标记 needs_transcription，不自动下载或声称已转写。",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 106,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:28.234255+00:00",
+      "config_sha256": "89c12ccc6bdc822e8e02f5c62062799da8cb9d1821d23fe54d6ea7a82b15cfcb",
+      "list_pages": 6,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sn-policy",
+    "name": "陕西省卫生健康委员会",
+    "region": "SN",
+    "kind": "policy",
+    "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/xzgfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://sxwjw.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/xzgfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/sn-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".cm-news-list li",
+      "body_selectors": [
+        ".lfNewsDetail.content",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "list_hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 40,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:50.030126+00:00",
+      "config_sha256": "312817e1b1a22d3be422acd9ba0c5fc13dd772257c64617964feb7808216459e",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sn-interpretation",
+    "name": "陕西省卫生健康委员会",
+    "region": "SN",
+    "kind": "interpretation",
+    "url": "https://sxwjw.shaanxi.gov.cn/zfxxgk/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://sxwjw.shaanxi.gov.cn/zfxxgk/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/sn-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".cm-news-list li",
+      "body_selectors": [
+        ".lfNewsDetail.content",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "list_hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "sxwjw.shaanxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:50.244181+00:00",
+      "config_sha256": "312817e1b1a22d3be422acd9ba0c5fc13dd772257c64617964feb7808216459e",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "nx-policy",
+    "name": "宁夏回族自治区卫生健康委员会",
+    "region": "NX",
+    "kind": "policy",
+    "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/fdzdgknr/gfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.nx.gov.cn/zfxxgk_279/fdzdgknr/gfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/nx-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".gl-list-l li",
+      "body_selectors": [
+        "#wenzhangzhengwen",
+        ".article-con",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 21,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:50.711574+00:00",
+      "config_sha256": "45ddba7feadc1a21960808585973ee06cee680b61f7e6fa93026a6de94eea1dc",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "nx-interpretation",
+    "name": "宁夏回族自治区卫生健康委员会",
+    "region": "NX",
+    "kind": "interpretation",
+    "url": "https://wsjkw.nx.gov.cn/zfxxgk_279/zcfgjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.nx.gov.cn/zfxxgk_279/zcfgjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/nx-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".zfxxgk_zdgkc li",
+      "body_selectors": [
+        "#wenzhangzhengwen",
+        ".article-con",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.nx.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 60,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:50.897425+00:00",
+      "config_sha256": "c4da6ff9b2460b3f3d2c7f53f78c3dfec48f4681c2e1900e39093ccb1a9c07d4",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "xj-policy",
+    "name": "新疆维吾尔自治区卫生健康委员会",
+    "region": "XJ",
+    "kind": "policy",
+    "url": "https://wjw.xinjiang.gov.cn/hfpc/zcwj4/zfxxgk_gknrz.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.xinjiang.gov.cn/hfpc/zcwj4/zfxxgk_gknrz.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/xj-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".gknr_list dd",
+      "body_selectors": [
+        ".d_m_centre",
+        ".gknbxq_detail",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPageHTML\\('page-div',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "zfxxgk_gknrz_{page}.shtml",
+        "first_index": 1
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:51.734273+00:00",
+      "config_sha256": "1ff89e956b420603d97e64753179176a916eee52dd575445d8e9f853ba3ff52b",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "xj-interpretation",
+    "name": "新疆维吾尔自治区卫生健康委员会",
+    "region": "XJ",
+    "kind": "interpretation",
+    "url": "https://wjw.xinjiang.gov.cn/hfpc/zcjd/zfxxgk_gknrz.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.xinjiang.gov.cn/hfpc/zcjd/zfxxgk_gknrz.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/xj-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".gknr_list dd",
+      "body_selectors": [
+        ".d_m_centre",
+        ".gknbxq_detail",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.xinjiang.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "pagination": {
+        "pattern": "createPageHTML\\('page-div',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "zfxxgk_gknrz_{page}.shtml",
+        "first_index": 1
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:52.639148+00:00",
+      "config_sha256": "1ff89e956b420603d97e64753179176a916eee52dd575445d8e9f853ba3ff52b",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sh-interpretation",
+    "name": "上海市卫生健康委员会",
+    "region": "SH",
+    "kind": "interpretation",
+    "url": "https://wsjkw.sh.gov.cn/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.sh.gov.cn/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/sh-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "li",
+      "body_selectors": [
+        "#ivs_content",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_date_selector": ".time",
+      "pagination": {
+        "pattern": "totalPage:\\s*(?P<total>\\d+).*?\"setPage\",\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html",
+        "first_index": 1
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 60,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:52.201371+00:00",
+      "config_sha256": "9f712c0d1b2395bf862e2a06756d1161a005f61734eddcff101fc28c51f7946d",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sc-policy",
+    "name": "四川省卫生健康委员会",
+    "region": "SC",
+    "kind": "policy",
+    "url": "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.sc.gov.cn/scwsjkw/xzgfxwj/gfxwj_new.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/sc-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".contText",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".biaobody li",
+      "pagination": {
+        "pattern": "createPageHTML\\('page_div',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "gfxwj_new_{page}.shtml",
+        "first_index": 1
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 37,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:13:33.286928+00:00",
+      "config_sha256": "a2ee816c210897c4da326a467de95a7dda0b8714fc81fba71005d3e982f2110a",
+      "list_pages": 5,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "cq-interpretation",
+    "name": "重庆市卫生健康委员会",
+    "region": "CQ",
+    "kind": "interpretation",
+    "url": "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.cq.gov.cn/zwgk_242/zcjd/wzjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/cq-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".gl-list li",
+      "body_selectors": [
+        ".zwxl-article",
+        ".zcwjk-xlcon",
+        ".view.TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.cq.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "title_selector": ".tit",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 45,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:36.203412+00:00",
+      "config_sha256": "b1258cad3c5a7f01dd3c6b63bcbd3e4e4d566e25d609fd1e5a6f91606796e32c",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "fj-policy",
+    "name": "福建省卫生健康委员会",
+    "region": "FJ",
+    "kind": "policy",
+    "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/fj-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".nyncgl-box-list li:not([style*=\"display: none\"])",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.fujian.gov.cn",
+        "www.fujian.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.fujian.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.fujian.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_ready_selector": ".fy_list_04 a",
+      "browser_jump_input": ".fy_inp",
+      "browser_jump_submit": ".fy_go",
+      "browser_total_selector": ".fy_list_04 > span em:nth-of-type(2)"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 80,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:17:30.348617+00:00",
+      "config_sha256": "81e4b4cb7f82ba7ae2e6cb4a5963e12e95bb1eafcdffe6abb4e27088e728ce80",
+      "list_pages": 8,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sh-policy",
+    "name": "上海市卫生健康委员会",
+    "region": "SH",
+    "kind": "policy",
+    "url": "https://wsjkw.sh.gov.cn/swsjswgfxwj/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.sh.gov.cn/swsjswgfxwj/index.html"
+    ],
+    "fixture": "backend/tests/fixtures/national/sh-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".trout-region-list li",
+      "body_selectors": [
+        "#ivs_content",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.sh.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_date_selector": ".time",
+      "pagination": {
+        "pattern": "totalPage:\\s*(?P<total>\\d+).*?\"setPage\",\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html",
+        "first_index": 1
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 60,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:53.598946+00:00",
+      "config_sha256": "929504e427bdee9d70912fb537ba26099b8f1aef22bc95e1b89a87c92a4c0f75",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "hi-interpretation",
+    "name": "海南省卫生健康委员会",
+    "region": "HI",
+    "kind": "interpretation",
+    "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/hi-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".zx-xxxqy-nr",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "list_hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".flfg_03888 li",
+      "transport": "firefox",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 54,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:54.813344+00:00",
+      "config_sha256": "b40562b471a2bcde7f15922eb64fdd9aa3c95b53f945df0c39b579cdd4e6e58d",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gx-policy",
+    "name": "广西壮族自治区卫生健康委员会",
+    "region": "GX",
+    "kind": "policy",
+    "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.gxzf.gov.cn/xxgk_49493/xzghxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/gx-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".article-con",
+        ".scroll-cont",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".more-list li",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.shtml"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 90,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:57.013582+00:00",
+      "config_sha256": "858b0769dbb43e51d95570cb46c79faed88dfa96eeee1d4b0b6ca55331dad04d",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gx-interpretation",
+    "name": "广西壮族自治区卫生健康委员会",
+    "region": "GX",
+    "kind": "interpretation",
+    "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/gx-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".article-con",
+        ".scroll-cont",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".more-list li",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.shtml"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 90,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:57.717217+00:00",
+      "config_sha256": "858b0769dbb43e51d95570cb46c79faed88dfa96eeee1d4b0b6ca55331dad04d",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gs-interpretation",
+    "name": "甘肃省卫生健康委员会",
+    "region": "GS",
+    "kind": "interpretation",
+    "url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/gs-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        "#contents",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".m_content_list_list li",
+      "transport": "firefox",
+      "pagination": {
+        "pattern": "createPageHTML\\('page_div',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "xxgk_list2_{page}.shtml",
+        "first_index": 1
+      },
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://wsjk.gansu.gov.cn/wsjk/c113462/xxgk_list2.shtml"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 26,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:57.906323+00:00",
+      "config_sha256": "6cdaf602cea78af4f0592a045d1be6620e60b0ebfef2f1ac9c9e256a91c10f30",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "jx-policy",
+    "name": "江西省卫生健康委员会",
+    "region": "JX",
+    "kind": "policy",
+    "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html"
+    ],
+    "fixture": "backend/tests/fixtures/national/jx-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "list_hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": "#tableList tr",
+      "transport": "firefox",
+      "browser_next": "#tableList + .pagination .active + a.num",
+      "browser_page_attribute": "data-page",
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/gfxwj116/pc/list.html"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 40,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:59.505767+00:00",
+      "config_sha256": "1fa8f90da236ac2e6dc9353b4aa9baa6646a6994926ab671a0a61cd6e2f0c032",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "jx-interpretation",
+    "name": "江西省卫生健康委员会",
+    "region": "JX",
+    "kind": "interpretation",
+    "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html"
+    ],
+    "fixture": "backend/tests/fixtures/national/jx-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "list_hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "hc.jiangxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": "#tableList tr",
+      "transport": "firefox",
+      "browser_next": "#tableList + .pagination .active + a.num",
+      "browser_page_attribute": "data-page",
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/jdcl117/pc/list.html"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 32,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:10:04.840968+00:00",
+      "config_sha256": "4ed9fc2c1cd6e58c20af4bdaa8b5d6a476c1302a10f50ea873102d14a422aba7",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gz-policy",
+    "name": "贵州省卫生健康委员会",
+    "region": "GZ",
+    "kind": "policy",
+    "url": "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.guizhou.gov.cn/zwgk/gzhgfxwjsjk/gfxwjsjk/index.html"
+    ],
+    "fixture": "backend/tests/fixtures/national/gz-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".layui-table tbody tr",
+      "body_selectors": [
+        "#Zoom",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.guizhou.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": ".layui-laypage-next:not(.layui-disabled)",
+      "browser_page_attribute": "data-page"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 70,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:13:34.286514+00:00",
+      "config_sha256": "6a3a560d3d880fbc7055d4fc3187fbf706366d14a0610bd6377f8e67099296de",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sx-interpretation",
+    "name": "山西省卫生健康委员会",
+    "region": "SX",
+    "kind": "interpretation",
+    "url": "https://wjw.shanxi.gov.cn/tzgg/zcjd/index.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.shanxi.gov.cn/tzgg/zcjd/index.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/sx-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".demo-right li",
+      "body_selectors": [
+        ".ze-art",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.shanxi.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "title_from_list": true,
+      "pagination": {
+        "pattern": "var currentPage\\s*=\\s*(?P<current>\\d+).*?var countPage\\s*=\\s*(?P<total>\\d+)",
+        "template": "index_{page}.shtml"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 75,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:23.630033+00:00",
+      "config_sha256": "b9c201f68077ba028a7234e8b9bc768dcba0bfe34b15475a007ddbf482549495",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ln-policy",
+    "name": "辽宁省卫生健康委员会",
+    "region": "LN",
+    "kind": "policy",
+    "url": "https://wsjk.ln.gov.cn/wsjk/zfxxgk/zc/xzgfxwj91/index.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.ln.gov.cn/wsjk/zfxxgk/zc/xzgfxwj91/index.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/ln-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "#kr-body-table li",
+      "body_selectors": [
+        ".dlist_con",
+        ".news-text",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.ln.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": false,
+      "date_from_detail": true,
+      "next_selector": "a[title=\"下一页\"][tagname]",
+      "next_attribute": "tagname"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 33,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:25.573610+00:00",
+      "config_sha256": "7ca4ee042967b581f059d1968a7cdb6e860c45e886509cad797de7c232368a02",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "gs-policy",
+    "name": "甘肃省卫生健康委员会",
+    "region": "GS",
+    "kind": "policy",
+    "url": "https://wsjk.gansu.gov.cn/wsjk/c117380/xxgk_list2.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjk.gansu.gov.cn/wsjk/c117380/xxgk_list2.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/gs-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        "#contents",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjk.gansu.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".m_content_list_list li",
+      "transport": "firefox",
+      "pagination": {
+        "pattern": "createPageHTML\\('page_div',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "xxgk_list2_{page}.shtml",
+        "first_index": 1
+      },
+      "attachment_transport": "firefox",
+      "attachment_bootstrap_url": "https://wsjk.gansu.gov.cn/wsjk/c117380/xxgk_list2.shtml"
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 59,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:10:03.196651+00:00",
+      "config_sha256": "7f22cb0355aa56a7681d6bf626b6b910eb3db9594059897bca9d8246cc8d53f8",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "ah-interpretation",
+    "name": "安徽省卫生健康委员会",
+    "region": "AH",
+    "kind": "interpretation",
+    "url": "https://wjw.ah.gov.cn/public/column/7001?type=4&catId=43797231&action=list&nav=3",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.ah.gov.cn/public/column/7001?type=4&action=list&nav=3&catId=43797231"
+    ],
+    "fixture": "backend/tests/fixtures/national/ah-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": ".xxgk-table-list tr",
+      "body_selectors": [
+        ".wzcon",
+        ".gzk-article-con",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.ah.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": ".pagination a[aria-label=\"跳转至下一页\"]",
+      "browser_page_attribute": "paged",
+      "allow_history_url_update": true
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 57,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:09:42.303251+00:00",
+      "config_sha256": "19c2dd32bc4a0dccb1cd580e3fb9d37e2addadcdefa1d4ac97b7c9e27a5f29d6",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "hb-policy",
+    "name": "湖北省卫生健康委员会",
+    "region": "HB",
+    "kind": "policy",
+    "url": "https://wjw.hubei.gov.cn/zfxxgk/zc/gfwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.hubei.gov.cn/zfxxgk/zc/gfwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/hb-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "list_selector": "#ulList li",
+      "body_selectors": [
+        "#article-box",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.hubei.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "transport": "firefox",
+      "browser_next": ".pages .current + a.strPage",
+      "browser_page_from_text": true
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 31,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:32.011935+00:00",
+      "config_sha256": "6558111907b7a9b6c532fca7e2dd435ae127698bb23c3b97c6b64ada92586abd",
+      "list_pages": 2,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "xz-policy",
+    "name": "西藏自治区卫生健康委员会",
+    "region": "XZ",
+    "kind": "policy",
+    "url": "https://wjw.xizang.gov.cn/zwgk/xzgfxwj/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.xizang.gov.cn/zwgk/xzgfxwj/"
+    ],
+    "fixture": "backend/tests/fixtures/national/xz-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".wrap2_li",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 10,
+      "sample_target": 10,
+      "unique_items": 10,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:10:05.624833+00:00",
+      "config_sha256": "d3fcd47a2b2599ae4e637c822b1feb8d2daf2c2782ef591b634da7fae94be266",
+      "list_pages": 1,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "xz-interpretation",
+    "name": "西藏自治区卫生健康委员会",
+    "region": "XZ",
+    "kind": "interpretation",
+    "url": "https://wjw.xizang.gov.cn/zwgk/zcjd/",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wjw.xizang.gov.cn/zwgk/zcjd/"
+    ],
+    "fixture": "backend/tests/fixtures/national/xz-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".c_text",
+        ".TRS_UEDITOR",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content"
+      ],
+      "hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "list_hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wjw.xizang.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".wrap2_li",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 29,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:10:05.686038+00:00",
+      "config_sha256": "9c9f40469c8d5960f80cf95698c2f12f6be379bcfe9a91f7b45c8ec1bcb80cd2",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "sc-interpretation",
+    "name": "四川省卫生健康委员会",
+    "region": "SC",
+    "kind": "interpretation",
+    "url": "https://wsjkw.sc.gov.cn/scwsjkw/zcjdp/tygl.shtml",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wsjkw.sc.gov.cn/scwsjkw/zcjdp/tygl.shtml"
+    ],
+    "fixture": "backend/tests/fixtures/national/sc-interpretation-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".msg-content",
+        ".contText",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "list_hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wsjkw.sc.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".news-list li",
+      "pagination": {
+        "pattern": "createPageHTML\\('pager',(?P<total>\\d+),\\s*(?P<current>\\d+)",
+        "template": "tygl_{page}.shtml",
+        "first_index": 1
+      }
+    },
+    "scope_note": "图文正文与音视频原链接均保留；音视频标记 needs_transcription，不自动下载或声称已转写。",
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 70,
+      "listing_exhausted": false,
+      "checked_at": "2026-11-17T04:13:35.485900+00:00",
+      "config_sha256": "858405c49a35e7ee76990e889754f3127e38e503286b1846e3e289856ee88999",
+      "list_pages": 7,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "hi-policy",
+    "name": "海南省卫生健康委员会",
+    "region": "HI",
+    "kind": "policy",
+    "url": "https://wst.hainan.gov.cn/swjw/xxgk/gfxwj/index.html",
+    "status": "sample_pass",
+    "evidence": [
+      "https://wst.hainan.gov.cn/swjw/xxgk/gfxwj/index.html"
+    ],
+    "fixture": "backend/tests/fixtures/national/hi-policy-list-1.html.gz",
+    "config": {
+      "adapter": "html",
+      "body_selectors": [
+        ".zx-xxxqy-nr",
+        "#UCAP-CONTENT",
+        "#xw_box",
+        ".TRS_Editor",
+        "#zoom",
+        ".article-content",
+        ".article_cont",
+        ".content-text",
+        ".content-content",
+        ".main-fl.bt-left",
+        "#content",
+        ".TRS_UEDITOR"
+      ],
+      "hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "list_hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "upgrade_https_hosts": [
+        "wst.hainan.gov.cn"
+      ],
+      "max_pages": 3,
+      "published_from_list": true,
+      "list_selector": ".flfg_03888 li",
+      "transport": "firefox",
+      "pagination": {
+        "pattern": "createPage(?:HTML)?\\(\\s*(?P<total>\\d+)\\s*,\\s*(?P<current>\\d+)",
+        "template": "index_{page}.html"
+      }
+    },
+    "validation": {
+      "sample_ok": 20,
+      "sample_target": 20,
+      "unique_items": 53,
+      "listing_exhausted": true,
+      "checked_at": "2026-11-17T04:09:57.382046+00:00",
+      "config_sha256": "b40562b471a2bcde7f15922eb64fdd9aa3c95b53f945df0c39b579cdd4e6e58d",
+      "list_pages": 3,
+      "mode": "retained_public_samples",
+      "production_observation": "pending"
+    }
+  },
+  {
+    "id": "he-policy",
+    "name": "河北省卫生健康委员会",
+    "region": "HE",
+    "kind": "policy",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "browser_challenge",
+    "notes": "官网返回脚本挑战；HTTP 页面无栏目，Firefox 导航超时。",
+    "evidence": [
+      "https://wsjkw.hebei.gov.cn/"
+    ],
+    "config": null
+  },
+  {
+    "id": "he-interpretation",
+    "name": "河北省卫生健康委员会",
+    "region": "HE",
+    "kind": "interpretation",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "browser_challenge",
+    "notes": "官网返回脚本挑战；HTTP 页面无栏目，Firefox 导航超时。",
+    "evidence": [
+      "https://wsjkw.hebei.gov.cn/"
+    ],
+    "config": null
+  },
+  {
+    "id": "hlj-policy",
+    "name": "黑龙江省卫生健康委员会",
+    "region": "HLJ",
+    "kind": "policy",
+    "url": null,
+    "observed_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109071/zfxxgk.shtml?tab=gkzc",
+    "status": "blocked",
+    "blocker": "certificate_expired",
+    "notes": "官网 HTTPS 证书过期；未关闭证书校验。HTTP 目录仅作来源线索。",
+    "evidence": [
+      "https://wsjkw.hlj.gov.cn"
+    ],
+    "config": null
+  },
+  {
+    "id": "hlj-interpretation",
+    "name": "黑龙江省卫生健康委员会",
+    "region": "HLJ",
+    "kind": "interpretation",
+    "url": null,
+    "observed_url": "http://wsjkw.hlj.gov.cn/wsjkw/c109075/zfxxgk.shtml?tab=zcjd",
+    "status": "blocked",
+    "blocker": "certificate_expired",
+    "notes": "官网 HTTPS 证书过期；未关闭证书校验。HTTP 目录仅作来源线索。",
+    "evidence": [
+      "https://wsjkw.hlj.gov.cn"
+    ],
+    "config": null
+  },
+  {
+    "id": "sd-policy",
+    "name": "山东省卫生健康委员会",
+    "region": "SD",
+    "kind": "policy",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "connection_timeout",
+    "notes": "HTTPS 访问超时；HTTP 响应不是有效官网内容，未使用网关跳转。",
+    "evidence": [
+      "https://wsjkw.shandong.gov.cn/"
+    ],
+    "config": null
+  },
+  {
+    "id": "sd-interpretation",
+    "name": "山东省卫生健康委员会",
+    "region": "SD",
+    "kind": "interpretation",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "connection_timeout",
+    "notes": "HTTPS 访问超时；HTTP 响应不是有效官网内容，未使用网关跳转。",
+    "evidence": [
+      "https://wsjkw.shandong.gov.cn/"
+    ],
+    "config": null
+  },
+  {
+    "id": "qh-policy",
+    "name": "青海省卫生健康委员会",
+    "region": "QH",
+    "kind": "policy",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "http_412",
+    "notes": "官网返回 HTTP 412；Firefox 未呈现有效栏目。",
+    "evidence": [
+      "https://wsjkw.qinghai.gov.cn"
+    ],
+    "config": null
+  },
+  {
+    "id": "qh-interpretation",
+    "name": "青海省卫生健康委员会",
+    "region": "QH",
+    "kind": "interpretation",
+    "url": null,
+    "observed_url": null,
+    "status": "blocked",
+    "blocker": "http_412",
+    "notes": "官网返回 HTTP 412；Firefox 未呈现有效栏目。",
+    "evidence": [
+      "https://wsjkw.qinghai.gov.cn"
+    ],
+    "config": null
+  }
+]

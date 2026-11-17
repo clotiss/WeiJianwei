@@ -1,0 +1,496 @@
+[
+  {
+    "id": "hlj-browser-home",
+    "region": "HLJ",
+    "url": "https://wsjkw.hlj.gov.cn",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.hlj.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:23.186680+00:00",
+    "status": "error",
+    "error": "Error:Page.goto: SEC_ERROR_EXPIRED_CERTIFICATE\nCall log:\nnavigating to \"https://wsjkw.hlj.gov.cn/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "id": "jx-browser-home",
+    "region": "JX",
+    "url": "https://hc.jiangxi.gov.cn",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "hc.jiangxi.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:23.186865+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://hc.jiangxi.gov.cn/",
+    "bytes": 165586,
+    "sha256": "85d8fc62d1ce43db9b1e94c25744e308c93dabece5dda67c5845070797e683e6",
+    "path": ".runtime/national/pages/jx-browser-home.html",
+    "title": "江西省卫生健康委员会",
+    "links": [
+      {
+        "label": "政务公开",
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/zfxxg145/pc/list.html"
+      },
+      {
+        "label": "法规政策",
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/zcwj121/pc/list.html"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/zfxxg145/pc/list.html"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://hc.jiangxi.gov.cn/jxswsjkwyh/zfxxg146/pc/list.html"
+      }
+    ]
+  },
+  {
+    "id": "hi-browser-home",
+    "region": "HI",
+    "url": "https://wst.hainan.gov.cn/",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wst.hainan.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:23.187050+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://wst.hainan.gov.cn/swjw/index.html",
+    "bytes": 80830,
+    "sha256": "e15f3f9d61903d2702d2d8592e0c733ccfeb5ffaa7dd2c277f189545bf685171",
+    "path": ".runtime/national/pages/hi-browser-home.html",
+    "title": "海南省卫生健康委员会",
+    "links": [
+      {
+        "label": "解读回应",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/"
+      },
+      {
+        "label": "政策文件",
+        "url": "https://wst.hainan.gov.cn/swjw/xxgk/0500/"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wst.hainan.gov.cn/swjw/xxgk/0200/0201/"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wst.hainan.gov.cn/swjw/xxgk/0200/0203/"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wst.hainan.gov.cn/swjw/xxgk/0200/0204/"
+      },
+      {
+        "label": "最新解读",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/"
+      },
+      {
+        "label": "《关于加强医院法治建设的意见》政策解读",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202608/t20260819_4130843.html"
+      },
+      {
+        "label": "《成人健康体检项目推荐指引（2025年版）》解读",
+        "url": "https://www.nhc.gov.cn/yzygj/c100067/202511/f993ce736abf40a1a8aa9e48e4fb0f95.shtml"
+      },
+      {
+        "label": "《海南省非急救医疗转运服务管理办法（试行）》政策解读",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/zxjd/202503/t20250305_3827725.html"
+      },
+      {
+        "label": "图解政策",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/sptj/"
+      },
+      {
+        "label": "一图读懂：关于加快完善生育支持政策体系推动建设生育友...",
+        "url": "https://wst.hainan.gov.cn/swjw/jdhy/zcjd/sptj/202411/t20241105_3763253.html"
+      }
+    ]
+  },
+  {
+    "id": "gs-browser-home",
+    "region": "GS",
+    "url": "https://wsjk.gansu.gov.cn",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjk.gansu.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:25.949049+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://wsjk.gansu.gov.cn/",
+    "bytes": 83246,
+    "sha256": "7ee0c4002c5202581c1fa3f5618a8420303d0ccb87f5baa40b20168d017c82ad",
+    "path": ".runtime/national/pages/gs-browser-home.html",
+    "title": "甘肃省卫生健康委员会",
+    "links": [
+      {
+        "label": "政府信息公开",
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c112726/xxgk_D.shtml"
+      },
+      {
+        "label": "政策法规",
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c112823/list.shtml"
+      },
+      {
+        "label": "政府信息公开指南",
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c112726/xxgk_D.shtml"
+      },
+      {
+        "label": "政府信息公开制度",
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c112727/xxgk_sy.shtml"
+      },
+      {
+        "label": "政府信息公开年报",
+        "url": "https://wsjk.gansu.gov.cn/wsjk/c112747/xxgk_list.shtml"
+      }
+    ]
+  },
+  {
+    "id": "zj-candidate-0-browser",
+    "region": "ZJ",
+    "url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html",
+    "page_kind": "list",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr,div.search2-con1",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.zj.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:29.845994+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html",
+    "bytes": 69735,
+    "sha256": "0b3925977cd8872ef72fbd495f45430e15d45ca6115c4b2bf0dff635e47e66e0",
+    "path": ".runtime/national/pages/zj-candidate-0-browser.html",
+    "title": "规范性文件",
+    "links": [
+      {
+        "label": "政策法规",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055216/index.html"
+      },
+      {
+        "label": "规范性文件",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html"
+      },
+      {
+        "label": "浙江省卫生健康委关于公布行政规范性文件清理结果的通知",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123408/art/2025/art_f90bd89e658e491fa20a1ee06802901d.html"
+      }
+    ]
+  },
+  {
+    "id": "zj-candidate-1-browser",
+    "region": "ZJ",
+    "url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html",
+    "page_kind": "list",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr,div.search2-con1",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.zj.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:33.704901+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html",
+    "bytes": 68959,
+    "sha256": "f187ee13ab53d73f253292761668501d363c4633f3bd472bacba159f8711afdc",
+    "path": ".runtime/national/pages/zj-candidate-1-browser.html",
+    "title": "政策解读",
+    "links": [
+      {
+        "label": "政策法规",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055216/index.html"
+      },
+      {
+        "label": "政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055223/index.html"
+      },
+      {
+        "label": "规范性文件",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229055217/index.html"
+      },
+      {
+        "label": "《关于进一步加强全省中药饮片代煎服务管理的通知》政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123416/art/2026/art_28a16e1b215e40d1b895168cf79378ec.html"
+      },
+      {
+        "label": "《浙江省临床医学研究中心建设与管理办法》政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123416/art/2026/art_34f9c2188cfb48f7b0ab561fa2088f69.html"
+      },
+      {
+        "label": "《浙江省卫生健康行业科技计划项目管理办法》政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123416/art/2026/art_37bea705cbe74e65bcf9e38851bf1a5a.html"
+      },
+      {
+        "label": "《加快推动医疗机构院内制剂产业化发展三年行动方案》政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123416/art/2026/art_df28a6e5f83149b597e2c62f071f90e4.html"
+      },
+      {
+        "label": "《浙江省救护车配置与使用管理办法》政策解读",
+        "url": "https://wsjkw.zj.gov.cn/col/col1229123416/art/2026/art_e55cbcf254d74a65947f6fee117cb9f8.html"
+      }
+    ]
+  },
+  {
+    "id": "qh-browser-home",
+    "region": "QH",
+    "url": "https://wsjkw.qinghai.gov.cn",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.qinghai.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:26.564875+00:00",
+    "status": "error",
+    "error": "TimeoutError:Page.wait_for_function: Timeout 15000ms exceeded."
+  },
+  {
+    "id": "he-browser-home",
+    "region": "HE",
+    "url": "https://wsjkw.hebei.gov.cn/",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.hebei.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:23.186473+00:00",
+    "status": "error",
+    "error": "TimeoutError:Page.goto: Timeout 20000ms exceeded.\nCall log:\nnavigating to \"https://wsjkw.hebei.gov.cn/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "id": "sd-browser-home",
+    "region": "SD",
+    "url": "https://wsjkw.shandong.gov.cn/",
+    "page_kind": "detail",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.shandong.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:28.478011+00:00",
+    "status": "error",
+    "error": "TimeoutError:Page.goto: Timeout 20000ms exceeded.\nCall log:\nnavigating to \"https://wsjkw.shandong.gov.cn/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "id": "ah-candidate-0-browser",
+    "region": "AH",
+    "url": "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng",
+    "page_kind": "list",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr,div.search2-con1",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wjw.ah.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:36.220911+00:00",
+    "status": "read",
+    "http_status": 200,
+    "final_url": "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng",
+    "bytes": 138423,
+    "sha256": "38f55d221cec77defe0f850ceff094e03f77085f484fd9e7a4645be62e0b6b9f",
+    "path": ".runtime/national/pages/ah-candidate-0-browser.html",
+    "title": "政务公开_安徽省卫生健康委员会",
+    "links": [
+      {
+        "label": " 政务公开",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=2"
+      },
+      {
+        "label": "行政法规",
+        "url": "http://xzfg.moj.gov.cn/search2.html"
+      },
+      {
+        "label": "行政规范性文件",
+        "url": "https://wjw.ah.gov.cn/public/column/7001?type=6&action=xinzheng"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/58319291.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/58243181.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/58226741.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57966231.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57662831.html"
+      },
+      {
+        "label": "专家解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57018821.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/57044531.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56955571.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56869031.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56838381.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/56790541.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/56810921.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56559711.html"
+      },
+      {
+        "label": "解读",
+        "url": "https://wjw.ah.gov.cn/public/7001/56584281.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/56505401.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/56547011.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/56475661.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/56473381.html"
+      },
+      {
+        "label": "解读3",
+        "url": "https://wjw.ah.gov.cn/public/7001/56547031.html"
+      },
+      {
+        "label": "解读1",
+        "url": "https://wjw.ah.gov.cn/public/7001/56441071.html"
+      },
+      {
+        "label": "解读2",
+        "url": "https://wjw.ah.gov.cn/public/7001/56546241.html"
+      }
+    ]
+  },
+  {
+    "id": "ah-candidate-1-browser",
+    "region": "AH",
+    "url": "https://wjw.ah.gov.cn/public/column/7001?type=4&action=list&nav=3&catId=43797231",
+    "page_kind": "list",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr,div.search2-con1",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wjw.ah.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:46.208232+00:00",
+    "status": "error",
+    "error": "FetchError:navigation_not_settled"
+  },
+  {
+    "id": "gx-candidate-1-browser",
+    "region": "GX",
+    "url": "https://wsjkw.gxzf.gov.cn/xxgk_49493/fdzdgk/gkwj/",
+    "page_kind": "list",
+    "config": {
+      "transport": "firefox",
+      "list_selector": "li,tr,div.search2-con1",
+      "body_selectors": [
+        "body"
+      ],
+      "hosts": [
+        "wsjkw.gxzf.gov.cn"
+      ]
+    },
+    "checked_at": "2026-11-17T03:42:43.551246+00:00",
+    "status": "error",
+    "error": "TimeoutError:Page.wait_for_function: Timeout 15000ms exceeded."
+  }
+]

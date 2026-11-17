@@ -1,0 +1,759 @@
+[
+  {
+    "id": "fj-interpretation",
+    "region": "FJ",
+    "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/",
+    "checked_at": "2026-11-17T04:10:53.274913+00:00",
+    "lists": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/#collector-page=2",
+        "cached": true,
+        "path": ".runtime/national/pages/fj-interpretation-loaded.html",
+        "sha256": "30aa1dee917298f092937dedf5914b9355d0c9e06276a37be632fb1f652b58f9"
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/#collector-page=2",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/#collector-page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/d79c51e839b860f5bb55b72614e358b92e536e87d0ca4544789fd54471218402.html",
+        "sha256": "a726a110905a9b1819576350ff6d16e5b1a41fbd42c8b27e24978cb6891b93f7"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202610/t20261023_7239881.htm",
+        "list_title": "《福建省提升中药质量促进中医药产业高质量发展的若干措施》政策解读(图文版)",
+        "path": ".runtime/national/trials/309476d7e7fcca0334587f9bf5879e291a7e87be8a065377ceebf7ba1ba2eb04.html",
+        "sha256": "e4df7f930f2c539d875ec5eb38d0d631f6cbd0b2247ae8ca7c2b01b7d14d07b3",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省提升中药质量促进中医药产业高质量发展的若干措施》政策解读(图文版)",
+        "published": "2026-10-26",
+        "body_chars": 89,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202610/W020261027327649568322.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202610/t20261023_7239882.htm",
+        "list_title": "《福建省提升中药质量促进中医药产业高质量发展的若干措施》政策解读",
+        "path": ".runtime/national/trials/be52db6e41a969f52c2ef1894714201e691653ed380b8ee769662d1ef096f4fd.html",
+        "sha256": "5888cbb8bb1db0461c2cc0707b418f475f00dd81013319305af28eb837e0bd48",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省提升中药质量促进中医药产业高质量发展的若干措施》政策解读",
+        "published": "2026-10-26",
+        "body_chars": 1226,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202609/t20260930_7220905.htm",
+        "list_title": "《福建省“十五五”中医药振兴发展规划》政策解读",
+        "path": ".runtime/national/trials/099df3d67a574af7dc155479782f210cb11c4f07d562c5ed044fb8e48df056a2.html",
+        "sha256": "0b8aa860de259c838d918a5e02066e159124355ae59af45f5c0c41dfa01dce50",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省“十五五”中医药振兴发展规划》政策解读",
+        "published": "2026-09-30",
+        "body_chars": 1566,
+        "authority": "省卫健委中医一处",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202609/t20260902_7207661.htm",
+        "list_title": "《福建省重大传染病疫情首发首报机构及人员通报和奖励办法(试行)实施细则》政策解读(图文版)",
+        "path": ".runtime/national/trials/a4620641d7b1a15ca335c3c1ab082be0c82aea75e1b07f97024f9ed3a4f36a67.html",
+        "sha256": "31910ac8c98d9ecaaae069e761ff12909ff212e18375f5be25578fb0779c602b",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省重大传染病疫情首发首报机构及人员通报和奖励办法(试行)实施细则》政策解读(图文版)",
+        "published": "2026-09-02",
+        "body_chars": 0,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202609/W020260911626983738350.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202609/t20260902_7207662.htm",
+        "list_title": "《福建省重大传染病疫情首发首报机构及人员通报和奖励办法(试行)实施细则》政策解读",
+        "path": ".runtime/national/trials/aa8cef05a8f7720730c70e3b8609e84a281d14769e65bec83c54637989770943.html",
+        "sha256": "97bfd77bb82e6b013dfc5508c969d4bc70756ca7fd0c0c418fdc6668f716113f",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省重大传染病疫情首发首报机构及人员通报和奖励办法(试行)实施细则》政策解读",
+        "published": "2026-09-02",
+        "body_chars": 1475,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202605/t20260513_7147176.htm",
+        "list_title": "《福建省普惠托育服务机构运营支持项目工作实施方案》政策解读(图文版)",
+        "path": ".runtime/national/trials/51030618f63e43f131584cca667404c75af4bafba7cd7769c49bfabed2d035a2.html",
+        "sha256": "dcab6ae024a7674f1827ebcc6aa31d9a11cd85f8590747bba7cad18190d5e1ed",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省普惠托育服务机构运营支持项目工作实施方案》政策解读(图文版)",
+        "published": "2026-05-13",
+        "body_chars": 0,
+        "authority": "福建省卫生健康委员会、福建省财政厅",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202605/W020260514639910150494.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202605/t20260513_7147177.htm",
+        "list_title": "《福建省普惠托育服务机构运营支持项目工作实施方案》政策解读",
+        "path": ".runtime/national/trials/5f859908ce45220cdb92caa284c2fdd693bb04cad9395ffda1aeb785096cf995.html",
+        "sha256": "8de9c6ab3e89189f699ccfe91da27c8deabe83883302349a973a8c7cc15b0f1b",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省普惠托育服务机构运营支持项目工作实施方案》政策解读",
+        "published": "2026-05-13",
+        "body_chars": 1242,
+        "authority": "福建省卫生健康委员会、福建省财政厅",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202601/t20260104_7070647.htm",
+        "list_title": "《关于卫生健康行政处罚中较大数额罚款标准的规定》政策解读",
+        "path": ".runtime/national/trials/2186d1939f641f40c2743397001f3816cb9a43df483f68bdd6e74611042b8b9a.html",
+        "sha256": "6ff23c91c8f2462444151880c608ef1b53e1434c925de7635ed4d0da910a71be",
+        "cached": true,
+        "status": "ok",
+        "title": "《关于卫生健康行政处罚中较大数额罚款标准的规定》政策解读",
+        "published": "2026-01-04",
+        "body_chars": 747,
+        "authority": "福建省卫生健康委员会、福建省疾病预防控制局",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202512/t20251212_7045528.htm",
+        "list_title": "《福建省育儿补贴制度实施方案》政策解读(图文版)",
+        "path": ".runtime/national/trials/07f0285b37409e078ea89dd14096ea258e8cc06a95757df2de6de108a6364391.html",
+        "sha256": "a647d8369419c7407926265c9cb2709a938db0725077015a04a45eff02afcac8",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省育儿补贴制度实施方案》政策解读(图文版)",
+        "published": "2025-12-12",
+        "body_chars": 0,
+        "authority": "省卫健委人口家庭处",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202512/W020251219835148016861.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202512/t20251212_7045529.htm",
+        "list_title": "《福建省育儿补贴制度实施方案》政策解读",
+        "path": ".runtime/national/trials/9e547db66f42409af847c6e8dc19d88a6916eb5e114accbe158d0625b43dd9bf.html",
+        "sha256": "cfba684599849caa1bafaaab518cd3a051f5f2364c396ac7f9ec07c35f0cd6ae",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省育儿补贴制度实施方案》政策解读",
+        "published": "2025-12-12",
+        "body_chars": 1808,
+        "authority": "省卫健委人口家庭处",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202510/t20251019_7022847.htm",
+        "list_title": "福建省普通门诊“一次挂号管一次就医流程”就诊模式实施方案政策解读(图文版)",
+        "path": ".runtime/national/trials/421ad8e45e7d7916994fefb86be1bb779118f62826105e2eb6ef19f7d897b581.html",
+        "sha256": "4b8028105655e283a28213b456c66e21cab0c91a7e082ce320e02734fa21a318",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省普通门诊“一次挂号管一次就医流程”就诊模式实施方案政策解读(图文版)",
+        "published": "2025-10-19",
+        "body_chars": 86,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202510/W020251030273560509330.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202510/t20251019_7022846.htm",
+        "list_title": "福建省普通门诊“一次挂号管一次就医流程”就诊模式实施方案政策解读",
+        "path": ".runtime/national/trials/d7f448fd2699bd466dcd5e73690591f32eb0cb45c63caeff3faff0093c592699.html",
+        "sha256": "e8d6fdee166a8167385b660388e0922d5b9c0d26c51d6068c59c66728ec00221",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省普通门诊“一次挂号管一次就医流程”就诊模式实施方案政策解读",
+        "published": "2025-10-19",
+        "body_chars": 1447,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/t20250616_6927544.htm",
+        "list_title": "《福建省卫生健康委员会等十五部门关于开展“体重管理年”活动的通知》政策解读(图文版)",
+        "path": ".runtime/national/trials/d569d67842824ff8f01d6dca8ca050484ce2e980953b38c69255aac66fb3eea2.html",
+        "sha256": "5d9e7b4af169968e2259b458761a7e92347df486108fcac4bfd61a231c4b3710",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省卫生健康委员会等十五部门关于开展“体重管理年”活动的通知》政策解读(图文版)",
+        "published": "2025-06-03",
+        "body_chars": 88,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/W020250616362768875984.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/t20250616_6927538.htm",
+        "list_title": "《福建省卫生健康委员会等十五部门关于开展“体重管理年”活动的通知》政策解读",
+        "path": ".runtime/national/trials/0ba26b0a2983c14638db2fed5c8e03c21e52e8224bc412dc3e0f7cbd969d494d.html",
+        "sha256": "7ca28ca195f0c60c9212b00a256c45ce288c1ab1684a849199c28966818a23db",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省卫生健康委员会等十五部门关于开展“体重管理年”活动的通知》政策解读",
+        "published": "2025-06-03",
+        "body_chars": 1334,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/t20250603_6920925.htm",
+        "list_title": "《福建省推进儿童医疗卫生服务高质量发展实施方案》政策解读(图文版)",
+        "path": ".runtime/national/trials/12c4d9dc8563ec47bc84ccdbb598807565f569d55b8fc6cc3a3038647b59c314.html",
+        "sha256": "83ef646e47860b428c165c0c6d168a19a4b9ecb0636ae33bc942f6914ed7effa",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省推进儿童医疗卫生服务高质量发展实施方案》政策解读(图文版)",
+        "published": "2025-05-12",
+        "body_chars": 93,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/W020250603575469727919.png",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202506/t20250603_6920919.htm",
+        "list_title": "《福建省推进儿童医疗卫生服务高质量发展实施方案》政策解读",
+        "path": ".runtime/national/trials/3c782f1203c73b2ae8b1e510002e6f57122e8301d126a91fcdb8425742ed5e24.html",
+        "sha256": "0d068732097164955506ade5bec317d02d077f69a5f0d5162b3c3d2c34b0bfb0",
+        "cached": true,
+        "status": "ok",
+        "title": "《福建省推进儿童医疗卫生服务高质量发展实施方案》政策解读",
+        "published": "2025-05-12",
+        "body_chars": 1665,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202504/t20250418_6902110.htm",
+        "list_title": "福建省进一步推进医疗机构检查检验结果互认实施方案政策解读(图文版)",
+        "path": ".runtime/national/trials/2e43db96df4a75f1b8ec7da4824a8d542b8894fc86118685341d77b69a578367.html",
+        "sha256": "ad4e7c57fb7480e760f7ce6b62107d49bccd1a40a7291bd134675fc6f6fdcfd8",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省进一步推进医疗机构检查检验结果互认实施方案政策解读(图文版)",
+        "published": "2025-04-04",
+        "body_chars": 136,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202504/W020250418386572574674.jpg",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202504/t20250418_6902094.htm",
+        "list_title": "福建省进一步推进医疗机构检查检验结果互认实施方案政策解读",
+        "path": ".runtime/national/trials/d93191c3f0b8d37cae449b7807796401a41047fe14f4de3f4efa9da659106fe9.html",
+        "sha256": "362c3d21d88823dd8ea650af16a2f7f4ebebb85a373f91d287bd5e0444a7dd16",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省进一步推进医疗机构检查检验结果互认实施方案政策解读",
+        "published": "2025-04-04",
+        "body_chars": 1097,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202502/t20250218_6765481.htm",
+        "list_title": "《福州市独资医院领域扩大开放试点工作方案》政策解读(图文版)",
+        "path": ".runtime/national/trials/339b3c3d8562d16e0112af82b988012aa0d414a7aef1fce23bb22e1acc0d2928.html",
+        "sha256": "8f4afbb2f4e617741ad03f2b775251fd6a01690e03c98b7f3376141e6857eebf",
+        "cached": true,
+        "status": "ok",
+        "title": "《福州市独资医院领域扩大开放试点工作方案》政策解读(图文版)",
+        "published": "2025-02-13",
+        "body_chars": 110,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": [
+          {
+            "name": "正文图片",
+            "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202502/W020250218534728836581.png",
+            "status": "pending",
+            "image": true
+          }
+        ]
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/202502/t20250218_6765478.htm",
+        "list_title": "《福州市独资医院领域扩大开放试点工作方案》政策解读",
+        "path": ".runtime/national/trials/2027d3edfb2f5dba3f2a0d56a853d5997a8a72142e06190e813cdc343981a7c9.html",
+        "sha256": "0d6378a1e3ca516a846279767295dc4df8bb1559c666c789f4e94099401ca4a9",
+        "cached": true,
+        "status": "ok",
+        "title": "《福州市独资医院领域扩大开放试点工作方案》政策解读",
+        "published": "2025-02-13",
+        "body_chars": 613,
+        "authority": "福建省卫生健康委员会",
+        "kind": "interpretation",
+        "attachments": []
+      }
+    ],
+    "errors": [
+      {
+        "stage": "list",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zcjd/bmzcjd/#collector-page=3",
+        "error": "TimeoutError:Page.wait_for_function: Timeout 20000ms exceeded."
+      }
+    ],
+    "unique_items": 20,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "needs_work"
+  },
+  {
+    "id": "fj-policy",
+    "region": "FJ",
+    "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/",
+    "checked_at": "2026-11-17T04:11:25.811240+00:00",
+    "lists": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=2",
+        "cached": true,
+        "path": ".runtime/national/pages/fj-policy-loaded.html",
+        "sha256": "c5eb0c87f4af4a8b8ddce164efd32e339058caaf385d8e95d436f14e4e903874"
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=2",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=3",
+        "cached": false,
+        "path": ".runtime/national/trials/29c3b2c5e25569624f02f068c01b39e1d712234ad39036ee5bba3cf1394bd817.html",
+        "sha256": "c4cada2af1c0c06af3e84644d89b24a64d455c96377793b8128be0aaaa6577f7"
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=3",
+        "count": 10,
+        "audit": {
+          "dated_records": 10,
+          "returned_records": 10,
+          "eligible_records": 10,
+          "link_origins": {
+            "wjw.fujian.gov.cn": 10
+          },
+          "pagination_detected": true,
+          "complete_listing": null
+        },
+        "next_url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=4",
+        "cached": false,
+        "path": ".runtime/national/trials/9c4b9e2365ad3213de8f437c9c8379751057f1e6b25131418dfc92eedd506b6a.html",
+        "sha256": "2b1b279af204ac75f1c18ee6418cd0f5b5707d39757ff06553e05c75a5df0794"
+      }
+    ],
+    "details": [
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243687.htm",
+        "list_title": "福建省卫生健康委员会关于公布部分三级医院评审结果的通知",
+        "path": ".runtime/national/trials/caea97d2d0b65a1adeacc45bb941beeb2614438f5f995cf6445f9a8fe9515cb3.html",
+        "sha256": "bbf9fb5d816c48800a51044e95f349a1363ccd8a73ecb13992be2a8b42310d90",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布部分三级医院评审结果的通知",
+        "published": "2026-11-02",
+        "body_chars": 281,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243686.htm",
+        "list_title": "福建省卫生健康委员会关于发布福建省《食品安全地方标准 白凤菜》(DBS35/012-2026)的通告",
+        "path": ".runtime/national/trials/23b8b5d509f42d204a721d162c04567231d694de0e63683c084badb6b53b0f67.html",
+        "sha256": "b9f970f924974158665ba2d4727dbea209f09fe62cbd001b19f391f526929f08",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于发布福建省《食品安全地方标准 白凤菜》(DBS35/012-2026)的通告",
+        "published": "2026-11-02",
+        "body_chars": 115,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243685.htm",
+        "list_title": "福建省卫生健康委员会关于公布第二轮“人工智能+医疗卫生”应用场景创新项目入围名单的通知",
+        "path": ".runtime/national/trials/dc9a2b2678f7a7735bf5edf5bfef4156ea36fe4e8567236f807e51f36ffd21bb.html",
+        "sha256": "d24611a54365172a69bb7d449beab53f634165fa97bbdaaf39ebadc03625d398",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布第二轮“人工智能+医疗卫生”应用场景创新项目入围名单的通知",
+        "published": "2026-10-30",
+        "body_chars": 853,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261103_7243995.htm",
+        "list_title": "福建省中医药管理局关于公布第五届全国说医解药科普大赛福建分赛区获奖名单的通知",
+        "path": ".runtime/national/trials/3663799c74343fca1c14be518a250fcab8552b052a1bf45b433c8736ae8b6d0d.html",
+        "sha256": "dbb94926f42da65826afa2facabd751960f8dd78a5833a03dac42a66d0cfb226",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省中医药管理局关于公布第五届全国说医解药科普大赛福建分赛区获奖名单的通知",
+        "published": "2026-10-30",
+        "body_chars": 471,
+        "authority": "福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202611/t20261102_7243684.htm",
+        "list_title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于印发《福建省临床医学研究专业职称评审实施办法(试行)》的通知",
+        "path": ".runtime/national/trials/2993c2c88375d67cd5b1019a7f64342a01b7f1a469a168fe0c26bd0b9312e7b0.html",
+        "sha256": "b3bf85ea9a12028d84eec7ea215bdd671092c388977a1b699bfb61d971fd1f5c",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于印发《福建省临床医学研究专业职称评审实施办法(试行)》的通知",
+        "published": "2026-10-27",
+        "body_chars": 6242,
+        "authority": "福建省卫生健康委员会、福建省人力资源和社会保障厅",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261026_7240705.htm",
+        "list_title": "福建省卫生健康委员会等十三部门关于印发《福建省提升中药质量促进中医药产业高质量发展的若干措施》的通知",
+        "path": ".runtime/national/trials/7f2b67aaa2ae377394f1932c567bf2de1d1fd68693fcf9d8ac0183c1b89e551b.html",
+        "sha256": "21e6f71f4267f2fa832fa50a50940308368afcd1009ac06ab350b8597abc2cfd",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会等十三部门关于印发《福建省提升中药质量促进中医药产业高质量发展的若干措施》的通知",
+        "published": "2026-10-26",
+        "body_chars": 4370,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261015_7226151.htm",
+        "list_title": "福建省卫生健康委员会关于征求《食品安全地方标准 福州鱼丸生产卫生规范(征求意见稿)》意见的函",
+        "path": ".runtime/national/trials/b9a32f5027af991983f41cf1d109ef2a20a235d6e384bb6f634e388d75317e2a.html",
+        "sha256": "8788dc6d59eea49399e06671b98c0fc67519f0a2085236ba0fb5dbe3b1c9256a",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于征求《食品安全地方标准 福州鱼丸生产卫生规范(征求意见稿)》意见的函",
+        "published": "2026-10-15",
+        "body_chars": 415,
+        "authority": "福建省卫生健康委员会",
+        "kind": "excluded",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261015_7226150.htm",
+        "list_title": "福建省卫生健康委员会关于公布第八届全国卫生健康系统职业技能竞赛中医药监督、中药调剂、中医诊疗技术操作职业技能竞赛福建省初赛获奖名单及参加全国竞赛名单的通知",
+        "path": ".runtime/national/trials/33cbea153700e1e69b568dbd86c84bba5d4acef800fa933b00803b34038f1def.html",
+        "sha256": "f840b0715208310b51b5c5603ba73230040c97eac675c4340543988790ca9d96",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布第八届全国卫生健康系统职业技能竞赛中医药监督、中药调剂、中医诊疗技术操作职业技能竞赛福建省初赛获奖名单及参加全国竞赛名单的通知",
+        "published": "2026-10-15",
+        "body_chars": 414,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261014_7225306.htm",
+        "list_title": "福建省卫生健康委员会关于做好2026年福建省临床、口腔类别住院医师规范化培训公共科目理论考试的通知",
+        "path": ".runtime/national/trials/9843ed17b02d5e85447209f8264ce9f3cf498258c3eca4055df377a61b8879e8.html",
+        "sha256": "1f465b3de4ea64dc5fb72ce128070cc8a5ff0c1e8ded722496fb1453405781ee",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于做好2026年福建省临床、口腔类别住院医师规范化培训公共科目理论考试的通知",
+        "published": "2026-10-13",
+        "body_chars": 1505,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261013_7224699.htm",
+        "list_title": "福建省卫生健康委员会 福建省总工会关于公布2026年福建省药学职业技能竞赛暨第八届全国卫生健康系统职业技能竞赛药学(药学门诊方向)福建省选拔赛获奖名单的通知",
+        "path": ".runtime/national/trials/b811f64ef8312eff6e5f0df2871ba1d0af0969c50455cf47fe5a42867fc1be48.html",
+        "sha256": "491c18eb09da48e47560c31a63a34d525a08f816b05df227889f031cfe4519b2",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省总工会关于公布2026年福建省药学职业技能竞赛暨第八届全国卫生健康系统职业技能竞赛药学(药学门诊方向)福建省选拔赛获奖名单的通知",
+        "published": "2026-10-12",
+        "body_chars": 267,
+        "authority": "福建省卫生健康委员会、福建省总工会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261013_7224698.htm",
+        "list_title": "福建省卫生健康委员会关于确定2026年福建省西学中培训推广基地的通知",
+        "path": ".runtime/national/trials/85f1fbd7b7f76c38c6f97d991e2272a41d3185c9214e05fc62ef56a0a68dac0c.html",
+        "sha256": "9a8caee0ec143f82f15aa4c966f5b544a239ec71a92cc3b8e68a325e3ea4c748",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于确定2026年福建省西学中培训推广基地的通知",
+        "published": "2026-10-08",
+        "body_chars": 1341,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261008_7222127.htm",
+        "list_title": "福建省卫生健康委员会关于征求《食品安全地方标准 贡丸生产卫生规范(征求意见稿)》意见的函",
+        "path": ".runtime/national/trials/8960053fd96fd28d5148445a55bd9bd90a3375e65e021f11234522caa3a1fbe6.html",
+        "sha256": "abc827bbc0fe8192850e214acbffbb9b91887821b60642aa695a2edec2837f93",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于征求《食品安全地方标准 贡丸生产卫生规范(征求意见稿)》意见的函",
+        "published": "2026-09-30",
+        "body_chars": 382,
+        "authority": "福建省卫生健康委员会",
+        "kind": "excluded",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261008_7222126.htm",
+        "list_title": "福建省卫生健康委员会 福建省中医药管理局关于印发《福建省“十五五”中医药振兴发展规划》的通知",
+        "path": ".runtime/national/trials/190fbee9f00a84e57eb94226ccfe52e70672a386efb2b1ecf74d584a326ed933.html",
+        "sha256": "661d4a45bc993aa340947dde1847129c52fb028b34c6582f103be5f6cf9a9d37",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省中医药管理局关于印发《福建省“十五五”中医药振兴发展规划》的通知",
+        "published": "2026-09-30",
+        "body_chars": 7241,
+        "authority": "福建省卫生健康委员会、福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202610/t20261020_7238387.htm",
+        "list_title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于公布2026年度全省卫生系列高级专业技术职务实践技能考试合格标准与合格人员名单的通知",
+        "path": ".runtime/national/trials/3199d545e7b45bba8f498364e2c69fe9efbc97d13c6b4ca9c99eac7275652563.html",
+        "sha256": "db86440a5b01cd28262b2bf0f13a3f95d5522925405c6b1b2c59cbdee9dcff56",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会 福建省人力资源和社会保障厅关于公布2026年度全省卫生系列高级专业技术职务实践技能考试合格标准与合格人员名单的通知",
+        "published": "2026-09-30",
+        "body_chars": 220,
+        "authority": "福建省卫生健康委员会、福建省人力资源和社会保障厅",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260928_7219138.htm",
+        "list_title": "福建省卫生健康委员会关于公布健康知识普及行动—2026年新时代健康科普作品征集活动福建省级优秀作品名单的通知",
+        "path": ".runtime/national/trials/43af04c12243f5646c9eb5f203d55a06a37e4c0969a97ca045251dd597f016df.html",
+        "sha256": "2ef577588a4513d62c9cc3080e5091718b31f3a8fefe9a5feb473399d60cc0b6",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布健康知识普及行动—2026年新时代健康科普作品征集活动福建省级优秀作品名单的通知",
+        "published": "2026-09-24",
+        "body_chars": 2276,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217541.htm",
+        "list_title": "福建省卫生健康委员会关于开展2026年福建省中医药文化周活动的通知",
+        "path": ".runtime/national/trials/ded0d87d4e305e3e8895d9074b6709cb02e01a78ac4b06a1eda5c37d223d323e.html",
+        "sha256": "ee8a3ed4610d14b8cd91a05b118f08f0c41911937da2381ce57e5d3199234300",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于开展2026年福建省中医药文化周活动的通知",
+        "published": "2026-09-23",
+        "body_chars": 1752,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217540.htm",
+        "list_title": "福建省卫生健康委员会关于印发《福建省妇幼保健机构儿童过敏性疾病规范化门诊建设标准(试行)》等3个妇幼保健机构规范化门诊建设标准的通知",
+        "path": ".runtime/national/trials/a2b7d818091cd9d0a81f62b4c84e1752287c581715126632c848de0dcce85710.html",
+        "sha256": "c90d41798107a991dc04a349252b753fdc459d0605e26cbd0cacf88afebbc166",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于印发《福建省妇幼保健机构儿童过敏性疾病规范化门诊建设标准(试行)》等3个妇幼保健机构规范化门诊建设标准的通知",
+        "published": "2026-09-19",
+        "body_chars": 22470,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260924_7217539.htm",
+        "list_title": "福建省卫生健康委员会关于开展计划生育扶助制度及托育补助数据抽查复核工作的通知",
+        "path": ".runtime/national/trials/de6fa4ab3dee032f3a3ff04711eb0ec8a6de1f3cfe5cbbe3242ae7957a4a1bde.html",
+        "sha256": "b642ce4ed00fe54eb131a3d57b8079b9d67bdb20baa9059b79cf7f59469bbb70",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于开展计划生育扶助制度及托育补助数据抽查复核工作的通知",
+        "published": "2026-09-18",
+        "body_chars": 1428,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260918_7215634.htm",
+        "list_title": "福建省中医药管理局关于下达2026年度省中医药科技项目资助计划的通知",
+        "path": ".runtime/national/trials/cda5692b35d5649f7d6f10d4ee184b035241e7c16e3deebf1ae62fdea19fba81.html",
+        "sha256": "c11e932cd86eea8bb6d8e9e08f816862297cac288c56cac7c31b036b4537ec94",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省中医药管理局关于下达2026年度省中医药科技项目资助计划的通知",
+        "published": "2026-09-18",
+        "body_chars": 584,
+        "authority": "福建省中医药管理局",
+        "kind": "policy",
+        "attachments": []
+      },
+      {
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/202609/t20260911_7212472.htm",
+        "list_title": "福建省卫生健康委员会关于公布2026年职业健康专技人员系列考试合格人员名单的通知",
+        "path": ".runtime/national/trials/5b6385fb40828951e34c16d78f9eb7d5602658ea4d9d6781100928d043978faa.html",
+        "sha256": "978b4c7a30beb464a3375f01ca831e9489b91555aa96f7c49859b15fbbfa0d40",
+        "cached": true,
+        "status": "ok",
+        "title": "福建省卫生健康委员会关于公布2026年职业健康专技人员系列考试合格人员名单的通知",
+        "published": "2026-09-07",
+        "body_chars": 376,
+        "authority": "福建省卫生健康委员会",
+        "kind": "policy",
+        "attachments": []
+      }
+    ],
+    "errors": [
+      {
+        "stage": "list",
+        "url": "https://wjw.fujian.gov.cn/xxgk/fgwj/zxwj/#collector-page=4",
+        "error": "TimeoutError:Page.wait_for_function: Timeout 20000ms exceeded."
+      }
+    ],
+    "unique_items": 30,
+    "listing_exhausted": false,
+    "sample_target": 20,
+    "sample_ok": 20,
+    "status": "needs_work"
+  }
+]

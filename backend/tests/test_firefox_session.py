@@ -30,6 +30,20 @@ def test_firefox_reuses_cookie_and_waits_for_final_list_and_detail(monkeypatch):
                 time.sleep(0.3)
             elif self.path == '/detail.shtml':
                 body = '<article id="article"></article><script>setTimeout(()=>document.querySelector("article").textContent="Official policy body, populated asynchronously after navigation.",200)</script>'
+            elif self.path == '/dynamic.shtml':
+                body = '''<ul class="zxxx_list"><li>2026-11-17 <a href="/one.shtml">Official policy page 1</a></li></ul>
+                <span class="current">1</span><a class="next" data-page="2" href="#">Next</a>
+                <input class="jump"><button class="go" onclick="document.querySelector('.next').dataset.page=document.querySelector('.jump').value;document.querySelector('.next').click()">Go</button>
+                <script>document.querySelector('.next').onclick=e=>{e.preventDefault();
+                const n=Number(e.target.dataset.page);
+                setTimeout(()=>{document.querySelector('li').innerHTML='2026-11-17 <a href="/'+n+'.shtml">Official policy page '+n+'</a>';
+                setTimeout(()=>{document.querySelector('.current').textContent=n;e.target.dataset.page=n+1;},100);},100);};</script>'''
+            elif self.path == '/embedded.shtml':
+                body = '<article id="article"><iframe src="/file.pdf"></iframe></article>'
+            elif self.path == '/media.shtml':
+                body = '<article id="article"><video><source src="/movie.mp4"></video></article>'
+            elif self.path == '/file.pdf':
+                body = '%PDF-1.7 sample bytes with deliberately wrong content type'
             elif self.path == '/blocked.shtml':
                 status, body = 412, '<html>Not a policy page</html>'
             elif self.path == '/busy.shtml':
@@ -64,6 +78,22 @@ def test_firefox_reuses_cookie_and_waits_for_final_list_and_detail(monkeypatch):
             with pytest.raises(FetchError, match='http_429') as exc:
                 fetcher._get_firefox(base+'/busy.shtml', config['hosts'], 'list', config)
             assert exc.value.retry_after == 120
+            dynamic={**config,'browser_next':'.next','browser_current':'.current','browser_page_attribute':'data-page'}
+            data,_,url=fetcher._get_firefox(base+'/dynamic.shtml#collector-page=3',config['hosts'],'list',dynamic)
+            assert b'Official policy page 3' in data and url.endswith('#collector-page=3')
+            data,_,_=fetcher._get_firefox(base+'/embedded.shtml',config['hosts'],'detail',config)
+            assert b'iframe' in data
+            data,_,_=fetcher._get_firefox(base+'/media.shtml',config['hosts'],'detail',config)
+            assert b'video' in data
+            jumping={**dynamic,'browser_jump_input':'.jump','browser_jump_submit':'.go'}
+            data,_,url=fetcher._get_firefox(base+'/dynamic.shtml#collector-page=8',config['hosts'],'list',jumping)
+            assert b'Official policy page 8' in data and url.endswith('#collector-page=8')
+            binary={**config,'attachment_bootstrap_url':base+'/dynamic.shtml'}
+            data,mime,_=fetcher._get_browser_attachment(base+'/file.pdf',config['hosts'],binary)
+            assert data.startswith(b'%PDF') and mime=='application/pdf'
+            fetcher.settings.max_download_bytes=10
+            with pytest.raises(FetchError,match='browser_attachment_failed'):
+                fetcher._get_browser_attachment(base+'/file.pdf',config['hosts'],binary)
         assert fetcher._browser is None and not fetcher._contexts
         assert ('/list_2.shtml', 'session=ready') in seen
     finally:
