@@ -46,6 +46,18 @@ def test_parse_list_keeps_only_dated_allowlisted_documents():
     assert next_url is None
 
 
+def test_list_source_host_filter_rejects_cross_domain_reposts():
+    html = b'''<ul class="items">
+    <li>2026-11-01 <a href="https://province.example/policy.shtml">Province policy title</a></li>
+    <li>2026-11-02 <a href="https://national.example/policy.shtml">National repost title</a></li></ul>'''
+    items, _ = parse_list(html, "https://province.example/list.html", {
+        "list_selector": ".items li",
+        "hosts": ["province.example", "national.example"],
+        "list_hosts": ["province.example"],
+    })
+    assert [item["title"] for item in items] == ["Province policy title"]
+
+
 def test_empty_list_is_an_error_not_a_false_success():
     with pytest.raises(ParseError, match="list_empty"):
         parse_list(b"<html><body>blocked</body></html>", "https://official.example/list.html", {
@@ -63,6 +75,29 @@ def test_saved_guangdong_official_pages_match_registered_selectors():
         items, next_url = parse_list(data, url, {"list_selector": ".section.list li", "hosts": [host, "www.nhc.gov.cn", "www.gd.gov.cn"]})
         assert len(items) >= 10
         assert next_url and next_url.startswith("https://wsjkw.gd.gov.cn/")
+
+
+def test_official_province_body_containers_are_supported():
+    source = Source(id="test", name="Test Health Commission", region="GD", kind="policy",
+                    url="https://official.example/list.html", config={"body_selectors": [
+                        ".content-content", ".main-fl.bt-left"
+                    ]})
+    pages = [
+        (b'<div class="content-content"><p>Guangdong official policy text with enough characters to pass body validation.</p></div>',
+         "Guangdong official policy text with enough characters to pass body validation."),
+        (b'<div class="main-fl bt-left"><p>Jiangsu official policy text with enough characters to pass body validation.</p></div>',
+         "Jiangsu official policy text with enough characters to pass body validation."),
+    ]
+    for page, body in pages:
+        result = parse_detail(page, "https://official.example/policy/a.shtml", {"title": "Official policy title"}, source)
+        assert result["body"] == body
+
+
+def test_jiangsu_interpretation_source_rejects_nhc_reposts():
+    from policy_v2.sources import SPECS
+    source = next(spec for spec in SPECS if spec[0] == "js-interpretation")
+    assert source[6] == "li"
+    assert source[7] == ["wjw.jiangsu.gov.cn"]
 
 
 def test_worker_processes_registered_list_and_detail_into_versioned_document(tmp_path, factory, monkeypatch):
@@ -142,6 +177,22 @@ def test_discovery_starts_paused_and_only_enabled_sources_are_queued(factory):
         tasks = db.query(__import__('policy_v2.models', fromlist=['Task']).Task).all()
         assert len(tasks) == 1
         assert tasks[0].payload["url"].endswith("index.html")
+
+
+def test_seed_refreshes_adapter_config_without_changing_enable_state(factory):
+    seed(factory)
+    with factory() as db:
+        source = db.get(Source, "js-interpretation")
+        source.enabled = True
+        source.config = {**source.config, "list_hosts": ["wjw.jiangsu.gov.cn", "www.nhc.gov.cn"],
+                         "body_selectors": ["#old-selector"]}
+        db.commit()
+    seed(factory)
+    with factory() as db:
+        source = db.get(Source, "js-interpretation")
+        assert source.enabled is True
+        assert source.config["list_hosts"] == ["wjw.jiangsu.gov.cn"]
+        assert ".main-fl.bt-left" in source.config["body_selectors"]
 
 
 def test_fetcher_rejects_non_https_and_unregistered_hosts():

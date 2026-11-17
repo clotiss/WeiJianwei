@@ -19,6 +19,7 @@ def soup(data): return BeautifulSoup(data,'lxml')
 def clean(text):return re.sub(r'[ \t\r\f\v]+',' ',unicodedata.normalize('NFKC',text)).strip()
 def parse_list(data,url,config):
     s=soup(data)
+    list_hosts=config.get('list_hosts',config['hosts'])
     # JCMS servers may embed item HTML in script text / XML records rather than live DOM.
     for fragment in re.findall(r'<!\[CDATA\[(.*?)\]\]>',data.decode('utf-8',errors='replace'),re.S):
         s.append(soup(fragment))
@@ -28,7 +29,7 @@ def parse_list(data,url,config):
         if not a:continue
         target=canonical(urljoin(url,a['href']));title=clean(a.get('title') or a.get_text(' ',strip=True))
         if len(title)<6 or target in seen or not re.search(r'\.(?:s?html?|shtm)(?:\?|$)',target,re.I):continue
-        if urlsplit(target).hostname not in config['hosts']:continue
+        if urlsplit(target).hostname not in list_hosts:continue
         published=date_value(row.get_text(' ',strip=True))
         if not published:continue # Menu links are not list items; never fabricate publication dates.
         seen.add(target);items.append({'url':target,'title':title,'published':published})
@@ -37,7 +38,7 @@ def parse_list(data,url,config):
     for a in s.select('a[href]'):
         if a.get_text(strip=True) in ('下一页','下页','>','下一页 >'):
             candidate=canonical(urljoin(url,a['href']))
-            if candidate!=url and urlsplit(candidate).hostname in config['hosts']:next_url=candidate;break
+            if candidate!=url and urlsplit(candidate).hostname in list_hosts:next_url=candidate;break
     return items,next_url
 
 def page_url(first,n,adapter):

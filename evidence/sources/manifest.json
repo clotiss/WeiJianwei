@@ -1,38 +1,124 @@
 {
-  "js-policy": {
-    "url": "https://wjw.jiangsu.gov.cn/col/col7408/index.html",
-    "status": 403,
-    "bytes": 7408,
-    "at": 1794835744.526504
-  },
-  "hn-home": {
-    "url": "https://wjw.hunan.gov.cn/",
-    "status": 200,
-    "bytes": 90843,
-    "at": 1794835744.823516
-  },
-  "gd-policy": {
-    "url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html",
-    "status": 200,
-    "bytes": 36080,
-    "at": 1794835745.17291
-  },
-  "gd-interpretation": {
-    "url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html",
-    "status": 200,
-    "bytes": 35169,
-    "at": 1794835745.4399621
-  },
-  "nhc-policy": {
-    "url": "https://www.nhc.gov.cn/wjw/gfxwjj/list.shtml",
-    "status": 412,
-    "bytes": 3834,
-    "at": 1794835745.9242811
-  },
-  "nhc-interpretation": {
-    "url": "https://www.nhc.gov.cn/wjw/zcjd/list.shtml",
-    "status": 412,
-    "bytes": 3795,
-    "at": 1794835747.28978
-  }
+  "checked_at": "2026-11-17T01:45:36.132070+00:00",
+  "source_checks": [
+    {
+      "id": "nhc-policy",
+      "url": "https://www.nhc.gov.cn/wjw/gfxwjj/list.shtml",
+      "http_status": "error",
+      "fetch_error": "FetchError:http_412"
+    },
+    {
+      "id": "nhc-interpretation",
+      "url": "https://www.nhc.gov.cn/wjw/zcjd/list.shtml",
+      "http_status": "error",
+      "fetch_error": "FetchError:http_412"
+    },
+    {
+      "id": "js-policy",
+      "url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html",
+      "http_status": 200,
+      "mime": "text/html",
+      "bytes": 39565,
+      "final_url": "https://wjw.jiangsu.gov.cn/col/col81326/index.html",
+      "list_status": "ok",
+      "item_count": 45,
+      "sample_title": "江苏省卫生健康委员会 江苏省疾病预防控制局关于废止部分行政规范性文件的决定(苏卫规〔2026〕1号)",
+      "sample_url": "https://wjw.jiangsu.gov.cn/art/2026/9/30/art_81326_11836965.html",
+      "next_page": null,
+      "detail_status": "ok",
+      "detail_mime": "text/html",
+      "detail_title": "江苏省卫生健康委员会 江苏省疾病预防控制局关于废止部分行政规范性文件的决定(苏卫规〔2026〕1号)",
+      "body_chars": 289,
+      "published": "2026-09-30",
+      "parsed_kind": "policy",
+      "attachments": 2
+    },
+    {
+      "id": "js-interpretation",
+      "url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "http_status": 200,
+      "mime": "text/html",
+      "bytes": 27042,
+      "final_url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "list_status": "ok",
+      "item_count": 1,
+      "sample_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
+      "sample_url": "https://wjw.jiangsu.gov.cn/art/2025/8/8/art_7292_11627428.html",
+      "next_page": null,
+      "detail_status": "ok",
+      "detail_mime": "text/html",
+      "detail_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
+      "body_chars": 2091,
+      "published": "2025-08-08",
+      "parsed_kind": "interpretation",
+      "attachments": 0
+    },
+    {
+      "id": "hn-policy",
+      "url": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/gfxwj/index.html",
+      "http_status": "error",
+      "fetch_error": "ConnectError:[SSL: BAD_ECPOINT] bad ecpoint (_ssl.c:1010)"
+    },
+    {
+      "id": "hn-interpretation",
+      "url": "https://wjw.hunan.gov.cn/wjw/xxgk/zcfg/zcjd/index.html",
+      "http_status": "error",
+      "fetch_error": "ConnectError:[SSL: BAD_ECPOINT] bad ecpoint (_ssl.c:1010)"
+    },
+    {
+      "id": "gd-policy",
+      "url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html",
+      "http_status": 200,
+      "mime": "text/html",
+      "bytes": 36080,
+      "final_url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index.html",
+      "list_status": "ok",
+      "item_count": 20,
+      "sample_title": "广东省卫生健康委 广东省中医药局 广东省疾病预防控制局关于印发《广东省“精神卫生服务年”行动实施方案(2025—2027年)》的通知",
+      "sample_url": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/content/post_4704761.html",
+      "next_page": "https://wsjkw.gd.gov.cn/hdjl/hdjl_zcwj/index_2.html",
+      "detail_status": "ok",
+      "detail_mime": "text/html",
+      "detail_title": "广东省卫生健康委 广东省中医药局 广东省疾病预防控制局关于印发《广东省“精神卫生服务年”行动实施方案(2025—2027年)》的通知",
+      "body_chars": 4462,
+      "published": "2025-04-29",
+      "parsed_kind": "policy",
+      "attachments": 0
+    },
+    {
+      "id": "gd-interpretation",
+      "url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html",
+      "http_status": 200,
+      "mime": "text/html",
+      "bytes": 35169,
+      "final_url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index.html",
+      "list_status": "ok",
+      "item_count": 20,
+      "sample_title": "《广东省紧密型县域医疗卫生共同体高质量发展行动方案(2026—2028年)》解读",
+      "sample_url": "https://wsjkw.gd.gov.cn/hdjl_zcjd/content/post_4974778.html",
+      "next_page": "https://wsjkw.gd.gov.cn/hdjl_zcjd/index_2.html",
+      "detail_status": "ok",
+      "detail_mime": "text/html",
+      "detail_title": "《广东省紧密型县域医疗卫生共同体高质量发展行动方案(2026—2028年)》解读",
+      "body_chars": 2491,
+      "published": "2026-11-03",
+      "parsed_kind": "interpretation",
+      "attachments": 0
+    }
+  ],
+  "origin_filter_checks": [
+    {
+      "id": "js-interpretation-origin-audit",
+      "url": "https://wjw.jiangsu.gov.cn/col/col7292/index.html",
+      "status": "ok",
+      "total_item_count": 31,
+      "link_origins": {
+        "www.nhc.gov.cn": 30,
+        "wjw.jiangsu.gov.cn": 1
+      },
+      "accepted_jiangsu_item_count": 1,
+      "accepted_sample_title": "《江苏省继续医学教育项目及学分管理办法》政策解读",
+      "filtered_external_item_count": 30
+    }
+  ]
 }
