@@ -298,6 +298,52 @@ def test_attachment_text_is_locatable_and_long_body_is_explicitly_partial():
     content,_=ai.summary_input(SimpleNamespace(body=BODY*1000,title='长文',attachments=[]))
     assert content['chars']==ai.MAX_CHARS and content['scope']=='body_excerpt'
 
+
+def test_html_inline_linebreaks_restore_literal_evidence_offsets():
+    raw = '通知：要求任职前接受不少于\n8\n学时的系统培训。'
+    source = {'id': 'body', 'text': raw, 'name': '正文', 'url': '', 'location': {}}
+    result = {'points': [{'text': '任职前培训不少于8学时',
+                         'quote': '要求任职前接受不少于8学时的系统培训', 'source': 'body'}]}
+    point = ai.validate_points(result, [source])[0]
+    assert point['quote'] == '要求任职前接受不少于\n8\n学时的系统培训'
+    assert raw[point['start']:point['end']] == point['quote']
+    for false_quote in ('要求任职前接受不少于80学时的系统培训',
+                        '要求任职前接受不多于8学时的系统培训',
+                        '要求任职后接受不少于8学时的系统培训'):
+        result['points'][0]['quote'] = false_quote
+        with pytest.raises(ai.SummaryError, match='evidence_mismatch'):
+            ai.validate_points(result, [source])
+
+
+def test_numbered_evidence_uses_original_source_and_rejects_invented_id(env, monkeypatch):
+    factory, settings = env
+    raw = '要求任职前接受不少于\n8\n学时的系统培训。' * 80
+    content, _ = ai.summary_input(SimpleNamespace(body=raw, title='培训要求', attachments=[]))
+    candidates = ai.evidence_candidates(content['segments'])
+    assert len(candidates) > 1 and all(len(c['text']) <= 1200 for c in candidates)
+    for c in candidates:
+        assert raw[c['start']:c['start'] + len(c['text'])] == c['text']
+    def post(*args, **kwargs):
+        payload = json.loads(kwargs['json']['messages'][1]['content'])
+        assert payload['segments'][1]['id'] == candidates[1]['id']
+        return response([{'text': '任职前培训不少于8学时。', 'evidence_id': candidates[1]['id']}])
+    monkeypatch.setattr(ai.httpx, 'post', post)
+    points, _ = ai.generate(settings, content)
+    assert points[0]['quote'] == candidates[1]['text']
+    assert raw[points[0]['start']:points[0]['end']] == points[0]['quote']
+    monkeypatch.setattr(ai.httpx, 'post', lambda *a, **k: response([{'text': '伪造引用', 'evidence_id': 'e999999'}]))
+    with pytest.raises(ai.SummaryError, match='evidence_mismatch'): ai.generate(settings, content)
+
+
+def test_image_text_is_included_even_when_related_link_titles_exceed_minimum():
+    body = '相关链接：' + '中医药产业高质量发展政策解读' * 8
+    content, _ = ai.summary_input(SimpleNamespace(body=body, title='政策图解', attachments=[
+        {'name': '正文图片', 'url': 'https://official.gov.cn/image.jpg', 'image': True,
+         'status': 'ready', 'extracted': [{'page': 1, 'text': BODY}]}]))
+    assert content['scope'] == 'body_and_images'
+    assert content['segments'][1]['text'] == BODY
+    assert content['segments'][1]['location'] == {'page': 1}
+
 def test_worker_restart_recovers_expired_lease(env,monkeypatch):
     factory,settings=env;rid=ingest(env);ai.schedule_batch(factory,settings)
     lost=claim(factory,clock=1,kinds=('summary',))

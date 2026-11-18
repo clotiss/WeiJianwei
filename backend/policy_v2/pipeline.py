@@ -153,6 +153,11 @@ def _process_claimed(factory, settings, task, fetcher):
                 attachments = [dict(a) for a in revision.attachments]
                 for attachment in attachments:
                     if attachment["url"] == payload["url"]:
+                        # Re-downloading unchanged media must not discard a
+                        # verified operator OCR/transcription enrichment.
+                        if (attachment.get('extraction_method') and attachment.get('extracted')
+                                and attachment.get('sha256') == metadata['sha']):
+                            continue
                         attachment.update({"status": status, "object_key": metadata["key"],
                                            "sha256": metadata["sha"], "extracted": blocks})
                         attachment.pop('last_error',None)
