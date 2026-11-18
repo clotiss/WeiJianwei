@@ -48,13 +48,17 @@ const api = require('../utils/api');
   assert.deepEqual(await api.getCategories(), {categories:['基层医疗']});
   await assert.rejects(api.agentSearch('广东'), error => error.code === 'agent_unavailable');
   Object.assign(state, resolveEnvironment('trial'));
+  state.API_V2_BASE = '';
   const beforeMissing = calls.length;
   await assert.rejects(api.getDocuments({}), error => error.code === 'endpoint_not_configured');
   await assert.rejects(api.getV2Favorites(), error => error.code === 'endpoint_not_configured');
   assert.equal(calls.length, beforeMissing, 'unconfigured trial must not hit production');
   assert.equal(resolveEnvironment('develop').USE_POLICY_V2, true);
-  assert.equal(resolveEnvironment('unknown').USE_POLICY_V2, false);
+  assert.equal(resolveEnvironment('unknown').USE_POLICY_V2, true);
+  for (const environment of ['develop', 'trial', 'release']) {
+    assert.equal(resolveEnvironment(environment).API_V2_BASE, 'https://wjwjwjw.top/api/v2');
+  }
   Object.assign(state, resolveEnvironment('release'));
-  await api.getDocuments({page:1}); assert.ok(calls.at(-1).url.startsWith('https://wjwjwjw.top/api/v1/documents'));
-  console.log('V2 auth, account favorites, environment isolation, legacy fallback passed');
+  await api.getDocuments({page:1}); assert.ok(calls.at(-1).url.startsWith('https://wjwjwjw.top/api/v2/policies'));
+  console.log('V2 auth, account favorites, environment isolation, production routing passed');
 })().catch(error => {console.error(error); process.exitCode=1;});
