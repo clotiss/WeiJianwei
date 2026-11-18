@@ -8,6 +8,7 @@ import httpx
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query
 from pydantic import BaseModel, Field
+from typing import Literal
 from sqlalchemy import func, or_, select
 
 from .db import Base, database
@@ -47,6 +48,12 @@ class FollowRule(BaseModel):
     region: str = Field(default="", max_length=10)
     topic: str = Field(default="", max_length=100)
     include_national: bool = True
+
+
+class PushConsent(BaseModel):
+    grant_id: str = Field(min_length=20, max_length=64)
+    result: Literal['accept', 'reject', 'ban']
+    mini_state: Literal['developer', 'trial', 'formal'] = 'formal'
 
 
 def admin(authorization: str | None = Header(default=None)):
@@ -146,9 +153,56 @@ def remove_follow(follow_id: int, user_id: int = Depends(current_user)):
         return {"id": follow_id, "followed": False}
 
 
+@app.get('/api/v2/me/push')
+def push_status(user_id: int = Depends(current_user)):
+    from .push import status
+    with SessionLocal() as db: return status(db, user_id, summary_settings())
+
+
+@app.post('/api/v2/me/push/prepare')
+def prepare_push(user_id: int = Depends(current_user)):
+    from .push import prepare
+    try:
+        with SessionLocal.begin() as db: return prepare(db, user_id, summary_settings())
+    except ValueError as exc: raise HTTPException(409, str(exc)) from exc
+
+
+@app.post('/api/v2/me/push/confirm')
+def confirm_push(payload: PushConsent, user_id: int = Depends(current_user)):
+    from .push import confirm
+    try:
+        with SessionLocal.begin() as db:
+            return confirm(db, user_id, summary_settings(), payload.grant_id, payload.result, payload.mini_state)
+    except ValueError as exc: raise HTTPException(409, str(exc)) from exc
+
+
+@app.delete('/api/v2/me/push')
+def disable_push(user_id: int = Depends(current_user)):
+    from .push import disable, status
+    with SessionLocal.begin() as db:
+        disable(db, user_id)
+        return status(db, user_id, summary_settings())
+
+
+@app.get('/api/v2/me/updates/{digest_id}')
+def push_updates(digest_id: str, user_id: int = Depends(current_user)):
+    from .models import PushDigest
+    from .push import digest_documents
+    with SessionLocal() as db:
+        digest = db.get(PushDigest, digest_id)
+        if not digest or digest.user_id != user_id: raise HTTPException(404, 'update_not_found')
+        rows = digest_documents(db, digest)
+        return {'date': digest.day, 'total': len(rows), 'items': [
+            {'id': d.id, 'title': r.title, 'region': d.region, 'authority': r.authority,
+             'published': r.published, 'type': r.kind, 'topic': r.topic, 'original_url': d.url}
+            for d, r in rows]}
+
+
 @app.get("/health")
 def health():
+    from .push import configured
     return {"status": "ok", "recruitment_enabled": settings.recruitment_enabled,
+            "wechat_push_available": configured(summary_settings()),
             "revision": os.environ.get('POLICY_RELEASE_REVISION', 'development'),
             "source_sha256": os.environ.get('POLICY_SOURCE_SHA256', '')}
 

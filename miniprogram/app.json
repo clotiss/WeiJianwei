@@ -9,7 +9,8 @@
     "pages/plaintext/plaintext",
     "pages/coverage/coverage",
     "pages/follow/follow",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/updates/updates"
   ],
   "window": {
     "navigationBarTitleText": "卫健政策速查",

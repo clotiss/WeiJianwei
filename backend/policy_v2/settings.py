@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     admin_token: str = ''
     wechat_app_id: str = ''
     wechat_secret: str = ''
+    wechat_push_template_id: str = ''
+    wechat_push_enabled: bool = False
     ai_key: str = ''
     ai_url: str = 'https://api.deepseek.com/v1/chat/completions'
     ai_model: str = 'deepseek-chat'

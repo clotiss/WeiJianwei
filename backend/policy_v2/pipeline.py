@@ -6,9 +6,9 @@ from sqlalchemy import select
 
 from .db import transaction
 from .domains import DomainBusy
-from .ingestion import persist_detail, persist_snapshot
+from .ingestion import persist_detail, persist_snapshot, persist_raw
 from .extraction import extract
-from .models import Document, RawObject, Revision, Snapshot, Source, Task
+from .models import Document, Revision, Snapshot, Source, Task
 from .network import SafeFetcher, FetchError
 from .parsing import parse_detail, ParseError
 from .adapters import read_list
@@ -74,9 +74,7 @@ def _process_claimed(factory, settings, task, fetcher):
             stored = store.put(data, mime)
             with transaction(factory) as db:
                 assert_ownership(db,task)
-                raw = db.get(RawObject, stored["sha"])
-                if not raw:
-                    db.add(RawObject(**stored))
+                persist_raw(db, stored)
                 snap = Snapshot(source_id=source_id, url=final_url, raw_sha=stored["sha"], method=getattr(fetcher, "last_mode", "httpx"))
                 db.add(snap); db.flush()
                 if listing_audit is not None:
@@ -147,8 +145,7 @@ def _process_claimed(factory, settings, task, fetcher):
                 extraction_error = f'{type(exc).__name__}:{exc}'[:500]
             with transaction(factory) as db:
                 assert_ownership(db,task)
-                raw = db.get(RawObject, metadata["sha"])
-                if not raw: db.add(RawObject(**metadata))
+                persist_raw(db, metadata)
                 revision = db.get(Revision, payload["revision_id"])
                 attachments = [dict(a) for a in revision.attachments]
                 for attachment in attachments:

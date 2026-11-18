@@ -1,0 +1,11 @@
+<view class="app-content">
+  <view class="app-title">关注更新</view>
+  <view wx:if="{{loading}}" class="page-loading">加载中…</view>
+  <view wx:elif="{{error}}" class="inline-error" bindtap="loadUpdates">{{error}} · 点击重试</view>
+  <block wx:else>
+    <view class="scope-note">{{date}} · {{total}} 篇与你的关注相关的文件</view>
+    <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
+    <view wx:if="{{!documents.length}}" class="empty-state">当前关注范围内没有可展示的文件</view>
+  </block>
+  <button class="app-button secondary" bindtap="goFollow">管理关注与提醒</button>
+</view>

@@ -191,6 +191,43 @@ class Notification(Base):
     revision_id=Column(Integer,ForeignKey('v2_revisions.id'),primary_key=True)
     read=Column(Boolean,nullable=False,default=False)
     created=Column(Float,nullable=False,default=now)
+class PushSubscription(Base):
+    __tablename__='v2_push_subscriptions'
+    user_id=Column(Integer,ForeignKey('v2_users.id'),primary_key=True)
+    template_id=Column(String(150),nullable=False)
+    enabled=Column(Boolean,nullable=False,default=False)
+    credits=Column(Integer,nullable=False,default=0)
+    since=Column(Float,nullable=False,default=now)
+    mini_state=Column(String(20),nullable=False,default='formal')
+    updated=Column(Float,nullable=False,default=now)
+class PushGrant(Base):
+    __tablename__='v2_push_grants'
+    id=Column(String(64),primary_key=True)
+    user_id=Column(Integer,ForeignKey('v2_users.id'),nullable=False,index=True)
+    template_id=Column(String(150),nullable=False)
+    expires=Column(Float,nullable=False)
+    result=Column(String(20),nullable=False,default='pending')
+class PushDigest(Base):
+    __tablename__='v2_push_digests'
+    id=Column(String(32),primary_key=True)
+    user_id=Column(Integer,ForeignKey('v2_users.id'),nullable=False,index=True)
+    day=Column(String(10),nullable=False)
+    cutoff=Column(Float,nullable=False)
+    state=Column(String(20),nullable=False,default='queued',index=True)
+    attempts=Column(Integer,nullable=False,default=0)
+    reserved=Column(Boolean,nullable=False,default=False)
+    available=Column(Float,nullable=False,default=now)
+    lease_until=Column(Float)
+    error=Column(String(100),nullable=False,default='')
+    template_id=Column(String(150),nullable=False)
+    mini_state=Column(String(20),nullable=False)
+    sent=Column(Float)
+    __table_args__=(UniqueConstraint('user_id','day'),)
+class PushDigestItem(Base):
+    __tablename__='v2_push_digest_items'
+    user_id=Column(Integer,ForeignKey('v2_users.id'),primary_key=True)
+    revision_id=Column(Integer,ForeignKey('v2_revisions.id'),primary_key=True)
+    digest_id=Column(String(32),ForeignKey('v2_push_digests.id'),nullable=False,index=True)
 class Audit(Base):
     __tablename__='v2_audit'
     id=Column(Integer,primary_key=True)

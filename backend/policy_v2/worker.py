@@ -8,6 +8,7 @@ from .models import Source
 
 
 def run_workers(factory, settings, workers=4, stop=None):
+    from .push import configured, run_push_worker
     if not 1 <= workers <= 8: raise ValueError('workers_must_be_1_to_8')
     stop = stop or Event()
     def loop(index):
@@ -21,9 +22,10 @@ def run_workers(factory, settings, workers=4, stop=None):
                 ids=list(db.scalars(select(Source.id).where(Source.enabled)))
             for source_id in ids:discover(factory,source_id,settings)
             stop.wait(60)
-    with ThreadPoolExecutor(max_workers=workers+1) as pool:
+    with ThreadPoolExecutor(max_workers=workers+2) as pool:
         futures=[pool.submit(loop,i) for i in range(workers)]
         futures.append(pool.submit(schedule))
+        if configured(settings): futures.append(pool.submit(run_push_worker, factory, settings, stop))
         try:
             for future in as_completed(futures):future.result()
         finally:stop.set()

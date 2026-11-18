@@ -109,6 +109,11 @@ module.exports = {
   removeV2Follow(id) { return authorized(`/me/follows/${id}`, {method:'DELETE'}); },
   getV2Follows() { return authorized('/me/follows'); },
   addV2Follow(rule) { return authorized('/me/follows', {method:'POST', data:rule}); },
+  getV2Push() { return authorized('/me/push'); },
+  prepareV2Push() { return authorized('/me/push/prepare', {method:'POST'}); },
+  confirmV2Push(data) { return authorized('/me/push/confirm', {method:'POST', data}); },
+  disableV2Push() { return authorized('/me/push', {method:'DELETE'}); },
+  getV2Updates(id) { return authorized('/me/updates/' + encodeURIComponent(id)).then(res => ({...res,items:(res.items || []).map(documentShape)})); },
   agentSearch(query, session_id) {
     if (useV2()) return Promise.reject({code:'agent_unavailable', message:'全国政策问答尚未开放'});
     return request('/agent/search', {method:'POST', data:{query, session_id}});
