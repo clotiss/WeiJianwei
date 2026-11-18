@@ -18,9 +18,13 @@
 /* 搜索输入框 */
 .search-input {
   flex: 1;              /* 占满剩余空间 */
+  min-width: 0;
+  /* 原生 input 的默认高度不会随 padding 撑开，border-box 下需显式留出文字空间。 */
+  height: 44px;
+  line-height: 22px;
   background: #f0f0f0;
-  border-radius: 20px;   /* 胶囊形状 */
-  padding: 10px 14px;
+  border-radius: 22px;   /* 胶囊形状 */
+  padding: 0 14px;
   font-size: 14px;
 }
 
@@ -33,5 +37,3 @@
 /* 加载更多 */
 .load-more { text-align: center; padding: 12px; font-size: 12px; color: var(--primary); }
 .search-action { color: #1a6fb5; padding: 12px; flex-shrink: 0; }
-
-.search-input { min-width: 0; }
