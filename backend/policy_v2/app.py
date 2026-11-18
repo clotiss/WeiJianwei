@@ -148,7 +148,9 @@ def remove_follow(follow_id: int, user_id: int = Depends(current_user)):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "recruitment_enabled": settings.recruitment_enabled}
+    return {"status": "ok", "recruitment_enabled": settings.recruitment_enabled,
+            "revision": os.environ.get('POLICY_RELEASE_REVISION', 'development'),
+            "source_sha256": os.environ.get('POLICY_SOURCE_SHA256', '')}
 
 
 @app.get("/api/v2/regions")
