@@ -19,6 +19,7 @@ from .rounds import summary as round_summary, refresh_source
 from .coverage import collection_status, scope_status
 from .text_encoding import UTF8JSONResponse
 from .summaries import summary_view
+from .body_display import reading_body
 
 settings = Settings(_env_file=os.environ.get('POLICY_AI_CONFIG_FILE'))
 engine, SessionLocal = database(settings.database_url)
@@ -217,7 +218,8 @@ def policy_detail(document_id: int):
         d, r = row
         return {"id": d.id, "title": r.title, "region": d.region, "authority": r.authority, "original_url": d.url,
                 "published": r.published, "document_number": r.doc_number, "type": r.kind,
-                "topic": r.topic, "body": r.body, "summary": r.summary, "summary_status": summary_view(db, r, summary_settings()),
+                "topic": r.topic, "body": r.body, "display_body": reading_body(db, r, settings),
+                "summary": r.summary, "summary_status": summary_view(db, r, summary_settings()),
                 "attachments": r.attachments, "revision": r.number}
 
 

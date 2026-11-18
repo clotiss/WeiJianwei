@@ -2,7 +2,7 @@ import re
 import unicodedata
 from datetime import date
 from urllib.parse import urljoin,urlsplit,urlunsplit
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment, NavigableString
 
 class ParseError(Exception): pass
 
@@ -17,6 +17,34 @@ def date_value(text):
 
 def soup(data): return BeautifulSoup(data,'lxml')
 def clean(text):return re.sub(r'[ \t\r\f\v]+',' ',unicodedata.normalize('NFKC',text)).strip()
+
+
+def paragraph_text(element):
+    """Keep actual HTML block boundaries, joining inline spans/fonts verbatim."""
+    blocks = {'address', 'article', 'aside', 'blockquote', 'dd', 'div', 'dl', 'dt',
+              'figcaption', 'figure', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+              'header', 'hr', 'li', 'main', 'ol', 'p', 'pre', 'section', 'table',
+              'tbody', 'tfoot', 'thead', 'tr', 'ul'}
+    chunks = []
+    def walk(node, pre=False):
+        if isinstance(node, Comment): return
+        if isinstance(node, NavigableString):
+            chunks.append(str(node) if pre else re.sub(r'[\t\r\n\f ]+', ' ', str(node)))
+            return
+        if node.name == 'br':
+            chunks.append('\n')
+            return
+        block = node.name in blocks
+        if block: chunks.append('\n')
+        for child in node.children:
+            walk(child, pre or node.name == 'pre')
+        if node.name in ('td', 'th'): chunks.append(' ')
+        if block: chunks.append('\n')
+    walk(element)
+    # Collapse boundaries introduced twice by adjacent/nested blocks. Actual
+    # paragraph and table-row breaks remain; font changes never create a break.
+    text = '\n'.join(line.strip() for line in clean(''.join(chunks)).splitlines())
+    return re.sub(r'\n+', '\n', text).strip()
 
 def jcms_group(data, url, config):
     from .adapters import jcms_group as read_group
@@ -93,4 +121,6 @@ def parse_detail(data,url,item,source):
     excluded=any(w in title for w in ['征求意见','公开征集','招聘','拟聘','会议召开','召开会议'])
     kind='excluded' if excluded else source.kind
     links=[{'url':canonical(urljoin(url,a['href'])),'text':a.get_text(' ',strip=True)} for a in body_el.select('a[href]') if any(w in a.get_text() for w in ['解读','政策原文','相关文件'])]
-    return dict(title=title,body=body,authority=authority,published=published,doc_number=num.group(0) if num else '',kind=kind,attachments=attachments,links=links)
+    # Retain the historical body representation for fingerprints and verbatim
+    # summary evidence; presentation has its own paragraph-preserving value.
+    return dict(title=title,body=body,display_body=paragraph_text(body_el),authority=authority,published=published,doc_number=num.group(0) if num else '',kind=kind,attachments=attachments,links=links)

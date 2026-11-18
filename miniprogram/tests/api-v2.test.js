@@ -13,6 +13,8 @@ global.wx = {
     const statusCode = path.includes('/me/') && (denyAll || failures-- > 0) ? 401 : 200;
     const data = path.endsWith('/auth/wechat') ? {access_token:'token-' + loginCount, expires_at:'2099-01-01T00:00:00Z'} :
       path.endsWith('/me/favorites') ? [{id:7,region:'GD',title:'广东政策',type:'policy'}] :
+      path.endsWith('/policies/285') ? {id:285,body:'2026\n年\n10\n月\n20\n日',display_body:'2026年10月20日'} :
+      path.endsWith('/policies/286') ? {id:286,body:'保留旧接口正文'} :
       path.endsWith('/topics') ? ['基层医疗'] : {items:[], total:0};
     setImmediate(() => options.success({statusCode, data}));
   }
@@ -29,6 +31,8 @@ const api = require('../utils/api');
   assert.deepEqual(stored.favorites, [{id:7, title:'旧库另一个文件'}]);
   // Public requests never include a bearer token.
   await api.getDocuments({}); assert.deepEqual(calls.at(-1).header, {});
+  assert.equal((await api.getDocumentDetail(285)).content, '2026年10月20日');
+  assert.equal((await api.getDocumentDetail(286)).content, '保留旧接口正文');
   failures = 2;
   await Promise.all([api.getV2Favorites(), api.addV2Favorite(7)]);
   assert.equal(loginCount, 2, 'concurrent 401 requests share one login');

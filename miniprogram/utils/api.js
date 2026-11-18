@@ -59,7 +59,7 @@ function documentShape(item) {
     summary_text:summary[0] || '', type_label:item.type === 'interpretation' ? '官方解读' : item.type === 'policy' ? '政策正文' : '其他',
     doc_number:item.document_number || '', issuing_authority:item.authority || '', publish_date:item.published || '',
     category:item.topic || '', doc_type:item.type === 'interpretation' ? '政策解读' : item.type === 'policy' ? '规范性文件' : '其他',
-    original_url:item.original_url || '', content:item.body || '', revision:item.revision,
+    original_url:item.original_url || '', content:item.display_body || item.body || '', revision:item.revision,
     summary:JSON.stringify(summary), summary_points:(item.summary || []).filter(point => point && typeof point === 'object'),
     summary_status:item.summary_status || {}, attachments:JSON.stringify(item.attachments || []) };
 }
