@@ -30,7 +30,7 @@ function page() {
   assert.equal(requests.at(-1).params.page, 2);
   requests.at(-1).resolve({items:[{id:2}],total:2,freshness:{last_success:1000,unavailable_sources:1}}); await pending;
   assert.equal(p.data.page, 2); assert.equal(p.data.documents.length, 2);
-  assert.equal(p.data.hasMore, false); assert.ok(p.data.updateNotice); assert.ok(p.data.collectionUpdate);
+  assert.equal(p.data.hasMore, false);
   const old = p.fetchDocuments({reset:true}); const older = requests.at(-1);
   p.data.activeType = '政策解读';
   const fresh = p.fetchDocuments({reset:true});
@@ -41,5 +41,5 @@ function page() {
   requests.at(-1).reject(new Error('offline')); await pending;
   assert.equal(empty.data.loadError, true); assert.equal(empty.data.loading, false);
   await empty.fetchLatestUpdate(); // no unhandled promise rejection on offline refresh
-  console.log('Home resilience: refresh, pagination retry, freshness, stale requests, first-load failure passed');
+  console.log('Home resilience: refresh, pagination retry, stale requests, first-load failure passed');
 })().catch(error => { console.error(error); process.exitCode = 1; });

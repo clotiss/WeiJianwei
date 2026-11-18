@@ -78,7 +78,7 @@ function policyList(params) {
   }));
 }
 function errorMessage(error, fallback = '加载失败，请重试') {
-  if (error && error.code === 'endpoint_not_configured') return '体验服务尚未配置';
+  if (error && error.code === 'endpoint_not_configured') return '暂时无法连接服务，请稍后再试';
   if (error && error.data && error.data.detail === 'wechat_login_not_configured') return '账号同步暂未开放，请稍后重试';
   if (error && error.statusCode === 401) return '微信登录失效，请重试';
   if (error && error.statusCode === 404) return '内容或服务暂不可用';

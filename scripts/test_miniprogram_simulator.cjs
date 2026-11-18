@@ -55,7 +55,7 @@ async function until(read, predicate, label) {
     await mini.switchTab('/pages/index/index'); home=await current('pages/index/index'); await loaded(home);
     await home.callMethod('goCoverage');
     const coverage=await current('pages/coverage/coverage'); data=await loaded(coverage);
-    assert.equal(data.loadError,false); assert.equal(data.provinceCount,31); assert.equal(data.sources.length,64);
+    assert.equal(data.loadError,false); assert.ok(data.sources.length>0); assert.ok(data.sources.every(item=>item.documents>0));
     await mini.switchTab('/pages/index/index'); home=await current('pages/index/index'); data=await loaded(home);
     assert.deepEqual(errors,[], 'no runtime exceptions during user flows');
     const screenshot=path.resolve(__dirname,'../.runtime/miniprogram-home-verified.png');

@@ -6,13 +6,11 @@
   <view class="briefing" bindtap="goFollow"><view><view class="briefing-title">把关心的变化，放在一起</view><view class="briefing-note">关注地区与主题，查看相关政策更新</view></view><view class="briefing-arrow"><image class="icon" src="/assets/icons/arrow-teal.png"/></view></view>
   <view wx:if="{{regionsError}}" class="inline-error" bindtap="fetchRegions">地区加载失败，点击重试</view>
   <view wx:if="{{categoriesError}}" class="inline-error" bindtap="fetchCategories">主题加载失败，点击重试</view>
-  <view class="list-label"><text class="label-title">最新政策{{total ? ' · ' + total + ' 条' : ''}}</text><text class="coverage-link" bindtap="goCoverage">{{collectionUpdate ? '采集 ' + collectionShort : '来源与更新'}} ›</text></view>
-  <view wx:if="{{contentStatus.message && documents.length}}" class="status-note" bindtap="goCoverage">{{contentStatus.title}} · {{contentStatus.message}}</view>
-  <view wx:if="{{updateNotice && !contentStatus.message}}" class="status-note">{{updateNotice}}</view>
+  <view class="list-label"><text class="label-title">最新政策{{total ? ' · ' + total + ' 条' : ''}}</text><text class="coverage-link" bindtap="goCoverage">内容来源 ›</text></view>
   <view wx:if="{{loadError && documents.length}}" class="inline-error" bindtap="retryDocuments">更新失败，已保留内容 · 点击重试</view>
   <skeleton wx:if="{{loading && !documents.length}}" count="{{3}}"/>
   <view wx:elif="{{loadError && !documents.length}}" class="empty-state"><image class="empty-icon" src="/assets/icons/refresh-muted.png"/><view class="empty-title">暂时无法加载政策</view><view class="empty-description">{{errorText}}</view><button class="app-button secondary" bindtap="retryDocuments">重新加载</button></view>
-  <view wx:elif="{{!documents.length}}" class="empty-state"><image class="empty-icon" src="/assets/icons/search-muted.png"/><view class="empty-title">{{contentStatus.title || '没有找到匹配的政策'}}</view><view class="empty-description">{{contentStatus.message || '试试减少筛选条件，或切换地区。'}}</view><button wx:if="{{!contentStatus.state || contentStatus.state === 'no_matches'}}" class="app-button secondary" bindtap="clearFilters">清除筛选</button><button wx:else class="app-button secondary" bindtap="goCoverage">查看来源与更新</button></view>
+  <view wx:elif="{{!documents.length}}" class="empty-state"><image class="empty-icon" src="/assets/icons/search-muted.png"/><view class="empty-title">没有找到匹配的政策</view><view class="empty-description">试试减少筛选条件，或切换地区。</view><button class="app-button secondary" bindtap="clearFilters">清除筛选</button></view>
   <block wx:else><file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}"/><view wx:if="{{loading}}" class="load-end">加载中…</view><view wx:elif="{{hasMore}}" class="load-more" bindtap="loadMore">加载更多</view><view wx:else class="load-end">已展示当前范围全部内容</view></block>
 </view>
 <filter-sheet show="{{sheetOpen}}" mode="{{sheetMode}}" regions="{{regions}}" categories="{{categories}}" value="{{sheetValue}}" bind:close="closeSheet" bind:apply="applySheet"/>

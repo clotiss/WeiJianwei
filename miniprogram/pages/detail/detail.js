@@ -6,7 +6,6 @@ const swipeBack = require('../../utils/swipe-back');
 function array(value) {
   try { const parsed = typeof value === 'string' ? JSON.parse(value) : value; return Array.isArray(parsed) ? parsed : []; } catch (_) { return []; }
 }
-const attachmentStates = {ready:'正文已提取', needs_ocr:'原件已存档，暂未识别文字', needs_transcription:'官网音视频链接，尚未转写文字', pending:'等待收录', download_failed:'附件获取失败', extraction_limited:'原件已存档，超出文字提取范围', extraction_failed:'原件已存档，文字提取失败', unsupported:'已存档，暂不支持文本提取', external_reference:'官网外部附件链接', embedded:'正文内嵌附件'};
 Page({
   data:{activeTab:'要点',largeText:false,doc:{}, summary:[], summaryView:{}, summaryRefreshing:false, summaryError:'', attachments:[], isFav:false, favKnown:false, favBusy:false, favError:'', useV2:false, loading:true, loadError:false, errorText:''},
   onLoad(options) {
@@ -21,7 +20,7 @@ Page({
   applyDetail(doc) {
     const points = doc.summary_points && doc.summary_points.length ? doc.summary_points : array(doc.summary).map(text => ({text}));
     this.setData({doc, summary:points.map(point => ({...point,expanded:false})), summaryView:summaryState.view(doc.summary_status),
-      attachments:array(doc.attachments).map(item => ({...item, statusLabel:attachmentStates[item.status] || '请查看官网附件'})), loading:false});
+      attachments:array(doc.attachments), loading:false});
     this.scheduleSummary();
   },
   scheduleSummary() {
@@ -37,7 +36,7 @@ Page({
     return api.getDocumentDetail(this.documentId).then(doc => {
       if (requestId === this._detailRequest && !this._disposed) this.applyDetail(doc);
     }).catch(() => {
-      if (!this._disposed) {this.setData({summaryError:'状态刷新失败，请稍后重试'});this.scheduleSummary();}
+      if (!this._disposed) {this.setData({summaryError:'暂时无法刷新，请稍后再试'});this.scheduleSummary();}
     }).finally(() => {if (!this._disposed) this.setData({summaryRefreshing:false});});
   },
   toggleEvidence(e) {

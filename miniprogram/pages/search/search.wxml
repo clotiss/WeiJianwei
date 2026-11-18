@@ -9,7 +9,7 @@
   <view class="inline-error" wx:if="{{loadError}}" bindtap="doSearch">{{errorText}} · 点击重试</view>
   <file-card wx:for="{{results}}" wx:key="id" doc="{{item}}" />
   <view wx:if="{{loading}}" class="page-loading">搜索中…</view>
-  <view wx:elif="{{searched && !loadError && !results.length}}" class="empty"><view>{{contentStatus.title || '暂无匹配结果'}}</view><view>{{contentStatus.message || '试试其他关键词或筛选范围'}}</view></view>
+  <view wx:elif="{{searched && !loadError && !results.length}}" class="empty"><view>暂无匹配结果</view><view>试试其他关键词或筛选范围</view></view>
   <view wx:elif="{{hasMore}}" class="load-more" bindtap="loadMore">加载更多</view>
   <view wx:if="{{!searched}}" class="page-loading">输入关键词，在当前范围内查找政策</view>
 </view>

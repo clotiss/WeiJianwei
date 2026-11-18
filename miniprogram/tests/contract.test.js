@@ -61,7 +61,7 @@ function page(name) {
   assert.equal(detail.data.doc.doc_number,'GD-1'); assert.equal(detail.data.summary[0].text,'医疗摘要');
   assert.equal(detail.data.summary[0].quote,'医疗正文');
   detail.toggleEvidence({currentTarget:{dataset:{index:0}}}); assert.equal(detail.data.summary[0].expanded,true);
-  assert.equal(detail.data.attachments[0].statusLabel,'正文已提取');
+  assert.ok(detail.data.attachments[0].url);
   assert.equal(detail.data.doc.issuing_authority,'GD发布机构');
   const plaintext=page('plaintext'); await plaintext.onLoad({id:String(id)});
   assert.ok(plaintext.data.content.includes('真实接口契约测试'));
@@ -70,9 +70,8 @@ function page(name) {
   assert.equal(favorites.data.favorites[0].region,'GD'); assert.equal(favorites.data.favorites[0].id,id);
   await detail.toggleFav(); await favorites.onShow(); assert.equal(favorites.data.favorites.length,0);
   const coverage=page('coverage'); await coverage.onLoad();
-  assert.equal(coverage.data.provinceCount,31); assert.equal(coverage.data.enabledCount,0);
-  assert.equal(coverage.data.sources.length,64);
-  assert.ok(coverage.data.sources.every(item=>item.status==='未启用监控'));
+  assert.ok(coverage.data.sources.length > 0);
+  assert.ok(coverage.data.sources.every(item=>item.documents > 0 && item.name));
   const missing=page('detail'); await missing.onLoad({id:'999999'}); assert.equal(missing.data.loadError,true);
   console.log('Real V2 API + pages: regions → filters → body search → detail → favorites → coverage passed');
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(()=>server.stdin.end());

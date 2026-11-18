@@ -8,7 +8,7 @@ Page({
     regionsLoading:false, regionsError:false,
     docTypes:['全部类型', '规范性文件', '政策解读'], activeCategory:'全部', activeType:'全部类型',
     documents:[], total:0, page:1, hasMore:true, loading:true, loadError:false, errorText:'',
-    contentStatus:{}, collectionShort:'', collectionUpdate:'', updateNotice:'', latestUpdate:'',
+    contentStatus:{}, latestUpdate:'',
     showChat:false, floatBtnX:0, floatBtnY:0, floatBtnMoving:false
   },
   onLoad() {
@@ -53,12 +53,8 @@ Page({
     return api.getDocuments({...this.currentFilters(), page, page_size:20}).then(res => {
       if (requestId !== this._listRequest) return;
       const docs = page === 1 ? res.items : this.data.documents.concat(res.items);
-      const freshness = res.freshness || {};
-      const checked = freshness.last_success ? new Date(freshness.last_success * 1000) : null;
-      const stamp = checked ? `${checked.getFullYear()}-${String(checked.getMonth() + 1).padStart(2, '0')}-${String(checked.getDate()).padStart(2, '0')} ${String(checked.getHours()).padStart(2, '0')}:${String(checked.getMinutes()).padStart(2, '0')}` : '';
       this.setData({documents:docs, total:res.total, page, hasMore:docs.length < res.total && res.items.length > 0,
-        loading:false, contentStatus:res.contentStatus || {}, collectionUpdate:stamp, collectionShort:stamp.slice(5),
-        updateNotice:freshness.unavailable_sources ? '部分来源更新暂时失败，已收录内容仍可阅读' : ''});
+        loading:false, contentStatus:res.contentStatus || {}});
     }).catch(error => {
       if (requestId !== this._listRequest) return;
       this.setData({loading:false, loadError:true, errorText:api.errorMessage(error)});
@@ -75,7 +71,7 @@ Page({
   },
   resetFilters(patch) {
     const next={...this.data,...patch};
-    this.setData({...patch, filterCount:(next.activeCategory !== '全部' ? 1 : 0)+(next.activeType !== '全部类型' ? 1 : 0)+(next.days ? 1 : 0), page:1, documents:[], total:0, contentStatus:{}, latestUpdate:'', collectionShort:'', collectionUpdate:'', updateNotice:''});
+    this.setData({...patch, filterCount:(next.activeCategory !== '全部' ? 1 : 0)+(next.activeType !== '全部类型' ? 1 : 0)+(next.days ? 1 : 0), page:1, documents:[], total:0, contentStatus:{}, latestUpdate:''});
     return Promise.all([this.fetchDocuments({reset:true}), this.fetchLatestUpdate()]);
   },
   openRegion() { this.openSheet('region'); },

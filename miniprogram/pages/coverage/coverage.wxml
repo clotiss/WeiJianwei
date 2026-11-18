@@ -1,16 +1,14 @@
 <view class="container">
-  <view class="page-title">来源与更新</view>
-  <view class="scope-note">地区表示采集网站所在地。来源登记、采样验证、开启监控和历史数据完整性分别统计；采样通过不代表历史数据已全部收录。</view>
-  <view wx:if="{{loading}}" class="page-loading">加载来源状态…</view>
+  <view class="page-title">内容来源</view>
+  <view class="scope-note">政策与解读来自以下官方网站，可在文章详情中查看官方原文。</view>
+  <view wx:if="{{loading}}" class="page-loading">加载中…</view>
   <view wx:elif="{{loadError}}" class="inline-error" bindtap="fetchCoverage">{{errorText}} · 点击重试</view>
   <block wx:else>
-    <view class="status-note">已登记 {{provinceCount}} 个省级地区及国家来源 · 当前启用 {{enabledCount}} 个栏目监控</view>
+    <view wx:if="{{!sources.length}}" class="page-loading">暂无来源信息</view>
     <view class="source" wx:for="{{sources}}" wx:key="id">
       <view class="source-heading">{{item.regionName}} · {{item.kind}}</view>
       <view class="source-name">{{item.name}}</view>
-      <view class="source-status">{{item.validation}} · {{item.status}}</view>
-      <view class="source-date">已收录 {{item.documents}} 篇 · {{item.history}}<text wx:if="{{item.historyPages}}"> · 已扫描 {{item.historyPages}} 页</text></view>
-      <view class="source-date">完整采集：{{item.lastSuccess}}</view>
+      <view class="source-date">可查阅 {{item.documents}} 篇</view>
     </view>
   </block>
 </view>

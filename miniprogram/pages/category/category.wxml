@@ -5,6 +5,6 @@
   <view class="inline-error" wx:if="{{loadError}}" bindtap="fetchList">{{errorText}} · 点击重试</view>
   <file-card wx:for="{{documents}}" wx:key="id" doc="{{item}}" />
   <view wx:if="{{loading}}" class="page-loading">加载中…</view>
-  <view wx:elif="{{!loadError && !documents.length}}" class="page-loading"><view>{{contentStatus.title || '当前筛选下暂无已收录文件'}}</view><view>{{contentStatus.message}}</view></view>
+  <view wx:elif="{{!loadError && !documents.length}}" class="page-loading"><view>当前筛选下暂无政策</view></view>
   <view wx:elif="{{hasMore}}" class="load-more" bindtap="loadMore">加载更多</view>
 </view>
