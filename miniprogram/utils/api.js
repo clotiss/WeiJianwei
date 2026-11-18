@@ -66,7 +66,7 @@ function documentShape(item) {
 function policyParams(params = {}) {
   const page = Math.max(1, Number(params.page) || 1);
   const size = Math.min(100, Math.max(1, Number(params.page_size) || 20));
-  return { q:params.q || '', region:params.region === undefined ? 'CN' : params.region, include_national:params.include_national !== false,
+  return { q:params.q || '', region:params.region === undefined ? 'CN' : params.region, include_national:params.include_national === true,
     topic:params.category === '全部' ? '' : (params.category || ''),
     published_since:params.published_since || '', content_type:V2_TYPES[params.doc_type] || '', limit:size, offset:(page - 1) * size };
 }

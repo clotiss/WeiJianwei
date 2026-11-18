@@ -3,7 +3,7 @@ const lists=require('../../utils/paged-list');
 const names=require('../../config/regions');
 const push=require('../../utils/push-subscription');
 Page({
- data:{pushState:{available:false,enabled:false,credits:0},pushGrant:null,pushBusy:false,pushError:'',pushSaved:false,contentStatus:{},regions:[{code:'CN',name:'国家卫健委'}],topics:['全部主题'],regionIndex:0,topicIndex:0,includeNational:true,rules:[],activeId:0,documents:[],page:1,total:0,hasMore:false,loading:false,loadError:false,errorText:'',accountError:'',loggedIn:false,busy:false,dictError:false},
+ data:{pushState:{available:false,enabled:false,credits:0},pushGrant:null,pushBusy:false,pushError:'',pushSaved:false,contentStatus:{},regions:[{code:'CN',name:'国家卫健委'}],topics:['全部主题'],regionIndex:0,topicIndex:0,includeNational:false,rules:[],activeId:0,documents:[],page:1,total:0,hasMore:false,loading:false,loadError:false,errorText:'',accountError:'',loggedIn:false,busy:false,dictError:false},
  onLoad(){return this.loadDictionaries();},
  onShow(){if(api.useV2() && api.hasV2Session())return this.refreshRules();},
  onUnload(){this._listRequest++;},

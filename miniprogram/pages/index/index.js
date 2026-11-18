@@ -4,7 +4,7 @@ const filters = require('../../utils/filters');
 Page({
   data: {
     sheetOpen:false, sheetMode:'region', sheetValue:{}, days:0, filterCount:0, quickTopics:[], useV2:false, categories:[], categoryRow1:[], categoryRow2:[], categoriesError:false,
-    regions:[{code:'CN', name:'国家卫健委'}], regionIndex:0, activeRegion:'CN', includeNational:true,
+    regions:[{code:'CN', name:'国家卫健委'}], regionIndex:0, activeRegion:'CN', includeNational:false,
     regionsLoading:false, regionsError:false,
     docTypes:['全部类型', '规范性文件', '政策解读'], activeCategory:'全部', activeType:'全部类型',
     documents:[], total:0, page:1, hasMore:true, loading:true, loadError:false, errorText:'',

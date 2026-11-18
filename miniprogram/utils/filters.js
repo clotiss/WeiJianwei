@@ -3,7 +3,7 @@ function decode(value) {
   try { return decodeURIComponent(value || ''); } catch (_) { return ''; }
 }
 function fromRoute(options = {}) {
-  return { region:decode(options.region) || 'CN', include_national:options.include_national !== 'false',
+  return { region:decode(options.region) || 'CN', include_national:options.include_national === 'true' || options.include_national === true,
     category:decode(options.category) || '全部', doc_type:decode(options.doc_type) || '全部类型', published_since:decode(options.published_since) };
 }
 function toQuery(filters) {
