@@ -1,4 +1,5 @@
 from pathlib import Path
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
@@ -19,6 +20,7 @@ class Settings(BaseSettings):
     ai_timeout: float = 90
     ai_interval_seconds: float = 3
     ai_batch_size: int = 100
+    ai_concurrency: int = Field(default=10, ge=1, le=32)
     public_base: str = 'http://127.0.0.1:8891'
     signing_key: str = ''
     max_download_bytes: int = 30 * 1024 * 1024

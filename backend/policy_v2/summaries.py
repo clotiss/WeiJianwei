@@ -3,14 +3,17 @@ import hashlib
 import json
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
 
 import httpx
-from sqlalchemy import func, select
+from sqlalchemy import func, select, update
+from sqlalchemy.exc import IntegrityError
 from .models import Audit, Document, Revision, SummaryRecord, SummaryProviderState, Task, now
-from .queue import assert_ownership, claim, enqueue, finish, keep_lease, TaskLeaseLost
+from .queue import assert_ownership, claim, defer, enqueue, finish, keep_lease, TaskLeaseLost
 from .text_encoding import unicode_text
 
 PROMPT_VERSION = 'evidence-v2'
@@ -18,6 +21,7 @@ MAX_CHARS = 24000
 MIN_CHARS = 80
 ACTIVE = ('pending', 'queued', 'generating', 'retrying', 'not_configured')
 EXCLUDED = ('outside_summary_window', 'publication_date_unknown')
+_CLAIM_LOCK = Lock()
 
 
 def summary_window(today=None):
@@ -214,7 +218,10 @@ def process_summary(factory, settings):
     with factory() as db:
         provider = db.get(SummaryProviderState, 1)
         if provider and provider.cooldown_until > now(): return False
-    task = claim(factory, settings.task_lease_seconds, kinds=('summary',))
+    # SQLite has no SELECT FOR UPDATE SKIP LOCKED. Serialize only the short
+    # claim transaction in this process; model requests remain fully parallel.
+    with _CLAIM_LOCK:
+        task = claim(factory, settings.task_lease_seconds, kinds=('summary',))
     if not task: return False
     try:
         with keep_lease(factory, task, settings.task_lease_seconds):
@@ -241,6 +248,18 @@ def process_summary(factory, settings):
             # A running job is tied to its recorded model and prompt version.
             if task['payload']['prompt_version'] != PROMPT_VERSION:
                 raise SummaryError('prompt_version_changed')
+            # A sibling request may have hit a provider limit after our claim.
+            with factory() as db:
+                provider = db.get(SummaryProviderState, 1)
+                pause_until = provider.cooldown_until if provider else 0
+            if pause_until > now():
+                if defer(factory, task, pause_until):
+                    with factory.begin() as db:
+                        revision = db.get(Revision, task['payload']['revision_id'])
+                        record = db.get(SummaryRecord, revision.id)
+                        if record and record.task_id == task['id']:
+                            revision.summary_status = 'queued'
+                return False
             call_settings = settings.model_copy(update={'ai_model': task['payload']['model']})
             points, usage = generate(call_settings, content)
             with factory.begin() as db:
@@ -271,10 +290,22 @@ def process_summary(factory, settings):
             if row.owner is None and record and record.task_id == row.id:
                 revision.summary_status = 'failed' if row.state == 'failed' else 'retrying'
             if error.cooldown:
-                provider = db.get(SummaryProviderState, 1)
-                if provider is None: provider = SummaryProviderState(id=1); db.add(provider)
-                provider.cooldown_until, provider.error = now()+error.cooldown, error.code
+                extend_provider_cooldown(db, now()+error.cooldown, error.code)
     return True
+
+
+def extend_provider_cooldown(db, deadline, error):
+    """Concurrent failures must not shorten an existing quota/rate-limit pause."""
+    statement = update(SummaryProviderState).where(SummaryProviderState.id == 1,
+        SummaryProviderState.cooldown_until < deadline).values(cooldown_until=deadline, error=error)
+    if db.execute(statement).rowcount or db.get(SummaryProviderState, 1) is not None:
+        return
+    try:
+        with db.begin_nested():
+            db.add(SummaryProviderState(id=1, cooldown_until=deadline, error=error))
+            db.flush()
+    except IntegrityError:
+        db.execute(statement)
 
 
 def summary_view(db, revision, settings):
@@ -308,6 +339,7 @@ def report_summaries(factory, settings):
             .where(Document.status == 'ready').group_by(Revision.summary_status)).all())
         provider = db.get(SummaryProviderState, 1)
         return {'configured': bool(settings.ai_key), 'model': settings.ai_model, 'prompt_version': PROMPT_VERSION,
+            'concurrency': settings.ai_concurrency,
             'revisions': counts, 'tasks': dict(db.execute(select(Task.state, func.count()).where(Task.kind == 'summary').group_by(Task.state)).all()),
             'provider_error': provider.error if provider and provider.cooldown_until > now() else '',
             'cooldown_until': provider.cooldown_until if provider else 0}
@@ -330,11 +362,28 @@ def retry_failed(factory, limit=100):
 
 
 def run_summary_worker(factory, settings, stop, settings_loader=None):
+    if settings_loader: settings = settings_loader()
+    concurrency = settings.ai_concurrency
     last_schedule = 0
-    while not stop.is_set():
-        if time.monotonic() - last_schedule >= 15:
-            if settings_loader: settings = settings_loader()
-            schedule_batch(factory, settings, max(1, min(1000, settings.ai_batch_size)))
-            last_schedule = time.monotonic()
-        worked = process_summary(factory, settings)
-        stop.wait(max(1, settings.ai_interval_seconds) if worked else 3)
+    def step(snapshot):
+        if stop.is_set(): return
+        worked = process_summary(factory, snapshot)
+        stop.wait(max(1, snapshot.ai_interval_seconds) if worked else 3)
+
+    pool = ThreadPoolExecutor(max_workers=concurrency, thread_name_prefix='policy-summary')
+    pending = set()
+    try:
+        while not stop.is_set():
+            if time.monotonic() - last_schedule >= 15:
+                if settings_loader: settings = settings_loader()
+                schedule_batch(factory, settings, max(1, min(1000, settings.ai_batch_size)))
+                last_schedule = time.monotonic()
+            completed = {future for future in pending if future.done()}
+            pending -= completed
+            for future in completed: future.result()
+            while len(pending) < concurrency and not stop.is_set():
+                pending.add(pool.submit(step, settings))
+            stop.wait(.1)
+    finally:
+        stop.set()
+        pool.shutdown(wait=True)

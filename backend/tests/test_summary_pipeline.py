@@ -1,5 +1,7 @@
 import json
 from datetime import date
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier, Event, Lock, Thread
 from types import SimpleNamespace
 import httpx
 import pytest
@@ -49,6 +51,62 @@ def due(factory):
 def test_three_calendar_year_window_and_leap_day():
     assert ai.summary_window(date(2026, 11, 18)) == (date(2023, 11, 18), date(2026, 11, 18))
     assert ai.summary_window(date(2024, 2, 29))[0] == date(2021, 2, 28)
+
+def test_ten_parallel_summaries_are_unique_and_shutdown_drains_inflight(env, monkeypatch):
+    factory, settings = env
+    assert settings.ai_concurrency == 10
+    for index in range(12):
+        ingest(env, url=f'https://official.gov.cn/{index}')
+    entered, release, stop, lock = Event(), Event(), Event(), Lock()
+    calls, errors = [], []
+    def generate(settings, content):
+        with lock:
+            calls.append(content['sha'])
+            if len(calls) == 10: entered.set()
+        assert release.wait(10)
+        return ai.validate_points({'points': [{'text': '建立制度', 'quote': QUOTE, 'source': 'body'}]}, content['segments']), {}
+    monkeypatch.setattr(ai, 'generate', generate)
+    def run():
+        try: ai.run_summary_worker(factory, settings, stop)
+        except BaseException as exc: errors.append(exc)
+    worker = Thread(target=run)
+    worker.start()
+    try:
+        assert entered.wait(10), errors
+        with factory() as db:
+            running = list(db.scalars(select(Task).where(Task.state == 'running')))
+            assert len(running) == 10
+            assert len({task.payload['revision_id'] for task in running}) == 10
+    finally:
+        stop.set(); release.set(); worker.join(10)
+    assert not worker.is_alive() and not errors and len(calls) == 10
+    with factory() as db:
+        tasks = list(db.scalars(select(Task)))
+        assert sum(task.state == 'succeeded' for task in tasks) == 10
+        assert sum(task.state == 'queued' for task in tasks) == 2
+        assert all(task.attempts <= 1 for task in tasks)
+        assert db.query(Revision).filter_by(summary_status='ready').count() == 10
+
+def test_concurrent_provider_failures_keep_longest_shared_pause(env, monkeypatch):
+    factory, settings = env
+    for index in range(3): ingest(env, url=f'https://official.gov.cn/{index}')
+    ai.schedule_batch(factory, settings)
+    barrier, lock, statuses = Barrier(2), Lock(), [402, 429]
+    def post(*args, **kwargs):
+        with lock: status = statuses.pop()
+        barrier.wait(5)
+        return response(status=status)
+    monkeypatch.setattr(ai.httpx, 'post', post)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = [pool.submit(ai.process_summary, factory, settings) for _ in range(2)]
+        assert all(result.result(timeout=10) for result in results)
+    assert not ai.process_summary(factory, settings)
+    with factory() as db:
+        provider = db.get(SummaryProviderState, 1)
+        assert provider.error == 'quota_exhausted' and provider.cooldown_until > now()+3500
+        tasks = list(db.scalars(select(Task)))
+        assert sorted(task.attempts for task in tasks) == [0, 1, 1]
+        assert all(task.state == 'queued' for task in tasks)
 
 @pytest.mark.parametrize('published,eligible,state', [
     ('2023-11-17', False, 'outside_summary_window'),
