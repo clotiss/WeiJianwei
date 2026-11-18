@@ -1,4 +1,5 @@
 import json
+from datetime import date
 from types import SimpleNamespace
 import httpx
 import pytest
@@ -17,7 +18,9 @@ BODY = '各医疗机构应当建立医疗质量管理制度，完善诊疗规范
 QUOTE = '各医疗机构应当建立医疗质量管理制度'
 
 @pytest.fixture
-def env(tmp_path):
+def env(tmp_path, monkeypatch):
+    window = ai.summary_window(date(2026, 11, 18))
+    monkeypatch.setattr(ai, 'summary_window', lambda: window)
     settings=Settings(database_url='sqlite:///'+str(tmp_path/'test.db'),object_root=tmp_path/'objects',ai_key='test-secret')
     engine,factory=database(settings.database_url);Base.metadata.create_all(engine)
     with factory.begin() as db:
@@ -42,6 +45,84 @@ def due(factory):
         for task in db.scalars(select(Task).where(Task.kind=='summary')):task.available=0
         provider=db.get(SummaryProviderState,1)
         if provider:provider.cooldown_until=0
+
+def test_three_calendar_year_window_and_leap_day():
+    assert ai.summary_window(date(2026, 11, 18)) == (date(2023, 11, 18), date(2026, 11, 18))
+    assert ai.summary_window(date(2024, 2, 29))[0] == date(2021, 2, 28)
+
+@pytest.mark.parametrize('published,eligible,state', [
+    ('2023-11-17', False, 'outside_summary_window'),
+    ('2023-11-18', True, 'queued'),
+    ('2026-11-18', True, 'queued'),
+    ('2026-11-19', False, 'outside_summary_window'),
+    (None, False, 'publication_date_unknown'),
+    ('2026-02-30', False, 'publication_date_unknown'),
+])
+def test_summary_date_boundaries_keep_documents_searchable(env, published, eligible, state):
+    factory, settings = env
+    rid = ingest(env)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = published
+    assert ai.schedule_batch(factory, settings) == int(eligible)
+    with factory() as db:
+        rev = db.get(Revision, rid)
+        assert ai.summary_view(db, rev, settings)['state'] == state
+        assert db.get(Document, rev.document_id).status == 'ready'
+        assert db.query(Task).count() == int(eligible)
+
+def test_old_queued_jobs_cancel_during_quota_pause_without_attempts(env):
+    factory, settings = env
+    rid = ingest(env)
+    ai.schedule_batch(factory, settings)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = '2020-01-01'
+        db.add(SummaryProviderState(id=1, cooldown_until=now()+3600, error='quota_exhausted'))
+    assert ai.schedule_batch(factory, settings) == 0
+    assert not ai.process_summary(factory, settings)
+    with factory() as db:
+        task = db.scalar(select(Task))
+        assert task.state == 'cancelled' and task.attempts == 0
+        assert ai.summary_view(db, db.get(Revision, rid), settings)['state'] == 'outside_summary_window'
+    assert ai.retry_failed(factory) == 0
+
+def test_worker_rechecks_existing_jobs_before_external_request(env, monkeypatch):
+    factory, settings = env
+    rid = ingest(env)
+    ai.schedule_batch(factory, settings)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = '2020-01-01'
+    monkeypatch.setattr(ai, 'generate', lambda *args: pytest.fail('old policy must not call AI'))
+    assert ai.process_summary(factory, settings)
+    with factory() as db:
+        assert db.get(Revision, rid).summary_status == 'outside_summary_window'
+        assert db.get(Revision, rid).summary == []
+
+def test_saved_old_summaries_are_preserved(env, monkeypatch):
+    factory, settings = env
+    rid = ingest(env)
+    ai.schedule_batch(factory, settings)
+    monkeypatch.setattr(ai.httpx, 'post', lambda *args, **kwargs: response())
+    ai.process_summary(factory, settings)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = '2020-01-01'
+    ai.schedule_batch(factory, settings)
+    with factory() as db:
+        rev = db.get(Revision, rid)
+        assert rev.summary and ai.summary_view(db, rev, settings)['state'] == 'ready'
+
+def test_corrected_date_reactivates_cancelled_job(env):
+    factory, settings = env
+    rid = ingest(env)
+    ai.schedule_batch(factory, settings)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = '2020-01-01'
+    ai.schedule_batch(factory, settings)
+    with factory.begin() as db:
+        db.get(Revision, rid).published = '2026-11-17'
+    assert ai.schedule_batch(factory, settings) == 1
+    with factory() as db:
+        assert db.query(Task).count() == 1
+        assert db.scalar(select(Task)).state == 'queued'
 
 @pytest.mark.parametrize('endpoint,nonthinking', [
     ('https://api.deepseek.com/v1/chat/completions', True),

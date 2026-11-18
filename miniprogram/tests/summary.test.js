@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const {view}=require('../utils/summary-state');
-for (const state of ['pending','queued','generating','retrying','service_paused','failed','not_configured','waiting_content','insufficient_content']) {
+for (const state of ['pending','queued','generating','retrying','service_paused','failed','not_configured','waiting_content','insufficient_content','outside_summary_window','publication_date_unknown']) {
  const result=view({state});assert.ok(result.title && result.note);
  assert.equal(result.poll,['pending','queued','generating','retrying'].includes(state));
 }

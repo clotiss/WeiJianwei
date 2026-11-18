@@ -3,6 +3,8 @@ import hashlib
 import json
 import re
 import time
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from urllib.parse import urlsplit
 
 import httpx
@@ -15,6 +17,53 @@ PROMPT_VERSION = 'evidence-v2'
 MAX_CHARS = 24000
 MIN_CHARS = 80
 ACTIVE = ('pending', 'queued', 'generating', 'retrying', 'not_configured')
+EXCLUDED = ('outside_summary_window', 'publication_date_unknown')
+
+
+def summary_window(today=None):
+    """Three calendar years, inclusive, using the service's China time zone."""
+    today = today or datetime.now(ZoneInfo('Asia/Shanghai')).date()
+    try:
+        start = today.replace(year=today.year - 3)
+    except ValueError:  # February 29 -> February 28 in a non-leap year.
+        start = today.replace(year=today.year - 3, day=28)
+    return start, today
+
+
+def exclusion_reason(published, window=None):
+    try:
+        published_date = date.fromisoformat(published or '')
+    except (TypeError, ValueError):
+        return 'publication_date_unknown'
+    start, end = window or summary_window()
+    return '' if start <= published_date <= end else 'outside_summary_window'
+
+
+def enforce_summary_window(factory):
+    """Retire old queued jobs even during provider cooldown; keep saved summaries."""
+    window = summary_window()
+    with factory.begin() as db:
+        rows = db.execute(select(Revision.id, Revision.published, Revision.summary_status)
+            .where(Revision.summary_status != 'ready')).all()
+        excluded = []
+        for rid, published, state in rows:
+            reason = exclusion_reason(published, window)
+            if reason:
+                excluded.append(rid)
+                if state != reason:
+                    db.get(Revision, rid).summary_status = reason
+            elif state in EXCLUDED:
+                db.get(Revision, rid).summary_status = 'pending'
+        # Chunk to stay within SQLite parameter limits. Running jobs recheck the
+        # date before calling the provider; deployment stops the worker first.
+        for offset in range(0, len(excluded), 500):
+            task_ids = select(SummaryRecord.task_id).where(
+                SummaryRecord.revision_id.in_(excluded[offset:offset + 500]))
+            for task in db.scalars(select(Task).where(Task.id.in_(task_ids),
+                    Task.kind == 'summary', Task.state.in_(('queued', 'failed')))):
+                task.state, task.error, task.finished = 'cancelled', 'summary_date_excluded', now()
+                task.owner, task.lease_until = None, None
+        return len(excluded)
 
 
 class SummaryError(Exception):
@@ -127,6 +176,7 @@ def generate(settings, content):
 
 
 def schedule_batch(factory, settings, limit=100):
+    enforce_summary_window(factory)
     # No credentials means no tasks/attempts consumed. The API exposes not_configured.
     if not settings.ai_key: return 0
     with factory.begin() as db:
@@ -135,6 +185,10 @@ def schedule_batch(factory, settings, limit=100):
             .order_by(Revision.published.desc(), Revision.id.desc()).limit(limit)))
         count = 0
         for revision in rows:
+            reason = exclusion_reason(revision.published)
+            if reason:
+                revision.summary_status = reason
+                continue
             content, state = summary_input(revision)
             if content is None:
                 revision.summary_status = state
@@ -142,6 +196,8 @@ def schedule_batch(factory, settings, limit=100):
             key = 'summary:' + hashlib.sha256(f'{revision.id}:{content["sha"]}:{PROMPT_VERSION}:{settings.ai_model}'.encode()).hexdigest()
             task = enqueue(db, 'summary', key, {'revision_id': revision.id, 'input_sha': content['sha'],
                 'model': settings.ai_model, 'prompt_version': PROMPT_VERSION}, priority=5 if revision.created >= now()-300 else 10)
+            if task.state == 'cancelled' and task.error == 'summary_date_excluded':
+                task.state, task.error, task.available, task.finished = 'queued', '', now(), None
             record = db.get(SummaryRecord, revision.id)
             values = dict(task_id=task.id, input_sha=content['sha'], model=settings.ai_model,
                 prompt_version=PROMPT_VERSION, scope=content['scope'], input_chars=content['chars'])
@@ -170,6 +226,9 @@ def process_summary(factory, settings):
                 obsolete = (not document or document.current_revision != revision.id or document.status != 'ready'
                     or not record or record.task_id != task['id'])
                 completed = bool(record and record.generated and revision.summary_status == 'ready')
+                if not obsolete and not completed and exclusion_reason(revision.published):
+                    revision.summary_status = exclusion_reason(revision.published)
+                    obsolete = True
                 if not obsolete and not completed:
                     content, state = summary_input(revision)
                     if content is None or content['sha'] != task['payload']['input_sha']:
@@ -227,6 +286,10 @@ def summary_view(db, revision, settings):
     if state == 'ready' and revision.summary:
         result.update(model=record.model if record else '', prompt_version=record.prompt_version if record else '')
         return result
+    reason = exclusion_reason(revision.published)
+    if reason:
+        result.update(state=reason, retry_at=None, error='')
+        return result
     if task and state in ACTIVE + ('failed',):
         result['state'] = {'queued': 'retrying' if task.attempts else 'queued', 'running': 'generating', 'failed': 'failed'}.get(task.state, state)
         result['error'] = task.error
@@ -254,13 +317,16 @@ def retry_failed(factory, limit=100):
     with factory.begin() as db:
         tasks = list(db.scalars(select(Task).where(Task.kind == 'summary', Task.state == 'failed').order_by(Task.id).limit(limit)))
         for task in tasks:
+            revision = db.get(Revision, task.payload['revision_id'])
+            if not revision or exclusion_reason(revision.published):
+                continue
             task.state, task.attempts, task.error = 'queued', 0, ''
             task.available, task.finished, task.owner, task.lease_until = now(), None, None, None
             revision = db.get(Revision, task.payload['revision_id'])
             record = db.get(SummaryRecord, revision.id)
             if record and record.task_id == task.id: revision.summary_status = 'queued'
             db.add(Audit(actor='summary-cli', action='summary.retry', target=str(task.id), reason='Operator requested bounded retry batch'))
-        return len(tasks)
+        return sum(task.state == 'queued' for task in tasks)
 
 
 def run_summary_worker(factory, settings, stop, settings_loader=None):
