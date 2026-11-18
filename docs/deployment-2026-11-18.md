@@ -8,7 +8,7 @@
 - 2026-11-18 10:58（北京时间）切换 `nhc-api`，新版独立入口 `policy_v2.app:app`，Nginx 继续转发至 `127.0.0.1:8000`。
 - `nhc-api`、`weijianwei-worker`、`weijianwei-summary` 均 active、enabled。2GB 服务器采集并发设为 1；摘要独立运行。
 - 本地全国库快照迁移了 7179 篇 ready 政策（文档总表 7205 条），97 条 ready 摘要。原文及附件 8594 个对象逐一校验 SHA256 和长度，全部通过。
-- 公网 HTTPS 验证了 `/health`、`/api/v2/regions`（32 个地区）、政策列表及真实摘要详情（506）。后台摘要成功数随后增至 103，provider_error 为空，无异常重启；全量摘要仍在服务器继续生成。
+- 公网 HTTPS 验证了 `/health`、`/api/v2/regions`（32 个地区）、政策列表及真实摘要详情（506）。后台政策数随后增至 7191、摘要成功数增至 132，provider_error 为空，无异常重启；全量摘要仍在服务器继续生成。
 - 小程序 develop/trial/release 均切换至 `https://wjwjwjw.top/api/v2`，7 组测试通过。微信小程序上传审核/发布未执行。
 - 旧服务没有微信 AppID/AppSecret 配置。新版微信登录、账号收藏等功能仍需配置 `POLICY_WECHAT_APP_ID` 和 `POLICY_WECHAT_SECRET`；公开政策阅读与摘要不依赖登录。
 
@@ -49,4 +49,4 @@ python3 /home/ubuntu/nhc-project/production-cutover.py rollback
 
 ## 临时部署通道
 
-腾讯云网页上传连接反复失败后，用户明确批准本次临时 SSH 登录。仅安装专用公钥，禁用转发和 PTY，设置两小时过期；服务器主机指纹通过腾讯云终端与 SSH 扫描核对一致。部署收尾须移除该临时公钥及本地私钥，并验证已不能重新登录。
+腾讯云网页上传连接反复失败后，用户明确批准本次临时 SSH 登录。仅安装专用公钥，禁用转发和 PTY，设置两小时过期；服务器主机指纹通过腾讯云终端与 SSH 扫描核对一致。部署收尾已移除服务器临时公钥、授权脚本及本地临时私钥；重新连接返回 Permission denied，确认临时登录权限已撤销。三个生产服务在清理后仍为 active。
